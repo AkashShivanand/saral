@@ -1,0 +1,16 @@
+# Saral changelog
+
+Project log, dated, newest first. Package release notes will be generated separately by changesets.
+
+## 2026-10-11: spec v2 after a pressure test
+
+- A five-advisor review of the spec (Contrarian, First Principles, Expansionist, Outsider, Executor, with anonymous peer review) found the plan sized for a team, not one person working evenings, plus three real flaws: hover worked out in JavaScript would be dead before scripts load on a static site; OKLCH tokens would not match the site's hex values exactly; and hashed names in the guard could be cracked.
+- Akash accepted all nine changes and set the budget at 3 to 4 evenings a week. The spec now has evening budgets per phase, a stop rule, interaction states in CSS (no JavaScript in simple components), ember in the site's exact hex, the contact-form slice first, Figma before native, 0.x until the kit is complete, a guard whose terms live outside the repo, the case study after phase 2, and the README first.
+- Still nothing built.
+
+## 2026-10-11: project started
+
+- Research done: `docs/research/headless-design-system-benchmark.md`, a sourced benchmark of headless architecture, tokens, failures of the big systems, AI and design workflow, and governance.
+- Draft spec written for Akash's review: `docs/spec/2026-10-11-saral-v1-design.md`.
+- Decisions by Akash, 2026-10-11: own repo, public; tokens plus a wider kit; code first with a generated Figma library; CSS-first; platform agnostic (tokens to web, iOS, Android and Figma; web components only in v1); headless; colours customisable, with a brand as a theme; the research's adjustments and five phases adopted.
+- Nothing is built yet. The repo is local only and not yet on GitHub.
