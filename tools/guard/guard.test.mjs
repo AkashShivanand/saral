@@ -86,3 +86,9 @@ test('binary: UTF-16 text is caught in both byte orders and at odd offsets', () 
 test('text files keep word edges', () => {
   assert.equal(scanBuffer(Buffer.from('zebracorpx\n'), patterns, 'a.md').length, 0);
 });
+
+test('an all-caps name running into a capitalised word matches', () => {
+  for (const s of ['ZEBRACORPPortal', 'APIZebracorp', 'BLUEHERONApp']) {
+    assert.equal(hitsIn(s).length, 1, s);
+  }
+});

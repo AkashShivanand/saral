@@ -37,15 +37,18 @@ export function compile(terms) {
 
 const isAlnum = (c) => c !== undefined && /[\p{L}\p{N}]/u.test(c);
 const isUpper = (c) => c !== undefined && /\p{Lu}/u.test(c);
+const isLower = (c) => c !== undefined && /\p{Ll}/u.test(c);
 
-// In text, a match counts only at word edges, so zebracorpx is not a hit. An
-// edge is anything that is not a letter or digit, or a step up into a capital
-// (getZebracorpData, ZebraCorpAPI).
+// In text, a match counts only at word edges, so zebracorpx and ZEBRACORPX are
+// not hits. An edge is anything that is not a letter or digit, a step up into
+// a capital (getZebracorpData, ZebraCorpAPI), or the start of a capitalised
+// word after capitals (ZEBRACORPPortal, APIZebracorp).
 function atEdges(text, start, end) {
   const prev = text[start - 1];
   const next = text[end];
-  const before = !isAlnum(prev) || (!isUpper(prev) && isUpper(text[start]));
-  const after = !isAlnum(next) || (!isUpper(text[end - 1]) && isUpper(next));
+  const before =
+    !isAlnum(prev) || (isUpper(text[start]) && (!isUpper(prev) || isLower(text[start + 1])));
+  const after = !isAlnum(next) || (isUpper(next) && (!isUpper(text[end - 1]) || isLower(text[end + 1])));
   return before && after;
 }
 

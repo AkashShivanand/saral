@@ -8,6 +8,7 @@ Project log, dated, newest first. Package release notes will be generated separa
 - README with the field example and the three themes, MIT licence, version rules, and a guide for AI agents.
 - Exit check passed: the hook blocked a test commit and a test commit message.
 - A fresh review found seven ways a name could slip through. All fixed with tests (32 in total): names inside images and PDFs, code spellings like camelCase, link targets, earlier versions in history, author emails, branch names and tag messages. CI now also scans the full history.
+- Incident: during the live check, a private name written in capitals and run into a capitalised word (like `XYZPortal`) got past the hook and into a local commit. The commit was removed before anything was pushed, and the gap is now closed with a test (33 in total).
 - The private name list starts with the three names the hub rules forbid. Akash adds the rest himself.
 
 ## 2026-10-11: themes and open questions settled
