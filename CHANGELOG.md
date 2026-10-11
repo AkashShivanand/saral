@@ -2,6 +2,12 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-11: phase 0 done
+
+- Confidentiality guard: blocks private names in staged files, file paths, binary files and commit messages, through git hooks and a CI workflow. It holds no terms and never prints one.
+- README with the field example and the three themes, MIT licence, version rules, and a guide for AI agents.
+- Exit check passed: the hook blocked a test commit and a test commit message.
+
 ## 2026-10-11: themes and open questions settled
 
 - Akash's answers: MIT licence (delegated); Saral will get its own domain, with docs on Netlify until then; ember stays the website's theme and Saral gets its own; the demo client theme was delegated; the repo goes public at v0.1.
