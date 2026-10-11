@@ -13,5 +13,6 @@
     "build": "node packages/tokens/src/build.mjs",
     "check:dist": "node packages/tokens/src/build.mjs --check",
     "serve": "node tools/serve.mjs"
-  }
+  },
+  "version": "0.1.0"
 }
