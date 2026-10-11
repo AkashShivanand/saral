@@ -11,6 +11,7 @@
     "test": "node --test \"tools/**/*.test.mjs\" \"packages/**/*.test.mjs\"",
     "guard": "node tools/guard/guard.mjs --all && node tools/guard/guard.mjs --log HEAD && node tools/guard/guard.mjs --history HEAD",
     "build": "node packages/tokens/src/build.mjs",
-    "check:dist": "node packages/tokens/src/build.mjs --check"
+    "check:dist": "node packages/tokens/src/build.mjs --check",
+    "serve": "node tools/serve.mjs"
   }
 }

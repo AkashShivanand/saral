@@ -151,13 +151,15 @@ The website installs Saral as a GitHub dependency pinned to a release tag. npm p
 Every theme must fill every role in every mode, or the build fails.
 
 - `surface`: ground, raised, sunken, inverse
-- `text`: default, muted, quiet, inverse, on-action, on-accent
+- `text`: default, muted, quiet, inverse, on-action, on-accent, disabled (disabled text is exempt from contrast, WCAG 1.4.3)
 - `border`: hairline, strong, focus
 - `action`: default, hover, pressed, disabled, with matching text roles
-- `accent`: default, subtle
+- `accent`: default, hover, subtle
 - `feedback`: danger, success, warning, info; each with text, subtle background and border
 
 A theme may point several roles at one value.
+
+The authoritative list is `tokens/roles.json`, and the contrast pairs every theme must pass are in `tokens/pairs.json`.
 
 Other groups: `font` (family, width settings for display, heading and reading, weights, size scale with line heights; fluid sizes always include a rem term so text scales to 200%), `space`, `radius` (`box`, `control`, `round`), `motion` (each with a reduced-motion value), `focus`, `size` (minimum target 24 by 24 CSS px).
 

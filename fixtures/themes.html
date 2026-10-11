@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saral themes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&display=swap">
+<link rel="stylesheet" href="../dist/css/ember.css">
+<link rel="stylesheet" href="../dist/css/mor.css">
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  section { background: var(--saral-surface-ground); color: var(--saral-text-default); font-family: var(--saral-font-family-sans); padding: var(--saral-space-6); }
+  h2 { margin: 0; font-size: var(--saral-font-size-h2); font-stretch: var(--saral-font-width-display); font-weight: var(--saral-font-weight-bold); line-height: var(--saral-font-leading-tight); }
+  .note { color: var(--saral-text-muted); font-size: var(--saral-font-size-small); margin: var(--saral-space-1) 0 var(--saral-space-5); }
+  label { display: block; font-weight: var(--saral-font-weight-medium); margin-bottom: var(--saral-space-2); }
+  input { box-sizing: border-box; width: 100%; height: 44px; padding: 0 var(--saral-space-3); font: inherit; color: inherit; background: var(--saral-surface-raised); border: 1.5px solid var(--saral-feedback-danger-border); border-radius: var(--saral-radius-box); }
+  .error { color: var(--saral-feedback-danger-text); font-size: var(--saral-font-size-small); margin: var(--saral-space-2) 0 var(--saral-space-5); }
+  button { font: inherit; font-weight: var(--saral-font-weight-medium); min-height: 44px; padding: 0 var(--saral-space-5); border: 0; border-radius: var(--saral-radius-control); background: var(--saral-action-default); color: var(--saral-text-on-action); }
+  a { color: var(--saral-accent-default); margin-left: var(--saral-space-4); }
+  .notice { margin-top: var(--saral-space-5); padding: var(--saral-space-3); border: 1px solid var(--saral-feedback-success-border); background: var(--saral-feedback-success-subtle); color: var(--saral-feedback-success-text); border-radius: var(--saral-radius-box); font-size: var(--saral-font-size-small); }
+  :focus-visible { outline: var(--saral-focus-width) solid var(--saral-border-focus); outline-offset: var(--saral-focus-offset); }
+</style>
+</head>
+<body>
+<div class="grid">
+  <section data-saral-theme="mor" data-saral-mode="light" id="mor-light"><h2>Mor, light</h2><p class="note">Saral's default theme</p></section>
+  <section data-saral-theme="mor" data-saral-mode="dark" id="mor-dark"><h2>Mor, dark</h2><p class="note">Saral's default theme</p></section>
+  <section data-saral-theme="ember" data-saral-mode="light" id="ember-light"><h2>Ember, light</h2><p class="note">The website's theme</p></section>
+  <section data-saral-theme="ember" data-saral-mode="dark" id="ember-dark"><h2>Ember, dark</h2><p class="note">The website's theme</p></section>
+</div>
+<template id="sample">
+  <label for="">Email</label>
+  <input type="email" value="akash@" aria-invalid="true">
+  <p class="error">Enter an email address like name@example.com</p>
+  <button type="button">Send</button><a href="#">See the work</a>
+  <p class="notice">Message sent. A reply comes within two days.</p>
+</template>
+<script>
+  for (const s of document.querySelectorAll('section')) {
+    const f = document.getElementById('sample').content.cloneNode(true);
+    const id = `${s.id}-email`;
+    f.querySelector('label').htmlFor = id;
+    f.querySelector('input').id = id;
+    s.append(f);
+  }
+</script>
+</body>
+</html>

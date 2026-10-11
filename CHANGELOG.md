@@ -2,6 +2,15 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: phase 1, tokens (v0.1)
+
+- Token compiler: reads DTCG 2025.10 files, resolves aliases, and builds CSS, JavaScript and a Tailwind theme map. Nothing is written if any check fails: a missing role, a contrast pair below its minimum, a second accent hue, or a fluid size that would not scale with text.
+- Two themes, Mor and ember, each in light and dark. Every declared text pair passes WCAG 2 AA in both modes, on the first build.
+- Ember equals akashshivanand.com for every variable the site uses, checked by a test. The site's `--quiet` was left out: it is never used and measures 2.95:1 on the page background.
+- Generated files are committed, and CI fails if they are stale. 65 tests.
+- `fixtures/themes.html` shows both themes in both modes; `npm run serve` serves it.
+- Decision record 0001: the token pipeline.
+
 ## 2026-10-11: phase 0 done
 
 - Confidentiality guard: blocks private names in staged files, file paths, binary files and commit messages, through git hooks and a CI workflow. It holds no terms and never prints one.

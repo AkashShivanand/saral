@@ -4,7 +4,9 @@ Short on purpose. Read it before changing anything.
 
 ## State
 
-Phase 0. No tokens, components or packages exist yet. Do not import, document or invent any. A component exists only if its spec is in `specs/`.
+v0.1. Tokens exist; components do not. Do not import, document or invent components. A component exists only if its spec is in `specs/`.
+
+Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path with dashes>)`, for example `var(--saral-surface-ground)`. Change tokens only in `tokens/`, then run `npm run build`. Never edit `dist/`.
 
 ## Rules
 
@@ -44,4 +46,6 @@ Phase 0. No tokens, components or packages exist yet. Do not import, document or
 
 - `npm run setup`: once per clone, turns on the git hooks
 - `npm test`: all tests
+- `npm run build`: rebuild `dist/` from `tokens/`
+- `npm run serve`: serve the repo on port 4321 to look at `fixtures/`
 - `npm run guard`: scan every file and every commit message

@@ -2,7 +2,7 @@
 
 Saral means simple. It is a design system where the look is a theme you can swap, and every part is plain, accessible HTML.
 
-**Status: in design.** Nothing is built yet and there is nothing to install. The spec, the research behind it and the build log are all in this repo. Progress is logged in the [changelog](CHANGELOG.md).
+**Status: tokens ready (v0.1).** Design tokens for two themes, Mor and ember, build to CSS, JavaScript and Tailwind. Components come next. Progress is logged in the [changelog](CHANGELOG.md).
 
 ## What using it will look like
 
@@ -23,6 +23,17 @@ Swap the theme file and the same markup takes another look:
 - **Kosh**: a made-up savings app. Dark, turmeric yellow, round corners.
 
 Remove the theme and the field still works, unstyled.
+
+## Using the tokens today
+
+```html
+<link rel="stylesheet" href="dist/css/mor.css">
+<style>
+  body { background: var(--saral-surface-ground); color: var(--saral-text-default); }
+</style>
+```
+
+Add `data-saral-mode="dark"` or `"light"` to force a mode; otherwise the theme follows the system setting. To show several themes on one page, put `data-saral-theme="mor"` or `"ember"` on any element. `fixtures/themes.html` shows both themes in both modes (`npm run serve`, then open `/fixtures/themes.html`).
 
 ## How it is built
 
