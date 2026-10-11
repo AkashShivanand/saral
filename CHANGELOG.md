@@ -7,6 +7,8 @@ Project log, dated, newest first. Package release notes will be generated separa
 - Confidentiality guard: blocks private names in staged files, file paths, binary files and commit messages, through git hooks and a CI workflow. It holds no terms and never prints one.
 - README with the field example and the three themes, MIT licence, version rules, and a guide for AI agents.
 - Exit check passed: the hook blocked a test commit and a test commit message.
+- A fresh review found seven ways a name could slip through. All fixed with tests (32 in total): names inside images and PDFs, code spellings like camelCase, link targets, earlier versions in history, author emails, branch names and tag messages. CI now also scans the full history.
+- The private name list starts with the three names the hub rules forbid. Akash adds the rest himself.
 
 ## 2026-10-11: themes and open questions settled
 
