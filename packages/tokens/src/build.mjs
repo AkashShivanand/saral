@@ -6,7 +6,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadResolver, flatten, resolveAliases } from './resolve.mjs';
-import { checkRoles, checkPairs, checkPolicy, checkFluid } from './checks.mjs';
+import { checkColors, checkRoles, checkPairs, checkPolicy, checkFluid } from './checks.mjs';
 import { toCss, toJs, toTailwind } from './outputs.mjs';
 import { TokenError } from './errors.mjs';
 
@@ -15,7 +15,7 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '.
 const readJson = (file) => JSON.parse(readFileSync(file, 'utf8'));
 
 export function buildTheme(dir) {
-  const resolver = join(dir, 'theme.resolver.json');
+  const resolver = join(dir, 'theme.json');
   const contexts = Object.keys(readJson(resolver).modifiers?.theme?.contexts ?? { light: [] });
   const modes = {};
   for (const ctx of contexts) modes[ctx] = resolveAliases(flatten(loadResolver(resolver, { theme: ctx })));
@@ -29,12 +29,16 @@ export function buildAll(root = ROOT) {
   const files = new Map();
   const errors = [];
   let first;
-  for (const name of readdirSync(join(tokens, 'themes')).sort()) {
+  const themes = readdirSync(join(tokens, 'themes'), { withFileTypes: true }).filter((d) => d.isDirectory());
+  for (const name of themes.map((d) => d.name).sort()) {
     const dir = join(tokens, 'themes', name);
     try {
       const modes = buildTheme(dir);
       const policy = existsSync(join(dir, 'policy.json')) ? readJson(join(dir, 'policy.json')) : {};
-      const found = [...checkRoles(roles, modes), ...checkPairs(pairs, modes), ...checkPolicy(policy, modes), ...checkFluid(modes)];
+      const broken = checkColors(modes);
+      const found = broken.length
+        ? broken
+        : [...checkRoles(roles, modes), ...checkPairs(pairs, modes), ...checkPolicy(policy, modes), ...checkFluid(modes)];
       if (found.length) {
         errors.push(...found.map((e) => `${name}: ${e}`));
         continue;

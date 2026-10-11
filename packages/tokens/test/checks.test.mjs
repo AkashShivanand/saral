@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkRoles, checkPairs, checkPolicy, checkFluid, EXT } from '../src/checks.mjs';
+import { checkRoles, checkPairs, checkPolicy, checkFluid, checkColors, EXT } from '../src/checks.mjs';
 
 const color = (hex) => ({ type: 'color', value: { colorSpace: 'srgb', hex }, extensions: {} });
 const modes = (light, dark = light) => ({ light: new Map(Object.entries(light)), dark: new Map(Object.entries(dark)) });
@@ -39,5 +39,13 @@ test('checkFluid requires a rem term in fluid sizes, once per token', () => {
     extensions: { [EXT]: { fluid: { min: { value: 32, unit: 'px' }, max: { value: 56, unit: 'px' }, preferred } } },
   });
   assert.deepEqual(checkFluid(modes({ h1: fluid('1.5rem + 2.5vw') })), []);
-  assert.deepEqual(checkFluid(modes({ h1: fluid('5vw') })), ['h1: fluid size "5vw" has no rem term, so it will not scale when text is enlarged']);
+  assert.deepEqual(checkFluid(modes({ h1: fluid('5vw') })), ['h1: fluid size "5vw" has no rem term, so it ignores the reader\'s text size setting']);
+});
+
+test('checkColors reports every broken colour with its mode and path', () => {
+  const bad = { type: 'color', value: { colorSpace: 'srgb', components: [0, 0, 0], hex: '#ffffff' }, extensions: {} };
+  const errs = checkColors(modes({ a: bad, b: color('#12131'), ok: color('#ffffff') }, { ok: color('#ffffff') }));
+  assert.equal(errs.length, 2);
+  assert.match(errs[0], /^light: a: hex #ffffff does not match components/);
+  assert.match(errs[1], /^light: b: hex #12131 is not a 6-digit hex colour/);
 });

@@ -10,6 +10,7 @@ Project log, dated, newest first. Package release notes will be generated separa
 - Generated files are committed, and CI fails if they are stale. 65 tests.
 - `fixtures/themes.html` shows both themes in both modes; `npm run serve` serves it.
 - Decision record 0001: the token pipeline.
+- A fresh review before release found eight problems, all fixed with tests (73 in total): durations under reduced motion were written as a bare `0`, which browsers reject; a mode forced on the page did not reach themed sections inside it (now `light-dark()` with `color-scheme`); broken colours were not named by token; malformed hex codes got through; the Tailwind map took over Tailwind's number spacing; theme files claimed to be standard resolver documents; a Finder `.DS_Store` crashed the build; and the preview server listened on the whole network.
 
 ## 2026-10-11: phase 0 done
 

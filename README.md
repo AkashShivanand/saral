@@ -33,7 +33,7 @@ Remove the theme and the field still works, unstyled.
 </style>
 ```
 
-Add `data-saral-mode="dark"` or `"light"` to force a mode; otherwise the theme follows the system setting. To show several themes on one page, put `data-saral-theme="mor"` or `"ember"` on any element. `fixtures/themes.html` shows both themes in both modes (`npm run serve`, then open `/fixtures/themes.html`).
+The theme follows the system's light or dark setting. Add `data-saral-mode="dark"` or `"light"` to any element to force that mode for everything inside it. To show several themes on one page, put `data-saral-theme="mor"` or `"ember"` on any element; if you load two theme files, the last one styles the page itself. `fixtures/themes.html` shows both themes in both modes (`npm run serve`, then open `/fixtures/themes.html`).
 
 ## How it is built
 

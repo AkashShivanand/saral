@@ -4,6 +4,23 @@ import { parseColor, contrast, srgbToOklch } from './color.mjs';
 
 export const EXT = 'in.akashshivanand.saral';
 
+// Runs first, so the other checks only ever see colours that parse. Reports
+// every broken colour, not just the first.
+export function checkColors(modes) {
+  const errors = [];
+  for (const [mode, tokens] of Object.entries(modes)) {
+    for (const [path, t] of tokens) {
+      if (t.type !== 'color') continue;
+      try {
+        parseColor(t.value);
+      } catch (e) {
+        errors.push(`${mode}: ${path}: ${e.message}`);
+      }
+    }
+  }
+  return errors;
+}
+
 export function checkRoles(roles, modes) {
   const errors = [];
   for (const [mode, tokens] of Object.entries(modes)) {
@@ -22,7 +39,7 @@ export function checkPairs(pairs, modes) {
       const b = tokens.get(on);
       if (!a || !b) continue;
       const ratio = contrast(parseColor(a.value), parseColor(b.value));
-      if (ratio < min) errors.push(`${mode}: ${text} on ${on} is ${ratio.toFixed(2)}:1, needs ${min}:1`);
+      if (!(ratio >= min)) errors.push(`${mode}: ${text} on ${on} is ${ratio.toFixed(2)}:1, needs ${min}:1`);
     }
   }
   return errors;
@@ -59,7 +76,7 @@ export function checkFluid(modes) {
       const fluid = t.extensions?.[EXT]?.fluid;
       if (!fluid || seen.has(path) || /rem\b/.test(fluid.preferred)) continue;
       seen.add(path);
-      errors.push(`${path}: fluid size "${fluid.preferred}" has no rem term, so it will not scale when text is enlarged`);
+      errors.push(`${path}: fluid size "${fluid.preferred}" has no rem term, so it ignores the reader's text size setting`);
     }
   }
   return errors;

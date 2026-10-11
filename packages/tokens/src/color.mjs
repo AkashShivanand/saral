@@ -55,7 +55,17 @@ export function srgbToOklch(rgb) {
   return [L, Math.hypot(a, b), H < 0 ? H + 360 : H];
 }
 
-const hexToRgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+function hexToRgb(hex) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) throw new TokenError(`hex ${hex} is not a 6-digit hex colour`);
+  return [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+}
+
+function checkComponents(components) {
+  if (!Array.isArray(components) || components.length !== 3 || !components.every(Number.isFinite)) {
+    throw new TokenError(`components must be three numbers, got ${JSON.stringify(components)}`);
+  }
+  return components;
+}
 
 export const toHex = (rgb) =>
   '#' + rgb.map((v) => Math.round(clamp01(v) * 255).toString(16).padStart(2, '0')).join('');
@@ -66,17 +76,18 @@ export function parseColor(value) {
   }
   const { colorSpace, components, hex, alpha } = value;
   if (alpha !== undefined && alpha !== 1) throw new TokenError('alpha is not supported yet');
+  if (!hex && components === undefined) throw new TokenError('a colour needs components or hex');
   if (colorSpace === 'srgb') {
     if (hex) {
       const rgb = hexToRgb(hex.toLowerCase());
-      if (components && components.some((c, i) => Math.abs(c * 255 - rgb[i] * 255) > 1)) {
+      if (components !== undefined && checkComponents(components).some((c, i) => Math.abs(c * 255 - rgb[i] * 255) > 1)) {
         throw new TokenError(`hex ${hex.toLowerCase()} does not match components [${components.join(', ')}]`);
       }
       return rgb;
     }
-    return components.map(clamp01);
+    return checkComponents(components).map(clamp01);
   }
-  if (colorSpace === 'oklch') return oklchToSrgb(components);
+  if (colorSpace === 'oklch') return oklchToSrgb(checkComponents(components));
   throw new TokenError(`colour space ${colorSpace} is not supported`);
 }
 

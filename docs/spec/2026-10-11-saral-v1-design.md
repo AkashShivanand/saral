@@ -141,7 +141,7 @@ The website installs Saral as a GitHub dependency pinned to a release tag. npm p
 
 ### 7.1 Format
 
-- DTCG 2025.10. Light and dark through the DTCG Resolver.
+- DTCG 2025.10. Light and dark through a `theme.json` per theme, modelled on the DTCG Resolver module (not a conformant resolver document).
 - **Ember is authored in sRGB hex**, copied exactly from the site's current tokens, so the first exit test can match value for value. OKLCH is supported for other themes; the compiler converts it to sRGB in one place, with gamut mapping.
 - The width axis and springs live in `$extensions` under `in.akashshivanand.saral` (DTCG has no type for them).
 - Sizes are stored as numbers and converted per platform.
@@ -161,7 +161,7 @@ A theme may point several roles at one value.
 
 The authoritative list is `tokens/roles.json`, and the contrast pairs every theme must pass are in `tokens/pairs.json`.
 
-Other groups: `font` (family, width settings for display, heading and reading, weights, size scale with line heights; fluid sizes always include a rem term so text scales to 200%), `space`, `radius` (`box`, `control`, `round`), `motion` (each with a reduced-motion value), `focus`, `size` (minimum target 24 by 24 CSS px).
+Other groups: `font` (family, width settings for display, heading and reading, weights, size scale with line heights; fluid sizes always include a rem term so they follow the reader's text size setting (a stronger zoom check is deferred)), `space`, `radius` (`box`, `control`, `round`), `motion` (each with a reduced-motion value), `focus`, `size` (minimum target 24 by 24 CSS px).
 
 ### 7.3 Theme policy
 
@@ -171,7 +171,7 @@ Each theme ships `policy.json`, and the compiler enforces it. Ember's and Mor's 
 
 1. An alias cycle or a reference to a missing token.
 2. A role missing from any theme or mode.
-3. A declared text and background pair below WCAG 2 AA, on final sRGB values, per theme and mode. APCA is reported, not enforced.
+3. A declared text and background pair below WCAG 2 AA, on final sRGB values, per theme and mode. APCA is not computed yet.
 4. A theme breaking its own `policy.json`.
 5. A fluid size with no rem term.
 

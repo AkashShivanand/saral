@@ -43,3 +43,15 @@ test('WCAG contrast matches known values', () => {
   assert.equal(Number(contrast(c('#8b8e95'), c('#f3f3f0')).toFixed(2)), 2.95);
   assert.equal(Number(contrast(c('#000000'), c('#ffffff')).toFixed(2)), 21);
 });
+
+test('malformed hex is an error, never a guess', () => {
+  for (const hex of ['#12131', '#zzzzzz', '#ffffff80', 'ffffff']) {
+    assert.throws(() => parseColor({ colorSpace: 'srgb', hex }), /is not a 6-digit hex colour/, hex);
+  }
+});
+
+test('components must be three numbers, and a colour needs components or hex', () => {
+  assert.throws(() => parseColor({ colorSpace: 'srgb', components: [1, 0] }), /components must be three numbers/);
+  assert.throws(() => parseColor({ colorSpace: 'oklch', components: [0.5, 'x', 10] }), /components must be three numbers/);
+  assert.throws(() => parseColor({ colorSpace: 'srgb' }), /needs components or hex/);
+});
