@@ -1,0 +1,2 @@
+#!/bin/sh
+exec node tools/guard/guard.mjs --message "$1"
