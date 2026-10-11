@@ -7,6 +7,6 @@
   "scripts": {
     "setup": "git config core.hooksPath .githooks",
     "test": "node --test \"tools/**/*.test.mjs\"",
-    "guard": "node tools/guard/guard.mjs --all && node tools/guard/guard.mjs --log HEAD"
+    "guard": "node tools/guard/guard.mjs --all && node tools/guard/guard.mjs --log HEAD && node tools/guard/guard.mjs --history HEAD"
   }
 }

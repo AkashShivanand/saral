@@ -5,9 +5,9 @@
 // and the term's number in the private list, because CI logs are public.
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 export const DEFAULT_TERMS_FILE = join(homedir(), '.config', 'saral', 'private-terms.txt');
 
@@ -26,21 +26,54 @@ export function loadTerms(env = process.env) {
 
 const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-// A term matches when it is not part of a longer word: a letter or digit on
-// either side blocks the match; spaces, punctuation, _ and - do not. Words of
-// a multi-word term may be split by whitespace (line breaks too), _ or -.
+// Terms match in any case. The words of a term may be joined directly or split
+// by whitespace (line breaks too), _, ., / or -, however the list writes them:
+// "blue heron" and "blue-heron" both catch BlueHeron, blue.heron and blue_heron.
 export function compile(terms) {
-  return terms.map((t) => {
-    const body = t.split(/\s+/).map(escape).join('[\\s_-]+');
-    return new RegExp(`(?<![\\p{L}\\p{N}])${body}(?![\\p{L}\\p{N}])`, 'giu');
-  });
+  return terms.map(
+    (t) => new RegExp(t.split(/[\s_./-]+/).filter(Boolean).map(escape).join('[\\s_./-]*'), 'giu'),
+  );
 }
 
-export function scanText(text, patterns, where) {
+const isAlnum = (c) => c !== undefined && /[\p{L}\p{N}]/u.test(c);
+const isUpper = (c) => c !== undefined && /\p{Lu}/u.test(c);
+
+// In text, a match counts only at word edges, so zebracorpx is not a hit. An
+// edge is anything that is not a letter or digit, or a step up into a capital
+// (getZebracorpData, ZebraCorpAPI).
+function atEdges(text, start, end) {
+  const prev = text[start - 1];
+  const next = text[end];
+  const before = !isAlnum(prev) || (!isUpper(prev) && isUpper(text[start]));
+  const after = !isAlnum(next) || (!isUpper(text[end - 1]) && isUpper(next));
+  return before && after;
+}
+
+function lineStarts(text) {
+  const starts = [0];
+  for (let i = text.indexOf('\n'); i !== -1; i = text.indexOf('\n', i + 1)) starts.push(i + 1);
+  return starts;
+}
+
+function lineOf(starts, index) {
+  let lo = 0;
+  let hi = starts.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi + 1) >> 1;
+    if (starts[mid] <= index) lo = mid;
+    else hi = mid - 1;
+  }
+  return lo + 1;
+}
+
+export function scanText(text, patterns, where, { edges = true } = {}) {
   const hits = [];
+  let starts;
   patterns.forEach((re, i) => {
     for (const m of text.matchAll(re)) {
-      hits.push({ where, line: text.slice(0, m.index).split('\n').length, term: i + 1 });
+      if (edges && !atEdges(text, m.index, m.index + m[0].length)) continue;
+      starts ??= lineStarts(text);
+      hits.push({ where, line: lineOf(starts, m.index), term: i + 1 });
     }
   });
   return hits;
@@ -50,20 +83,133 @@ export function mask(text, patterns) {
   return patterns.reduce((t, re) => t.replace(re, '***'), text);
 }
 
-const git = (args) => execFileSync('git', args, { maxBuffer: 1 << 28 });
+// A file with no NUL byte is text and keeps word edges. Anything else is
+// binary: it is read as Latin-1 (PNG text chunks, PDF strings) and as UTF-16
+// in both byte orders at both alignments, and matched without word edges,
+// because the bytes around a name in a binary file are arbitrary and a false
+// alarm there is cheap. One hit per term, reported on line 0.
+export function scanBuffer(buf, patterns, where) {
+  if (!buf.includes(0)) return scanText(buf.toString('utf8'), patterns, where);
+  const even = (b) => b.subarray(0, b.length - (b.length % 2));
+  const views = [buf.toString('latin1')];
+  for (const b of [buf, buf.subarray(1)]) {
+    views.push(even(b).toString('utf16le'), Buffer.from(even(b)).swap16().toString('utf16le'));
+  }
+  const terms = new Set();
+  for (const v of views) for (const h of scanText(v, patterns, where, { edges: false })) terms.add(h.term);
+  return [...terms].map((term) => ({ where, line: 0, term }));
+}
+
+const git = (args, input) =>
+  execFileSync('git', args, { input, maxBuffer: 1 << 30, stdio: ['pipe', 'pipe', 'ignore'] });
 
 const listZ = (args) => git(args).toString('utf8').split('\0').filter(Boolean);
 
-// Binary files are scanned as Latin-1, not skipped: images and PDFs can carry
-// plain-text metadata.
-const decode = (buf) => buf.toString(buf.includes(0) ? 'latin1' : 'utf8');
+function readObjects(shas, mode = '--batch') {
+  const out = git(['cat-file', mode], shas.join('\n') + '\n');
+  const objects = new Map();
+  let pos = 0;
+  while (pos < out.length) {
+    const nl = out.indexOf(10, pos);
+    const [sha, type, size] = out.subarray(pos, nl).toString('utf8').split(' ');
+    pos = nl + 1;
+    if (type === 'missing' || mode !== '--batch') {
+      objects.set(sha, { type });
+      continue;
+    }
+    objects.set(sha, { type, data: out.subarray(pos, pos + Number(size)) });
+    pos += Number(size) + 1;
+  }
+  return objects;
+}
 
-function scanFile(path, buf, patterns) {
-  const where = mask(path, patterns);
-  return [
-    ...scanText(path, patterns, `${where} (path)`).map((h) => ({ ...h, line: 0 })),
-    ...scanText(decode(buf), patterns, where),
-  ];
+// Scans what git stores, not the working tree, so a link is scanned by its
+// target path even when the target does not exist. Submodules (160000) are
+// scanned by path only.
+function scanIndex(onlyPaths, patterns) {
+  const entries = listZ(['ls-files', '-s', '-z']).map((e) => {
+    const tab = e.indexOf('\t');
+    const [mode, sha] = e.slice(0, tab).split(' ');
+    return { mode, sha, path: e.slice(tab + 1) };
+  });
+  const chosen = onlyPaths ? entries.filter((e) => onlyPaths.has(e.path)) : entries;
+  const blobs = readObjects([...new Set(chosen.filter((e) => e.mode !== '160000').map((e) => e.sha))]);
+  const hits = [];
+  for (const e of chosen) {
+    const where = mask(e.path, patterns);
+    hits.push(...scanText(e.path, patterns, `${where} (path)`).map((h) => ({ ...h, line: 0 })));
+    if (e.mode !== '160000') hits.push(...scanBuffer(blobs.get(e.sha).data, patterns, where));
+  }
+  return hits;
+}
+
+// Every file version and path reachable from rev, so a name removed in a
+// later commit is still found. Each version is scanned once.
+function scanHistory(rev, patterns) {
+  const objects = git(['rev-list', '--objects', rev])
+    .toString('utf8')
+    .split('\n')
+    .filter(Boolean)
+    .map((l) => ({ sha: l.slice(0, 40), path: l.slice(41) }));
+  const hits = [];
+  for (const path of new Set(objects.map((o) => o.path).filter(Boolean))) {
+    hits.push(...scanText(path, patterns, `history path ${mask(path, patterns)}`).map((h) => ({ ...h, line: 0 })));
+  }
+  const types = readObjects(objects.map((o) => o.sha), '--batch-check');
+  const blobs = objects.filter((o) => types.get(o.sha)?.type === 'blob');
+  const data = readObjects([...new Set(blobs.map((o) => o.sha))]);
+  const seen = new Set();
+  for (const o of blobs) {
+    if (seen.has(o.sha)) continue;
+    seen.add(o.sha);
+    const where = `history ${mask(o.path, patterns)} @${o.sha.slice(0, 7)}`;
+    hits.push(...scanBuffer(data.get(o.sha).data, patterns, where));
+  }
+  return hits;
+}
+
+function configValue(key) {
+  try {
+    return git(['config', '--get', key]).toString('utf8').trim();
+  } catch {
+    return '';
+  }
+}
+
+// Drops the lines git itself strips: comment lines (by core.commentString or
+// core.commentChar, "#" by default, any of git's candidates for "auto") and
+// everything from the `git commit -v` cut line down.
+function messageText(raw) {
+  const prefix = configValue('core.commentString') || configValue('core.commentChar') || '#';
+  const isComment = prefix === 'auto' ? (l) => /^[#;@!$%^&|:]/.test(l) : (l) => l.startsWith(prefix);
+  let lines = raw.split('\n');
+  const cut = lines.findIndex((l) => isComment(l) && / -+ >8 -+$/.test(l));
+  if (cut !== -1) lines = lines.slice(0, cut);
+  return lines.filter((l) => !isComment(l)).join('\n');
+}
+
+// Commit messages with author and committer names and emails, then every
+// ref name and its contents (annotated tag messages included).
+function scanLog(rev, patterns) {
+  const hits = [];
+  const out = git(['log', '--format=%H%x01%an%n%ae%n%cn%n%ce%n%B%x00', rev]).toString('utf8');
+  for (const raw of out.split('\0')) {
+    const entry = raw.replace(/^\n/, '');
+    const at = entry.indexOf('\x01');
+    if (at === -1) continue;
+    hits.push(...scanText(entry.slice(at + 1), patterns, `commit ${entry.slice(0, 7)} message`));
+  }
+  const refs = git(['for-each-ref', '--format=%(refname)%01%(contents)%00']).toString('utf8');
+  for (const raw of refs.split('\0')) {
+    const entry = raw.replace(/^\n/, '');
+    const at = entry.indexOf('\x01');
+    if (at === -1) continue;
+    const name = entry.slice(0, at);
+    const where = `ref ${mask(name, patterns)}`;
+    hits.push(...scanText(name, patterns, where).map((h) => ({ ...h, line: 0 })));
+    hits.push(...scanText(entry.slice(at + 1), patterns, where));
+  }
+  return hits;
 }
 
 export function run(argv, env = process.env) {
@@ -75,32 +221,20 @@ export function run(argv, env = process.env) {
   }
   const patterns = compile(terms);
   const [mode, arg] = argv;
-  const hits = [];
+  let hits;
 
   if (mode === '--staged') {
-    for (const path of listZ(['diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z'])) {
-      hits.push(...scanFile(path, git(['show', `:${path}`]), patterns));
-    }
+    hits = scanIndex(new Set(listZ(['diff', '--cached', '--name-only', '--diff-filter=d', '-z'])), patterns);
   } else if (mode === '--all') {
-    for (const path of listZ(['ls-files', '-z'])) {
-      if (existsSync(path)) hits.push(...scanFile(path, readFileSync(path), patterns));
-    }
+    hits = scanIndex(null, patterns);
+  } else if (mode === '--history' && arg) {
+    hits = scanHistory(arg, patterns);
   } else if (mode === '--message' && arg) {
-    const text = readFileSync(arg, 'utf8')
-      .split('\n')
-      .filter((l) => !l.startsWith('#'))
-      .join('\n');
-    hits.push(...scanText(text, patterns, 'commit message'));
+    hits = scanText(messageText(readFileSync(arg, 'utf8')), patterns, 'commit message');
   } else if (mode === '--log' && arg) {
-    const out = git(['log', '--format=%H%x01%B%x00', arg]).toString('utf8');
-    for (const entry of out.split('\0')) {
-      const [sha, body] = entry.replace(/^\n/, '').split('\x01');
-      if (sha && body !== undefined) {
-        hits.push(...scanText(body, patterns, `commit ${sha.slice(0, 7)} message`));
-      }
-    }
+    hits = scanLog(arg, patterns);
   } else {
-    console.error('usage: guard.mjs --staged | --all | --message <file> | --log <rev-range>');
+    console.error('usage: guard.mjs --staged | --all | --history <rev> | --message <file> | --log <rev-range>');
     return 2;
   }
 

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, mkdirSync, symlinkSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -118,4 +118,78 @@ test('--all scans every tracked file', () => {
 
 test('unknown mode exits 2', () => {
   assert.equal(repo().guard(['--nope']).code, 2);
+});
+
+// Final review fixes
+
+test('--all catches a committed link whose target path holds a term', () => {
+  const r = repo();
+  symlinkSync('zebracorp/notes.md', join(r.dir, 'link'));
+  r.git('add', 'link');
+  r.git('commit', '-q', '-m', 'x');
+  const res = r.guard(['--all']);
+  assert.equal(res.code, 1);
+  assert.equal(leaks(res.out), false);
+});
+
+test('--staged catches a file replaced by a link to a term', () => {
+  const r = repo();
+  r.write('a.md', 'clean\n');
+  r.git('add', 'a.md');
+  r.git('commit', '-q', '-m', 'x');
+  rmSync(join(r.dir, 'a.md'));
+  symlinkSync('blue-heron.md', join(r.dir, 'a.md'));
+  r.git('add', 'a.md');
+  assert.equal(r.guard(['--staged']).code, 1);
+});
+
+test('--history catches a term removed in a later commit', () => {
+  const r = repo();
+  r.write('a.md', 'for zebracorp\n');
+  r.git('add', 'a.md');
+  r.git('commit', '-q', '-m', 'one');
+  r.write('a.md', 'clean\n');
+  r.git('add', 'a.md');
+  r.git('commit', '-q', '-m', 'two');
+  assert.equal(r.guard(['--all']).code, 0);
+  const res = r.guard(['--history', 'HEAD']);
+  assert.equal(res.code, 1);
+  assert.equal(leaks(res.out), false);
+});
+
+test('--message ignores the diff below the git commit -v cut line', () => {
+  const r = repo();
+  r.write('m.txt', 'docs: remove a name\n# ------------------------ >8 ------------------------\n# Do not modify or remove the line above.\ndiff --git a/a.md b/a.md\n-for zebracorp\n');
+  assert.equal(r.guard(['--message', join(r.dir, 'm.txt')]).code, 0);
+});
+
+test('--message follows core.commentChar', () => {
+  const r = repo();
+  r.git('config', 'core.commentChar', ';');
+  r.write('ok.txt', 'fix\n; On branch blue-heron-work\n');
+  r.write('bad.txt', 'fix\n# zebracorp release\n');
+  assert.equal(r.guard(['--message', join(r.dir, 'ok.txt')]).code, 0);
+  assert.equal(r.guard(['--message', join(r.dir, 'bad.txt')]).code, 1);
+});
+
+test('--log catches author emails, branch names and tag messages', () => {
+  const email = repo();
+  email.write('a.md', 'clean\n');
+  email.git('add', 'a.md');
+  execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=dev@zebracorp.com', 'commit', '-q', '-m', 'x'], { cwd: email.dir });
+  const res = email.guard(['--log', 'HEAD']);
+  assert.equal(res.code, 1);
+  assert.equal(leaks(res.out), false);
+
+  const branch = repo();
+  branch.git('checkout', '-q', '-b', 'blue-heron-work');
+  branch.git('commit', '-q', '--allow-empty', '-m', 'x');
+  const b = branch.guard(['--log', 'HEAD']);
+  assert.equal(b.code, 1);
+  assert.equal(leaks(b.out), false);
+
+  const tag = repo();
+  tag.git('commit', '-q', '--allow-empty', '-m', 'x');
+  tag.git('tag', '-a', 'v1', '-m', 'made for zebracorp');
+  assert.equal(tag.guard(['--log', 'HEAD']).code, 1);
 });
