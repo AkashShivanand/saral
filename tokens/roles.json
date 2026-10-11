@@ -1,0 +1,15 @@
+{
+  "roles": [
+    "surface.ground", "surface.raised", "surface.sunken", "surface.inverse",
+    "text.default", "text.muted", "text.quiet", "text.inverse", "text.on-action", "text.on-accent", "text.disabled",
+    "border.hairline", "border.strong", "border.focus",
+    "action.default", "action.hover", "action.pressed", "action.disabled",
+    "accent.default", "accent.hover", "accent.subtle",
+    "feedback.danger.text", "feedback.danger.subtle", "feedback.danger.border",
+    "feedback.success.text", "feedback.success.subtle", "feedback.success.border",
+    "feedback.warning.text", "feedback.warning.subtle", "feedback.warning.border",
+    "feedback.info.text", "feedback.info.subtle", "feedback.info.border",
+    "radius.box", "radius.control", "radius.round",
+    "font.family.sans"
+  ]
+}

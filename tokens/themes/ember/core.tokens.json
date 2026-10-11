@@ -1,0 +1,37 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "box": {
+      "$value": {
+        "value": 6,
+        "unit": "px"
+      }
+    },
+    "control": {
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      }
+    },
+    "round": {
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": [
+          "Anek Latin",
+          "Anek Devanagari",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      }
+    }
+  }
+}

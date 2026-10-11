@@ -1,0 +1,56 @@
+{
+  "source": "akashshivanand.com app/globals.css, copied 2026-10-12",
+  "light": {
+    "--paper": "#f3f3f0",
+    "--surface": "#fbfbf9",
+    "--surface-2": "#e8e9e5",
+    "--ink": "#121314",
+    "--grey": "#5e6168",
+    "--hair": "#dcddd8",
+    "--accent": "#b3491b",
+    "--accent-deep": "#8f3813",
+    "--on-accent": "#fbfbf9",
+    "--ok": "#23602d",
+    "--band-bg": "#121314",
+    "--band-fg": "#f3f3f0",
+    "--wd-display": "80%",
+    "--wd-head": "90%",
+    "--ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+  },
+  "dark": {
+    "--paper": "#111214",
+    "--surface": "#18191c",
+    "--surface-2": "#202226",
+    "--ink": "#ededea",
+    "--grey": "#a3a6ad",
+    "--hair": "#2c2e33",
+    "--accent": "#e8956a",
+    "--accent-deep": "#f0a97e",
+    "--on-accent": "#111214",
+    "--ok": "#7cc98a",
+    "--band-bg": "#18191c",
+    "--band-fg": "#ededea"
+  },
+  "map": {
+    "--paper": "surface.ground",
+    "--surface": "surface.raised",
+    "--surface-2": "surface.sunken",
+    "--ink": "text.default",
+    "--grey": "text.muted",
+    "--hair": "border.hairline",
+    "--accent": "accent.default",
+    "--accent-deep": "accent.hover",
+    "--on-accent": "text.on-accent",
+    "--ok": "feedback.success.text",
+    "--band-bg": "surface.inverse",
+    "--band-fg": "text.inverse",
+    "--wd-display": "font.width.display",
+    "--wd-head": "font.width.heading",
+    "--ease": "motion.ease.standard"
+  },
+  "excluded": {
+    "--quiet": "Defined but never used on the site, and 2.95:1 on --paper in light mode. Ember's text.quiet passes 4.5:1 instead.",
+    "--band-mute, --band-line, --band-surface, --band-accent, --band-accent-2": "The site's dark band is specific to the site, not a Saral role.",
+    "--font-disp, --font-sans": "The site loads fonts through next/font variables; Saral names the families directly."
+  }
+}

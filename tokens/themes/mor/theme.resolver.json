@@ -1,0 +1,33 @@
+{
+  "version": "2025.10",
+  "sets": [
+    {
+      "name": "saral",
+      "sources": [
+        {
+          "$ref": "../../base.tokens.json"
+        },
+        {
+          "$ref": "core.tokens.json"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "theme": {
+      "default": "light",
+      "contexts": {
+        "light": [
+          {
+            "$ref": "light.tokens.json"
+          }
+        ],
+        "dark": [
+          {
+            "$ref": "dark.tokens.json"
+          }
+        ]
+      }
+    }
+  }
+}

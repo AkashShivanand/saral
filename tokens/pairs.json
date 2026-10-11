@@ -1,0 +1,134 @@
+{
+  "pairs": [
+    {
+      "text": "text.default",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "text.default",
+      "on": "surface.raised",
+      "min": 4.5
+    },
+    {
+      "text": "text.default",
+      "on": "surface.sunken",
+      "min": 4.5
+    },
+    {
+      "text": "text.muted",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "text.muted",
+      "on": "surface.raised",
+      "min": 4.5
+    },
+    {
+      "text": "text.muted",
+      "on": "surface.sunken",
+      "min": 4.5
+    },
+    {
+      "text": "text.quiet",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "text.quiet",
+      "on": "surface.raised",
+      "min": 4.5
+    },
+    {
+      "text": "text.inverse",
+      "on": "surface.inverse",
+      "min": 4.5
+    },
+    {
+      "text": "text.on-action",
+      "on": "action.default",
+      "min": 4.5
+    },
+    {
+      "text": "text.on-action",
+      "on": "action.hover",
+      "min": 4.5
+    },
+    {
+      "text": "text.on-accent",
+      "on": "accent.default",
+      "min": 4.5
+    },
+    {
+      "text": "accent.default",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "accent.default",
+      "on": "surface.raised",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.danger.text",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.danger.text",
+      "on": "feedback.danger.subtle",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.success.text",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.success.text",
+      "on": "feedback.success.subtle",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.warning.text",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.warning.text",
+      "on": "feedback.warning.subtle",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.info.text",
+      "on": "surface.ground",
+      "min": 4.5
+    },
+    {
+      "text": "feedback.info.text",
+      "on": "feedback.info.subtle",
+      "min": 4.5
+    },
+    {
+      "text": "border.strong",
+      "on": "surface.ground",
+      "min": 3
+    },
+    {
+      "text": "border.focus",
+      "on": "surface.ground",
+      "min": 3
+    },
+    {
+      "text": "border.focus",
+      "on": "surface.raised",
+      "min": 3
+    },
+    {
+      "text": "action.default",
+      "on": "surface.ground",
+      "min": 3
+    }
+  ]
+}

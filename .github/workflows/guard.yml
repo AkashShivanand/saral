@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 24
       - run: npm test
+      - run: npm run check:dist
       - run: npm run guard
         env:
           SARAL_GUARD_TERMS: ${{ secrets.SARAL_GUARD_TERMS }}

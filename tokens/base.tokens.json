@@ -1,0 +1,273 @@
+{
+  "space": {
+    "$type": "dimension",
+    "0": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "1": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "5": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "7": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "9": {
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      }
+    }
+  },
+  "font": {
+    "size": {
+      "$type": "dimension",
+      "small": {
+        "$value": {
+          "value": 14,
+          "unit": "px"
+        }
+      },
+      "body": {
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "lead": {
+        "$value": {
+          "value": 18,
+          "unit": "px"
+        }
+      },
+      "h3": {
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "h2": {
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "fluid": {
+              "min": {
+                "value": 24,
+                "unit": "px"
+              },
+              "max": {
+                "value": 32,
+                "unit": "px"
+              },
+              "preferred": "1.25rem + 1vw"
+            }
+          }
+        }
+      },
+      "h1": {
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "fluid": {
+              "min": {
+                "value": 32,
+                "unit": "px"
+              },
+              "max": {
+                "value": 56,
+                "unit": "px"
+              },
+              "preferred": "1.5rem + 2.5vw"
+            }
+          }
+        }
+      },
+      "display": {
+        "$value": {
+          "value": 44,
+          "unit": "px"
+        },
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "fluid": {
+              "min": {
+                "value": 44,
+                "unit": "px"
+              },
+              "max": {
+                "value": 100,
+                "unit": "px"
+              },
+              "preferred": "1.75rem + 5vw"
+            }
+          }
+        }
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": {
+        "$value": 400
+      },
+      "medium": {
+        "$value": 500
+      },
+      "bold": {
+        "$value": 700
+      }
+    },
+    "width": {
+      "$type": "number",
+      "display": {
+        "$value": 80,
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "cssUnit": "%"
+          }
+        }
+      },
+      "heading": {
+        "$value": 90,
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "cssUnit": "%"
+          }
+        }
+      },
+      "body": {
+        "$value": 100,
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "cssUnit": "%"
+          }
+        }
+      }
+    },
+    "leading": {
+      "$type": "number",
+      "tight": {
+        "$value": 1.1
+      },
+      "body": {
+        "$value": 1.5
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "fast": {
+        "$value": {
+          "value": 160,
+          "unit": "ms"
+        },
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "reduced": {
+              "value": 0,
+              "unit": "ms"
+            }
+          }
+        }
+      },
+      "base": {
+        "$value": {
+          "value": 240,
+          "unit": "ms"
+        },
+        "$extensions": {
+          "in.akashshivanand.saral": {
+            "reduced": {
+              "value": 0,
+              "unit": "ms"
+            }
+          }
+        }
+      }
+    },
+    "ease": {
+      "$type": "cubicBezier",
+      "standard": {
+        "$value": [
+          0.22,
+          1,
+          0.36,
+          1
+        ]
+      }
+    }
+  },
+  "focus": {
+    "$type": "dimension",
+    "width": {
+      "$value": {
+        "value": 3,
+        "unit": "px"
+      }
+    },
+    "offset": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    }
+  },
+  "size": {
+    "$type": "dimension",
+    "target-min": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    }
+  }
+}
