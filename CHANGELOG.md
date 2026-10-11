@@ -2,6 +2,12 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-11: themes and open questions settled
+
+- Akash's answers: MIT licence (delegated); Saral will get its own domain, with docs on Netlify until then; ember stays the website's theme and Saral gets its own; the demo client theme was delegated; the repo goes public at v0.1.
+- Saral's default theme is Mor (peacock teal, squarer 4px corners, its own red for errors). The demo client is Kosh, a fictional savings app (dark first, turmeric yellow, rounder 14px corners). Each theme differs in colour, shape and density, which is the visible proof that Saral is headless.
+- Phase 1 grows by one evening for Mor; about 23 evenings to v1.0.
+
 ## 2026-10-11: spec v2 after a pressure test
 
 - A five-advisor review of the spec (Contrarian, First Principles, Expansionist, Outsider, Executor, with anonymous peer review) found the plan sized for a team, not one person working evenings, plus three real flaws: hover worked out in JavaScript would be dead before scripts load on a static site; OKLCH tokens would not match the site's hex values exactly; and hashed names in the guard could be cracked.
