@@ -1,0 +1,67 @@
+/* The documentation portal's own layout. Tokens only, like every component,
+   so switching theme restyles the portal too. */
+body {
+  margin: 0;
+  background: var(--saral-surface-ground);
+  color: var(--saral-text-default);
+  font-family: var(--saral-font-family-sans);
+  font-size: var(--saral-font-size-body);
+  line-height: var(--saral-font-leading-body);
+}
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: var(--saral-space-4); top: var(--saral-space-4); background: var(--saral-surface-raised); padding: var(--saral-space-2) var(--saral-space-3); }
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--saral-space-4);
+  padding: var(--saral-space-4);
+  border-bottom: var(--saral-size-stroke) solid var(--saral-border-hairline);
+  background: var(--saral-surface-raised);
+}
+.brand { font-size: var(--saral-font-size-h3); font-weight: var(--saral-font-weight-bold); font-stretch: var(--saral-font-width-display); color: var(--saral-text-default); text-decoration: none; }
+.version { font-size: var(--saral-font-size-small); color: var(--saral-text-muted); }
+.controls { display: none; gap: var(--saral-space-3); margin-left: auto; align-items: center; font-size: var(--saral-font-size-small); }
+[data-js] .controls { display: flex; }
+.controls select {
+  font: inherit;
+  color: var(--saral-text-default);
+  background: var(--saral-surface-ground);
+  border: var(--saral-size-stroke) solid var(--saral-border-strong);
+  border-radius: var(--saral-radius-box);
+  padding: var(--saral-space-1) var(--saral-space-2);
+}
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 1120px; margin: 0 auto; }
+@media (min-width: 840px) { .layout { grid-template-columns: 220px minmax(0, 1fr); } }
+nav.side { padding: var(--saral-space-5) var(--saral-space-4); font-size: var(--saral-font-size-small); }
+nav.side ul { list-style: none; margin: 0 0 var(--saral-space-5); padding: 0; display: grid; gap: var(--saral-space-2); }
+nav.side h2 { margin: 0 0 var(--saral-space-2); font-size: var(--saral-font-size-small); color: var(--saral-text-muted); font-weight: var(--saral-font-weight-medium); }
+nav.side a[aria-current="page"] { font-weight: var(--saral-font-weight-bold); }
+main { padding: var(--saral-space-5) var(--saral-space-4) var(--saral-space-8); min-width: 0; max-width: 760px; }
+h1 { margin: 0 0 var(--saral-space-3); font-size: var(--saral-font-size-h1); font-stretch: var(--saral-font-width-display); line-height: var(--saral-font-leading-tight); }
+h2 { margin: var(--saral-space-7) 0 var(--saral-space-3); font-size: var(--saral-font-size-h2); font-stretch: var(--saral-font-width-heading); line-height: var(--saral-font-leading-tight); }
+h3 { margin: var(--saral-space-5) 0 var(--saral-space-2); font-size: var(--saral-font-size-h3); font-stretch: var(--saral-font-width-heading); }
+p, li { max-width: 68ch; }
+.lead { font-size: var(--saral-font-size-lead); color: var(--saral-text-muted); }
+code { font-size: 0.92em; background: var(--saral-surface-sunken); border-radius: var(--saral-radius-box); padding: 0 var(--saral-space-1); }
+pre { overflow-x: auto; background: var(--saral-surface-sunken); border-radius: var(--saral-radius-box); padding: var(--saral-space-3); font-size: var(--saral-font-size-small); }
+pre code { background: none; padding: 0; }
+table { width: 100%; border-collapse: collapse; font-size: var(--saral-font-size-small); margin: var(--saral-space-3) 0; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: var(--saral-space-2) var(--saral-space-3) var(--saral-space-2) 0; border-bottom: var(--saral-size-stroke) solid var(--saral-border-hairline); vertical-align: top; }
+th { color: var(--saral-text-muted); font-weight: var(--saral-font-weight-medium); }
+.badge { display: inline-block; font-size: var(--saral-font-size-small); padding: 0 var(--saral-space-2); border-radius: var(--saral-radius-control); border: var(--saral-size-stroke) solid var(--saral-border-strong); color: var(--saral-text-muted); }
+.pass { color: var(--saral-feedback-success-text); font-weight: var(--saral-font-weight-medium); }
+.fail { color: var(--saral-feedback-danger-text); font-weight: var(--saral-font-weight-medium); }
+.demo { border: var(--saral-size-stroke) solid var(--saral-border-hairline); border-radius: var(--saral-radius-box); margin: var(--saral-space-3) 0 var(--saral-space-5); }
+.demo .stage { padding: var(--saral-space-5); background: var(--saral-surface-raised); border-radius: var(--saral-radius-box) var(--saral-radius-box) 0 0; }
+.demo details { padding: var(--saral-space-2) var(--saral-space-4); border-top: var(--saral-size-stroke) solid var(--saral-border-hairline); font-size: var(--saral-font-size-small); }
+.row { display: flex; flex-wrap: wrap; gap: var(--saral-space-3); align-items: center; }
+.stack { display: grid; gap: var(--saral-space-3); }
+.looks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--saral-space-3); margin: var(--saral-space-5) 0; }
+.looks section { background: var(--saral-surface-ground); color: var(--saral-text-default); padding: var(--saral-space-5); border-radius: var(--saral-radius-box); border: var(--saral-size-stroke) solid var(--saral-border-hairline); display: grid; gap: var(--saral-space-3); }
+.looks h2 { margin: 0; font-size: var(--saral-font-size-h3); }
+.swatch { display: inline-block; width: 1.25em; height: 1.25em; border-radius: var(--saral-radius-box); border: var(--saral-size-stroke) solid var(--saral-border-hairline); vertical-align: -0.25em; margin-right: var(--saral-space-2); }
+.scale { display: grid; gap: var(--saral-space-2); }
+.bar { height: var(--saral-space-3); background: var(--saral-accent-default); border-radius: var(--saral-radius-box); }
+.radius { display: inline-block; width: var(--saral-space-8); height: var(--saral-space-7); background: var(--saral-accent-subtle); border: var(--saral-size-stroke) solid var(--saral-accent-default); margin-right: var(--saral-space-3); }
+footer { padding: var(--saral-space-5) var(--saral-space-4); font-size: var(--saral-font-size-small); color: var(--saral-text-muted); border-top: var(--saral-size-stroke) solid var(--saral-border-hairline); }

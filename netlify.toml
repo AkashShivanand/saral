@@ -1,0 +1,8 @@
+# The documentation portal. Netlify rebuilds it on every push to main, and
+# builds a preview for every pull request.
+[build]
+  command = "npm run site"
+  publish = "site/dist"
+
+[build.environment]
+  NODE_VERSION = "24"

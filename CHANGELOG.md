@@ -2,6 +2,13 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: documentation portal
+
+- A documentation portal, built by Saral itself with no dependencies (`npm run site`, output in `site/dist`). Pages: an overview with the same markup in both themes and modes, these changes, the tokens with every contrast pair and its ratio, one page per component from its spec with live examples and their markup, and the decision and incident records.
+- A switch for Mor, Kosh or no theme, in system, light or dark mode, remembered from page to page. Without JavaScript the portal reads in Mor and the switch is hidden.
+- Every portal page passes axe (WCAG 2.2 AA) in both themes and both modes, tested in the browser.
+- `netlify.toml` builds it on every push to main, with a preview for every pull request.
+
 ## 2026-10-12: v0.2.1, field errors shown by CSS
 
 - Field errors no longer use the `hidden` attribute. CSS shows the error when the input is `:user-invalid` (no script) or when the field has `data-invalid` (with script). A CSS reset that forces `[hidden]` off can no longer stop an error from showing.

@@ -16,7 +16,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "test:browser": "playwright test",
     "types": "tsc -p tsconfig.types.json",
-    "check:types": "npm run types && git diff --exit-code dist/types"
+    "check:types": "npm run types && git diff --exit-code dist/types",
+    "site": "node tools/site/build.mjs"
   },
   "version": "0.2.1",
   "devDependencies": {

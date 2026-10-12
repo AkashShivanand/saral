@@ -52,4 +52,5 @@ Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path wi
 - `npm run serve`: serve the repo on port 4321 to look at `fixtures/`
 - `npm run test:browser`: browser tests, with JavaScript on and off, and axe in every theme and mode
 - `npm run typecheck`: TypeScript checks the JSDoc types in core and React
+- `npm run site`: build the documentation portal into `site/dist` (open `site/dist/index.html` through `npm run serve`)
 - `npm run guard`: scan every file and every commit message
