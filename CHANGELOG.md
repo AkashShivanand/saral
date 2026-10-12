@@ -2,6 +2,18 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: phase 2, first components (v0.2)
+
+- Field (label, input or textarea, hint, error), Button (primary, accent, secondary, pending), Link and Notice (info, success, warning, danger). Plain HTML and CSS that work with JavaScript off.
+- Optional core script: errors show when a person leaves a field they typed in, in the page's own words; a failed submit shows every error and focuses the first; the submit button is marked pending and cannot post twice; a page restored by the back button is not left pending.
+- React components on the same markup, with generated TypeScript types. Only `Form` is a client component.
+- Browser tests with JavaScript on and off. Axe finds no WCAG 2.2 AA problems on the contact form in Mor or Kosh, light or dark, with errors showing.
+- Component specs in `specs/`, checked against the CSS by tests.
+- No runtime dependencies, enforced by a test. Saral learns from other systems but never depends on them.
+- Packaging is ready for npm: an exports map for the CSS, tokens, core and React. Publishing waits for a decision.
+- Fixed: a theme set on `<html>` now follows the system's dark mode.
+- Decision record 0002.
+
 ## 2026-10-12: Saral's own themes only
 
 - Removed the Tailwind output. Saral ships its own CSS.

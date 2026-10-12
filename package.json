@@ -18,7 +18,7 @@
     "types": "tsc -p tsconfig.types.json",
     "check:types": "npm run types && git diff --exit-code dist/types"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.0",
@@ -46,5 +46,12 @@
       "types": "./dist/types/react/src/index.d.mts",
       "default": "./packages/react/src/index.mjs"
     }
-  }
+  },
+  "files": [
+    "dist",
+    "packages/core/src",
+    "packages/react/src",
+    "LICENSE",
+    "README.md"
+  ]
 }

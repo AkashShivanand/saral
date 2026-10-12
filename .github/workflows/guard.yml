@@ -12,8 +12,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+      - run: npm ci
       - run: npm test
       - run: npm run check:dist
+      - run: npm run typecheck
+      - run: npm run check:types
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
       - run: npm run guard
         env:
           SARAL_GUARD_TERMS: ${{ secrets.SARAL_GUARD_TERMS }}

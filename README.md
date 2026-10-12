@@ -2,7 +2,7 @@
 
 Saral means simple. It is a design system where the look is a theme you can swap, and every part is plain, accessible HTML.
 
-**Status: tokens ready (v0.1).** Design tokens for two themes, Mor and Kosh, build to CSS and JavaScript. Components come next. Progress is logged in the [changelog](CHANGELOG.md).
+**Status: v0.2, first components.** Tokens for Mor and Kosh, plus Field, Button, Link and Notice: plain HTML and CSS that work with JavaScript off, a small optional script for inline errors, and React components. No runtime dependencies. Progress is logged in the [changelog](CHANGELOG.md).
 
 ## What using it will look like
 
@@ -33,6 +33,31 @@ Remove the theme and the field still works, unstyled.
 ```
 
 The theme follows the system's light or dark setting. Add `data-saral-mode="dark"` or `"light"` to any element to force that mode for everything inside it. To show several themes on one page, put `data-saral-theme="mor"` or `"kosh"` on any element; if you load two theme files, the last one styles the page itself. `fixtures/themes.html` shows both themes in both modes (`npm run serve`, then open `/fixtures/themes.html`).
+
+## Using the components
+
+```html
+<link rel="stylesheet" href="dist/css/mor.css">
+<link rel="stylesheet" href="dist/css/components.css">
+
+<form id="contact" method="post" action="/contact">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="email">Email</label>
+    <input data-scope="field" data-part="input" id="email" name="email" type="email" required>
+    <p data-scope="field" data-part="error" id="email-error" hidden data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address</p>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">Send message</button>
+</form>
+
+<script type="module">
+  import { enhanceForm } from 'saral/core';
+  enhanceForm(document.getElementById('contact'));
+</script>
+```
+
+The script is optional. Without it, the browser validates the form and the CSS marks invalid fields. In React: `import { Form, Field, Button, Link, Notice } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
+
+To give Saral your own look, set its variables to your brand's values, for example `:root { --saral-accent-default: #0055ff; }`. The full list of roles is in `tokens/roles.json`, and the contrast pairs a theme should meet are in `tokens/pairs.json`.
 
 ## How it is built
 
