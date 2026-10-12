@@ -6,6 +6,10 @@ Short on purpose. Read it before changing anything.
 
 v0.3. Tokens and nine components exist: Field, Checkbox, Radio group, Select, Button, Link, Notice, Tag, Card. Each has a spec in `specs/`; do not use or invent any component without one.
 
+The plan to 1.0 is `docs/spec/2026-10-12-saral-master-plan.md` (phases, sprints, dates). Saral reaches every platform through one contract: tokens to every registry, plain CSS, a framework-free core, Web Components, and adapters generated from the specs (decision 0005). Never hand-write an adapter's logic; it lives in core.
+
+The documentation portal shows no business-model or open-core content. A record in `docs/decisions/` with a line `Site: no` stays off the portal.
+
 Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path with dashes>)`, for example `var(--saral-surface-ground)`. Change tokens only in `tokens/`, then run `npm run build`. Never edit `dist/`.
 
 ## Rules

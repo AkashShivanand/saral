@@ -1,6 +1,7 @@
 # 0004: Open core
 
 Status: adopted, 2026-10-12
+Site: no
 
 ## Decision
 

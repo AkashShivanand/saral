@@ -70,3 +70,13 @@ test('the portal stylesheet uses tokens only', () => {
   const known = new Set(Object.keys(mor.light).map((p) => `--saral-${p.replaceAll('.', '-')}`));
   for (const [, name] of css.matchAll(/var\((--saral-[\w-]+)/g)) assert.ok(known.has(name), name);
 });
+
+test('a record marked "Site: no" gets no page and is not listed', () => {
+  const hidden = readdirSync(join(ROOT, 'docs/decisions'))
+    .filter((f) => f.endsWith('.md') && /^Site: no$/m.test(readFileSync(join(ROOT, 'docs/decisions', f), 'utf8')));
+  assert.ok(hidden.length > 0, 'at least one record is kept off the site');
+  for (const f of hidden) {
+    assert.ok(!pages.includes(`decisions/${f.replace('.md', '.html')}`), f);
+    assert.ok(!read('decisions.html').includes(f.replace('.md', '.html')), f);
+  }
+});

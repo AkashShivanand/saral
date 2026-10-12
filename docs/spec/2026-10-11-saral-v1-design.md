@@ -69,6 +69,10 @@ Saral's own exits never depend on another repo. A consumer site adopting Saral i
 | Saral has its own themes only (Mor, Kosh). A site that uses Saral brings its own theme by setting Saral's variables. Saral does not name the sites that use it; which users to show is decided later | Akash | 2026-10-12 |
 | No Tailwind output: Saral ships its own CSS | Akash | 2026-10-12 |
 | Open core, as Tailwind does: Saral stays MIT and complete; paid templates or help, if any, sit on top, outside the repo; the name is protected by `TRADEMARK.md` ("yes tailwind is what I like alot and I want to make it that way") | Akash | 2026-10-12 |
+| Reach every platform contract first: tokens to every registry, Web Components as the universal layer, generated adapters for React, Vue, Svelte and Angular, native components only after web 1.0 (decision 0005; master plan) | Akash | 2026-10-13 |
+| Capacity is now part-time days, 15 to 20 hours a week, in two-week sprints | Akash | 2026-10-13 |
+| Open core stays in the repo but off the website | Akash | 2026-10-13 |
+| The website's identity and story come from a research round with 2 or 3 directions; the owner picks one and decides whether it also replaces Mor | Akash | 2026-10-13 |
 | Demo client theme: Kosh, a fictional savings app | Assistant, delegated by Akash | 2026-10-11 |
 | The repo goes public at the first release, v0.1 | Akash ("yes") | 2026-10-11 |
 

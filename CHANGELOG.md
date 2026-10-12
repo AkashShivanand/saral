@@ -2,15 +2,22 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-13: the master plan to 1.0
+
+- A master plan takes Saral from v0.3 to 1.0 on every platform, in six phases of two-week sprints: the first npm release by 29 November 2026, tokens on every registry by 10 January 2027, a new docs site in February, the full component set as a 1.0 candidate in April, the playground and theme builder in May, and 1.0 on every registry by 13 June 2027. See `docs/spec/2026-10-12-saral-master-plan.md`.
+- Decision record 0005: contract first, everywhere. Tokens go to every registry; Web Components are the universal layer; React, Vue, Svelte and Angular adapters are generated from the specs and proven to render the same markup.
+- The portal leaves out any record marked `Site: no`; decision 0004 is one of them and stays in the repo.
+- Research for the new docs site and its identity has started in its own session.
+
 ## 2026-10-12: CI runs again
 
 - The CI file had a YAML error since the portal deploy was added (a `: ` inside an unquoted line), so GitHub rejected it and no checks ran on main for seven commits. The pull request comment step now uses a block and passes the preview link through an environment variable.
 
-## 2026-10-12: open core
+## 2026-10-12: name policy and contributing guide
 
-- Saral stays open source under MIT, and the free system stays complete. Paid templates, a Figma kit or setup help, if they come, will be built on top of Saral and live outside this repo. Decision record 0004: open core.
 - `TRADEMARK.md`: anyone can use and fork the code, but only the owner's releases are called Saral.
 - `CONTRIBUTING.md`: bug reports and small fixes are welcome; a new component or an API change starts as an issue, because it needs a spec first.
+- Decision record 0004, kept in the repo.
 
 ## 2026-10-12: v0.3.1, one CSS file per component
 

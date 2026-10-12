@@ -31,7 +31,9 @@ export function buildSite({ out = join(ROOT, 'site/dist') } = {}) {
     .filter((f) => f.endsWith('.json'))
     .sort()
     .map((f) => ({ id: f.replace('.json', ''), ...readJson(`specs/${f}`) }));
-  const decisions = listMd('docs/decisions').map((f) => ({ dir: 'decisions', f }));
+  // A record with a line "Site: no" stays in the repo but off the portal.
+  const onSite = (dir) => (f) => !/^Site: no$/m.test(readFileSync(join(ROOT, dir, f), 'utf8'));
+  const decisions = listMd('docs/decisions').filter(onSite('docs/decisions')).map((f) => ({ dir: 'decisions', f }));
   const incidents = listMd('docs/incidents').map((f) => ({ dir: 'incidents', f }));
   const pages = [];
 
