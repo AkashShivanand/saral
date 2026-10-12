@@ -1,0 +1,59 @@
+{
+  "name": "Notice",
+  "status": "preview",
+  "since": "0.2.0",
+  "purpose": "A short message about what just happened or what to know.",
+  "whenToUse": [
+    "Confirming an action",
+    "A note that applies to the whole page or form"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "An error about one field",
+      "instead": "Field error"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "div",
+      "role": "status or alert"
+    }
+  ],
+  "states": [],
+  "props": [
+    {
+      "name": "tone",
+      "type": "'info' | 'success' | 'warning' | 'danger'",
+      "default": "info",
+      "does": "Sets the colours"
+    },
+    {
+      "name": "urgent",
+      "type": "boolean",
+      "default": "false",
+      "does": "Uses role alert, which interrupts; otherwise role status, which waits"
+    }
+  ],
+  "keyboard": [],
+  "accessibility": {
+    "web": "role=status by default, role=alert only when urgent. Colour is never the only signal: the words carry the meaning.",
+    "ios": "Text with an accessibility announcement",
+    "android": "Text with a polite or assertive live region"
+  },
+  "tokens": [
+    "feedback.info.text",
+    "feedback.info.subtle",
+    "feedback.info.border",
+    "feedback.success.text",
+    "feedback.danger.text",
+    "radius.box",
+    "size.stroke"
+  ],
+  "content": "Say what happened in plain words: Message sent. A reply comes within two days.",
+  "examples": [
+    "fixtures/contact.html",
+    "fixtures/thanks.html"
+  ],
+  "screenReaderLog": []
+}

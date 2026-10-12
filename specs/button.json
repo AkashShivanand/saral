@@ -1,0 +1,107 @@
+{
+  "name": "Button",
+  "status": "preview",
+  "since": "0.2.0",
+  "purpose": "Starts an action: submits a form or runs a command on the page.",
+  "whenToUse": [
+    "Submitting a form",
+    "An action that changes something on this page"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "Going to another page",
+      "instead": "Link"
+    },
+    {
+      "case": "Several actions of equal weight side by side",
+      "instead": "Button with variant secondary for all but one"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "button",
+      "role": "button"
+    }
+  ],
+  "states": [
+    {
+      "state": "hover",
+      "setBy": "css",
+      "how": ":hover inside @media (hover: hover)"
+    },
+    {
+      "state": "pressed",
+      "setBy": "css",
+      "how": ":active"
+    },
+    {
+      "state": "focus",
+      "setBy": "css",
+      "how": ":focus-visible"
+    },
+    {
+      "state": "disabled",
+      "setBy": "css",
+      "how": ":disabled or aria-disabled=\"true\""
+    },
+    {
+      "state": "pending",
+      "setBy": "core",
+      "how": "data-pending and aria-disabled=\"true\", via setPending or enhanceForm"
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "'primary' | 'accent' | 'secondary'",
+      "default": "primary",
+      "does": "primary uses the theme's action colour; accent the theme's accent; secondary is outlined"
+    },
+    {
+      "name": "pending",
+      "type": "boolean",
+      "default": "false",
+      "does": "Marks the button as waiting; it stays focusable and keeps its label"
+    },
+    {
+      "name": "render",
+      "type": "(props) => ReactElement",
+      "default": "none",
+      "does": "Puts the button's props on another element, such as a router link"
+    }
+  ],
+  "keyboard": [
+    {
+      "key": "Enter or Space",
+      "action": "Activates the button"
+    }
+  ],
+  "accessibility": {
+    "web": "Native <button>. A pending button uses aria-disabled, not disabled, so it stays in the tab order and screen readers say why nothing happens.",
+    "ios": "SwiftUI Button; pending maps to .disabled with an accessibility hint",
+    "android": "Compose Button; pending maps to enabled = false with stateDescription"
+  },
+  "tokens": [
+    "action.default",
+    "action.hover",
+    "action.pressed",
+    "action.disabled",
+    "accent.default",
+    "accent.hover",
+    "text.on-action",
+    "text.on-accent",
+    "text.disabled",
+    "border.strong",
+    "border.focus",
+    "radius.control",
+    "size.control",
+    "focus.width",
+    "focus.offset"
+  ],
+  "content": "A verb first, one to three words, sentence case: Send message, Save changes. Never OK or Submit.",
+  "examples": [
+    "fixtures/contact.html"
+  ],
+  "screenReaderLog": []
+}
