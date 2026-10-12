@@ -68,6 +68,7 @@ Saral's own exits never depend on another repo. A consumer site adopting Saral i
 | Docs hosted on Netlify until Saral has its own domain, which Akash will buy | Akash (domain); host picked by the assistant at his request | 2026-10-11 |
 | Saral has its own themes only (Mor, Kosh). A site that uses Saral brings its own theme by setting Saral's variables. Saral does not name the sites that use it; which users to show is decided later | Akash | 2026-10-12 |
 | No Tailwind output: Saral ships its own CSS | Akash | 2026-10-12 |
+| Open core, as Tailwind does: Saral stays MIT and complete; paid templates or help, if any, sit on top, outside the repo; the name is protected by `TRADEMARK.md` ("yes tailwind is what I like alot and I want to make it that way") | Akash | 2026-10-12 |
 | Demo client theme: Kosh, a fictional savings app | Assistant, delegated by Akash | 2026-10-11 |
 | The repo goes public at the first release, v0.1 | Akash ("yes") | 2026-10-11 |
 
