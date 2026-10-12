@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
   await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
 });
 
-const PAGES = ['index.html', 'changes.html', 'tokens.html', 'decisions.html', 'components/button.html', 'components/field.html', 'components/link.html', 'components/notice.html'];
+const PAGES = ['index.html', 'changes.html', 'tokens.html', 'decisions.html', 'components/button.html', 'components/field.html', 'components/link.html', 'components/notice.html', 'components/card.html', 'components/checkbox.html', 'components/radio.html', 'components/select.html', 'components/tag.html'];
 
 for (const theme of ['mor', 'kosh']) {
   for (const mode of ['light', 'dark']) {

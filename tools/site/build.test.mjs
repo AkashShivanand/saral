@@ -65,7 +65,7 @@ test('no page uses an em dash', () => {
 
 test('the portal stylesheet uses tokens only', () => {
   const css = readFileSync(join(ROOT, 'site/src/site.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
-  const raw = /#[0-9a-f]{3,8}\b|\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(|\b(?:white|black|red|green|blue|gray|grey|orange|yellow|purple|pink)\b/i;
+  const raw = /#[0-9a-f]{3,8}\b|\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(|(?<![-\w])(?:white|black|red|green|blue|gray|grey|orange|yellow|purple|pink)(?![-\w])/i;
   assert.equal(css.match(raw), null);
   const known = new Set(Object.keys(mor.light).map((p) => `--saral-${p.replaceAll('.', '-')}`));
   for (const [, name] of css.matchAll(/var\((--saral-[\w-]+)/g)) assert.ok(known.has(name), name);

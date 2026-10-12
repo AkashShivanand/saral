@@ -10,8 +10,8 @@ const specs = existsSync(dir)
   : [];
 const REQUIRED = ['name', 'status', 'since', 'purpose', 'whenToUse', 'whenNotToUse', 'anatomy', 'states', 'props', 'keyboard', 'accessibility', 'tokens', 'content', 'examples', 'screenReaderLog'];
 
-test('there is a spec for each phase 2 component', () => {
-  assert.deepEqual(specs.map((x) => x.f).sort(), ['button.json', 'field.json', 'link.json', 'notice.json']);
+test('there is a spec for every component', () => {
+  assert.deepEqual(specs.map((x) => x.f).sort(), ['button.json', 'card.json', 'checkbox.json', 'field.json', 'link.json', 'notice.json', 'radio.json', 'select.json', 'tag.json']);
 });
 
 test('every spec has every required field, and says when not to use it', () => {

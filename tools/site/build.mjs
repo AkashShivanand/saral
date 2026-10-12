@@ -209,10 +209,10 @@ ${themeBlocks}`,
     const tokens = s.tokens
       .map((t) => `<li>${colourRoles.has(t) ? `<span class="swatch" style="background:var(--saral-${t.replaceAll('.', '-')})"></span>` : ''}<code>--saral-${t.replaceAll('.', '-')}</code></li>`)
       .join('');
-    const script = s.id === 'field'
+    const script = ['field', 'checkbox', 'radio', 'select'].includes(s.id)
       ? `<script type="module">
-import { enhanceField } from '../assets/core/index.mjs';
-for (const root of document.querySelectorAll('.demo [data-scope="field"][data-part="root"]:not([data-invalid])')) enhanceField(root);
+import { enhanceField, FIELD } from '../assets/core/index.mjs';
+for (const root of document.querySelectorAll('.demo :is(' + FIELD + '):not([data-invalid])')) enhanceField(root);
 </script>`
       : '';
     page(

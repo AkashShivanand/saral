@@ -13,6 +13,9 @@
     color: var(--saral-text-default);
     font-size: var(--saral-font-size-small);
   }
+  :where([data-scope="tag"][data-part="label"]) {
+    white-space: nowrap;
+  }
   :where([data-scope="tag"][data-part="root"]:has([data-part="remove"])) {
     padding-right: var(--saral-space-1);
   }

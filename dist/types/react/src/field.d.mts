@@ -7,13 +7,7 @@ export function Field({ label, hint, messages, multiline, id, ...input }: FieldP
     'data-scope': string;
     'data-part': string;
 }, string | import("react").JSXElementConstructor<any>>;
-export type FieldMessages = {
-    valueMissing?: string;
-    typeMismatch?: string;
-    tooLong?: string;
-    tooShort?: string;
-    patternMismatch?: string;
-};
+export type FieldMessages = import("./parts.mjs").FieldMessages;
 export type FieldProps = Omit<import("react").InputHTMLAttributes<HTMLInputElement>, "children"> & {
     label: string;
     hint?: string;

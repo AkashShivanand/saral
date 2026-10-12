@@ -1,0 +1,102 @@
+{
+  "status": "preview",
+  "since": "0.3.0",
+  "examples": [
+    "fixtures/kit.html"
+  ],
+  "screenReaderLog": [],
+  "name": "Card",
+  "purpose": "A box that groups one item: a title, a short text, and optionally a link to more.",
+  "whenToUse": [
+    "A list of items that each lead somewhere",
+    "Grouping a short summary"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "Long reading text",
+      "instead": "plain sections with headings"
+    },
+    {
+      "case": "A status message",
+      "instead": "Notice"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "article",
+      "role": "article"
+    },
+    {
+      "part": "title",
+      "element": "h2 to h4",
+      "role": "heading"
+    },
+    {
+      "part": "body",
+      "element": "div or p",
+      "role": "none"
+    },
+    {
+      "part": "link",
+      "element": "a",
+      "role": "link"
+    }
+  ],
+  "states": [
+    {
+      "state": "hover",
+      "setBy": "css",
+      "how": ":hover on an interactive card strengthens its border"
+    },
+    {
+      "state": "focus",
+      "setBy": "css",
+      "how": ":has(:focus-visible) draws the focus ring around the whole card"
+    }
+  ],
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "default": "required",
+      "does": "The card's heading"
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "default": "none",
+      "does": "Makes the title a link whose click area covers the card"
+    },
+    {
+      "name": "headingLevel",
+      "type": "2 | 3 | 4",
+      "default": "3",
+      "does": "Fits the card's heading into the page outline"
+    }
+  ],
+  "keyboard": [
+    {
+      "key": "Tab",
+      "action": "Reaches the title link, then any other link in the card"
+    }
+  ],
+  "accessibility": {
+    "web": "Only the title is a link, so a screen reader hears the title, not the whole card. Other links inside stay separately reachable.",
+    "ios": "A VStack with an accessibility element for the title link",
+    "android": "A Compose Card with the title as the clickable element"
+  },
+  "tokens": [
+    "surface.raised",
+    "border.hairline",
+    "border.strong",
+    "text.default",
+    "text.muted",
+    "border.focus",
+    "radius.box",
+    "size.stroke",
+    "focus.width",
+    "focus.offset"
+  ],
+  "content": "A short, specific title, then one or two sentences."
+}

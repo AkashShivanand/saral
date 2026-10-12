@@ -1,0 +1,101 @@
+{
+  "status": "preview",
+  "since": "0.3.0",
+  "examples": [
+    "fixtures/kit.html"
+  ],
+  "screenReaderLog": [],
+  "name": "Tag",
+  "purpose": "A short label for a topic or a filter.",
+  "whenToUse": [
+    "Labelling items with topics",
+    "Showing filters that can be removed"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "An action",
+      "instead": "Button"
+    },
+    {
+      "case": "A status message",
+      "instead": "Notice"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "span",
+      "role": "none"
+    },
+    {
+      "part": "label",
+      "element": "span",
+      "role": "none"
+    },
+    {
+      "part": "remove",
+      "element": "button",
+      "role": "button"
+    }
+  ],
+  "states": [
+    {
+      "state": "hover on remove",
+      "setBy": "css",
+      "how": ":hover inside @media (hover: hover)"
+    },
+    {
+      "state": "focus on remove",
+      "setBy": "css",
+      "how": ":focus-visible"
+    }
+  ],
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "default": "required",
+      "does": "The tag text"
+    },
+    {
+      "name": "onRemove",
+      "type": "() => void",
+      "default": "none",
+      "does": "Adds a remove button; the page decides what removing does"
+    },
+    {
+      "name": "removeLabel",
+      "type": "string",
+      "default": "Remove <tag text>",
+      "does": "The remove button's accessible name"
+    }
+  ],
+  "keyboard": [
+    {
+      "key": "Tab",
+      "action": "Reaches the remove button, if there is one"
+    },
+    {
+      "key": "Enter or Space",
+      "action": "Removes the tag"
+    }
+  ],
+  "accessibility": {
+    "web": "Plain text. The remove button is a real button named Remove followed by the tag text, at the 24 by 24 pixel minimum.",
+    "ios": "Text in a capsule; a remove Button with an accessibility label",
+    "android": "Compose InputChip with a trailing remove icon and content description"
+  },
+  "tokens": [
+    "surface.sunken",
+    "surface.raised",
+    "border.hairline",
+    "text.default",
+    "text.muted",
+    "border.focus",
+    "radius.control",
+    "radius.round",
+    "size.target-min",
+    "focus.width"
+  ],
+  "content": "One or two words in sentence case: Design systems."
+}

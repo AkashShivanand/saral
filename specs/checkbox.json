@@ -1,0 +1,121 @@
+{
+  "status": "preview",
+  "since": "0.3.0",
+  "examples": [
+    "fixtures/kit.html"
+  ],
+  "screenReaderLog": [],
+  "name": "Checkbox",
+  "purpose": "One yes-or-no choice, such as agreeing to something.",
+  "whenToUse": [
+    "A single choice that can be on or off",
+    "Agreeing to terms or giving consent"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "Choosing one of several options",
+      "instead": "Radio group"
+    },
+    {
+      "case": "A setting that takes effect at once",
+      "instead": "a switch (planned)"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "div",
+      "role": "none"
+    },
+    {
+      "part": "input",
+      "element": "input type=checkbox",
+      "role": "checkbox"
+    },
+    {
+      "part": "label",
+      "element": "label",
+      "role": "none"
+    },
+    {
+      "part": "hint",
+      "element": "p",
+      "role": "none"
+    },
+    {
+      "part": "error",
+      "element": "p",
+      "role": "none"
+    }
+  ],
+  "states": [
+    {
+      "state": "checked",
+      "setBy": "css",
+      "how": ":checked, drawn by the browser in accent-color"
+    },
+    {
+      "state": "focus",
+      "setBy": "css",
+      "how": ":focus-visible"
+    },
+    {
+      "state": "disabled",
+      "setBy": "css",
+      "how": ":disabled; the label turns to the disabled text colour"
+    },
+    {
+      "state": "invalid without script",
+      "setBy": "css",
+      "how": ":user-invalid on the input shows the error part"
+    },
+    {
+      "state": "invalid with script",
+      "setBy": "core",
+      "how": "data-invalid on root; aria-invalid and aria-describedby on the input"
+    }
+  ],
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "required",
+      "does": "The visible label, tied to the box"
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "default": "none",
+      "does": "Help text under the label"
+    },
+    {
+      "name": "messages",
+      "type": "{ valueMissing? }",
+      "default": "browser message",
+      "does": "The error text when a required box is not ticked"
+    }
+  ],
+  "keyboard": [
+    {
+      "key": "Space",
+      "action": "Ticks or clears the box"
+    }
+  ],
+  "accessibility": {
+    "web": "Native checkbox with its own label. Sized to the 24 by 24 pixel minimum target.",
+    "ios": "SwiftUI Toggle with the checkbox style",
+    "android": "Compose Checkbox with a Modifier.toggleable row"
+  },
+  "tokens": [
+    "action.default",
+    "text.default",
+    "text.muted",
+    "text.disabled",
+    "feedback.danger.text",
+    "border.focus",
+    "size.target-min",
+    "focus.width",
+    "focus.offset"
+  ],
+  "content": "Write the label as what is being agreed to: You may keep my email to reply. The error says what to do: Tick this so we can reply."
+}

@@ -15,7 +15,7 @@ test('there is component CSS to check', () => {
 });
 
 test('component CSS uses no raw colours', () => {
-  const raw = /#[0-9a-f]{3,8}\b|\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(|\b(?:white|black|red|green|blue|gray|grey|orange|yellow|purple|pink)\b/i;
+  const raw = /#[0-9a-f]{3,8}\b|\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(|(?<![-\w])(?:white|black|red|green|blue|gray|grey|orange|yellow|purple|pink)(?![-\w])/i;
   for (const f of files) assert.equal(read(f).match(raw), null, f);
 });
 
@@ -38,4 +38,10 @@ test('every rule is in the components layer and wrapped in :where()', () => {
 
 test('no component relies on the hidden attribute, which CSS resets can force off', () => {
   for (const f of files) assert.equal(read(f).includes('[hidden]'), false, f);
+});
+
+test('the colour check does not mistake a property like white-space for a colour', () => {
+  const raw = /(?<![-\w])(?:white|black)(?![-\w])/i;
+  assert.equal('white-space: nowrap;'.match(raw), null);
+  assert.ok('color: white;'.match(raw));
 });

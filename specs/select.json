@@ -1,0 +1,129 @@
+{
+  "status": "preview",
+  "since": "0.3.0",
+  "examples": [
+    "fixtures/kit.html"
+  ],
+  "screenReaderLog": [],
+  "name": "Select",
+  "purpose": "One choice from a longer list, in a native drop-down.",
+  "whenToUse": [
+    "Six or more options",
+    "Space is short and the options are familiar"
+  ],
+  "whenNotToUse": [
+    {
+      "case": "Two to five options",
+      "instead": "Radio group"
+    },
+    {
+      "case": "Typing to search a long list",
+      "instead": "a combobox (later)"
+    }
+  ],
+  "anatomy": [
+    {
+      "part": "root",
+      "element": "div",
+      "role": "none"
+    },
+    {
+      "part": "label",
+      "element": "label",
+      "role": "none"
+    },
+    {
+      "part": "input",
+      "element": "select",
+      "role": "combobox"
+    },
+    {
+      "part": "hint",
+      "element": "p",
+      "role": "none"
+    },
+    {
+      "part": "error",
+      "element": "p",
+      "role": "none"
+    }
+  ],
+  "states": [
+    {
+      "state": "hover",
+      "setBy": "css",
+      "how": ":hover inside @media (hover: hover)"
+    },
+    {
+      "state": "focus",
+      "setBy": "css",
+      "how": ":focus-visible"
+    },
+    {
+      "state": "invalid without script",
+      "setBy": "css",
+      "how": ":user-invalid shows the error part and the danger border"
+    },
+    {
+      "state": "invalid with script",
+      "setBy": "core",
+      "how": "data-invalid on root; aria-invalid and aria-describedby on the select"
+    }
+  ],
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "required",
+      "does": "The visible label"
+    },
+    {
+      "name": "options",
+      "type": "{ value, label }[]",
+      "default": "required",
+      "does": "The choices"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "none",
+      "does": "A first option with an empty value, so a required select needs a real choice"
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "default": "none",
+      "does": "Help text under the select"
+    }
+  ],
+  "keyboard": [
+    {
+      "key": "Space or Enter",
+      "action": "Opens the list, as the browser provides"
+    },
+    {
+      "key": "Arrow keys",
+      "action": "Move through the options"
+    }
+  ],
+  "accessibility": {
+    "web": "A native select, so every device opens its own accessible list. The arrow is drawn in currentColor and follows the theme.",
+    "ios": "SwiftUI Picker with the menu style",
+    "android": "Compose ExposedDropdownMenuBox"
+  },
+  "tokens": [
+    "text.default",
+    "text.muted",
+    "surface.raised",
+    "border.strong",
+    "border.focus",
+    "feedback.danger.text",
+    "feedback.danger.border",
+    "radius.box",
+    "size.control",
+    "size.stroke",
+    "focus.width",
+    "focus.offset"
+  ],
+  "content": "Use a placeholder that asks: Choose a topic. The error says the same: Choose a topic."
+}
