@@ -4,6 +4,8 @@ Saral means simple. It is a design system where the look is a theme you can swap
 
 **Status: v0.2, first components.** Tokens for Mor and Kosh, plus Field, Button, Link and Notice: plain HTML and CSS that work with JavaScript off, a small optional script for inline errors, and React components. No runtime dependencies. Progress is logged in the [changelog](CHANGELOG.md).
 
+**Documentation:** [saral-ds.netlify.app](https://saral-ds.netlify.app), with every component, the tokens and their contrast ratios, and every change.
+
 ## What using it will look like
 
 ```html
