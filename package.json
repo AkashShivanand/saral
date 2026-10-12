@@ -12,7 +12,25 @@
     "guard": "node tools/guard/guard.mjs --all && node tools/guard/guard.mjs --log HEAD && node tools/guard/guard.mjs --history HEAD",
     "build": "node packages/tokens/src/build.mjs",
     "check:dist": "node packages/tokens/src/build.mjs --check",
-    "serve": "node tools/serve.mjs"
+    "serve": "node tools/serve.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test:browser": "playwright test"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0",
+    "@types/react": "19.3.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "6.0.3"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
 }

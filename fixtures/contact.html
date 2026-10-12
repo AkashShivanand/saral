@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saral contact form</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&display=swap">
+<link rel="stylesheet" href="../dist/css/kosh.css">
+<link rel="stylesheet" href="../dist/css/mor.css">
+<link rel="stylesheet" href="../dist/css/components.css">
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.get('theme')) document.documentElement.dataset.saralTheme = q.get('theme');
+  if (q.get('mode')) document.documentElement.dataset.saralMode = q.get('mode');
+</script>
+<style>
+  body { margin: 0; background: var(--saral-surface-ground); color: var(--saral-text-default); font-family: var(--saral-font-family-sans); line-height: var(--saral-font-leading-body); }
+  main { max-width: 560px; margin: 0 auto; padding: var(--saral-space-7) var(--saral-space-4); display: grid; gap: var(--saral-space-5); }
+  h1 { margin: 0; font-size: var(--saral-font-size-h1); font-stretch: var(--saral-font-width-display); line-height: var(--saral-font-leading-tight); }
+  form { display: grid; gap: var(--saral-space-5); }
+  .send { display: flex; align-items: center; gap: var(--saral-space-5); flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Say hello</h1>
+  <div data-scope="notice" data-part="root" data-tone="info" role="status">Replies come within two days.</div>
+  <form id="contact" method="get" action="thanks.html">
+    <div data-scope="field" data-part="root">
+      <label data-scope="field" data-part="label" for="name">Name</label>
+      <input data-scope="field" data-part="input" id="name" name="name" type="text" required maxlength="120" autocomplete="name">
+      <p data-scope="field" data-part="error" id="name-error" hidden data-message-value-missing="Enter your name">Enter your name</p>
+    </div>
+    <div data-scope="field" data-part="root">
+      <label data-scope="field" data-part="label" for="email">Email</label>
+      <input data-scope="field" data-part="input" id="email" name="email" type="email" required maxlength="200" autocomplete="email" aria-describedby="email-hint">
+      <p data-scope="field" data-part="hint" id="email-hint">Only used to reply. Never shared.</p>
+      <p data-scope="field" data-part="error" id="email-error" hidden data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address</p>
+    </div>
+    <div data-scope="field" data-part="root">
+      <label data-scope="field" data-part="label" for="message">Message</label>
+      <textarea data-scope="field" data-part="input" id="message" name="message" required maxlength="4000" rows="5"></textarea>
+      <p data-scope="field" data-part="error" id="message-error" hidden data-message-value-missing="Write a message">Write a message</p>
+    </div>
+    <div class="send">
+      <button data-scope="button" data-part="root" data-variant="accent" type="submit">Send message</button>
+      <a data-scope="link" data-part="root" href="themes.html">See the themes</a>
+    </div>
+  </form>
+</main>
+<script type="module">
+  import { enhanceForm } from '../packages/core/src/index.mjs';
+  enhanceForm(document.getElementById('contact'));
+</script>
+</body>
+</html>
