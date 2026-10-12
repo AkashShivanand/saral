@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadResolver, flatten, resolveAliases } from './resolve.mjs';
 import { checkColors, checkRoles, checkPairs, checkPolicy, checkFluid } from './checks.mjs';
-import { toCss, toJs, toTailwind } from './outputs.mjs';
+import { toCss, toJs } from './outputs.mjs';
 import { TokenError } from './errors.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
@@ -28,7 +28,6 @@ export function buildAll(root = ROOT) {
   const { pairs } = readJson(join(tokens, 'pairs.json'));
   const files = new Map();
   const errors = [];
-  let first;
   const themes = readdirSync(join(tokens, 'themes'), { withFileTypes: true }).filter((d) => d.isDirectory());
   for (const name of themes.map((d) => d.name).sort()) {
     const dir = join(tokens, 'themes', name);
@@ -45,13 +44,11 @@ export function buildAll(root = ROOT) {
       }
       files.set(`dist/css/${name}.css`, toCss(name, modes));
       files.set(`dist/js/${name}.mjs`, toJs(name, modes));
-      first ??= modes.light;
     } catch (e) {
       if (!(e instanceof TokenError)) throw e;
       errors.push(`${name}: ${e.message}`);
     }
   }
-  if (first) files.set('dist/tailwind/saral.css', toTailwind(first));
   return { files, errors };
 }
 

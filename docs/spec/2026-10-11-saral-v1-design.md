@@ -12,7 +12,7 @@ Saral means "simple". This file is the contract for v1. Decisions are copied int
 Saral is a design system in which the look is a swappable theme and the parts are plain, accessible HTML.
 
 ```html
-<link rel="stylesheet" href="saral/themes/ember.css">
+<link rel="stylesheet" href="saral/themes/mor.css">
 
 <div data-scope="field" data-part="root">
   <label data-part="label" for="email">Email</label>
@@ -21,35 +21,34 @@ Saral is a design system in which the look is a swappable theme and the parts ar
 </div>
 ```
 
-Swap `ember.css` for another theme (`mor.css`, `kosh.css`) and the same markup takes another brand's look. Remove the theme and it still works, unstyled.
+Swap `mor.css` for another theme (`kosh.css`, or your own) and the same markup takes another brand's look. Remove the theme and it still works, unstyled.
 
 **What "headless" means in Saral.** Two things together:
 
 1. **Looks are themes.** Components use colour, type and space roles, never brand values. A theme fills the roles. v1 ships three, each different in colour, shape and density, not colour alone:
    - **Mor** (peacock teal), Saral's own default theme.
-   - **Ember**, the theme akashshivanand.com uses, matching the site exactly.
    - **Kosh**, a fictional client (a savings app, dark first, turmeric yellow), which shows a client's brand on the system.
 2. **Behaviour is separate from looks.** Where a component needs behaviour that HTML does not already give (the field's error messages, a pending button), that behaviour lives in a small framework-free TypeScript core with no styles. Most components need no core at all, because native elements already handle keyboard, focus and screen readers.
 
-Terms used below: **ember** is the website's theme; **Mor** is Saral's default. **Anek** is the typeface (by Ek Type); it has a **width axis**, so one family can be set narrower for display text and wider for reading. **The website session** is a separate agent session that alone edits akashshivanand.com.
+Terms used below: **Mor** is Saral's default theme; **Kosh** is a demo client theme. **Anek** is the typeface (by Ek Type); it has a **width axis**, so one family can be set narrower for display text and wider for reading.
 
 ## 2. Purpose and success
 
 Three jobs:
 
-1. Be the system akashshivanand.com is built on.
+1. Be usable on a real site, proven on a first consumer site before anyone else relies on it.
 2. Be a public, working design system that a designer who builds can show, including in a Behance case study for the "Design system" service.
 3. Be easy to use correctly for people (designers and developers) and AI agents, and hard to use wrongly.
 
 v1.0 is done when:
 
-- The ember theme, on a Saral fixture page, produces exactly the computed values of the site's current tokens.
-- The contact-form slice (Field, Error, Notice, Button, Link) works with JavaScript off and on, passes the test harness, and has been handed to the website session.
-- The full kit has docs pages, each with a switch between Mor, ember, Kosh and no theme.
+- Mor and Kosh build in light and dark with every declared contrast pair passing.
+- The contact-form slice (Field, Error, Notice, Button, Link) works with JavaScript off and on, passes the test harness, and has been tried on a real site.
+- The full kit has docs pages, each with a switch between Mor, Kosh and no theme.
 - The Figma library is generated from the token source.
 - Every rule in this spec that a machine can check is checked in CI.
 
-Saral's own exits never depend on another repo. The website adopting Saral is handed off, tracked, and not a gate.
+Saral's own exits never depend on another repo. A consumer site adopting Saral is never a gate.
 
 ## 3. Decisions
 
@@ -62,12 +61,13 @@ Saral's own exits never depend on another repo. The website adopting Saral is ha
 | Platform agnostic: one neutral source; tokens to web, iOS, Android and Figma; components for the web only in v1 | Akash | 2026-10-11 |
 | Headless | Akash | 2026-10-11 |
 | Colours are customisable; a brand is a theme on the system. ("colours can be customised, that's why we are calling it headless, we build a system") | Akash | 2026-10-11 |
-| Adopt the research's adjustments and phased plan (native elements first, native select in v1, independent state attributes, preview label for native and Figma outputs, Tailwind output, `render` prop) | Akash | 2026-10-11 |
+| Adopt the research's adjustments and phased plan (native elements first, native select in v1, independent state attributes, preview label for native and Figma outputs, `render` prop) | Akash | 2026-10-11 |
 | Saral gets 3 to 4 evenings a week | Akash | 2026-10-11 |
 | Apply the pressure test's nine changes (section 13 lists them) | Akash | 2026-10-11 |
 | MIT licence | Assistant, delegated by Akash | 2026-10-11 |
 | Docs hosted on Netlify until Saral has its own domain, which Akash will buy | Akash (domain); host picked by the assistant at his request | 2026-10-11 |
-| Ember stays the website's theme; Saral gets its own default theme, Mor | Akash (separate theme); Mor proposed by the assistant as creative director | 2026-10-11 |
+| Saral has its own themes only (Mor, Kosh). A site that uses Saral brings its own theme by setting Saral's variables. Saral does not name the sites that use it; which users to show is decided later | Akash | 2026-10-12 |
+| No Tailwind output: Saral ships its own CSS | Akash | 2026-10-12 |
 | Demo client theme: Kosh, a fictional savings app | Assistant, delegated by Akash | 2026-10-11 |
 | The repo goes public at the first release, v0.1 | Akash ("yes") | 2026-10-11 |
 
@@ -89,15 +89,15 @@ packages/
   tokens/    the token compiler and its checks; usable on its own
   core/      framework-free TypeScript behaviour, only for components that need it
   react/     thin React bindings over core and the markup contract
-  themes/    mor (default), ember (website), kosh (client demo)
+  themes/    mor (default), kosh (client demo)
 site/        docs site, built with Saral (from phase 3)
 tools/       guard (section 12), lint rules
 docs/        decisions/, incidents/, research/, spec/
 ```
 
-Generated, never hand-edited: `dist/` token outputs (CSS custom properties, JS, Tailwind v4 `@theme`; later Figma, Swift, Compose), the docs pages, the agent files and the Figma library.
+Generated, never hand-edited: `dist/` token outputs (CSS custom properties, JS; later Figma, Swift, Compose), the docs pages, the agent files and the Figma library.
 
-The website installs Saral as a GitHub dependency pinned to a release tag. npm publishing waits (section 14).
+Sites install Saral as a GitHub dependency pinned to a release tag. npm publishing waits (section 14).
 
 ## 6. The contracts
 
@@ -142,8 +142,8 @@ The website installs Saral as a GitHub dependency pinned to a release tag. npm p
 ### 7.1 Format
 
 - DTCG 2025.10. Light and dark through a `theme.json` per theme, modelled on the DTCG Resolver module (not a conformant resolver document).
-- **Ember is authored in sRGB hex**, copied exactly from the site's current tokens, so the first exit test can match value for value. OKLCH is supported for other themes; the compiler converts it to sRGB in one place, with gamut mapping.
-- The width axis and springs live in `$extensions` under `in.akashshivanand.saral` (DTCG has no type for them).
+- Colours are authored in sRGB, with `hex` and matching `components`, or in OKLCH; the compiler converts OKLCH to sRGB in one place, with gamut mapping.
+- The width axis and springs live in `$extensions` under `saral` (DTCG has no type for them).
 - Sizes are stored as numbers and converted per platform.
 
 ### 7.2 Semantic roles
@@ -165,7 +165,7 @@ Other groups: `font` (family, width settings for display, heading and reading, w
 
 ### 7.3 Theme policy
 
-Each theme ships `policy.json`, and the compiler enforces it. Ember's and Mor's each declare one accent hue and WCAG 2 AA on their declared text and background pairs. This keeps "one accent" true for Akash's brands without forcing it on other themes.
+Each theme ships `policy.json`, and the compiler enforces it. Mor and Kosh each declare one accent hue; a theme someone else writes may declare more.
 
 ### 7.4 Compiler checks (the build fails on any)
 
@@ -175,7 +175,7 @@ Each theme ships `policy.json`, and the compiler enforces it. Ember's and Mor's 
 4. A theme breaking its own `policy.json`.
 5. A fluid size with no rem term.
 
-Phase 1 outputs: CSS custom properties, JS, Tailwind v4 `@theme`. Figma comes in phase 3; Swift and Compose in phase 4, as preview, compile-checked, with no device testing in v1.
+Phase 1 outputs: CSS custom properties and JS. Figma comes in phase 3; Swift and Compose in phase 4, as preview, compile-checked, with no device testing in v1.
 
 ## 8. Components
 
@@ -228,7 +228,7 @@ No model sits in the path that blocks a merge. LLM review is advisory.
 ## 12. The learning loop and safety
 
 - **Decision records** are written when a decision is first used, not in advance. One status field.
-- **Incidents:** any mistake that reaches the main branch or the website gets a file in `docs/incidents/` (what happened, impact, cause, the check added). It stays open until it links to a merged automated check. Each closed incident also gets a short post draft, in Akash's voice, for LinkedIn.
+- **Incidents:** any mistake that reaches the main branch or a consumer site gets a file in `docs/incidents/` (what happened, impact, cause, the check added). It stays open until it links to a merged automated check. Each closed incident also gets a short post draft, in Akash's voice, for LinkedIn.
 - **Confidentiality guard:** the repo is public, so nothing marked private in Akash's own records may appear in it. The guard script in `tools/guard/` holds no terms. It reads a term list kept outside the repo on Akash's machine, and in CI from an encrypted repository secret. No list, hash or description of the terms is committed.
 
 ## 13. Phases, budgets and the stop rule
@@ -238,8 +238,8 @@ Budget: 3 to 4 evenings a week (Akash, 2026-10-11). Each phase has an evening bu
 | Phase | Evenings | Work | Cut first | Exit (Saral-only) |
 |---|---|---|---|---|
 | 0. Start | 1 | README, change table, `AGENTS.md` stub, confidentiality guard, MIT licence | none | Guard blocks a test commit; README shows the field example |
-| 1. Tokens | 5 | DTCG source for ember and Mor (light, dark); compiler with checks 1 to 5; CSS, JS and Tailwind outputs; fixture page | Tailwind output, Mor dark mode | Fixture page values equal the site's current tokens. Tag v0.1, then the first public push (approved by Akash) |
-| 2. Contact-form slice | 5 | Field with Error, Notice, Button, Link; core for Field and pending; React adapter; test harness; lint rules | lint rules, React `render` prop | All slice tests pass with JS on and off. Tag v0.2. Handed to the website session. Behance case study can start |
+| 1. Tokens | 5 | DTCG source for Mor and Kosh (light, dark); compiler with checks 1 to 5; CSS and JS outputs; fixture page | Kosh dark mode | Both themes build with every check passing. Tag v0.1, then the first public push (approved by Akash) |
+| 2. Contact-form slice | 5 | Field with Error, Notice, Button, Link; core for Field and pending; React adapter; test harness; lint rules | lint rules, React `render` prop | All slice tests pass with JS on and off. Tag v0.2. Tried on a real site. Behance case study can start |
 | 3. Kit and surfaces | 8 | Checkbox, Radio group, Select, Tag, Card; docs site on Netlify; Kosh theme; Figma library | Figma text styles, Tag | Every docs page switches themes; Figma variables generated. Tag v0.3 |
 | 4. v1.0 | 4 | Swift and Compose outputs (preview); `llms.txt`; export snapshot; size budgets; screen-reader passes; freeze 1.0 | Compose output | Tag v1.0 |
 | 5. Later | as needed | Codemods, CLI, MCP, agent eval, metrics, native components, overlays, hard widgets, other adapters | n/a | Starts only when a real need appears |
@@ -248,7 +248,7 @@ About 23 evenings to v1.0, roughly six to seven weeks at this pace.
 
 **Stop rule:** if two weeks pass with no Saral evening, the project is marked paused in the README and the changelog, with the date and where it stopped. A public repo is never left looking abandoned without saying so.
 
-What changed in v2, from the pressure test: a time budget and stop rule; interaction states in CSS, with no JavaScript in simple components; ember authored in the site's exact hex; the contact-form slice first; Figma before native; 0.x until the kit is complete, with codemods and metrics deferred; a guard that keeps its terms outside the repo; the case study starting after phase 2; the README first.
+What changed in v2, from the pressure test: a time budget and stop rule; interaction states in CSS, with no JavaScript in simple components; the contact-form slice first; Figma before native; 0.x until the kit is complete, with codemods and metrics deferred; a guard that keeps its terms outside the repo; the case study starting after phase 2; the README first.
 
 ## 14. Open questions and risks
 
@@ -257,7 +257,6 @@ Resolved 2026-10-11: licence MIT; npm deferred, the site uses a pinned GitHub ta
 Open:
 
 1. Saral's domain name (Akash will buy it).
-2. In ember, errors stay as the website shows them today; that is the website's choice.
 
 Risks:
 

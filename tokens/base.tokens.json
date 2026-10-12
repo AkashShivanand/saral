@@ -95,7 +95,7 @@
           "unit": "px"
         },
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "fluid": {
               "min": {
                 "value": 24,
@@ -116,7 +116,7 @@
           "unit": "px"
         },
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "fluid": {
               "min": {
                 "value": 32,
@@ -137,7 +137,7 @@
           "unit": "px"
         },
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "fluid": {
               "min": {
                 "value": 44,
@@ -170,7 +170,7 @@
       "display": {
         "$value": 80,
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "cssUnit": "%"
           }
         }
@@ -178,7 +178,7 @@
       "heading": {
         "$value": 90,
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "cssUnit": "%"
           }
         }
@@ -186,7 +186,7 @@
       "body": {
         "$value": 100,
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "cssUnit": "%"
           }
         }
@@ -211,7 +211,7 @@
           "unit": "ms"
         },
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "reduced": {
               "value": 0,
               "unit": "ms"
@@ -225,7 +225,7 @@
           "unit": "ms"
         },
         "$extensions": {
-          "in.akashshivanand.saral": {
+          "saral": {
             "reduced": {
               "value": 0,
               "unit": "ms"

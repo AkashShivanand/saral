@@ -3,7 +3,7 @@
     "$type": "dimension",
     "box": {
       "$value": {
-        "value": 6,
+        "value": 14,
         "unit": "px"
       }
     },

@@ -2,7 +2,7 @@
 // build before a file is written.
 import { parseColor, contrast, srgbToOklch } from './color.mjs';
 
-export const EXT = 'in.akashshivanand.saral';
+export const EXT = 'saral';
 
 // Runs first, so the other checks only ever see colours that parse. Reports
 // every broken colour, not just the first.

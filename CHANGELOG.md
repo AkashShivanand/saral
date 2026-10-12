@@ -2,20 +2,25 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
-## 2026-10-12: public, and handed to the website
+## 2026-10-12: Saral's own themes only
+
+- Removed the Tailwind output. Saral ships its own CSS.
+- Removed the theme copied from the first test site, and every mention of that site. A site that uses Saral brings its own look by setting Saral's variables; which users Saral names publicly is decided later.
+- Added Kosh, a demo client theme: dark first, turmeric yellow, round corners. It passed every contrast and one-accent check on its first build. Saral's themes are now Mor and Kosh.
+- The `$extensions` key is now `saral`.
+
+## 2026-10-12: public
 
 - Saral is public at github.com/AkashShivanand/saral, with tag v0.1.0. The guard's term list is a repository secret.
-- Handoff sent to the website session: how to adopt the ember tokens (mapping in `fixtures/site-tokens.json`), and that the site's unused `--quiet` fails contrast. Adoption is the website session's call.
 
 ## 2026-10-12: phase 1, tokens (v0.1)
 
-- Token compiler: reads DTCG 2025.10 files, resolves aliases, and builds CSS, JavaScript and a Tailwind theme map. Nothing is written if any check fails: a missing role, a contrast pair below its minimum, a second accent hue, or a fluid size that would not scale with text.
-- Two themes, Mor and ember, each in light and dark. Every declared text pair passes WCAG 2 AA in both modes, on the first build.
-- Ember equals akashshivanand.com for every variable the site uses, checked by a test. The site's `--quiet` was left out: it is never used and measures 2.95:1 on the page background.
+- Token compiler: reads DTCG 2025.10 files, resolves aliases, and builds CSS and JavaScript. Nothing is written if any check fails: a missing role, a contrast pair below its minimum, a second accent hue, or a fluid size that would not scale with text.
+- Two themes, each in light and dark. Every declared text pair passes WCAG 2 AA in both modes, on the first build.
 - Generated files are committed, and CI fails if they are stale. 65 tests.
 - `fixtures/themes.html` shows both themes in both modes; `npm run serve` serves it.
 - Decision record 0001: the token pipeline.
-- A fresh review before release found eight problems, all fixed with tests (73 in total): durations under reduced motion were written as a bare `0`, which browsers reject; a mode forced on the page did not reach themed sections inside it (now `light-dark()` with `color-scheme`); broken colours were not named by token; malformed hex codes got through; the Tailwind map took over Tailwind's number spacing; theme files claimed to be standard resolver documents; a Finder `.DS_Store` crashed the build; and the preview server listened on the whole network.
+- A fresh review before release found eight problems, all fixed with tests (73 in total): durations under reduced motion were written as a bare `0`, which browsers reject; a mode forced on the page did not reach themed sections inside it (now `light-dark()` with `color-scheme`); broken colours were not named by token; malformed hex codes got through; theme files claimed to be standard resolver documents; a Finder `.DS_Store` crashed the build; and the preview server listened on the whole network.
 
 ## 2026-10-11: phase 0 done
 
@@ -28,14 +33,14 @@ Project log, dated, newest first. Package release notes will be generated separa
 
 ## 2026-10-11: themes and open questions settled
 
-- Akash's answers: MIT licence (delegated); Saral will get its own domain, with docs on Netlify until then; ember stays the website's theme and Saral gets its own; the demo client theme was delegated; the repo goes public at v0.1.
+- Akash's answers: MIT licence (delegated); Saral will get its own domain, with docs on Netlify until then; Saral gets its own default theme; the demo client theme was delegated; the repo goes public at v0.1.
 - Saral's default theme is Mor (peacock teal, squarer 4px corners, its own red for errors). The demo client is Kosh, a fictional savings app (dark first, turmeric yellow, rounder 14px corners). Each theme differs in colour, shape and density, which is the visible proof that Saral is headless.
 - Phase 1 grows by one evening for Mor; about 23 evenings to v1.0.
 
 ## 2026-10-11: spec v2 after a pressure test
 
 - A five-advisor review of the spec (Contrarian, First Principles, Expansionist, Outsider, Executor, with anonymous peer review) found the plan sized for a team, not one person working evenings, plus three real flaws: hover worked out in JavaScript would be dead before scripts load on a static site; OKLCH tokens would not match the site's hex values exactly; and hashed names in the guard could be cracked.
-- Akash accepted all nine changes and set the budget at 3 to 4 evenings a week. The spec now has evening budgets per phase, a stop rule, interaction states in CSS (no JavaScript in simple components), ember in the site's exact hex, the contact-form slice first, Figma before native, 0.x until the kit is complete, a guard whose terms live outside the repo, the case study after phase 2, and the README first.
+- Akash accepted all nine changes and set the budget at 3 to 4 evenings a week. The spec now has evening budgets per phase, a stop rule, interaction states in CSS (no JavaScript in simple components), the contact-form slice first, Figma before native, 0.x until the kit is complete, a guard whose terms live outside the repo, the case study after phase 2, and the README first.
 - Still nothing built.
 
 ## 2026-10-11: project started
