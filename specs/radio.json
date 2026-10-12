@@ -69,6 +69,11 @@
       "how": ":focus-visible"
     },
     {
+      "state": "disabled",
+      "setBy": "css",
+      "how": ":disabled on a radio turns its label to the disabled colour"
+    },
+    {
       "state": "invalid without script",
       "setBy": "css",
       "how": ":user-invalid on a radio shows the error part"
@@ -134,7 +139,8 @@
     "border.focus",
     "size.target-min",
     "focus.width",
-    "focus.offset"
+    "focus.offset",
+    "text.disabled"
   ],
   "content": "Ask the question in the legend: How should we reply? Keep option labels short."
 }

@@ -109,7 +109,7 @@ export const demos = {
       title: 'Plain and removable',
       html: `<div class="row" role="group" aria-label="Topics">
   <span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Design systems</span></span>
-  <span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Accessibility</span><button data-scope="tag" data-part="remove" type="button" aria-label="Remove Accessibility">×</button></span>
+  <span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Accessibility</span><a data-scope="tag" data-part="remove" href="tag.html" aria-label="Remove Accessibility">×</a></span>
 </div>`,
     },
   ],

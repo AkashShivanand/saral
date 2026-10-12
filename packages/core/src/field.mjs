@@ -87,9 +87,14 @@ export function enhanceField(root) {
     show();
     return false;
   };
-  const onChange = () => {
+  // Ticking a box or choosing an option is a finished choice, not typing in
+  // progress, so it is checked at once and screen readers hear it.
+  /** @param {Event} e */
+  const onChange = (e) => {
     edited = true;
-    if (shown) validate();
+    const t = /** @type {HTMLInputElement | HTMLSelectElement} */ (e.target);
+    const settled = e.type === 'change' && (t.type === 'checkbox' || t.tagName === 'SELECT');
+    if (shown || settled) validate();
   };
   // Check when focus leaves the whole field, so moving between the radios of
   // one group does not check it half way.

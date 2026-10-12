@@ -1,5 +1,6 @@
 /* Card: a box for one item. With data-interactive, the title's link covers
-   the whole card; any other link inside keeps its own place above it. */
+   the whole card; any other link, button or control inside sits above it and
+   stays clickable. */
 @layer saral.components {
   :where([data-scope="card"][data-part="root"]) {
     position: relative;
@@ -33,7 +34,7 @@
     inset: 0;
     border-radius: inherit;
   }
-  :where([data-scope="card"][data-part="root"] [data-scope="link"]) {
+  :where([data-scope="card"][data-part="root"] :is(a, button, input, select, textarea, [tabindex]):not([data-part="link"])) {
     position: relative;
     z-index: 1;
   }

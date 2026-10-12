@@ -108,3 +108,65 @@ test('form controls meet the 24 by 24 pixel minimum target', async ({ page }) =>
     expect(box.height).toBeGreaterThanOrEqual(24);
   }
 });
+
+// Final review fixes
+
+test('a radio group is checked only when focus leaves the whole group', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  const state = () => page.evaluate(() => document.getElementById('reply-email').getAttribute('aria-invalid'));
+  await page.evaluate(() => {
+    const a = document.getElementById('reply-email');
+    a.dispatchEvent(new Event('change', { bubbles: true }));
+    a.dispatchEvent(new FocusEvent('focusout', { bubbles: true, relatedTarget: document.getElementById('reply-phone') }));
+  });
+  expect(await state()).toBe(null);
+  await page.evaluate(() => {
+    document.getElementById('reply-phone').dispatchEvent(new FocusEvent('focusout', { bubbles: true, relatedTarget: document.getElementById('topic') }));
+  });
+  expect(await state()).toBe('true');
+});
+
+test('unticking a required checkbox tells screen readers at once, while focus stays on it', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  const box = page.getByLabel('You may keep my email to reply');
+  await box.check();
+  await box.uncheck();
+  await expect(box).toBeFocused();
+  await expect(box).toHaveAttribute('aria-invalid', 'true');
+  await expect(box).toHaveAttribute('aria-describedby', 'consent-error');
+});
+
+test('in forced colours (Windows High Contrast) the select keeps the browser arrow', async ({ page }) => {
+  await page.emulateMedia({ forcedColors: 'active' });
+  await page.goto('/fixtures/kit.html?theme=mor');
+  expect(await page.locator('#topic').evaluate((el) => getComputedStyle(el).appearance)).not.toBe('none');
+});
+
+test('every interactive thing inside a whole-card link stays clickable', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  await page.evaluate(() => {
+    document.querySelector('[data-interactive] [data-part="body"]').insertAdjacentHTML('beforeend', ' <a id="plain" href="#plain">A plain link</a> <button id="btn" type="button">A button</button>');
+  });
+  for (const id of ['plain', 'btn']) {
+    const hit = await page.locator(`#${id}`).evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2) === el;
+    });
+    expect(hit, id).toBe(true);
+  }
+});
+
+test('a disabled select looks disabled', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  await page.locator('#topic').evaluate((el) => (el.disabled = true));
+  await expect(page.locator('#topic')).toHaveCSS('color', 'rgb(138, 151, 153)');
+});
+
+test.describe('removing a tag with JavaScript off', () => {
+  test.use({ javaScriptEnabled: false });
+  test('the remove part is a link that works without script', async ({ page }) => {
+    await page.goto('/fixtures/kit.html');
+    const remove = page.getByRole('link', { name: 'Remove Accessibility' });
+    await expect(remove).toHaveAttribute('href', /.+/);
+  });
+});

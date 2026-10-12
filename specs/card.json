@@ -82,7 +82,7 @@
     }
   ],
   "accessibility": {
-    "web": "Only the title is a link, so a screen reader hears the title, not the whole card. Other links inside stay separately reachable.",
+    "web": "Only the title is a link, so a screen reader hears the title, not the whole card. Every other link, button or control inside sits above the card's click area and stays reachable.",
     "ios": "A VStack with an accessibility element for the title link",
     "android": "A Compose Card with the title as the clickable element"
   },

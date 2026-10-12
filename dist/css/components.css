@@ -67,7 +67,8 @@
 }
 
 /* Card: a box for one item. With data-interactive, the title's link covers
-   the whole card; any other link inside keeps its own place above it. */
+   the whole card; any other link, button or control inside sits above it and
+   stays clickable. */
 @layer saral.components {
   :where([data-scope="card"][data-part="root"]) {
     position: relative;
@@ -101,7 +102,7 @@
     inset: 0;
     border-radius: inherit;
   }
-  :where([data-scope="card"][data-part="root"] [data-scope="link"]) {
+  :where([data-scope="card"][data-part="root"] :is(a, button, input, select, textarea, [tabindex]):not([data-part="link"])) {
     position: relative;
     z-index: 1;
   }
@@ -318,6 +319,9 @@
   :where([data-scope="radio"][data-part="root"]:has([data-part="input"]:user-invalid) [data-part="error"], [data-scope="radio"][data-part="root"][data-invalid] [data-part="error"]) {
     display: block;
   }
+  :where([data-scope="radio"][data-part="item"]:has([data-part="input"]:disabled) [data-part="item-label"]) {
+    color: var(--saral-text-disabled);
+  }
   :where([data-scope="radio"][data-part="input"]:focus-visible) {
     outline: var(--saral-focus-width) solid var(--saral-border-focus);
     outline-offset: var(--saral-focus-offset);
@@ -374,14 +378,28 @@
   :where([data-scope="select"][data-part="input"]:user-invalid, [data-scope="select"][data-invalid] [data-part="input"]) {
     border-color: var(--saral-feedback-danger-border);
   }
+  :where([data-scope="select"][data-part="input"]:disabled) {
+    color: var(--saral-text-disabled);
+    background-color: var(--saral-surface-sunken);
+    cursor: not-allowed;
+  }
+  /* Forced colours (Windows High Contrast) drop drawn backgrounds, so the
+     browser's own arrow comes back. */
+  @media (forced-colors: active) {
+    :where([data-scope="select"][data-part="input"]) {
+      appearance: auto;
+      background-image: none;
+      padding-right: var(--saral-space-3);
+    }
+  }
   :where([data-scope="select"][data-part="input"]:focus-visible) {
     outline: var(--saral-focus-width) solid var(--saral-border-focus);
     outline-offset: var(--saral-focus-offset);
   }
 }
 
-/* Tag: a short label. A removable tag adds its own small button; what
-   removing does is up to the page, so Tag itself ships no script. */
+/* Tag: a short label. A removable tag adds a small remove part: a link (works
+   with no script) or a button the page wires up. Tag itself ships no script. */
 @layer saral.components {
   :where([data-scope="tag"][data-part="root"]) {
     display: inline-flex;
@@ -413,6 +431,7 @@
     color: var(--saral-text-muted);
     font: inherit;
     line-height: 1;
+    text-decoration: none;
     cursor: pointer;
   }
   @media (hover: hover) {

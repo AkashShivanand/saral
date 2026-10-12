@@ -1,5 +1,5 @@
-/* Tag: a short label. A removable tag adds its own small button; what
-   removing does is up to the page, so Tag itself ships no script. */
+/* Tag: a short label. A removable tag adds a small remove part: a link (works
+   with no script) or a button the page wires up. Tag itself ships no script. */
 @layer saral.components {
   :where([data-scope="tag"][data-part="root"]) {
     display: inline-flex;
@@ -31,6 +31,7 @@
     color: var(--saral-text-muted);
     font: inherit;
     line-height: 1;
+    text-decoration: none;
     cursor: pointer;
   }
   @media (hover: hover) {

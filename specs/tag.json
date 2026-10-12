@@ -34,8 +34,8 @@
     },
     {
       "part": "remove",
-      "element": "button",
-      "role": "button"
+      "element": "a, or a button the page wires up",
+      "role": "link or button"
     }
   ],
   "states": [
@@ -58,30 +58,36 @@
       "does": "The tag text"
     },
     {
+      "name": "removeHref",
+      "type": "string",
+      "default": "none",
+      "does": "Adds a remove link, which works with no script, for example a URL without this filter"
+    },
+    {
       "name": "onRemove",
       "type": "() => void",
       "default": "none",
-      "does": "Adds a remove button; the page decides what removing does"
+      "does": "Adds a remove button the page handles; in React Server Components it needs a client component parent"
     },
     {
       "name": "removeLabel",
       "type": "string",
       "default": "Remove <tag text>",
-      "does": "The remove button's accessible name"
+      "does": "The remove part's accessible name"
     }
   ],
   "keyboard": [
     {
       "key": "Tab",
-      "action": "Reaches the remove button, if there is one"
+      "action": "Reaches the remove part, if there is one"
     },
     {
-      "key": "Enter or Space",
-      "action": "Removes the tag"
+      "key": "Enter",
+      "action": "Follows the remove link, or presses the remove button"
     }
   ],
   "accessibility": {
-    "web": "Plain text. The remove button is a real button named Remove followed by the tag text, at the 24 by 24 pixel minimum.",
+    "web": "Plain text. The remove part is a real link or button named Remove followed by the tag text, at the 24 by 24 pixel minimum. Prefer the link: it works with no script.",
     "ios": "Text in a capsule; a remove Button with an accessibility label",
     "android": "Compose InputChip with a trailing remove icon and content description"
   },

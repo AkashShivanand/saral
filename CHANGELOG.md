@@ -11,6 +11,7 @@ Project log, dated, newest first. Package release notes will be generated separa
 - Specs and portal pages for all five. Every component passes axe in Mor and Kosh, light and dark, with errors showing.
 - The spec check caught a missing style (a tag's label), and the colour check was fixed so `white-space` is not read as the colour white.
 - Decision record 0003: native form controls.
+- A fresh review before release found five problems, all fixed with tests (119 node, 53 browser): the select lost its arrow in Windows High Contrast; a whole-card link covered every button and plain link inside the card; unticking a required checkbox showed its error before screen readers were told; a removable tag did nothing without script (it now removes through a link, and React `Tag` takes `removeHref`); and a disabled select looked enabled.
 
 ## 2026-10-12: portal deploys after every check passes
 

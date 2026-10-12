@@ -48,6 +48,20 @@
   :where([data-scope="select"][data-part="input"]:user-invalid, [data-scope="select"][data-invalid] [data-part="input"]) {
     border-color: var(--saral-feedback-danger-border);
   }
+  :where([data-scope="select"][data-part="input"]:disabled) {
+    color: var(--saral-text-disabled);
+    background-color: var(--saral-surface-sunken);
+    cursor: not-allowed;
+  }
+  /* Forced colours (Windows High Contrast) drop drawn backgrounds, so the
+     browser's own arrow comes back. */
+  @media (forced-colors: active) {
+    :where([data-scope="select"][data-part="input"]) {
+      appearance: auto;
+      background-image: none;
+      padding-right: var(--saral-space-3);
+    }
+  }
   :where([data-scope="select"][data-part="input"]:focus-visible) {
     outline: var(--saral-focus-width) solid var(--saral-border-focus);
     outline-offset: var(--saral-focus-offset);

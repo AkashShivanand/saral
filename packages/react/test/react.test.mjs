@@ -84,3 +84,7 @@ test('Card links its title when given an href, and marks itself interactive', ()
   assert.match(html(h(Card, { title: 'Tokens' }, 'Every role')), /^<article data-scope="card" data-part="root"><h3 data-scope="card" data-part="title">Tokens<\/h3><div data-scope="card" data-part="body">Every role<\/div><\/article>$/);
   assert.match(html(h(Card, { title: 'Tokens', href: '/tokens', headingLevel: 2 })), /data-interactive=""><h2 data-scope="card" data-part="title"><a data-scope="card" data-part="link" href="\/tokens">Tokens<\/a><\/h2>/);
 });
+
+test('a Tag can be removed through a link, which needs no client script', () => {
+  assert.match(html(h(Tag, { removeHref: '/topics' }, 'Design')), /<a data-scope="tag" data-part="remove" href="\/topics" aria-label="Remove Design">×<\/a>/);
+});

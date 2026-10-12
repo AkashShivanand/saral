@@ -60,6 +60,11 @@
       "how": ":focus-visible"
     },
     {
+      "state": "disabled",
+      "setBy": "css",
+      "how": ":disabled turns the text to the disabled colour on a sunken surface"
+    },
+    {
       "state": "invalid without script",
       "setBy": "css",
       "how": ":user-invalid shows the error part and the danger border"
@@ -107,7 +112,7 @@
     }
   ],
   "accessibility": {
-    "web": "A native select, so every device opens its own accessible list. The arrow is drawn in currentColor and follows the theme.",
+    "web": "A native select, so every device opens its own accessible list. The arrow is drawn in currentColor and follows the theme. In forced colours (Windows High Contrast) the browser's own arrow returns.",
     "ios": "SwiftUI Picker with the menu style",
     "android": "Compose ExposedDropdownMenuBox"
   },
@@ -123,7 +128,9 @@
     "size.control",
     "size.stroke",
     "focus.width",
-    "focus.offset"
+    "focus.offset",
+    "text.disabled",
+    "surface.sunken"
   ],
   "content": "Use a placeholder that asks: Choose a topic. The error says the same: Choose a topic."
 }
