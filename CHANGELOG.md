@@ -2,6 +2,10 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: v0.2.0 released
+
+- Tagged v0.2.0 and pushed. Update sent to the first consumer site's own session, with how to adopt the components using its own branding.
+
 ## 2026-10-12: phase 2, first components (v0.2)
 
 - Field (label, input or textarea, hint, error), Button (primary, accent, secondary, pending), Link and Notice (info, success, warning, danger). Plain HTML and CSS that work with JavaScript off.
