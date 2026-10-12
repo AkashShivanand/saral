@@ -23,3 +23,7 @@ The error part never uses `hidden`. Its CSS hides it by default and shows it whe
 - `packages/css/test/lint.test.mjs`: no component CSS may rely on `[hidden]`.
 - `tests/browser/contact.spec.mjs`: "next to a CSS reset that forces [hidden] to display:none !important", with script on and off.
 - `tests/browser/contact.spec.mjs`: "an invalid field shows its error inline from CSS alone".
+
+## Follow-up
+
+On 2026-10-12 the site that found this moved to v0.2.1 and deleted its own workaround. Its pages were unchanged, at 0.0% pixel difference in light and dark, on desktop and phone.
