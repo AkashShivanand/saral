@@ -66,6 +66,104 @@
   }
 }
 
+/* Card: a box for one item. With data-interactive, the title's link covers
+   the whole card; any other link inside keeps its own place above it. */
+@layer saral.components {
+  :where([data-scope="card"][data-part="root"]) {
+    position: relative;
+    display: grid;
+    gap: var(--saral-space-2);
+    align-content: start;
+    padding: var(--saral-space-5);
+    background: var(--saral-surface-raised);
+    border: var(--saral-size-stroke) solid var(--saral-border-hairline);
+    border-radius: var(--saral-radius-box);
+    color: var(--saral-text-default);
+  }
+  :where([data-scope="card"][data-part="title"]) {
+    margin: 0;
+    font-size: var(--saral-font-size-h3);
+    font-stretch: var(--saral-font-width-heading);
+    font-weight: var(--saral-font-weight-bold);
+    line-height: var(--saral-font-leading-tight);
+  }
+  :where([data-scope="card"][data-part="body"]) {
+    margin: 0;
+    color: var(--saral-text-muted);
+  }
+  :where([data-scope="card"][data-part="link"]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  :where([data-scope="card"][data-part="link"])::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  :where([data-scope="card"][data-part="root"] [data-scope="link"]) {
+    position: relative;
+    z-index: 1;
+  }
+  @media (hover: hover) {
+    :where([data-scope="card"][data-part="root"][data-interactive]:hover) {
+      border-color: var(--saral-border-strong);
+    }
+  }
+  :where([data-scope="card"][data-part="root"]:has([data-part="link"]:focus-visible)) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+  :where([data-scope="card"][data-part="link"]:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Checkbox: a native checkbox, coloured with accent-color, beside its label.
+   Hint and error sit under the label. Errors show by CSS, like Field. */
+@layer saral.components {
+  :where([data-scope="checkbox"][data-part="root"]) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--saral-space-3);
+    row-gap: var(--saral-space-1);
+    align-items: start;
+  }
+  :where([data-scope="checkbox"][data-part="input"]) {
+    width: var(--saral-size-target-min);
+    height: var(--saral-size-target-min);
+    margin: 0;
+    accent-color: var(--saral-action-default);
+  }
+  :where([data-scope="checkbox"][data-part="label"]) {
+    color: var(--saral-text-default);
+    padding-top: var(--saral-space-1);
+  }
+  :where([data-scope="checkbox"][data-part="hint"], [data-scope="checkbox"][data-part="error"]) {
+    grid-column: 2;
+    margin: 0;
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="checkbox"][data-part="hint"]) {
+    color: var(--saral-text-muted);
+  }
+  :where([data-scope="checkbox"][data-part="error"]) {
+    display: none;
+    color: var(--saral-feedback-danger-text);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="checkbox"][data-part="root"]:has([data-part="input"]:user-invalid) [data-part="error"], [data-scope="checkbox"][data-part="root"][data-invalid] [data-part="error"]) {
+    display: block;
+  }
+  :where([data-scope="checkbox"][data-part="input"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+  :where([data-scope="checkbox"][data-part="root"]:has([data-part="input"]:disabled) [data-part="label"]) {
+    color: var(--saral-text-disabled);
+  }
+}
+
 /* Field: label, input or textarea, optional hint, error. The error is shown
    by CSS, never by the hidden attribute (CSS resets can force [hidden] off):
    with no script when the input is :user-invalid, with core when the root
@@ -170,5 +268,158 @@
     border-color: var(--saral-feedback-danger-border);
     background: var(--saral-feedback-danger-subtle);
     color: var(--saral-feedback-danger-text);
+  }
+}
+
+/* Radio group: a fieldset of native radios. The legend is the group's label;
+   each item pairs a radio with its own label. Errors show by CSS. */
+@layer saral.components {
+  :where([data-scope="radio"][data-part="root"]) {
+    display: grid;
+    gap: var(--saral-space-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+  :where([data-scope="radio"][data-part="label"]) {
+    padding: 0;
+    margin-bottom: var(--saral-space-1);
+    color: var(--saral-text-default);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="radio"][data-part="item"]) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--saral-space-3);
+    align-items: center;
+  }
+  :where([data-scope="radio"][data-part="input"]) {
+    width: var(--saral-size-target-min);
+    height: var(--saral-size-target-min);
+    margin: 0;
+    accent-color: var(--saral-action-default);
+  }
+  :where([data-scope="radio"][data-part="item-label"]) {
+    color: var(--saral-text-default);
+  }
+  :where([data-scope="radio"][data-part="hint"], [data-scope="radio"][data-part="error"]) {
+    margin: 0;
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="radio"][data-part="hint"]) {
+    color: var(--saral-text-muted);
+  }
+  :where([data-scope="radio"][data-part="error"]) {
+    display: none;
+    color: var(--saral-feedback-danger-text);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="radio"][data-part="root"]:has([data-part="input"]:user-invalid) [data-part="error"], [data-scope="radio"][data-part="root"][data-invalid] [data-part="error"]) {
+    display: block;
+  }
+  :where([data-scope="radio"][data-part="input"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+}
+
+/* Select: a native <select> with the field's frame. The arrow is drawn with
+   currentColor, so it follows the theme. Errors show by CSS. */
+@layer saral.components {
+  :where([data-scope="select"][data-part="root"]) {
+    display: grid;
+    gap: var(--saral-space-2);
+  }
+  :where([data-scope="select"][data-part="label"]) {
+    color: var(--saral-text-default);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="select"][data-part="input"]) {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: var(--saral-size-control);
+    padding: var(--saral-space-2) var(--saral-space-7) var(--saral-space-2) var(--saral-space-3);
+    font: inherit;
+    color: var(--saral-text-default);
+    background-color: var(--saral-surface-raised);
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: right var(--saral-space-5) center, right var(--saral-space-4) center;
+    background-size: var(--saral-space-2) var(--saral-space-2);
+    background-repeat: no-repeat;
+    border: var(--saral-size-stroke) solid var(--saral-border-strong);
+    border-radius: var(--saral-radius-box);
+    appearance: none;
+  }
+  :where([data-scope="select"][data-part="hint"], [data-scope="select"][data-part="error"]) {
+    margin: 0;
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="select"][data-part="hint"]) {
+    color: var(--saral-text-muted);
+  }
+  :where([data-scope="select"][data-part="error"]) {
+    display: none;
+    color: var(--saral-feedback-danger-text);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="select"][data-part="root"]:has([data-part="input"]:user-invalid) [data-part="error"], [data-scope="select"][data-part="root"][data-invalid] [data-part="error"]) {
+    display: block;
+  }
+  @media (hover: hover) {
+    :where([data-scope="select"][data-part="input"]:hover) {
+      border-color: var(--saral-text-default);
+    }
+  }
+  :where([data-scope="select"][data-part="input"]:user-invalid, [data-scope="select"][data-invalid] [data-part="input"]) {
+    border-color: var(--saral-feedback-danger-border);
+  }
+  :where([data-scope="select"][data-part="input"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+}
+
+/* Tag: a short label. A removable tag adds its own small button; what
+   removing does is up to the page, so Tag itself ships no script. */
+@layer saral.components {
+  :where([data-scope="tag"][data-part="root"]) {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--saral-space-1);
+    min-height: var(--saral-space-6);
+    padding: 0 var(--saral-space-3);
+    border: var(--saral-size-stroke) solid var(--saral-border-hairline);
+    border-radius: var(--saral-radius-control);
+    background: var(--saral-surface-sunken);
+    color: var(--saral-text-default);
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="tag"][data-part="root"]:has([data-part="remove"])) {
+    padding-right: var(--saral-space-1);
+  }
+  :where([data-scope="tag"][data-part="remove"]) {
+    display: inline-grid;
+    place-items: center;
+    width: var(--saral-size-target-min);
+    height: var(--saral-size-target-min);
+    padding: 0;
+    border: 0;
+    border-radius: var(--saral-radius-round);
+    background: transparent;
+    color: var(--saral-text-muted);
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+  }
+  @media (hover: hover) {
+    :where([data-scope="tag"][data-part="remove"]:hover) {
+      background: var(--saral-surface-raised);
+      color: var(--saral-text-default);
+    }
+  }
+  :where([data-scope="tag"][data-part="remove"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: 0;
   }
 }

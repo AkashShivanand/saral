@@ -11,7 +11,7 @@ const read = (f) => readFileSync(join(dir, f), 'utf8').replace(/\/\*[\s\S]*?\*\/
 const known = new Set(Object.keys(mor.light).map((p) => `--saral-${p.replaceAll('.', '-')}`));
 
 test('there is component CSS to check', () => {
-  assert.deepEqual(files.sort(), ['button.css', 'field.css', 'link.css', 'notice.css']);
+  assert.deepEqual(files.sort(), ['button.css', 'card.css', 'checkbox.css', 'field.css', 'link.css', 'notice.css', 'radio.css', 'select.css', 'tag.css']);
 });
 
 test('component CSS uses no raw colours', () => {

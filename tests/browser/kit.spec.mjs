@@ -65,12 +65,10 @@ test.describe('with JavaScript off', () => {
     await expect(page).toHaveURL(/kit\.html$/);
   });
 
-  test('a select changed back to its placeholder shows its error from CSS alone', async ({ page }) => {
+  test('after a submit attempt, every invalid control shows its error from CSS alone', async ({ page }) => {
     await page.goto('/fixtures/kit.html');
-    await page.getByLabel('Topic', { exact: true }).selectOption('work');
-    await page.getByLabel('Topic', { exact: true }).selectOption('');
-    await page.getByLabel('Topic', { exact: true }).press('Tab');
-    await expect(page.locator('#topic-error')).toBeVisible();
+    await pressSend(page);
+    for (const id of ['reply', 'topic', 'consent']) await expect(page.locator(`#${id}-error`)).toBeVisible();
   });
 });
 
@@ -85,3 +83,28 @@ for (const theme of ['mor', 'kosh']) {
     });
   }
 }
+
+test('errors stay hidden until there is something wrong', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  for (const id of ['reply', 'topic', 'consent']) await expect(page.locator(`#${id}-error`)).toBeHidden();
+});
+
+test('a whole card opens its link, and a link inside it still goes its own way', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  const card = page.locator('[data-interactive]');
+  const box = await card.boundingBox();
+  await page.mouse.click(box.x + box.width - 8, box.y + 8);
+  await expect(page).toHaveURL(/thanks\.html/);
+  await page.goBack();
+  await page.getByRole('link', { name: 'The contact form' }).click();
+  await expect(page).toHaveURL(/contact\.html/);
+});
+
+test('form controls meet the 24 by 24 pixel minimum target', async ({ page }) => {
+  await page.goto('/fixtures/kit.html?theme=mor');
+  for (const sel of ['#consent', '#reply-email', '[data-part="remove"]']) {
+    const box = await page.locator(sel).boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(24);
+    expect(box.height).toBeGreaterThanOrEqual(24);
+  }
+});

@@ -1,0 +1,43 @@
+/* Tag: a short label. A removable tag adds its own small button; what
+   removing does is up to the page, so Tag itself ships no script. */
+@layer saral.components {
+  :where([data-scope="tag"][data-part="root"]) {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--saral-space-1);
+    min-height: var(--saral-space-6);
+    padding: 0 var(--saral-space-3);
+    border: var(--saral-size-stroke) solid var(--saral-border-hairline);
+    border-radius: var(--saral-radius-control);
+    background: var(--saral-surface-sunken);
+    color: var(--saral-text-default);
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="tag"][data-part="root"]:has([data-part="remove"])) {
+    padding-right: var(--saral-space-1);
+  }
+  :where([data-scope="tag"][data-part="remove"]) {
+    display: inline-grid;
+    place-items: center;
+    width: var(--saral-size-target-min);
+    height: var(--saral-size-target-min);
+    padding: 0;
+    border: 0;
+    border-radius: var(--saral-radius-round);
+    background: transparent;
+    color: var(--saral-text-muted);
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+  }
+  @media (hover: hover) {
+    :where([data-scope="tag"][data-part="remove"]:hover) {
+      background: var(--saral-surface-raised);
+      color: var(--saral-text-default);
+    }
+  }
+  :where([data-scope="tag"][data-part="remove"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: 0;
+  }
+}
