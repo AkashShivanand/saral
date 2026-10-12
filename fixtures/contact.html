@@ -50,7 +50,7 @@
 </main>
 <script type="module">
   import { enhanceForm } from '../packages/core/src/index.mjs';
-  enhanceForm(document.getElementById('contact'));
+  if (new URLSearchParams(location.search).get('enhance') !== '0') enhanceForm(document.getElementById('contact'));
 </script>
 </body>
 </html>

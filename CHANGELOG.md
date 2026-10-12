@@ -12,6 +12,7 @@ Project log, dated, newest first. Package release notes will be generated separa
 - No runtime dependencies, enforced by a test. Saral learns from other systems but never depends on them.
 - Packaging is ready for npm: an exports map for the CSS, tokens, core and React. Publishing waits for a decision.
 - Fixed: a theme set on `<html>` now follows the system's dark mode.
+- A fresh review before release found six problems, all fixed with tests (95 node, 23 browser): the button was marked pending before the site's own submit code ran, so a form sent by fetch or into a new tab went dead; an invalid control Saral does not manage blocked the submit without a word; overlapping instances could switch browser validation back on; the CSS and token imports had no types for strict TypeScript sites; a field written without an error element stopped the whole form's enhancement; and the README example missed a message and could not import in a plain page.
 - Decision record 0002.
 
 ## 2026-10-12: Saral's own themes only

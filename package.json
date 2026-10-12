@@ -36,8 +36,14 @@
     }
   },
   "exports": {
-    "./css/*": "./dist/css/*",
-    "./tokens/*": "./dist/js/*",
+    "./css/*": {
+      "types": "./types/css.d.mts",
+      "default": "./dist/css/*"
+    },
+    "./tokens/*": {
+      "types": "./types/tokens.d.mts",
+      "default": "./dist/js/*"
+    },
     "./core": {
       "types": "./dist/types/core/src/index.d.mts",
       "default": "./packages/core/src/index.mjs"
@@ -49,6 +55,7 @@
   },
   "files": [
     "dist",
+    "types",
     "packages/core/src",
     "packages/react/src",
     "LICENSE",

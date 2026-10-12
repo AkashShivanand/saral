@@ -6,17 +6,18 @@ test.beforeEach(async ({ page }) => {
 
 const pressSubmit = (page) => page.evaluate(() => document.querySelector('button[type="submit"]').click());
 
-// Counts the submits that would really post, then cancels them, so the page
-// stays put and the button can be inspected. Saral's own submit handler runs
-// first, on the form; this one runs after it, on the window.
-const holdPosts = (page) =>
-  page.evaluate(() => {
-    window.posts = 0;
-    window.addEventListener('submit', (e) => {
-      if (!e.defaultPrevented) window.posts += 1;
-      e.preventDefault();
-    });
+const attr = (page, name) => page.evaluate((n) => document.querySelector('button[type="submit"]').getAttribute(n), name);
+
+// Counts the form's real posts and answers each with 204 No Content, so the
+// browser stays on the page and the button can be inspected afterwards.
+const holdNavigation = async (page) => {
+  let count = 0;
+  await page.route(/fixtures\/thanks\.html/, (route) => {
+    count += 1;
+    return route.fulfill({ status: 204 });
   });
+  return () => count;
+};
 
 const fillValid = async (page) => {
   await page.getByLabel('Name').fill('Asha');
@@ -102,26 +103,140 @@ test.describe('with JavaScript on', () => {
 
   test('a valid submit marks the button pending and a second press does not post again', async ({ page }) => {
     await page.goto('/fixtures/contact.html?theme=mor');
-    await holdPosts(page);
+    const hits = await holdNavigation(page);
     await fillValid(page);
-    const button = page.getByRole('button', { name: 'Send message' });
     await pressSubmit(page);
-    await expect(button).toHaveAttribute('data-pending', '');
-    await expect(button).toHaveAttribute('aria-disabled', 'true');
+    await expect.poll(() => attr(page, 'data-pending')).toBe('');
+    expect(await attr(page, 'aria-disabled')).toBe('true');
     await pressSubmit(page);
-    expect(await page.evaluate(() => window.posts)).toBe(1);
+    expect(hits()).toBe(1);
   });
 
   test('a page restored by the back button is no longer pending', async ({ page }) => {
     await page.goto('/fixtures/contact.html?theme=mor');
-    await holdPosts(page);
+    await holdNavigation(page);
     await fillValid(page);
-    const button = page.getByRole('button', { name: 'Send message' });
     await pressSubmit(page);
-    await expect(button).toHaveAttribute('data-pending', '');
+    await expect.poll(() => attr(page, 'data-pending')).toBe('');
     await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
-    await expect(button).not.toHaveAttribute('data-pending', /.*/);
-    await expect(button).not.toHaveAttribute('aria-disabled', /.*/);
+    await expect.poll(() => attr(page, 'data-pending')).toBe(null);
+    expect(await attr(page, 'aria-disabled')).toBe(null);
+  });
+
+  test('when the site cancels the submit itself (to send by fetch), the button is not left pending', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.evaluate(() => {
+      window.sends = 0;
+      document.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.sends += 1;
+      });
+    });
+    await fillValid(page);
+    await pressSubmit(page);
+    await page.waitForTimeout(50);
+    expect(await attr(page, 'data-pending')).toBe(null);
+    await pressSubmit(page);
+    await page.waitForTimeout(50);
+    expect(await page.evaluate(() => window.sends)).toBe(2);
+  });
+
+  test('a form that opens in a new tab is not left pending', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.evaluate(() => (document.getElementById('contact').target = '_blank'));
+    await fillValid(page);
+    const popup = page.waitForEvent('popup');
+    await pressSubmit(page);
+    await popup;
+    expect(await attr(page, 'data-pending')).toBe(null);
+  });
+
+  test('two requestSubmit calls in a row post once and mark the submit button pending', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor');
+    const hits = await holdNavigation(page);
+    await fillValid(page);
+    await page.evaluate(() => {
+      const form = document.getElementById('contact');
+      form.requestSubmit();
+      form.requestSubmit();
+    });
+    await expect.poll(() => attr(page, 'data-pending')).toBe('');
+    expect(hits()).toBe(1);
+  });
+
+  test('an invalid control Saral does not manage gets focus, so the submit is never silently blocked', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.evaluate(() => {
+      const box = Object.assign(document.createElement('input'), { type: 'checkbox', id: 'consent', required: true });
+      document.querySelector('.send').before(box);
+    });
+    await fillValid(page);
+    await pressSubmit(page);
+    await expect(page).toHaveURL(/contact\.html\?theme=mor$/);
+    expect(await page.evaluate(() => document.activeElement?.id)).toBe('consent');
+  });
+
+  test('a field added after the form was enhanced still shows its error', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.evaluate(() => {
+      document.querySelector('.send').insertAdjacentHTML('beforebegin', `
+        <div data-scope="field" data-part="root">
+          <label data-scope="field" data-part="label" for="phone">Phone</label>
+          <input data-scope="field" data-part="input" id="phone" name="phone" required>
+          <p data-scope="field" data-part="error" id="phone-error" hidden data-message-value-missing="Enter a phone number">Enter a phone number</p>
+        </div>`);
+    });
+    await fillValid(page);
+    await pressSubmit(page);
+    await expect(page.locator('#phone-error')).toBeVisible();
+    await expect(page.getByLabel('Phone')).toBeFocused();
+  });
+
+  test('a field written without an error element gets one, and the form still works', async ({ page }) => {
+    await page.goto('/fixtures/contact.html?theme=mor&enhance=0');
+    await page.evaluate(async () => {
+      document.getElementById('name-error').remove();
+      const { enhanceForm } = await import('/packages/core/src/index.mjs');
+      enhanceForm(document.getElementById('contact'));
+    });
+    await pressSubmit(page);
+    await expect(page.locator('#name-error')).toBeVisible();
+    await expect(page.getByLabel('Name')).toBeFocused();
+  });
+});
+
+test.describe('React Strict Mode order: enhance, destroy, enhance', () => {
+  test('after mount, cleanup and mount, a failed submit focuses the first error and a valid one posts once', async ({ page }) => {
+    await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    await page.goto('/fixtures/contact.html?theme=mor&enhance=0');
+    await page.evaluate(async () => {
+      const { enhanceForm } = await import('/packages/core/src/index.mjs');
+      const form = document.getElementById('contact');
+      enhanceForm(form).destroy();
+      enhanceForm(form);
+    });
+    await pressSubmit(page);
+    await expect(page.locator('#name-error')).toBeVisible();
+    await expect(page.getByLabel('Name')).toBeFocused();
+    const hits = await holdNavigation(page);
+    await fillValid(page);
+    await pressSubmit(page);
+    await pressSubmit(page);
+    await expect.poll(() => attr(page, 'data-pending')).toBe('');
+    expect(hits()).toBe(1);
+  });
+
+  test('a second instance destroyed while the first is live leaves validation with Saral', async ({ page }) => {
+    await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.evaluate(async () => {
+      const { enhanceForm } = await import('/packages/core/src/index.mjs');
+      enhanceForm(document.getElementById('contact')).destroy();
+    });
+    expect(await page.evaluate(() => document.getElementById('contact').noValidate)).toBe(true);
+    await pressSubmit(page);
+    await expect(page.locator('#name-error')).toBeVisible();
+    await expect(page.getByLabel('Name')).toBeFocused();
   });
 });
 

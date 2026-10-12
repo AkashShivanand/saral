@@ -34,30 +34,40 @@ function messageFor(input, error) {
  */
 export function enhanceField(root) {
   const input = /** @type {HTMLInputElement | HTMLTextAreaElement | null} */ (root.querySelector('[data-part="input"]'));
-  const error = /** @type {HTMLElement | null} */ (root.querySelector('[data-part="error"]'));
-  if (!input || !error) throw new Error('saral: a field needs [data-part="input"] and [data-part="error"]');
-  if (!error.id) error.id = `${input.id || `saral-field-${++count}`}-error`;
+  if (!input) throw new Error('saral: a field needs a [data-part="input"]');
+  let error = /** @type {HTMLElement | null} */ (root.querySelector('[data-part="error"]'));
+  // A field written without an error element gets one, so it can still say
+  // what is wrong.
+  if (!error) {
+    error = document.createElement('p');
+    error.setAttribute('data-scope', 'field');
+    error.setAttribute('data-part', 'error');
+    error.hidden = true;
+    root.append(error);
+  }
+  const message = error;
+  if (!message.id) message.id = `${input.id || `saral-field-${++count}`}-error`;
   let edited = false;
   let shown = false;
 
   /** @param {boolean} add */
   const describe = (add) => {
     const ids = new Set((input.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean));
-    if (add) ids.add(error.id);
-    else ids.delete(error.id);
+    if (add) ids.add(message.id);
+    else ids.delete(message.id);
     if (ids.size) input.setAttribute('aria-describedby', [...ids].join(' '));
     else input.removeAttribute('aria-describedby');
   };
   const show = () => {
-    error.textContent = messageFor(input, error);
-    error.hidden = false;
+    message.textContent = messageFor(input, message);
+    message.hidden = false;
     input.setAttribute('aria-invalid', 'true');
     root.setAttribute('data-invalid', '');
     describe(true);
     shown = true;
   };
   const hide = () => {
-    error.hidden = true;
+    message.hidden = true;
     input.removeAttribute('aria-invalid');
     root.removeAttribute('data-invalid');
     describe(false);

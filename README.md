@@ -44,18 +44,21 @@ The theme follows the system's light or dark setting. Add `data-saral-mode="dark
   <div data-scope="field" data-part="root">
     <label data-scope="field" data-part="label" for="email">Email</label>
     <input data-scope="field" data-part="input" id="email" name="email" type="email" required>
-    <p data-scope="field" data-part="error" id="email-error" hidden data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address</p>
+    <p data-scope="field" data-part="error" id="email-error" hidden data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address</p>
   </div>
   <button data-scope="button" data-part="root" data-variant="accent" type="submit">Send message</button>
 </form>
 
+<script type="importmap">
+  { "imports": { "saral/core": "/node_modules/saral/packages/core/src/index.mjs" } }
+</script>
 <script type="module">
   import { enhanceForm } from 'saral/core';
   enhanceForm(document.getElementById('contact'));
 </script>
 ```
 
-The script is optional. Without it, the browser validates the form and the CSS marks invalid fields. In React: `import { Form, Field, Button, Link, Notice } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
+With a bundler, drop the import map and import from `saral/core` directly. The script is optional. Without it, the browser validates the form and the CSS marks invalid fields. In React: `import { Form, Field, Button, Link, Notice } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
 
 To give Saral your own look, set its variables to your brand's values, for example `:root { --saral-accent-default: #0055ff; }`. The full list of roles is in `tokens/roles.json`, and the contrast pairs a theme should meet are in `tokens/pairs.json`.
 
