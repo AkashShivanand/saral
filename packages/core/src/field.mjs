@@ -15,10 +15,12 @@ const MESSAGES = [
   ['tooShort', 'messageTooShort'],
 ];
 
+export const FIELD = ['field', 'checkbox', 'radio', 'select'].map((s) => `[data-scope="${s}"][data-part="root"]`).join(', ');
+
 let count = 0;
 
 /**
- * @param {HTMLInputElement | HTMLTextAreaElement} input
+ * @param {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} input
  * @param {HTMLElement} error
  */
 function messageFor(input, error) {
@@ -29,18 +31,21 @@ function messageFor(input, error) {
 }
 
 /**
- * @param {HTMLElement} root the element with data-scope="field" data-part="root"
+ * @param {HTMLElement} root a field-like root (see FIELD)
  * @returns {FieldHandle}
  */
 export function enhanceField(root) {
-  const input = /** @type {HTMLInputElement | HTMLTextAreaElement | null} */ (root.querySelector('[data-part="input"]'));
+  const inputs = /** @type {Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>} */ ([
+    ...root.querySelectorAll('[data-part="input"]'),
+  ]);
+  const input = inputs[0];
   if (!input) throw new Error('saral: a field needs a [data-part="input"]');
   let error = /** @type {HTMLElement | null} */ (root.querySelector('[data-part="error"]'));
   // A field written without an error element gets one, so it can still say
   // what is wrong.
   if (!error) {
     error = document.createElement('p');
-    error.setAttribute('data-scope', 'field');
+    error.setAttribute('data-scope', root.getAttribute('data-scope') ?? 'field');
     error.setAttribute('data-part', 'error');
     root.append(error);
   }
@@ -51,25 +56,29 @@ export function enhanceField(root) {
 
   /** @param {boolean} add */
   const describe = (add) => {
-    const ids = new Set((input.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean));
-    if (add) ids.add(message.id);
-    else ids.delete(message.id);
-    if (ids.size) input.setAttribute('aria-describedby', [...ids].join(' '));
-    else input.removeAttribute('aria-describedby');
+    for (const el of inputs) {
+      const ids = new Set((el.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean));
+      if (add) ids.add(message.id);
+      else ids.delete(message.id);
+      if (ids.size) el.setAttribute('aria-describedby', [...ids].join(' '));
+      else el.removeAttribute('aria-describedby');
+    }
   };
   const show = () => {
     message.textContent = messageFor(input, message);
-    input.setAttribute('aria-invalid', 'true');
+    for (const el of inputs) el.setAttribute('aria-invalid', 'true');
     root.setAttribute('data-invalid', '');
     describe(true);
     shown = true;
   };
   const hide = () => {
-    input.removeAttribute('aria-invalid');
+    for (const el of inputs) el.removeAttribute('aria-invalid');
     root.removeAttribute('data-invalid');
     describe(false);
     shown = false;
   };
+  // A radio group is valid or invalid as a whole, so its first input speaks
+  // for all of them.
   const validate = () => {
     if (input.validity.valid) {
       hide();
@@ -78,27 +87,32 @@ export function enhanceField(root) {
     show();
     return false;
   };
-  const onInput = () => {
+  const onChange = () => {
     edited = true;
     if (shown) validate();
   };
-  const onBlur = () => {
-    if (edited) validate();
+  // Check when focus leaves the whole field, so moving between the radios of
+  // one group does not check it half way.
+  /** @param {FocusEvent} e */
+  const onFocusOut = (e) => {
+    if (edited && !(e.relatedTarget instanceof Node && root.contains(e.relatedTarget))) validate();
   };
   /** @param {Event} e */
   const onInvalid = (e) => {
     e.preventDefault();
     show();
   };
-  input.addEventListener('input', onInput);
-  input.addEventListener('blur', onBlur);
-  input.addEventListener('invalid', onInvalid);
+  root.addEventListener('input', onChange);
+  root.addEventListener('change', onChange);
+  root.addEventListener('focusout', onFocusOut);
+  root.addEventListener('invalid', onInvalid, true);
   return {
     validate,
     destroy() {
-      input.removeEventListener('input', onInput);
-      input.removeEventListener('blur', onBlur);
-      input.removeEventListener('invalid', onInvalid);
+      root.removeEventListener('input', onChange);
+      root.removeEventListener('change', onChange);
+      root.removeEventListener('focusout', onFocusOut);
+      root.removeEventListener('invalid', onInvalid, true);
     },
   };
 }

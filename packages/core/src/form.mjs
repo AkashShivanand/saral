@@ -1,10 +1,9 @@
 // Takes validation over from the browser so errors show inline, in the page's
 // own words, and focus moves to the first one. Submitting stays a normal form
 // post. If this script never runs, the browser's own validation still works.
-import { enhanceField } from './field.mjs';
+import { enhanceField, FIELD } from './field.mjs';
 import { setPending } from './pending.mjs';
 
-const FIELD = '[data-scope="field"][data-part="root"]';
 const SUBMIT = 'button[type="submit"], button:not([type]), input[type="submit"]';
 
 /** @typedef {{ destroy(): void, reset(): void }} FormHandle */

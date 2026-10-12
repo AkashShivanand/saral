@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saral kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&display=swap">
+<link rel="stylesheet" href="../dist/css/kosh.css">
+<link rel="stylesheet" href="../dist/css/mor.css">
+<link rel="stylesheet" href="../dist/css/components.css">
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.get('theme')) document.documentElement.dataset.saralTheme = q.get('theme');
+  if (q.get('mode')) document.documentElement.dataset.saralMode = q.get('mode');
+</script>
+<style>
+  body { margin: 0; background: var(--saral-surface-ground); color: var(--saral-text-default); font-family: var(--saral-font-family-sans); line-height: var(--saral-font-leading-body); }
+  main { max-width: 640px; margin: 0 auto; padding: var(--saral-space-7) var(--saral-space-4); display: grid; gap: var(--saral-space-6); }
+  h1 { margin: 0; font-size: var(--saral-font-size-h1); font-stretch: var(--saral-font-width-display); }
+  form { display: grid; gap: var(--saral-space-5); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--saral-space-2); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--saral-space-4); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Kit</h1>
+  <form id="kit" method="get" action="thanks.html">
+    <fieldset data-scope="radio" data-part="root">
+      <legend data-scope="radio" data-part="label">How should we reply?</legend>
+      <div data-scope="radio" data-part="item">
+        <input data-scope="radio" data-part="input" type="radio" id="reply-email" name="reply" value="email" required>
+        <label data-scope="radio" data-part="item-label" for="reply-email">Email</label>
+      </div>
+      <div data-scope="radio" data-part="item">
+        <input data-scope="radio" data-part="input" type="radio" id="reply-phone" name="reply" value="phone">
+        <label data-scope="radio" data-part="item-label" for="reply-phone">Phone</label>
+      </div>
+      <p data-scope="radio" data-part="error" id="reply-error" data-message-value-missing="Choose how we should reply">Choose how we should reply</p>
+    </fieldset>
+    <div data-scope="select" data-part="root">
+      <label data-scope="select" data-part="label" for="topic">Topic</label>
+      <select data-scope="select" data-part="input" id="topic" name="topic" required aria-describedby="topic-hint">
+        <option value="">Choose a topic</option>
+        <option value="work">Work together</option>
+        <option value="talk">A talk or workshop</option>
+      </select>
+      <p data-scope="select" data-part="hint" id="topic-hint">So the message reaches the right place.</p>
+      <p data-scope="select" data-part="error" id="topic-error" data-message-value-missing="Choose a topic">Choose a topic</p>
+    </div>
+    <div data-scope="checkbox" data-part="root">
+      <input data-scope="checkbox" data-part="input" type="checkbox" id="consent" name="consent" required>
+      <label data-scope="checkbox" data-part="label" for="consent">You may keep my email to reply</label>
+      <p data-scope="checkbox" data-part="error" id="consent-error" data-message-value-missing="Tick this so we can reply">Tick this so we can reply</p>
+    </div>
+    <div><button data-scope="button" data-part="root" data-variant="accent" type="submit">Send</button></div>
+  </form>
+  <div class="row" role="group" aria-label="Topics">
+    <span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Design systems</span></span>
+    <span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Accessibility</span><button data-scope="tag" data-part="remove" type="button" aria-label="Remove Accessibility">×</button></span>
+  </div>
+  <div class="cards">
+    <article data-scope="card" data-part="root">
+      <h2 data-scope="card" data-part="title">Tokens</h2>
+      <p data-scope="card" data-part="body">Every colour role, and every contrast pair with its ratio.</p>
+    </article>
+    <article data-scope="card" data-part="root" data-interactive>
+      <h2 data-scope="card" data-part="title"><a data-scope="card" data-part="link" href="thanks.html">Components</a></h2>
+      <p data-scope="card" data-part="body">The whole card opens the page. <a data-scope="link" data-part="root" href="contact.html">The contact form</a> stays its own link.</p>
+    </article>
+  </div>
+</main>
+<script type="module">
+  import { enhanceForm } from '../packages/core/src/index.mjs';
+  if (new URLSearchParams(location.search).get('enhance') !== '0') enhanceForm(document.getElementById('kit'));
+</script>
+</body>
+</html>
