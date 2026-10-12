@@ -14,7 +14,9 @@
     "check:dist": "node packages/tokens/src/build.mjs --check",
     "serve": "node tools/serve.mjs",
     "typecheck": "tsc -p tsconfig.json",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "types": "tsc -p tsconfig.types.json",
+    "check:types": "npm run types && git diff --exit-code dist/types"
   },
   "version": "0.1.0",
   "devDependencies": {
@@ -31,6 +33,18 @@
   "peerDependenciesMeta": {
     "react": {
       "optional": true
+    }
+  },
+  "exports": {
+    "./css/*": "./dist/css/*",
+    "./tokens/*": "./dist/js/*",
+    "./core": {
+      "types": "./dist/types/core/src/index.d.mts",
+      "default": "./packages/core/src/index.mjs"
+    },
+    "./react": {
+      "types": "./dist/types/react/src/index.d.mts",
+      "default": "./packages/react/src/index.mjs"
     }
   }
 }

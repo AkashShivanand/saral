@@ -124,3 +124,17 @@ test.describe('with JavaScript on', () => {
     await expect(button).not.toHaveAttribute('aria-disabled', /.*/);
   });
 });
+
+test('enhancing twice and destroying once leaves one working set of listeners', async ({ page }) => {
+  await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+  await page.goto('/fixtures/contact.html?theme=mor');
+  await page.evaluate(async () => {
+    const { enhanceForm } = await import('/packages/core/src/index.mjs');
+    enhanceForm(document.getElementById('contact')).destroy();
+  });
+  const email = page.getByLabel('Email');
+  await email.fill('asha@');
+  await email.blur();
+  await expect(page.locator('#email-error')).toBeVisible();
+  await expect(email).toHaveAttribute('aria-describedby', 'email-hint email-error');
+});
