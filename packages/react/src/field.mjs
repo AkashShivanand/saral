@@ -41,6 +41,6 @@ export function Field({ label, hint, messages = {}, multiline = false, id, ...in
     h('label', { ...part('label'), htmlFor: inputId }, label),
     h(multiline ? 'textarea' : 'input', { ...input, ...part('input'), id: inputId, 'aria-describedby': hintId }),
     hint ? h('p', { ...part('hint'), id: hintId }, hint) : null,
-    h('p', { ...part('error'), id: `${inputId}-error`, hidden: true, ...data }, messages.valueMissing ?? ''),
+    h('p', { ...part('error'), id: `${inputId}-error`, ...data }, messages.typeMismatch ?? messages.valueMissing ?? ''),
   );
 }

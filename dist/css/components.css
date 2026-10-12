@@ -66,9 +66,10 @@
   }
 }
 
-/* Field: label, input or textarea, optional hint, error. Works with no
-   script: :user-invalid marks the border after the person has interacted.
-   With core, [data-invalid] and the error text follow the same rule. */
+/* Field: label, input or textarea, optional hint, error. The error is shown
+   by CSS, never by the hidden attribute (CSS resets can force [hidden] off):
+   with no script when the input is :user-invalid, with core when the root
+   has [data-invalid]. Both follow the same timing. */
 @layer saral.components {
   :where([data-scope="field"][data-part="root"]) {
     display: grid;
@@ -103,11 +104,12 @@
     color: var(--saral-text-muted);
   }
   :where([data-scope="field"][data-part="error"]) {
+    display: none;
     color: var(--saral-feedback-danger-text);
     font-weight: var(--saral-font-weight-medium);
   }
-  :where([data-scope="field"][data-part="error"][hidden]) {
-    display: none;
+  :where([data-scope="field"][data-part="root"]:has([data-part="input"]:user-invalid) [data-part="error"], [data-scope="field"][data-part="root"][data-invalid] [data-part="error"]) {
+    display: block;
   }
   @media (hover: hover) {
     :where([data-scope="field"][data-part="input"]:hover) {

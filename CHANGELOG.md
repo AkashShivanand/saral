@@ -2,6 +2,12 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: v0.2.1, field errors shown by CSS
+
+- Field errors no longer use the `hidden` attribute. CSS shows the error when the input is `:user-invalid` (no script) or when the field has `data-invalid` (with script). A CSS reset that forces `[hidden]` off can no longer stop an error from showing.
+- With no script, the error's own text now shows inline, so the fixture and README use the most useful general message as that text. React `Field` writes the type-mismatch message there when given, otherwise the value-missing one.
+- Found by the first site to adopt Saral. Recorded as incident 0001, with three tests that now guard it.
+
 ## 2026-10-12: v0.2.0 released
 
 - Tagged v0.2.0 and pushed. Update sent to the first consumer site's own session, with how to adopt the components using its own branding.

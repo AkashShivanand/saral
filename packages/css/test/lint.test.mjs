@@ -35,3 +35,7 @@ test('every rule is in the components layer and wrapped in :where()', () => {
     }
   }
 });
+
+test('no component relies on the hidden attribute, which CSS resets can force off', () => {
+  for (const f of files) assert.equal(read(f).includes('[hidden]'), false, f);
+});

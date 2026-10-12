@@ -42,7 +42,6 @@ export function enhanceField(root) {
     error = document.createElement('p');
     error.setAttribute('data-scope', 'field');
     error.setAttribute('data-part', 'error');
-    error.hidden = true;
     root.append(error);
   }
   const message = error;
@@ -60,14 +59,12 @@ export function enhanceField(root) {
   };
   const show = () => {
     message.textContent = messageFor(input, message);
-    message.hidden = false;
     input.setAttribute('aria-invalid', 'true');
     root.setAttribute('data-invalid', '');
     describe(true);
     shown = true;
   };
   const hide = () => {
-    message.hidden = true;
     input.removeAttribute('aria-invalid');
     root.removeAttribute('data-invalid');
     describe(false);

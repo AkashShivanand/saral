@@ -38,7 +38,7 @@ test('Field links label, hint and error, and carries the messages', () => {
   assert.match(out, /<label data-scope="field" data-part="label" for="email">Email<\/label>/);
   assert.match(out, /<input[^>]* id="email"[^>]*aria-describedby="email-hint"/);
   assert.match(out, /<p data-scope="field" data-part="hint" id="email-hint">Only used to reply\.<\/p>/);
-  assert.match(out, /<p data-scope="field" data-part="error" id="email-error" hidden="" data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address<\/p>/);
+  assert.match(out, /<p data-scope="field" data-part="error" id="email-error" data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter an email address like name@example.com<\/p>/);
 });
 
 test('Field renders a textarea when multiline, and makes an id when none is given', () => {

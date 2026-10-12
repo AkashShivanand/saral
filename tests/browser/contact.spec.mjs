@@ -41,6 +41,16 @@ test.describe('with JavaScript off', () => {
     await expect(page).toHaveURL(/thanks\.html\?name=Asha/);
   });
 
+  test('an invalid field shows its error inline from CSS alone', async ({ page }) => {
+    await page.goto('/fixtures/contact.html');
+    const error = page.locator('#email-error');
+    await expect(error).toBeHidden();
+    await page.getByLabel('Email').fill('asha@');
+    await page.getByLabel('Email').press('Tab');
+    await expect(error).toBeVisible();
+    await expect(error).toHaveText('Enter an email address like name@example.com');
+  });
+
   test('an invalid email gets the danger border from CSS alone', async ({ page }) => {
     await page.goto('/fixtures/contact.html');
     const email = page.getByLabel('Email');
@@ -252,4 +262,34 @@ test('enhancing twice and destroying once leaves one working set of listeners', 
   await email.blur();
   await expect(page.locator('#email-error')).toBeVisible();
   await expect(email).toHaveAttribute('aria-describedby', 'email-hint email-error');
+});
+
+test.describe('next to a CSS reset that forces [hidden] to display:none !important', () => {
+  test('errors still show and clear, with the script on', async ({ page }) => {
+    await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    await page.goto('/fixtures/contact.html?theme=mor');
+    await page.addStyleTag({ content: '[hidden] { display: none !important; }' });
+    const email = page.getByLabel('Email');
+    await email.fill('asha@');
+    await email.blur();
+    await expect(page.locator('#email-error')).toBeVisible();
+    await email.fill('asha@example.com');
+    await expect(page.locator('#email-error')).toBeHidden();
+  });
+
+  test('errors show with the script off', async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4322' });
+    const page = await context.newPage();
+    // With script off, the reset is written into the page itself.
+    await page.route(/fixtures\/contact\.html/, async (route) => {
+      const res = await route.fetch();
+      const body = (await res.text()).replace('</head>', '<style>[hidden] { display: none !important; }</style></head>');
+      await route.fulfill({ response: res, body });
+    });
+    await page.goto('/fixtures/contact.html');
+    await page.getByLabel('Email').fill('asha@');
+    await page.getByLabel('Email').press('Tab');
+    await expect(page.locator('#email-error')).toBeVisible();
+    await context.close();
+  });
 });

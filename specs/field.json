@@ -57,12 +57,12 @@
     {
       "state": "invalid without script",
       "setBy": "css",
-      "how": ":user-invalid"
+      "how": ":user-invalid on the input shows the error part by CSS"
     },
     {
       "state": "invalid with script",
       "setBy": "core",
-      "how": "data-invalid on root, aria-invalid on input, error shown and added to aria-describedby"
+      "how": "data-invalid on root shows the error part; aria-invalid on input; error added to aria-describedby"
     }
   ],
   "props": [
@@ -116,7 +116,7 @@
     "focus.width",
     "focus.offset"
   ],
-  "content": "Errors say what to do: Enter an email address like name@example.com. No Error: prefix, no please.",
+  "content": "Errors say what to do: Enter an email address like name@example.com. No Error: prefix, no please. Write the error part's own text as the most useful general message: with no script, that text is what people see.",
   "examples": [
     "fixtures/contact.html"
   ],

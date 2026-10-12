@@ -29,18 +29,18 @@
     <div data-scope="field" data-part="root">
       <label data-scope="field" data-part="label" for="name">Name</label>
       <input data-scope="field" data-part="input" id="name" name="name" type="text" required maxlength="120" autocomplete="name">
-      <p data-scope="field" data-part="error" id="name-error" hidden data-message-value-missing="Enter your name">Enter your name</p>
+      <p data-scope="field" data-part="error" id="name-error" data-message-value-missing="Enter your name">Enter your name</p>
     </div>
     <div data-scope="field" data-part="root">
       <label data-scope="field" data-part="label" for="email">Email</label>
       <input data-scope="field" data-part="input" id="email" name="email" type="email" required maxlength="200" autocomplete="email" aria-describedby="email-hint">
       <p data-scope="field" data-part="hint" id="email-hint">Only used to reply. Never shared.</p>
-      <p data-scope="field" data-part="error" id="email-error" hidden data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter your email address</p>
+      <p data-scope="field" data-part="error" id="email-error" data-message-value-missing="Enter your email address" data-message-type-mismatch="Enter an email address like name@example.com">Enter an email address like name@example.com</p>
     </div>
     <div data-scope="field" data-part="root">
       <label data-scope="field" data-part="label" for="message">Message</label>
       <textarea data-scope="field" data-part="input" id="message" name="message" required maxlength="4000" rows="5"></textarea>
-      <p data-scope="field" data-part="error" id="message-error" hidden data-message-value-missing="Write a message">Write a message</p>
+      <p data-scope="field" data-part="error" id="message-error" data-message-value-missing="Write a message">Write a message</p>
     </div>
     <div class="send">
       <button data-scope="button" data-part="root" data-variant="accent" type="submit">Send message</button>
