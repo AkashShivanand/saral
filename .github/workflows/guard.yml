@@ -22,3 +22,40 @@ jobs:
       - run: npm run guard
         env:
           SARAL_GUARD_TERMS: ${{ secrets.SARAL_GUARD_TERMS }}
+
+  # Publishes the documentation portal, only after every check above passes:
+  # main goes live at saral-ds.netlify.app, a pull request gets its own
+  # preview. Skipped until the NETLIFY_AUTH_TOKEN secret exists, and for pull
+  # requests from forks, which cannot read secrets.
+  portal:
+    needs: guard
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ef5a00d1-deca-4128-b347-cc7c29e5fc76
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run site
+      - name: Publish to Netlify
+        if: env.NETLIFY_AUTH_TOKEN != ''
+        id: deploy
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            npx -y netlify-cli@27.12.0 deploy --dir=site/dist --prod --message "$GITHUB_SHA" --json > deploy.json
+          else
+            npx -y netlify-cli@27.12.0 deploy --dir=site/dist --alias "pr-${{ github.event.number }}" --message "PR ${{ github.event.number }}" --json > deploy.json
+          fi
+          echo "url=$(node -e "const d=require('./deploy.json'); console.log(d.deploy_url || d.url)")" >> "$GITHUB_OUTPUT"
+      - name: Link the preview on the pull request
+        if: github.event_name == 'pull_request' && steps.deploy.outputs.url != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr comment ${{ github.event.number }} --edit-last --create-if-none --body "Portal preview for this change: ${{ steps.deploy.outputs.url }}"

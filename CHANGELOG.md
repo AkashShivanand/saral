@@ -2,6 +2,11 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: portal deploys after every check passes
+
+- GitHub Actions now publishes the documentation portal to Netlify, but only after every test, accessibility scan and the confidentiality check pass. A push to main goes live; a pull request gets its own preview link, posted on the pull request.
+- The deploy waits for a `NETLIFY_AUTH_TOKEN` repository secret, created by the owner, and skips itself until then.
+
 ## 2026-10-12: a flaky test fixed
 
 - A browser test counted form posts before the post had reached the test, so it failed now and then on the GitHub runner (once, on the v0.2.1 tag). The three tests that count posts now wait for the first post, then check that no second one arrives. They passed 100 runs out of 100 locally.
