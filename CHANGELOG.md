@@ -2,6 +2,11 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: public, and handed to the website
+
+- Saral is public at github.com/AkashShivanand/saral, with tag v0.1.0. The guard's term list is a repository secret.
+- Handoff sent to the website session: how to adopt the ember tokens (mapping in `fixtures/site-tokens.json`), and that the site's unused `--quiet` fails contrast. Adoption is the website session's call.
+
 ## 2026-10-12: phase 1, tokens (v0.1)
 
 - Token compiler: reads DTCG 2025.10 files, resolves aliases, and builds CSS, JavaScript and a Tailwind theme map. Nothing is written if any check fails: a missing role, a contrast pair below its minimum, a second accent hue, or a fluid size that would not scale with text.
