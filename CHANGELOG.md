@@ -2,6 +2,20 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: open core
+
+- Saral stays open source under MIT, and the free system stays complete. Paid templates, a Figma kit or setup help, if they come, will be built on top of Saral and live outside this repo. Decision record 0004: open core.
+- `TRADEMARK.md`: anyone can use and fork the code, but only the owner's releases are called Saral.
+- `CONTRIBUTING.md`: bug reports and small fixes are welcome; a new component or an API change starts as an issue, because it needs a spec first.
+
+## 2026-10-12: v0.3.1, one CSS file per component
+
+- Every component now also ships as its own file in `dist/css/` (`button.css`, `field.css`, `checkbox.css`, `radio.css`, `select.css`, `link.css`, `notice.css`, `tag.css`, `card.css`), so a site loads only the parts it uses. `components.css` still holds them all.
+- Each file needs only a theme's tokens; none depends on another. Each declares Saral's layer order first, so loading order cannot change the cascade.
+- Button and Field together come to 1.24 kB gzipped, lighter than the 1.52 kB all-in-one file of v0.2.1.
+- The build refuses a theme that shares a name with a component, since their files would collide.
+- Asked for by the first site to adopt Saral, which measures its own page weight.
+
 ## 2026-10-12: v0.3.0, the v1 kit
 
 - Five more components: Checkbox, Radio group, Select, Tag and Card. Checkbox and radio are native inputs in the theme's action colour at the 24 by 24 pixel minimum target; Select is a native drop-down in the field's frame.

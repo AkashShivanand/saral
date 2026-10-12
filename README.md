@@ -62,6 +62,8 @@ The theme follows the system's light or dark setting. Add `data-saral-mode="dark
 
 With a bundler, drop the import map and import from `saral/core` directly. The script is optional. Without it, the browser validates the form and the CSS shows the error's own text under any invalid field, so write that text as the most useful general message. The error part never uses the `hidden` attribute, because CSS resets can force `[hidden]` off. In React: `import { Form, Field, Checkbox, RadioGroup, Select, Button, Link, Notice, Tag, Card } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
 
+To load only the parts you use, import them one by one instead of `components.css`: `saral/css/button.css`, `saral/css/field.css`, and so on for `checkbox`, `radio`, `select`, `link`, `notice`, `tag` and `card`. Each file needs only a theme's tokens (a theme file, or your own `--saral-*` values); no component file depends on another.
+
 To give Saral your own look, set its variables to your brand's values, for example `:root { --saral-accent-default: #0055ff; }`. The full list of roles is in `tokens/roles.json`, and the contrast pairs a theme should meet are in `tokens/pairs.json`.
 
 ## How it is built
@@ -84,4 +86,4 @@ Saral is made by Akash Kumar, alone, in his spare time. Issues are welcome and r
 
 ## Licence
 
-[MIT](LICENSE)
+[MIT](LICENSE). Saral is open core: the whole system is free and complete, and any paid templates or help will be built on top of it, outside this repo. The name is covered by [TRADEMARK.md](TRADEMARK.md). To contribute, read [CONTRIBUTING.md](CONTRIBUTING.md).

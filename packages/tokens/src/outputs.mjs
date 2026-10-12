@@ -37,7 +37,7 @@ export function cssValue(t) {
   }
 }
 
-const LAYERS = '@layer saral.reset, saral.tokens, saral.components, saral.utilities;';
+export const LAYERS = '@layer saral.reset, saral.tokens, saral.components, saral.utilities;';
 const decls = (entries, indent) => entries.map(([p, value]) => `${indent}${cssName(p)}: ${value};`).join('\n');
 
 // Colours that differ by mode are written as light-dark(), which follows the
