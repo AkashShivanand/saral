@@ -49,7 +49,7 @@ test('toCss writes colours that differ by mode as light-dark(), and the rest pla
 });
 
 test('modes come from color-scheme, so a forced mode reaches every themed element inside it', () => {
-  assert.ok(css.includes(':where(:root:not([data-saral-theme])) {\n    color-scheme: light dark;'));
+  assert.ok(css.includes(':where(:root) {\n    color-scheme: light dark;'));
   assert.ok(css.includes(':where([data-saral-mode="dark"]) {\n    color-scheme: dark;'));
   assert.ok(css.includes(':where([data-saral-mode="light"]) {\n    color-scheme: light;'));
   assert.ok(!/\[data-saral-theme="kosh"\][^{]*\{\s*color-scheme/.test(css));

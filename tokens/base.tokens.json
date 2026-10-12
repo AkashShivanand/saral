@@ -268,6 +268,18 @@
         "value": 24,
         "unit": "px"
       }
+    },
+    "control": {
+      "$value": {
+        "value": 44,
+        "unit": "px"
+      }
+    },
+    "stroke": {
+      "$value": {
+        "value": 1.5,
+        "unit": "px"
+      }
     }
   }
 }

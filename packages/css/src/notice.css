@@ -1,0 +1,28 @@
+/* Notice: a short status message. Tones: info (default), success, warning,
+   danger. Role is set in markup: status for news, alert for urgent. */
+@layer saral.components {
+  :where([data-scope="notice"][data-part="root"]) {
+    margin: 0;
+    padding: var(--saral-space-3) var(--saral-space-4);
+    border: var(--saral-size-stroke) solid var(--saral-feedback-info-border);
+    border-radius: var(--saral-radius-box);
+    background: var(--saral-feedback-info-subtle);
+    color: var(--saral-feedback-info-text);
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="notice"][data-tone="success"]) {
+    border-color: var(--saral-feedback-success-border);
+    background: var(--saral-feedback-success-subtle);
+    color: var(--saral-feedback-success-text);
+  }
+  :where([data-scope="notice"][data-tone="warning"]) {
+    border-color: var(--saral-feedback-warning-border);
+    background: var(--saral-feedback-warning-subtle);
+    color: var(--saral-feedback-warning-text);
+  }
+  :where([data-scope="notice"][data-tone="danger"]) {
+    border-color: var(--saral-feedback-danger-border);
+    background: var(--saral-feedback-danger-subtle);
+    color: var(--saral-feedback-danger-text);
+  }
+}

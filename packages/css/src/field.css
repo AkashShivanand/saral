@@ -1,0 +1,56 @@
+/* Field: label, input or textarea, optional hint, error. Works with no
+   script: :user-invalid marks the border after the person has interacted.
+   With core, [data-invalid] and the error text follow the same rule. */
+@layer saral.components {
+  :where([data-scope="field"][data-part="root"]) {
+    display: grid;
+    gap: var(--saral-space-2);
+  }
+  :where([data-scope="field"][data-part="label"]) {
+    color: var(--saral-text-default);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="field"][data-part="input"]) {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: var(--saral-size-control);
+    padding: var(--saral-space-2) var(--saral-space-3);
+    font: inherit;
+    color: var(--saral-text-default);
+    background: var(--saral-surface-raised);
+    border: var(--saral-size-stroke) solid var(--saral-border-strong);
+    border-radius: var(--saral-radius-box);
+    transition: border-color var(--saral-motion-duration-fast) var(--saral-motion-ease-standard);
+  }
+  :where(textarea[data-scope="field"][data-part="input"]) {
+    min-height: calc(var(--saral-size-control) * 3);
+    line-height: var(--saral-font-leading-body);
+    resize: vertical;
+  }
+  :where([data-scope="field"][data-part="hint"], [data-scope="field"][data-part="error"]) {
+    margin: 0;
+    font-size: var(--saral-font-size-small);
+  }
+  :where([data-scope="field"][data-part="hint"]) {
+    color: var(--saral-text-muted);
+  }
+  :where([data-scope="field"][data-part="error"]) {
+    color: var(--saral-feedback-danger-text);
+    font-weight: var(--saral-font-weight-medium);
+  }
+  :where([data-scope="field"][data-part="error"][hidden]) {
+    display: none;
+  }
+  @media (hover: hover) {
+    :where([data-scope="field"][data-part="input"]:hover) {
+      border-color: var(--saral-text-default);
+    }
+  }
+  :where([data-scope="field"][data-part="input"]:user-invalid, [data-scope="field"][data-invalid] [data-part="input"]) {
+    border-color: var(--saral-feedback-danger-border);
+  }
+  :where([data-scope="field"][data-part="input"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+}
