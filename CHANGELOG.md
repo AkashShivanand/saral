@@ -2,6 +2,10 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: CI runs again
+
+- The CI file had a YAML error since the portal deploy was added (a `: ` inside an unquoted line), so GitHub rejected it and no checks ran on main for seven commits. The pull request comment step now uses a block and passes the preview link through an environment variable.
+
 ## 2026-10-12: open core
 
 - Saral stays open source under MIT, and the free system stays complete. Paid templates, a Figma kit or setup help, if they come, will be built on top of Saral and live outside this repo. Decision record 0004: open core.
