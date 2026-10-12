@@ -2,6 +2,16 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: v0.3.0, the v1 kit
+
+- Five more components: Checkbox, Radio group, Select, Tag and Card. Checkbox and radio are native inputs in the theme's action colour at the 24 by 24 pixel minimum target; Select is a native drop-down in the field's frame.
+- The three form controls follow the field's parts, so the same core validates them all: a radio group is checked as a whole, only when focus leaves it, and ticking a box or choosing an option clears its error at once.
+- Card can be a whole-card link: only its title is the link, and other links inside stay their own.
+- React: `Checkbox`, `RadioGroup`, `Select`, `Tag`, `Card`, all rendered on the server.
+- Specs and portal pages for all five. Every component passes axe in Mor and Kosh, light and dark, with errors showing.
+- The spec check caught a missing style (a tag's label), and the colour check was fixed so `white-space` is not read as the colour white.
+- Decision record 0003: native form controls.
+
 ## 2026-10-12: portal deploys after every check passes
 
 - GitHub Actions now publishes the documentation portal to Netlify, but only after every test, accessibility scan and the confidentiality check pass. A push to main goes live; a pull request gets its own preview link, posted on the pull request.

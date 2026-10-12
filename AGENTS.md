@@ -4,7 +4,7 @@ Short on purpose. Read it before changing anything.
 
 ## State
 
-v0.2. Tokens and four components exist: Field, Button, Link, Notice. Each has a spec in `specs/`; do not use or invent any component without one.
+v0.3. Tokens and nine components exist: Field, Checkbox, Radio group, Select, Button, Link, Notice, Tag, Card. Each has a spec in `specs/`; do not use or invent any component without one.
 
 Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path with dashes>)`, for example `var(--saral-surface-ground)`. Change tokens only in `tokens/`, then run `npm run build`. Never edit `dist/`.
 

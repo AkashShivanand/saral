@@ -19,7 +19,7 @@
     "check:types": "npm run types && git diff --exit-code dist/types",
     "site": "node tools/site/build.mjs"
   },
-  "version": "0.2.1",
+  "version": "0.3.0",
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.0",

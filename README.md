@@ -2,7 +2,7 @@
 
 Saral means simple. It is a design system where the look is a theme you can swap, and every part is plain, accessible HTML.
 
-**Status: v0.2, first components.** Tokens for Mor and Kosh, plus Field, Button, Link and Notice: plain HTML and CSS that work with JavaScript off, a small optional script for inline errors, and React components. No runtime dependencies. Progress is logged in the [changelog](CHANGELOG.md).
+**Status: v0.3, the v1 kit.** Tokens for Mor and Kosh, plus Field, Checkbox, Radio group, Select, Button, Link, Notice, Tag and Card: plain HTML and CSS that work with JavaScript off, a small optional script for inline errors, and React components. No runtime dependencies. Progress is logged in the [changelog](CHANGELOG.md).
 
 **Documentation:** [saral-ds.netlify.app](https://saral-ds.netlify.app), with every component, the tokens and their contrast ratios, and every change.
 
@@ -60,7 +60,7 @@ The theme follows the system's light or dark setting. Add `data-saral-mode="dark
 </script>
 ```
 
-With a bundler, drop the import map and import from `saral/core` directly. The script is optional. Without it, the browser validates the form and the CSS shows the error's own text under any invalid field, so write that text as the most useful general message. The error part never uses the `hidden` attribute, because CSS resets can force `[hidden]` off. In React: `import { Form, Field, Button, Link, Notice } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
+With a bundler, drop the import map and import from `saral/core` directly. The script is optional. Without it, the browser validates the form and the CSS shows the error's own text under any invalid field, so write that text as the most useful general message. The error part never uses the `hidden` attribute, because CSS resets can force `[hidden]` off. In React: `import { Form, Field, Checkbox, RadioGroup, Select, Button, Link, Notice, Tag, Card } from 'saral/react'`. See `fixtures/contact.html` and the specs in `specs/`.
 
 To give Saral your own look, set its variables to your brand's values, for example `:root { --saral-accent-default: #0055ff; }`. The full list of roles is in `tokens/roles.json`, and the contrast pairs a theme should meet are in `tokens/pairs.json`.
 
