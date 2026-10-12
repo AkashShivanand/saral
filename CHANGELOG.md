@@ -2,6 +2,10 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-12: a flaky test fixed
+
+- A browser test counted form posts before the post had reached the test, so it failed now and then on the GitHub runner (once, on the v0.2.1 tag). The three tests that count posts now wait for the first post, then check that no second one arrives. They passed 100 runs out of 100 locally.
+
 ## 2026-10-12: documentation portal
 
 - A documentation portal, built by Saral itself with no dependencies (`npm run site`, output in `site/dist`). Pages: an overview with the same markup in both themes and modes, these changes, the tokens with every contrast pair and its ratio, one page per component from its spec with live examples and their markup, and the decision and incident records.

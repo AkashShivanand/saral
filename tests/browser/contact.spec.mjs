@@ -6,6 +6,14 @@ test.beforeEach(async ({ page }) => {
 
 const pressSubmit = (page) => page.evaluate(() => document.querySelector('button[type="submit"]').click());
 
+// The post reaches the test's interceptor a moment after the page sends it,
+// so wait for the first one, then make sure a second never arrives.
+const expectOnePost = async (hits) => {
+  await expect.poll(hits).toBe(1);
+  await new Promise((r) => setTimeout(r, 300));
+  expect(hits()).toBe(1);
+};
+
 const attr = (page, name) => page.evaluate((n) => document.querySelector('button[type="submit"]').getAttribute(n), name);
 
 // Counts the form's real posts and answers each with 204 No Content, so the
@@ -119,7 +127,7 @@ test.describe('with JavaScript on', () => {
     await expect.poll(() => attr(page, 'data-pending')).toBe('');
     expect(await attr(page, 'aria-disabled')).toBe('true');
     await pressSubmit(page);
-    expect(hits()).toBe(1);
+    await expectOnePost(hits);
   });
 
   test('a page restored by the back button is no longer pending', async ({ page }) => {
@@ -171,7 +179,7 @@ test.describe('with JavaScript on', () => {
       form.requestSubmit();
     });
     await expect.poll(() => attr(page, 'data-pending')).toBe('');
-    expect(hits()).toBe(1);
+    await expectOnePost(hits);
   });
 
   test('an invalid control Saral does not manage gets focus, so the submit is never silently blocked', async ({ page }) => {
@@ -233,7 +241,7 @@ test.describe('React Strict Mode order: enhance, destroy, enhance', () => {
     await pressSubmit(page);
     await pressSubmit(page);
     await expect.poll(() => attr(page, 'data-pending')).toBe('');
-    expect(hits()).toBe(1);
+    await expectOnePost(hits);
   });
 
   test('a second instance destroyed while the first is live leaves validation with Saral', async ({ page }) => {
