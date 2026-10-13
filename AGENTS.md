@@ -6,7 +6,7 @@ Short on purpose. Read it before changing anything.
 
 v0.3. Tokens and nine components exist: Field, Checkbox, Radio group, Select, Button, Link, Notice, Tag, Card. Each has a spec in `specs/`; do not use or invent any component without one.
 
-The plan to 1.0 is `docs/spec/2026-10-12-saral-master-plan.md` (phases, sprints, dates). Saral reaches every platform through one contract: tokens to every registry, plain CSS, a framework-free core, Web Components, and adapters generated from the specs (decision 0005). Never hand-write an adapter's logic; it lives in core.
+The plan to 1.0 is `docs/spec/2026-10-12-saral-master-plan.md` (phases, sprints, dates). Saral is built for every platform through one contract (decision 0005), but publishes a surface only when a user asks for it: npm, the CDN and Figma first; other registries, framework adapters and native components on request. Never hand-write an adapter's logic; it lives in core. Saral's job: forms and services that work for everyone.
 
 The documentation portal shows no business-model or open-core content. A record in `docs/decisions/` with a line `Site: no` stays off the portal.
 

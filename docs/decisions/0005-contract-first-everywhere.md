@@ -23,3 +23,12 @@ Tokens are data, so shipping them to every registry is cheap and gives every pla
 - Refused race 4 in the v1 research (multi-framework adapters and native component runtimes) is reversed for generated adapters only. Hand-written adapters and native component runtimes before web 1.0 stay refused.
 - The repo becomes an npm workspaces monorepo with one package per layer.
 - The other refused races (breadth for its own sake, hard widgets before 1.0, release count, MCP breadth) still hold.
+
+## Amended 2026-10-13, after the pressure test
+
+- Saral is built ready for every surface but publishes a surface only when a real user asks for it in an issue: other registries, the Swift, Compose, Flutter, .NET and Python token outputs, the Vue, Svelte and Angular adapters, and native components. Until then, npm, the CDN and Figma are the only published surfaces, and `@saral/elements` covers every framework.
+- Generated adapters depend on a two-week trial in sprint 7 that tests normalised-HTML equality across frameworks. The result gets its own decision record.
+- Each phase has a usage gate as well as a build gate, and a stop or pivot rule applies on 31 March 2027.
+- 1.0 is about 20 components plus form patterns, aimed at forms and services that must work for everyone.
+
+Why: the pressure test found that every milestone measured output and none measured demand, and that the work was larger than the hours. Building surfaces nobody uses would recreate the breadth race the v1 research refused.

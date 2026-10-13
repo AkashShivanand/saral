@@ -2,6 +2,15 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-13: master plan revised after a pressure test
+
+- Five independent reviews of the master plan found that it measured only output, published surfaces before anyone asked for them, and held more work than the hours allow. The revision fixes this.
+- Every phase now has a usage gate as well as a build gate, and a stop or pivot rule applies on 31 March 2027.
+- Saral is still built for every platform, but publishes a surface only when a user asks for it. npm, the CDN and Figma come first; other registries, the Vue, Svelte and Angular adapters, and native components are on request. `@saral/elements` covers every framework in the meantime.
+- The first npm release moves to 15 November 2026, with `llms.txt` and the spec schema. Form patterns (error summary, multi-step flows, validation messages in Hindi and English) arrive by 10 January 2027.
+- 1.0 is 22 components plus form patterns, aimed at forms and services that must work for everyone, with a trust pack (security, support, accessibility statement, continuity) and testing with screen-reader users before launch.
+- A two-week trial in sprint 7 decides whether framework adapters can be generated. Decision record 0005 is amended to match.
+
 ## 2026-10-13: the master plan to 1.0
 
 - A master plan takes Saral from v0.3 to 1.0 on every platform, in six phases of two-week sprints: the first npm release by 29 November 2026, tokens on every registry by 10 January 2027, a new docs site in February, the full component set as a 1.0 candidate in April, the playground and theme builder in May, and 1.0 on every registry by 13 June 2027. See `docs/spec/2026-10-12-saral-master-plan.md`.
