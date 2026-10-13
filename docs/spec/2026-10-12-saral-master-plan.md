@@ -34,8 +34,8 @@ The first version measured only what gets built. The pressure test found five pr
 |---|---|---|---|---|
 | M0 Kickoff | Plan revised, pitch written, research running | Phase 0 docs | Owner's pitch sentence written | 18 Oct 2026 |
 | M1 **First npm release (0.4)** | `npm i @saral/css @saral/core @saral/react`, CDN, `llms.txt`, spec schema | Clean install works, provenance on npmjs.com | Owner uses Saral in one real piece of their own work | **15 Nov 2026** |
-| M2 **First users and form patterns (0.5)** | Form patterns v1, Figma variables, theme generator core | Patterns pass axe, JS on and off | **5 outside teams have tried it, 1 uses it in real work** | 10 Jan 2027 |
-| M3 **New docs site (beta)** | Chosen identity, new templates, search | axe clean in every theme and mode | 10 issues or discussions from outside the owner | 7 Feb 2027 |
+| M2 **First users and form patterns (0.5)** | Form patterns v1, Figma variables, theme generator core | Patterns pass axe, JS on and off, and render correctly in every script the homepage shows | **5 outside teams have tried it, 1 uses it in real work** | 10 Jan 2027 |
+| M3 **New docs site (beta)** | Chosen identity, new templates, search, live contrast view | axe clean in every theme and mode | 10 issues or discussions from outside the owner | 7 Feb 2027 |
 | M4 **1.0 release candidate (0.9)** | About 20 components, 8 form patterns, Web Components for all | All gates green on three browser engines | 3 teams using it in real work | 4 Apr 2027 |
 | M5 **Playground and theme builder** | Try in the browser; one brand colour in, a checked theme out | Share links round-trip, theme passes `checks.mjs` | Screen-reader users have tested the form patterns | 2 May 2027 |
 | M6 **1.0 launch** | Stable on npm and on every registry users asked for; trust pack public | Every 1.0 exit criterion met | 1 public service or fintech product live on Saral | 13 Jun 2027 |
@@ -149,6 +149,7 @@ A phase ends only when both its build gate and its usage gate pass. If the usage
   - theme generator core, reusing `packages/tokens/src/color.mjs` and `checks.mjs`.
 - **S6:**
   - patterns: validation messages in Hindi and English, address, phone and email, ID number input, confirmation page;
+  - script-rendering test matrix: every pattern is rendered and checked in each script the homepage shows (six), for clipping, line height and wrapping;
   - fixes from user feedback;
   - **release 0.5.0 (M2)**.
 - **Usage gate:** 5 outside teams tried it and 1 uses it in real work. If not met, S7 starts with outreach and fixes from feedback.
@@ -160,6 +161,7 @@ A phase ends only when both its build gate and its usage gate pass. If the usage
   - **adapter trial:** generate a Vue adapter for Field, Button and Select, and test normalised-HTML equality in the conformance suite (`tests/conformance/`). Go or no-go goes into a decision record. If no-go, adapters stay as thin hand-checked wrappers over Elements, and only on request.
 - **S8:**
   - docs site v2 shell with the chosen identity (**M3**);
+  - live contrast view on the site: pick colours and see every pair checked, reusing `packages/tokens/src/color.mjs` and `checks.mjs` (the full theme builder stays at M5);
   - a docs page on using Elements in Vue, Svelte and Angular.
 - **S9:** Textarea, Switch, File input, Fieldset, Date input (native).
 - **S10:** Dialog (native `<dialog>`), Toast, Accordion (`<details>`).
@@ -182,7 +184,11 @@ A phase ends only when both its build gate and its usage gate pass. If the usage
 ### Phase 4: docs site and playground (research S0 to S2; build S8, S13 and S14)
 
 - The research session proposes identity directions built on the owner's pitch; the owner picks by 15 Nov. The site carries no open-core or business-model content.
-- **S8:** site shell, information architecture, search and templates, built by Saral itself with build-time tools only.
+- **Direction chosen 2026-10-14** (`docs/spec/2026-10-13-website-plan.md`):
+  - lead with the claim;
+  - Neel's look, without story sections;
+  - the homepage hero is a real Saral form working live in six scripts, beside its JavaScript-off version.
+- **S8:** site shell, information architecture, search, templates and the live contrast view, built by Saral itself with build-time tools only.
 - **S9 to S12:** each component and pattern page ships with its work.
 - **S13:** playground with live HTML, the Elements and React tabs, share links, a theme and mode switch, and the token explorer.
 - **S14:**

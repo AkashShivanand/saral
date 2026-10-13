@@ -2,6 +2,12 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-14: website direction chosen
+
+- The docs site leads with its claim and uses the Neel look without story sections. The homepage hero is a real Saral form working live in six scripts, shown beside its JavaScript-off version.
+- A live contrast view moves forward to the docs site beta in February. The full theme builder stays in May.
+- From January, form patterns are tested for rendering in every script the homepage shows.
+
 ## 2026-10-13: master plan revised after a pressure test
 
 - Five independent reviews of the master plan found that it measured only output, published surfaces before anyone asked for them, and held more work than the hours allow. The revision fixes this.

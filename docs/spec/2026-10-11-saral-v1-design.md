@@ -74,6 +74,7 @@ Saral's own exits never depend on another repo. A consumer site adopting Saral i
 | Open core stays in the repo but off the website | Akash | 2026-10-13 |
 | The website's identity and story come from a research round with 2 or 3 directions; the owner picks one and decides whether it also replaces Mor | Akash | 2026-10-13 |
 | Master plan revised after a pressure test: usage gates per phase, surfaces published only on request, about 20 components plus form patterns for 1.0, first npm release moved to 15 November, a trust pack before 1.0, and a stop or pivot rule on 31 March 2027 ("Apply the council's improvements to the Saral master plan") | Akash | 2026-10-13 |
+| Website direction: claim first, Neel's look without story sections, homepage hero is a live form in six scripts beside its JavaScript-off version; live contrast view moves to the M3 beta; form patterns get a script-rendering test matrix at M2 (owner answered "Yes" to both moves and asked the assistant to pick the direction "as a design director") | Akash; direction picked by the assistant at his request | 2026-10-14 |
 | Demo client theme: Kosh, a fictional savings app | Assistant, delegated by Akash | 2026-10-11 |
 | The repo goes public at the first release, v0.1 | Akash ("yes") | 2026-10-11 |
 
