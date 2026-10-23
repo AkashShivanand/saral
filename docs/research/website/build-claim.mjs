@@ -18,16 +18,16 @@ const dist = (f) => readFileSync(root(`dist/css/${f}`), 'utf8').replace(/^\/\*.*
 // Self-hosted, subset fonts (see fonts/README.md). Each face covers one script
 // through unicode-range, so a page downloads only the scripts it shows.
 const FACES = [
-  ['Saral Eczar', 'eczar-latin.woff', '500 800', 'U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+20B9'],
-  ['Saral Text', 'anek-latin.woff', '400 700', 'U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+20B9'],
-  ['Saral Text', 'anek-devanagari.woff', '400 700', 'U+0900-097F, U+1CD0-1CFF, U+200C-200D, U+25CC, U+A8E0-A8FF'],
-  ['Saral Text', 'anek-tamil.woff', '400 700', 'U+0B80-0BFF, U+200C-200D, U+25CC'],
-  ['Saral Text', 'noto-arabic.woff', '400 700', 'U+0600-06FF, U+0750-077F, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF'],
-  ['Saral Text', 'noto-thai.woff', '400 700', 'U+0E00-0E7F, U+200C-200D'],
-  ['Saral Text', 'noto-jp.woff', '400 700', 'U+3000-303F, U+3040-309F, U+30A0-30FF, U+4E00-9FFF, U+FF00-FFEF'],
+  ['Saral Eczar', 'eczar-latin.woff2', '500 800', 'U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+20B9'],
+  ['Saral Text', 'anek-latin.woff2', '400 700', 'U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+20B9'],
+  ['Saral Text', 'anek-devanagari.woff2', '400 700', 'U+0900-097F, U+1CD0-1CFF, U+200C-200D, U+25CC, U+A8E0-A8FF'],
+  ['Saral Text', 'anek-tamil.woff2', '400 700', 'U+0B80-0BFF, U+200C-200D, U+25CC'],
+  ['Saral Text', 'noto-arabic.woff2', '400 700', 'U+0600-06FF, U+0750-077F, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF'],
+  ['Saral Text', 'noto-thai.woff2', '400 700', 'U+0E00-0E7F, U+200C-200D'],
+  ['Saral Text', 'noto-jp.woff2', '400 700', 'U+3000-303F, U+3040-309F, U+30A0-30FF, U+4E00-9FFF, U+FF00-FFEF'],
 ];
-const fontCss = FACES.map(([family, file, weight, range]) => `@font-face { font-family: "${family}"; src: url("fonts/${file}") format("woff"); font-weight: ${weight}; font-display: swap; unicode-range: ${range}; }`).join('\n');
-const latinPreload = '<link rel="preload" href="fonts/anek-latin.woff" as="font" type="font/woff" crossorigin>';
+const fontCss = FACES.map(([family, file, weight, range]) => `@font-face { font-family: "${family}"; src: url("fonts/${file}") format("woff2"); font-weight: ${weight}; font-display: swap; unicode-range: ${range}; }`).join('\n');
+const latinPreload = '<link rel="preload" href="fonts/anek-latin.woff2" as="font" type="font/woff2" crossorigin>';
 
 // The same form in six scripts. Translations are drafts: each needs a native
 // reader before it ships (the script test matrix at M2).

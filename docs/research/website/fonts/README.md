@@ -1,17 +1,35 @@
 # Fonts for the claim-led mock
 
-Trimmed copies of free fonts, used only by `claim.html` and its scripts-off pages. Each file holds only the characters the mock shows, and loads only when a page shows that script (`unicode-range` in `claim.css`).
+Trimmed copies of free fonts, used only by `claim.html` and its scripts-off pages. Each file loads only when a page shows that script (`unicode-range` in `claim.css`).
 
 | File | Font | Source | Licence |
 |---|---|---|---|
-| `eczar-latin.woff` | Eczar, weight 700 | [google/fonts, ofl/eczar](https://github.com/google/fonts/tree/main/ofl/eczar) | `OFL-eczar.txt` |
-| `anek-latin.woff` | Anek Latin, width 100, weights 400 to 700 | [ofl/aneklatin](https://github.com/google/fonts/tree/main/ofl/aneklatin) | `OFL-aneklatin.txt` |
-| `anek-devanagari.woff` | Anek Devanagari, width 100, weights 400 to 700 | [ofl/anekdevanagari](https://github.com/google/fonts/tree/main/ofl/anekdevanagari) | `OFL-anekdevanagari.txt` |
-| `anek-tamil.woff` | Anek Tamil, width 100, weights 400 to 700 | [ofl/anektamil](https://github.com/google/fonts/tree/main/ofl/anektamil) | `OFL-anektamil.txt` |
-| `noto-arabic.woff` | Noto Sans Arabic, width 100, weights 400 to 700 | [ofl/notosansarabic](https://github.com/google/fonts/tree/main/ofl/notosansarabic) | `OFL-notosansarabic.txt` |
-| `noto-thai.woff` | Noto Sans Thai, width 100, weights 400 to 700 | [ofl/notosansthai](https://github.com/google/fonts/tree/main/ofl/notosansthai) | `OFL-notosansthai.txt` |
-| `noto-jp.woff` | Noto Sans JP, weights 400 to 700 | [ofl/notosansjp](https://github.com/google/fonts/tree/main/ofl/notosansjp) | `OFL-notosansjp.txt` |
+| `eczar-latin.woff2` | Eczar, weight 700 | [google/fonts, ofl/eczar](https://github.com/google/fonts/tree/main/ofl/eczar) | `OFL-eczar.txt` |
+| `anek-latin.woff2` | Anek Latin, width 100, weights 400 to 700 | [ofl/aneklatin](https://github.com/google/fonts/tree/main/ofl/aneklatin) | `OFL-aneklatin.txt` |
+| `anek-devanagari.woff2` | Anek Devanagari, width 100, weights 400 to 700 | [ofl/anekdevanagari](https://github.com/google/fonts/tree/main/ofl/anekdevanagari) | `OFL-anekdevanagari.txt` |
+| `anek-tamil.woff2` | Anek Tamil, width 100, weights 400 to 700 | [ofl/anektamil](https://github.com/google/fonts/tree/main/ofl/anektamil) | `OFL-anektamil.txt` |
+| `noto-arabic.woff2` | Noto Sans Arabic, width 100, weights 400 to 700 | [ofl/notosansarabic](https://github.com/google/fonts/tree/main/ofl/notosansarabic) | `OFL-notosansarabic.txt` |
+| `noto-thai.woff2` | Noto Sans Thai, width 100, weights 400 to 700 | [ofl/notosansthai](https://github.com/google/fonts/tree/main/ofl/notosansthai) | `OFL-notosansthai.txt` |
+| `noto-jp.woff2` | Noto Sans JP, weights 400 to 700 | [ofl/notosansjp](https://github.com/google/fonts/tree/main/ofl/notosansjp) | `OFL-notosansjp.txt` |
 
-Made on 2026-10-23 with fontTools: subset to the mock's text with the default shaping features, then the width axis pinned and the weight axis limited. WOFF, not WOFF2, because the machine had no Brotli encoder; the S8 build should ship WOFF2.
+## How they are made
 
-Known: the Devanagari file is about 170 kB, because correct shaping keeps every conjunct the retained letters can form. It loads only when Hindi is chosen, so it is outside the first-load budget. S8 should subset per page with a shaper-aware tool.
+`../subset-fonts.py` makes them. It shapes every run of text on the generated pages with HarfBuzz, at weights 400, 500, 600 and 700, and keeps only the glyphs the shaper uses, including the ones it passes through on the way. It then shapes the same text with the cut font and stops if any glyph differs. The Latin files keep all of printable Latin, because the page writes numbers into itself.
+
+To rebuild, download the seven `.ttf` files from the source folders above into a folder outside the repo, then:
+
+```sh
+pip install fonttools brotli uharfbuzz
+node docs/research/website/build-claim.mjs
+python3 docs/research/website/subset-fonts.py <that folder>
+```
+
+Rebuild the fonts whenever the mock's text changes.
+
+## Sizes
+
+All seven files come to about 105 kB, against 310 kB for the WOFF files they replace. The Devanagari file went from 170 kB to 13 kB: the old cut kept every conjunct the kept letters can form, this one keeps only what the page shows. First load, with Latin only, is 113 kB.
+
+## Known limit
+
+A file holds only the letters the mock shows. Text a visitor types in Hindi, Tamil, Arabic, Thai or Japanese falls back to a system font for letters the file lacks. The real site should keep full letter sets for scripts people type in, and cut per page only the display text.

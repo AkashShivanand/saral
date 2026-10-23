@@ -2,6 +2,13 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-23: lighter mock fonts, and drafts for review
+
+- The homepage mock's fonts are now WOFF2, cut by a new script (`docs/research/website/subset-fonts.py`) that keeps only the glyphs HarfBuzz uses to shape the page's text, then checks the cut font shapes it the same. All seven files come to about 105 kB, down from 310 kB; Devanagari went from 170 kB to 13 kB. First load stays at 113 kB, and axe still passes in light and dark.
+- `docs/research/website/translations.md` lists every string of the six-script form, so native readers can correct the drafts.
+- Draft of a roadmap for the docs site, `docs/roadmap.md`: milestones and target dates from the master plan, with nothing about business. The owner still decides whether the site shows dates.
+- Draft of the accessibility statement, `docs/trust/accessibility.md`: the standard Saral aims for, how it is tested, and the known gaps.
+
 ## 2026-10-23: proposed pitch
 
 - Proposed homepage headline "Forms everyone can finish." and a one-sentence pitch for the README, talks and the npm page, with the reasoning and the lines set aside, in `docs/spec/2026-10-13-website-plan.md`. The claim-led mock uses them, marked as proposed until the owner signs them off.
