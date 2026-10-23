@@ -170,3 +170,21 @@ test.describe('removing a tag with JavaScript off', () => {
     await expect(remove).toHaveAttribute('href', /.+/);
   });
 });
+
+test.describe('right to left', () => {
+  test('the select arrow and the removable tag sit on the end side', async ({ page }) => {
+    await page.goto('/fixtures/kit.html?theme=mor');
+    await page.evaluate(() => { document.documentElement.dir = 'rtl'; });
+    const select = await page.locator('#topic').evaluate((e) => {
+      const s = getComputedStyle(e);
+      return { position: s.backgroundPosition, left: parseFloat(s.paddingLeft), right: parseFloat(s.paddingRight) };
+    });
+    expect(select.position).not.toContain('100%');
+    expect(select.left).toBeGreaterThan(select.right);
+    const tag = await page.locator('[data-scope="tag"][data-part="root"]').nth(1).evaluate((e) => {
+      const s = getComputedStyle(e);
+      return { left: parseFloat(s.paddingLeft), right: parseFloat(s.paddingRight) };
+    });
+    expect(tag.left).toBeLessThan(tag.right);
+  });
+});

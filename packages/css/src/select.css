@@ -13,7 +13,8 @@
     box-sizing: border-box;
     width: 100%;
     min-height: var(--saral-size-control);
-    padding: var(--saral-space-2) var(--saral-space-7) var(--saral-space-2) var(--saral-space-3);
+    padding-block: var(--saral-space-2);
+    padding-inline: var(--saral-space-3) var(--saral-space-7);
     font: inherit;
     color: var(--saral-text-default);
     background-color: var(--saral-surface-raised);
@@ -24,6 +25,10 @@
     border: var(--saral-size-stroke) solid var(--saral-border-strong);
     border-radius: var(--saral-radius-box);
     appearance: none;
+  }
+  /* The arrow sits on the end side: on the left when the page reads right to left. */
+  :where([data-scope="select"][data-part="input"]:dir(rtl)) {
+    background-position: left var(--saral-space-4) center, left var(--saral-space-5) center;
   }
   :where([data-scope="select"][data-part="hint"], [data-scope="select"][data-part="error"]) {
     margin: 0;
@@ -59,7 +64,7 @@
     :where([data-scope="select"][data-part="input"]) {
       appearance: auto;
       background-image: none;
-      padding-right: var(--saral-space-3);
+      padding-inline-end: var(--saral-space-3);
     }
   }
   :where([data-scope="select"][data-part="input"]:focus-visible) {

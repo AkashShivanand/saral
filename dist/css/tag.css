@@ -19,7 +19,7 @@
     white-space: nowrap;
   }
   :where([data-scope="tag"][data-part="root"]:has([data-part="remove"])) {
-    padding-right: var(--saral-space-1);
+    padding-inline-end: var(--saral-space-1);
   }
   :where([data-scope="tag"][data-part="remove"]) {
     display: inline-grid;

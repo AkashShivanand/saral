@@ -45,3 +45,12 @@ test('the colour check does not mistake a property like white-space for a colour
   assert.equal('white-space: nowrap;'.match(raw), null);
   assert.ok('color: white;'.match(raw));
 });
+
+test('component CSS uses logical sides, so it works right to left', () => {
+  const physical = /(?:padding|margin|border|inset)-(?:left|right)\b|(?<![-\w])(?:left|right)\s*:|text-align:\s*(?:left|right)/;
+  for (const f of files) assert.equal(read(f).match(physical), null, f);
+  for (const f of files) {
+    const css = read(f);
+    if (/background-position:[^;]*\b(?:left|right)\b/.test(css)) assert.ok(css.includes(':dir(rtl)'), `${f}: a left or right background position needs a :dir(rtl) rule`);
+  }
+});

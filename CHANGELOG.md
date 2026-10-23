@@ -2,6 +2,12 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-14: Select and Tag work right to left
+
+- In a right-to-left page (Arabic, Urdu), the select arrow and its extra padding stayed on the right, which is the start side. The arrow now sits on the end side, and the select and removable tag use logical padding (`padding-inline`) instead of left and right. Left-to-right pages look exactly as before.
+- A new lint rule fails any component CSS that uses a physical left or right side, or a left or right background position without a right-to-left rule. A browser test checks the select and tag in a right-to-left page.
+- Found by the website research, while building a homepage form in six scripts.
+
 ## 2026-10-14: website direction chosen
 
 - The docs site leads with its claim and uses the Neel look without story sections. The homepage hero is a real Saral form working live in six scripts, shown beside its JavaScript-off version.
