@@ -1,0 +1,1133 @@
+{
+  "neel": {
+    "errors": [],
+    "colours": {
+      "light": {
+        "surface.ground": "#f4f7fe",
+        "surface.raised": "#fdfdff",
+        "surface.sunken": "#e7ebf5",
+        "surface.inverse": "#0f172d",
+        "text.default": "#0f172d",
+        "text.muted": "#484f62",
+        "text.quiet": "#5a6070",
+        "text.inverse": "#f4f7fe",
+        "text.on-action": "#fafcff",
+        "text.on-accent": "#fafcff",
+        "text.disabled": "#8f9299",
+        "border.hairline": "#dbe0e9",
+        "border.strong": "#6b7182",
+        "border.focus": "#263d97",
+        "action.default": "#263d97",
+        "action.hover": "#1c2f83",
+        "action.pressed": "#14246c",
+        "action.disabled": "#e7ebf5",
+        "accent.default": "#263d97",
+        "accent.hover": "#1c2f83",
+        "accent.subtle": "#e8eeff",
+        "feedback.danger.text": "#b02b27",
+        "feedback.danger.subtle": "#ffedeb",
+        "feedback.danger.border": "#b02b27",
+        "feedback.success.text": "#296a3b",
+        "feedback.success.subtle": "#e4f8e7",
+        "feedback.success.border": "#296a3b",
+        "feedback.warning.text": "#845011",
+        "feedback.warning.subtle": "#fff0d7",
+        "feedback.warning.border": "#845011",
+        "feedback.info.text": "#185a89",
+        "feedback.info.subtle": "#e7f4ff",
+        "feedback.info.border": "#185a89"
+      },
+      "dark": {
+        "surface.ground": "#090e1f",
+        "surface.raised": "#11172a",
+        "surface.sunken": "#171e33",
+        "surface.inverse": "#e8ebf2",
+        "text.default": "#e8ebf2",
+        "text.muted": "#abb4cb",
+        "text.quiet": "#98a1b8",
+        "text.inverse": "#090e1f",
+        "text.on-action": "#090e1f",
+        "text.on-accent": "#090e1f",
+        "text.disabled": "#5b6378",
+        "border.hairline": "#1e263b",
+        "border.strong": "#7d869c",
+        "border.focus": "#93aef8",
+        "action.default": "#93aef8",
+        "action.hover": "#a7bfff",
+        "action.pressed": "#b9cdff",
+        "action.disabled": "#171e33",
+        "accent.default": "#93aef8",
+        "accent.hover": "#a7bfff",
+        "accent.subtle": "#182137",
+        "feedback.danger.text": "#f98f84",
+        "feedback.danger.subtle": "#3c1714",
+        "feedback.danger.border": "#f98f84",
+        "feedback.success.text": "#7cd591",
+        "feedback.success.subtle": "#102b17",
+        "feedback.success.border": "#7cd591",
+        "feedback.warning.text": "#f4c26a",
+        "feedback.warning.subtle": "#31240e",
+        "feedback.warning.border": "#f4c26a",
+        "feedback.info.text": "#98caf5",
+        "feedback.info.subtle": "#122636",
+        "feedback.info.border": "#98caf5"
+      }
+    },
+    "lowest": {
+      "light": [
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        }
+      ],
+      "dark": [
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 6.89,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.43,
+          "min": 4.5
+        }
+      ]
+    },
+    "ratios": {
+      "light": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.58,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 17.51,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 14.91,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 7.62,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.04,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 6.85,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 6.19,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.58,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 9.3,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 11.46,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 9.3,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 8.91,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 9.41,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 6.08,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 6.08,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 6.24,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 5.96,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 6.84,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 6.56,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 4.54,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 8.91,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 9.41,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 8.91,
+          "min": 3
+        }
+      ],
+      "dark": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.08,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 14.91,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 13.86,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 9.25,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.58,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 7.97,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.43,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 6.89,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.08,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 8.82,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 10.55,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 8.82,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 8.82,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 8.18,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 8.49,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 10.77,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 8.54,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 11.67,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 9.19,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 11.06,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 8.92,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 5.27,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 8.82,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 8.18,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 8.82,
+          "min": 3
+        }
+      ]
+    }
+  },
+  "kolam": {
+    "errors": [],
+    "colours": {
+      "light": {
+        "surface.ground": "#f3f5f8",
+        "surface.raised": "#fcfeff",
+        "surface.sunken": "#e6eaee",
+        "surface.inverse": "#15191d",
+        "text.default": "#15191d",
+        "text.muted": "#4d5054",
+        "text.quiet": "#5e6164",
+        "text.inverse": "#f3f5f8",
+        "text.on-action": "#fafcfe",
+        "text.on-accent": "#fafcfe",
+        "text.disabled": "#909295",
+        "border.hairline": "#dbdee3",
+        "border.strong": "#6f7275",
+        "border.focus": "#1b2025",
+        "action.default": "#1b2025",
+        "action.hover": "#101419",
+        "action.pressed": "#06090d",
+        "action.disabled": "#e6eaee",
+        "accent.default": "#1b2025",
+        "accent.hover": "#101419",
+        "accent.subtle": "#edeef0",
+        "feedback.danger.text": "#b02b27",
+        "feedback.danger.subtle": "#ffedeb",
+        "feedback.danger.border": "#b02b27",
+        "feedback.success.text": "#296a3b",
+        "feedback.success.subtle": "#e4f8e7",
+        "feedback.success.border": "#296a3b",
+        "feedback.warning.text": "#845011",
+        "feedback.warning.subtle": "#fff0d7",
+        "feedback.warning.border": "#845011",
+        "feedback.info.text": "#185a89",
+        "feedback.info.subtle": "#e7f4ff",
+        "feedback.info.border": "#185a89"
+      },
+      "dark": {
+        "surface.ground": "#0b0d10",
+        "surface.raised": "#141619",
+        "surface.sunken": "#1a1d20",
+        "surface.inverse": "#e9ebee",
+        "text.default": "#e9ebee",
+        "text.muted": "#afb5bc",
+        "text.quiet": "#9ca2a9",
+        "text.inverse": "#0b0d10",
+        "text.on-action": "#0b0d10",
+        "text.on-accent": "#0b0d10",
+        "text.disabled": "#616467",
+        "border.hairline": "#212427",
+        "border.strong": "#81878d",
+        "border.focus": "#e2e9f0",
+        "action.default": "#e2e9f0",
+        "action.hover": "#f4f9ff",
+        "action.pressed": "#ffffff",
+        "action.disabled": "#1a1d20",
+        "accent.default": "#e2e9f0",
+        "accent.hover": "#f4f9ff",
+        "accent.subtle": "#1e1f21",
+        "feedback.danger.text": "#f98f84",
+        "feedback.danger.subtle": "#3c1714",
+        "feedback.danger.border": "#f98f84",
+        "feedback.success.text": "#7cd591",
+        "feedback.success.subtle": "#102b17",
+        "feedback.success.border": "#7cd591",
+        "feedback.warning.text": "#f4c26a",
+        "feedback.warning.subtle": "#31240e",
+        "feedback.warning.border": "#f4c26a",
+        "feedback.info.text": "#98caf5",
+        "feedback.info.subtle": "#122636",
+        "feedback.info.border": "#98caf5"
+      }
+    },
+    "lowest": {
+      "light": [
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.71,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        }
+      ],
+      "dark": [
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 7.04,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.56,
+          "min": 4.5
+        }
+      ]
+    },
+    "ratios": {
+      "light": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.18,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 17.46,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 14.61,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 7.42,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.01,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 6.7,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.71,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 6.16,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.18,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 15.95,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 17.97,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 15.95,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 15.02,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 16.22,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 5.97,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 5.97,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 6.13,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 5.96,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 6.72,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 6.56,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 4.43,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 15.02,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 16.22,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 15.02,
+          "min": 3
+        }
+      ],
+      "dark": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.29,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 15.18,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 14.17,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 9.41,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.77,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 8.19,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.56,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 7.04,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.29,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 15.89,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 18.38,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 15.89,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 15.89,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 14.8,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 8.61,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 10.92,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 8.54,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 11.83,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 9.19,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 11.21,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 8.92,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 5.36,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 15.89,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 14.8,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 15.89,
+          "min": 3
+        }
+      ]
+    }
+  },
+  "jamun": {
+    "errors": [],
+    "colours": {
+      "light": {
+        "surface.ground": "#f9f4fa",
+        "surface.raised": "#fefdff",
+        "surface.sunken": "#eee7f0",
+        "surface.inverse": "#201224",
+        "text.default": "#201224",
+        "text.muted": "#564b5a",
+        "text.quiet": "#665c69",
+        "text.inverse": "#f9f4fa",
+        "text.on-action": "#fdfbfd",
+        "text.on-accent": "#fdfbfd",
+        "text.disabled": "#959096",
+        "border.hairline": "#e3dce5",
+        "border.strong": "#786d7b",
+        "border.focus": "#712087",
+        "action.default": "#712087",
+        "action.hover": "#611275",
+        "action.pressed": "#4f0961",
+        "action.disabled": "#eee7f0",
+        "accent.default": "#712087",
+        "accent.hover": "#611275",
+        "accent.subtle": "#f7e9fc",
+        "feedback.danger.text": "#b02b27",
+        "feedback.danger.subtle": "#ffedeb",
+        "feedback.danger.border": "#b02b27",
+        "feedback.success.text": "#296a3b",
+        "feedback.success.subtle": "#e4f8e7",
+        "feedback.success.border": "#296a3b",
+        "feedback.warning.text": "#845011",
+        "feedback.warning.subtle": "#fff0d7",
+        "feedback.warning.border": "#845011",
+        "feedback.info.text": "#185a89",
+        "feedback.info.subtle": "#e7f4ff",
+        "feedback.info.border": "#185a89"
+      },
+      "dark": {
+        "surface.ground": "#130916",
+        "surface.raised": "#1c1120",
+        "surface.sunken": "#241728",
+        "surface.inverse": "#eee9f0",
+        "text.default": "#eee9f0",
+        "text.muted": "#bcafc1",
+        "text.quiet": "#aa9cae",
+        "text.inverse": "#130916",
+        "text.on-action": "#130916",
+        "text.on-accent": "#130916",
+        "text.disabled": "#6b5e6f",
+        "border.hairline": "#2b1e2f",
+        "border.strong": "#8e8192",
+        "border.focus": "#d093e3",
+        "action.default": "#d093e3",
+        "action.hover": "#dda6ef",
+        "action.pressed": "#e7b5f7",
+        "action.disabled": "#241728",
+        "accent.default": "#d093e3",
+        "accent.hover": "#dda6ef",
+        "accent.subtle": "#29172f",
+        "feedback.danger.text": "#f98f84",
+        "feedback.danger.subtle": "#3c1714",
+        "feedback.danger.border": "#f98f84",
+        "feedback.success.text": "#7cd591",
+        "feedback.success.subtle": "#102b17",
+        "feedback.success.border": "#7cd591",
+        "feedback.warning.text": "#f4c26a",
+        "feedback.warning.subtle": "#31240e",
+        "feedback.warning.border": "#f4c26a",
+        "feedback.info.text": "#98caf5",
+        "feedback.info.subtle": "#122636",
+        "feedback.info.border": "#98caf5"
+      }
+    },
+    "lowest": {
+      "light": [
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        }
+      ],
+      "dark": [
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 7.02,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.49,
+          "min": 4.5
+        }
+      ]
+    },
+    "ratios": {
+      "light": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.49,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 17.65,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 14.76,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 7.59,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.12,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 6.79,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 6.28,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.49,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 9.03,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 11.01,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 9.03,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 8.57,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 9.17,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 6.01,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 5.76,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 6.01,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 5.86,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 6.17,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 5.96,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 6.76,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 6.56,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 4.53,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 8.57,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 9.17,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 8.57,
+          "min": 3
+        }
+      ],
+      "dark": [
+        {
+          "pair": "text.default on surface.ground",
+          "ratio": 16.27,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.raised",
+          "ratio": 15.25,
+          "min": 4.5
+        },
+        {
+          "pair": "text.default on surface.sunken",
+          "ratio": 14.29,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.ground",
+          "ratio": 9.31,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.raised",
+          "ratio": 8.73,
+          "min": 4.5
+        },
+        {
+          "pair": "text.muted on surface.sunken",
+          "ratio": 8.17,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.ground",
+          "ratio": 7.49,
+          "min": 4.5
+        },
+        {
+          "pair": "text.quiet on surface.raised",
+          "ratio": 7.02,
+          "min": 4.5
+        },
+        {
+          "pair": "text.inverse on surface.inverse",
+          "ratio": 16.27,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.default",
+          "ratio": 8.31,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-action on action.hover",
+          "ratio": 9.99,
+          "min": 4.5
+        },
+        {
+          "pair": "text.on-accent on accent.default",
+          "ratio": 8.31,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.ground",
+          "ratio": 8.31,
+          "min": 4.5
+        },
+        {
+          "pair": "accent.default on surface.raised",
+          "ratio": 7.79,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on surface.ground",
+          "ratio": 8.62,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.danger.text on feedback.danger.subtle",
+          "ratio": 7.01,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on surface.ground",
+          "ratio": 10.93,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.success.text on feedback.success.subtle",
+          "ratio": 8.54,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on surface.ground",
+          "ratio": 11.84,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.warning.text on feedback.warning.subtle",
+          "ratio": 9.19,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on surface.ground",
+          "ratio": 11.22,
+          "min": 4.5
+        },
+        {
+          "pair": "feedback.info.text on feedback.info.subtle",
+          "ratio": 8.92,
+          "min": 4.5
+        },
+        {
+          "pair": "border.strong on surface.ground",
+          "ratio": 5.29,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.ground",
+          "ratio": 8.31,
+          "min": 3
+        },
+        {
+          "pair": "border.focus on surface.raised",
+          "ratio": 7.79,
+          "min": 3
+        },
+        {
+          "pair": "action.default on surface.ground",
+          "ratio": 8.31,
+          "min": 3
+        }
+      ]
+    }
+  }
+}

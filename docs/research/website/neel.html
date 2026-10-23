@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neel: Saral homepage mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar:wght@500..800&family=Mukta:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root { --saral-surface-ground: #f4f7fe; --saral-surface-raised: #fdfdff; --saral-surface-sunken: #e7ebf5; --saral-surface-inverse: #0f172d; --saral-text-default: #0f172d; --saral-text-muted: #484f62; --saral-text-quiet: #5a6070; --saral-text-inverse: #f4f7fe; --saral-text-on-action: #fafcff; --saral-text-on-accent: #fafcff; --saral-text-disabled: #8f9299; --saral-border-hairline: #dbe0e9; --saral-border-strong: #6b7182; --saral-border-focus: #263d97; --saral-action-default: #263d97; --saral-action-hover: #1c2f83; --saral-action-pressed: #14246c; --saral-action-disabled: #e7ebf5; --saral-accent-default: #263d97; --saral-accent-hover: #1c2f83; --saral-accent-subtle: #e8eeff; --saral-feedback-danger-text: #b02b27; --saral-feedback-danger-subtle: #ffedeb; --saral-feedback-danger-border: #b02b27; --saral-feedback-success-text: #296a3b; --saral-feedback-success-subtle: #e4f8e7; --saral-feedback-success-border: #296a3b; --saral-feedback-warning-text: #845011; --saral-feedback-warning-subtle: #fff0d7; --saral-feedback-warning-border: #845011; --saral-feedback-info-text: #185a89; --saral-feedback-info-subtle: #e7f4ff; --saral-feedback-info-border: #185a89; --saral-radius-box: 10px; --saral-radius-control: 8px;
+  --display: 'Eczar', serif; --text: 'Mukta', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root:not([data-mode="light"]) { --saral-surface-ground: #090e1f; --saral-surface-raised: #11172a; --saral-surface-sunken: #171e33; --saral-surface-inverse: #e8ebf2; --saral-text-default: #e8ebf2; --saral-text-muted: #abb4cb; --saral-text-quiet: #98a1b8; --saral-text-inverse: #090e1f; --saral-text-on-action: #090e1f; --saral-text-on-accent: #090e1f; --saral-text-disabled: #5b6378; --saral-border-hairline: #1e263b; --saral-border-strong: #7d869c; --saral-border-focus: #93aef8; --saral-action-default: #93aef8; --saral-action-hover: #a7bfff; --saral-action-pressed: #b9cdff; --saral-action-disabled: #171e33; --saral-accent-default: #93aef8; --saral-accent-hover: #a7bfff; --saral-accent-subtle: #182137; --saral-feedback-danger-text: #f98f84; --saral-feedback-danger-subtle: #3c1714; --saral-feedback-danger-border: #f98f84; --saral-feedback-success-text: #7cd591; --saral-feedback-success-subtle: #102b17; --saral-feedback-success-border: #7cd591; --saral-feedback-warning-text: #f4c26a; --saral-feedback-warning-subtle: #31240e; --saral-feedback-warning-border: #f4c26a; --saral-feedback-info-text: #98caf5; --saral-feedback-info-subtle: #122636; --saral-feedback-info-border: #98caf5; color-scheme: dark; } }
+:root[data-mode="dark"] { --saral-surface-ground: #090e1f; --saral-surface-raised: #11172a; --saral-surface-sunken: #171e33; --saral-surface-inverse: #e8ebf2; --saral-text-default: #e8ebf2; --saral-text-muted: #abb4cb; --saral-text-quiet: #98a1b8; --saral-text-inverse: #090e1f; --saral-text-on-action: #090e1f; --saral-text-on-accent: #090e1f; --saral-text-disabled: #5b6378; --saral-border-hairline: #1e263b; --saral-border-strong: #7d869c; --saral-border-focus: #93aef8; --saral-action-default: #93aef8; --saral-action-hover: #a7bfff; --saral-action-pressed: #b9cdff; --saral-action-disabled: #171e33; --saral-accent-default: #93aef8; --saral-accent-hover: #a7bfff; --saral-accent-subtle: #182137; --saral-feedback-danger-text: #f98f84; --saral-feedback-danger-subtle: #3c1714; --saral-feedback-danger-border: #f98f84; --saral-feedback-success-text: #7cd591; --saral-feedback-success-subtle: #102b17; --saral-feedback-success-border: #7cd591; --saral-feedback-warning-text: #f4c26a; --saral-feedback-warning-subtle: #31240e; --saral-feedback-warning-border: #f4c26a; --saral-feedback-info-text: #98caf5; --saral-feedback-info-subtle: #122636; --saral-feedback-info-border: #98caf5; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--saral-surface-ground); color: var(--saral-text-default); font: 400 17px/1.6 var(--text); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--saral-border-focus); outline-offset: 2px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+header.top { display: flex; align-items: center; gap: 24px; padding: 16px 24px; max-width: 1160px; margin: 0 auto; flex-wrap: wrap; }
+.brand { font: 700 24px/1 var(--display); text-decoration: none; display: flex; gap: 8px; align-items: baseline; }
+.brand span[lang] { font-family: var(--text); font-weight: 600; font-size: 18px; color: var(--saral-text-muted); }
+nav.main ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; font-size: 15px; }
+nav.main a { text-decoration: none; color: var(--saral-text-muted); }
+@media (hover: hover) { nav.main a:hover { color: var(--saral-text-default); text-decoration: underline; } }
+.tools { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+.search { display: flex; align-items: center; gap: 24px; font: inherit; font-size: 15px; color: var(--saral-text-muted); background: var(--saral-surface-raised);
+  border: 1px solid var(--saral-border-hairline); border-radius: var(--saral-radius-control); padding: 6px 8px 6px 14px; min-width: 210px; justify-content: space-between; cursor: pointer; }
+.search kbd { font: 600 12px var(--mono); border: 1px solid var(--saral-border-hairline); border-radius: 4px; padding: 1px 6px; }
+.mode { font: inherit; font-size: 15px; color: var(--saral-text-default); background: var(--saral-surface-raised); border: 1px solid var(--saral-border-hairline); border-radius: var(--saral-radius-control); padding: 6px 10px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0 0 16px; text-wrap: balance; }
+h2 { font-size: clamp(28px, 1.2rem + 1.6vw, 40px); }
+h3 { font-size: 22px; }
+.lead { font-size: 20px; color: var(--saral-text-muted); max-width: 36em; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 16px; }
+.btn, [data-scope="button"][data-part="root"] { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; font: 600 16px/1 var(--text);
+  border-radius: var(--saral-radius-control); text-decoration: none; cursor: pointer; border: 1px solid var(--saral-border-strong); background: var(--saral-surface-raised); color: var(--saral-text-default); }
+.btn[data-variant="accent"], [data-scope="button"][data-variant="accent"] { background: var(--saral-action-default); color: var(--saral-text-on-action); border-color: var(--saral-action-default); }
+@media (hover: hover) { .btn[data-variant="accent"]:hover, [data-scope="button"][data-variant="accent"]:hover { background: var(--saral-action-hover); } .btn:not([data-variant]):hover { background: var(--saral-surface-sunken); } }
+.btn[data-variant="accent"]:active, [data-scope="button"][data-variant="accent"]:active { background: var(--saral-action-pressed); }
+.install { font-size: 15px; color: var(--saral-text-muted); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 0; }
+code, pre { font-family: var(--mono); font-size: 0.86em; }
+.install code { background: var(--saral-surface-sunken); padding: 4px 10px; border-radius: 6px; color: var(--saral-text-default); }
+section.block { padding: 72px 0; border-top: 1px solid var(--saral-border-hairline); }
+.try { display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 880px) { .try { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+.stage { background: var(--saral-surface-raised); border: 1px solid var(--saral-border-hairline); border-radius: var(--saral-radius-box); padding: 28px; }
+.stage form { display: grid; gap: 20px; max-width: 26rem; }
+[data-scope="field"][data-part="root"] { display: grid; gap: 6px; }
+[data-scope="field"][data-part="label"] { font-weight: 600; }
+[data-scope="field"][data-part="hint"] { margin: 0; font-size: 15px; color: var(--saral-text-muted); }
+[data-scope="field"][data-part="input"] { font: inherit; min-height: 44px; padding: 0 12px; color: var(--saral-text-default); background: var(--saral-surface-ground);
+  border: 1px solid var(--saral-border-strong); border-radius: var(--saral-radius-control); }
+[data-scope="field"][data-part="input"]::placeholder { color: var(--saral-text-quiet); }
+[data-scope="field"][data-part="input"]:user-invalid { border-color: var(--saral-feedback-danger-border); }
+[data-scope="checkbox"][data-part="root"] { display: flex; gap: 10px; align-items: center; cursor: pointer; }
+[data-scope="checkbox"][data-part="input"] { width: 20px; height: 20px; margin: 0; accent-color: var(--saral-action-default); }
+[data-scope="notice"][data-part="root"] { padding: 12px 16px; border-left: 4px solid var(--saral-feedback-success-border); background: var(--saral-feedback-success-subtle); color: var(--saral-feedback-success-text); border-radius: 4px; }
+pre.code { margin: 0; padding: 20px; overflow: auto; background: var(--saral-surface-sunken); border-radius: var(--saral-radius-box); line-height: 1.55; font-size: 13.5px; color: var(--saral-text-default); }
+.principles { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 880px) { .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.principles p { color: var(--saral-text-muted); margin: 0; }
+.where { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .where { grid-template-columns: 1fr 1fr; } }
+.where ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.where li { padding: 10px 0; border-bottom: 1px solid var(--saral-border-hairline); }
+.story { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 880px) { .story { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); } }
+.story p { font-size: 19px; max-width: 38em; margin: 0 0 12px; }
+.story .src { font-size: 14px; color: var(--saral-text-muted); }
+footer { border-top: 1px solid var(--saral-border-hairline); padding: 32px 24px; max-width: 1160px; margin: 0 auto; font-size: 15px; color: var(--saral-text-muted); display: flex; flex-wrap: wrap; gap: 12px 28px; }
+footer ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.mock-note { background: var(--saral-surface-inverse); color: var(--saral-text-inverse); font-size: 14px; text-align: center; padding: 6px 16px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+.hero { display: grid; gap: 48px; padding: 72px 0 88px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 920px) { .hero { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); } }
+.hero h1 { font-size: clamp(42px, 1.6rem + 3.6vw, 76px); font-weight: 700; letter-spacing: -0.01em; }
+.dips { margin: 0; }
+.dips ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.dips li { display: grid; grid-template-columns: minmax(0, 1fr) 4.5em; gap: 12px; align-items: center; font-size: 14px; color: var(--saral-text-muted); }
+.dips li::before { content: ""; height: 44px; border-radius: 6px; background: var(--dip); animation: dip 0.6s calc(var(--i) * 90ms) both ease-out; }
+.dips figcaption { font-size: 15px; color: var(--saral-text-muted); margin-top: 12px; }
+@keyframes dip { from { background: #dfe8fd; } }
+.principles h3 { font-size: 26px; font-weight: 600; }
+.story h2 { font-size: clamp(36px, 1.4rem + 2.4vw, 56px); }</style>
+</head>
+<body>
+<p class="mock-note">Research mock for direction Neel. Not the real site.</p>
+<header class="top">
+  <a class="brand" href="#">Saral <span lang="hi">सरल</span></a>
+  <nav class="main" aria-label="Main"><ul>
+    <li><a href="#start">Get started</a></li><li><a href="#">Foundations</a></li><li><a href="#components">Components</a></li>
+    <li><a href="#">Patterns</a></li><li><a href="#">Themes</a></li><li><a href="#">Trust</a></li>
+  </ul></nav>
+  <div class="tools">
+    <button class="search" type="button">Search docs <kbd>/</kbd></button>
+    <select id="mode" class="mode" aria-label="Colour mode"><option value="">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<section class="hero" aria-labelledby="h">
+  <div class="hero-copy">
+    <h1 id="h">Build plain, accessible interfaces. Dye them any colour.</h1>
+    <p class="lead">Saral is a design system of native HTML parts, semantic tokens and checked rules. The structure stays the same; the theme is the dye.</p>
+    <div class="actions">
+      <a class="btn" data-variant="accent" href="#start">Get started</a>
+      <a class="btn" href="#components">Browse components</a>
+    </div>
+    <p class="install"><code>npm i @saral/css</code> <span>or one link tag from a CDN. No build step.</span></p>
+  </div>
+  <figure class="dips" aria-labelledby="dips-cap">
+    <ol><li style="--dip:#dfe8fd;--i:0"><span>1 dip</span></li><li style="--dip:#bdcaeb;--i:1"><span>2 dips</span></li><li style="--dip:#9cadd9;--i:2"><span>3 dips</span></li><li style="--dip:#7c91c6;--i:3"><span>4 dips</span></li><li style="--dip:#5d74b4;--i:4"><span>5 dips</span></li><li style="--dip:#4158a1;--i:5"><span>6 dips</span></li><li style="--dip:#263c8e;--i:6"><span>7 dips</span></li><li style="--dip:#101c7a;--i:7"><span>8 dips</span></li></ol>
+    <figcaption id="dips-cap">The same blue, dipped eight times. Saral builds a theme's scale from one colour in the same way.</figcaption>
+  </figure>
+</section>
+<section class="block try" id="components" aria-labelledby="try-h">
+  <div>
+    <h2 id="try-h">This is real HTML</h2>
+    <p class="lead">A field, a checkbox and a button, styled only by this direction's tokens. Submit it with an empty or broken email to see the native invalid state. It works with JavaScript off.</p>
+  </div>
+  <div class="stage">
+    <form id="demo" data-scope="form" data-part="root">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="email">Email</label>
+    <p data-scope="field" data-part="hint" id="email-hint">We send one email per release.</p>
+    <input data-scope="field" data-part="input" id="email" type="email"
+      required aria-describedby="email-hint" placeholder="name@example.com">
+  </div>
+  <label data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox">
+    <span data-scope="checkbox" data-part="label">Tell me about breaking changes too</span>
+  </label>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">Subscribe</button>
+</form>
+    <details style="margin-top:24px"><summary>Show the markup</summary><pre class="code"><code>&lt;form data-scope="form" data-part="root"&gt;
+  &lt;div data-scope="field" data-part="root"&gt;
+    &lt;label data-scope="field" data-part="label" for="email"&gt;Email&lt;/label&gt;
+    &lt;p data-scope="field" data-part="hint" id="email-hint"&gt;We send one email per release.&lt;/p&gt;
+    &lt;input data-scope="field" data-part="input" id="email" type="email"
+      required aria-describedby="email-hint" placeholder="name@example.com"&gt;
+  &lt;/div&gt;
+  &lt;label data-scope="checkbox" data-part="root"&gt;
+    &lt;input data-scope="checkbox" data-part="input" type="checkbox"&gt;
+    &lt;span data-scope="checkbox" data-part="label"&gt;Tell me about breaking changes too&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;button data-scope="button" data-part="root" data-variant="accent" type="submit"&gt;Subscribe&lt;/button&gt;
+&lt;/form&gt;</code></pre></details>
+  </div>
+</section>
+<section class="block" aria-labelledby="why-h">
+  <h2 id="why-h">What Saral promises</h2>
+  <div class="principles">
+    <div><h3>Plain HTML first</h3><p>Every component is a native element with <code>data-scope</code> and <code>data-part</code>. It works before JavaScript loads, and without it.</p></div>
+    <div><h3>Your look is a theme</h3><p>Components read only semantic tokens. Change the theme and the whole interface follows. This page is one theme.</p></div>
+    <div><h3>Rules that hold</h3><p>Contrast, token use and naming are checked on every build. A text pair below 4.5:1 stops the release.</p></div>
+  </div>
+</section>
+<section class="block" id="start" aria-labelledby="where-h">
+  <h2 id="where-h">Use it where you build</h2>
+  <div class="where">
+    <div><h3>Today</h3><ul><li>Any HTML: Rails, Django, Laravel, Go, .NET, htmx</li><li>React</li><li>Tokens as CSS, JavaScript and JSON</li></ul></div>
+    <div><h3>Planned for 1.0</h3><ul><li>Web Components that work in every framework</li><li>Figma variables made from the same source</li><li>Tokens for Swift, Kotlin, Flutter, .NET and Python when a team asks</li></ul></div>
+  </div>
+</section>
+</div>
+</main>
+<footer>
+  <span>Saral v0.3.1. MIT licence.</span>
+  <ul aria-label="Project"><li><a href="#">Changes</a></li><li><a href="#">Decisions</a></li><li><a href="#">Incidents</a></li><li><a href="#">Source on GitHub</a></li></ul>
+</footer>
+<script>
+const mode = document.getElementById('mode');
+try { mode.value = localStorage.getItem('saral-mock-mode') || ''; } catch {}
+const apply = () => { if (mode.value) document.documentElement.dataset.mode = mode.value; else delete document.documentElement.dataset.mode; };
+apply();
+mode.addEventListener('change', () => { apply(); try { localStorage.setItem('saral-mock-mode', mode.value); } catch {} });
+const params = new URLSearchParams(location.search);
+if (params.get('mode')) { mode.value = params.get('mode'); apply(); }
+document.getElementById('demo').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (document.querySelector('#demo [data-scope="notice"]')) return;
+  e.target.insertAdjacentHTML('beforeend', '<p data-scope="notice" data-part="root" role="status">Subscribed. Check your inbox to confirm.</p>');
+});
+</script>
+</body>
+</html>

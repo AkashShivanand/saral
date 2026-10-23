@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>आगे बढ़ें</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="hi" dir="ltr" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-hi-name">पूरा नाम</label>
+    <input data-scope="field" data-part="input" id="off-hi-name" name="name" autocomplete="name" required aria-describedby="off-hi-name-hint">
+    <p data-scope="field" data-part="hint" id="off-hi-name-hint">जैसा आपके पहचान पत्र पर लिखा है</p>
+    <p data-scope="field" data-part="error" id="off-hi-name-error" data-message-value-missing="अपना पूरा नाम लिखें">अपना पूरा नाम लिखें</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-hi-contact">संपर्क का तरीका</label>
+    <select data-scope="select" data-part="input" id="off-hi-contact" name="contact" required>
+      <option value="">एक चुनें</option>
+      <option value="email">ईमेल</option>
+      <option value="phone">फ़ोन</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-hi-contact-error" data-message-value-missing="चुनें कि हम आपसे कैसे संपर्क करें">चुनें कि हम आपसे कैसे संपर्क करें</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-hi-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-hi-updates">मुझे अपडेट भेजें</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">आगे बढ़ें</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>भेज दिया गया। अपना इनबॉक्स देखें।</p>
+</form>
+</body>
+</html>

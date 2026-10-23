@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ดำเนินการต่อ</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="th" dir="ltr" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-th-name">ชื่อ-นามสกุล</label>
+    <input data-scope="field" data-part="input" id="off-th-name" name="name" autocomplete="name" required aria-describedby="off-th-name-hint">
+    <p data-scope="field" data-part="hint" id="off-th-name-hint">ตามที่ปรากฏบนบัตรประจำตัว</p>
+    <p data-scope="field" data-part="error" id="off-th-name-error" data-message-value-missing="กรอกชื่อ-นามสกุลของคุณ">กรอกชื่อ-นามสกุลของคุณ</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-th-contact">ช่องทางติดต่อ</label>
+    <select data-scope="select" data-part="input" id="off-th-contact" name="contact" required>
+      <option value="">เลือกหนึ่งรายการ</option>
+      <option value="email">อีเมล</option>
+      <option value="phone">โทรศัพท์</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-th-contact-error" data-message-value-missing="เลือกช่องทางที่ให้เราติดต่อคุณ">เลือกช่องทางที่ให้เราติดต่อคุณ</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-th-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-th-updates">ส่งข่าวสารให้ฉัน</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">ดำเนินการต่อ</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>ส่งแล้ว โปรดตรวจสอบกล่องจดหมายของคุณ</p>
+</form>
+</body>
+</html>

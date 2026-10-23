@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>متابعة</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="ar" dir="rtl" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-ar-name">الاسم الكامل</label>
+    <input data-scope="field" data-part="input" id="off-ar-name" name="name" autocomplete="name" required aria-describedby="off-ar-name-hint">
+    <p data-scope="field" data-part="hint" id="off-ar-name-hint">كما يظهر في بطاقة هويتك</p>
+    <p data-scope="field" data-part="error" id="off-ar-name-error" data-message-value-missing="أدخل اسمك الكامل">أدخل اسمك الكامل</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-ar-contact">طريقة التواصل</label>
+    <select data-scope="select" data-part="input" id="off-ar-contact" name="contact" required>
+      <option value="">اختر واحدة</option>
+      <option value="email">البريد الإلكتروني</option>
+      <option value="phone">الهاتف</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-ar-contact-error" data-message-value-missing="اختر طريقة التواصل معك">اختر طريقة التواصل معك</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-ar-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-ar-updates">أرسل لي التحديثات</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">متابعة</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>تم الإرسال. تحقق من بريدك الوارد.</p>
+</form>
+</body>
+</html>

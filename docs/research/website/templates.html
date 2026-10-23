@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saral page templates</title>
+<style>
+:root { color-scheme: light dark; --bg: #f4f4f3; --fg: #1b1b1b; --muted: #5a5a5a; --line: #9a9a9a; --box: #fff; --fill: #e4e4e2; --live: #dfe7f5; }
+@media (prefers-color-scheme: dark) { :root { --bg: #151515; --fg: #ececec; --muted: #b3b3b3; --line: #6a6a6a; --box: #1e1e1e; --fill: #2c2c2c; --live: #223047; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; }
+header, main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+header p { max-width: 62em; color: var(--muted); }
+nav ul { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; list-style: none; }
+section { margin: 0 0 56px; }
+h2 { font-size: 24px; margin: 0 0 4px; }
+.why { color: var(--muted); max-width: 62em; margin: 0 0 16px; }
+.frame { background: var(--box); border: 2px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 10px; }
+.row { display: grid; gap: 10px; }
+.b { border: 1.5px dashed var(--line); border-radius: 6px; padding: 10px 12px; background: var(--fill); min-height: 44px; }
+.b strong { display: block; font-size: 14px; }
+.b span { display: block; font-size: 13px; color: var(--muted); }
+.live { background: var(--live); }
+.bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.bar .b { flex: 1 1 140px; min-height: 0; padding: 6px 10px; }
+.cols-side { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) {
+  .cols-side { grid-template-columns: 200px minmax(0, 1fr) 180px; }
+  .cols-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols-play { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+}
+.stack { display: grid; gap: 10px; align-content: start; }
+.tall { min-height: 220px; }
+.key { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.key i { display: inline-block; width: 14px; height: 14px; border: 1.5px dashed var(--line); border-radius: 3px; vertical-align: -2px; margin-right: 6px; background: var(--fill); }
+.key i.l { background: var(--live); }
+ol.notes { color: var(--muted); max-width: 62em; padding-left: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Saral page templates</h1>
+  <p>Wireframes for the six templates the new site needs. They are layout and content order only; colour and type come from the chosen identity direction. Each template is reasoned from the benchmark in <code>docs/research/2026-10-website-benchmark.md</code>.</p>
+  <p class="key"><span><i></i>Static content</span><span><i class="l"></i>Live Saral markup (real components, real theme)</span></p>
+  <nav aria-label="Templates"><ul>
+    <li><a href="#shell">Shared shell</a></li><li><a href="#home">Home</a></li><li><a href="#start">Getting started</a></li>
+    <li><a href="#component">Component page</a></li><li><a href="#tokens">Tokens</a></li><li><a href="#themes">Themes</a></li><li><a href="#playground">Playground</a></li>
+  </ul></nav>
+</header>
+<main>
+
+<section id="shell" aria-labelledby="shell-h">
+  <h2 id="shell-h">Shared shell</h2>
+  <p class="why">One header on every page. Search opens with <kbd>/</kbd> or <kbd>Ctrl K</kbd> and searches titles, headings, props, parts and token names from a static index built at build time. The framework choice (HTML, Elements, React) is set once and remembered on every page. Vue, Svelte and Angular users get a guide to Elements, not their own tabs. Theme and mode switch the whole site, because the site is styled only by Saral.</p>
+  <div class="frame">
+    <div class="bar">
+      <div class="b"><strong>Saral सरल</strong><span>Home link, version</span></div>
+      <div class="b"><strong>Get started, Foundations, Components, Patterns, Themes, Trust, Playground</strong><span>Seven top sections; Playground from S13</span></div>
+      <div class="b"><strong>Search /</strong><span>Static index, no service</span></div>
+      <div class="b"><strong>Framework, theme, mode</strong><span>Remembered choices</span></div>
+    </div>
+    <div class="row cols-side">
+      <div class="b tall"><strong>Section nav</strong><span>Only the current section. Status badges on preview components.</span></div>
+      <div class="b tall"><strong>Page body</strong><span>Max 72 characters a line for prose. Wide blocks (tables, examples) may run wider.</span></div>
+      <div class="b tall"><strong>On this page</strong><span>Headings, then: Copy as Markdown, Edit on GitHub, Report a problem</span></div>
+    </div>
+    <div class="b"><strong>Footer</strong><span>Project: Changes, Roadmap, Decisions, Incidents, Versioning, Contributing, Licence. No business or open-core content anywhere.</span></div>
+  </div>
+</section>
+
+<section id="home" aria-labelledby="home-h">
+  <h2 id="home-h">Home</h2>
+  <p class="why">The home page answers three questions in order: what is this, can I trust it, how do I start. It shows real components early, because Saral's claim is that its markup is plain and its rules are checked. No logo wall: Saral never names who uses it.</p>
+  <div class="frame">
+    <div class="row cols-2">
+      <div class="b tall"><strong>Hero: one sentence and the story image</strong><span>Headline, one-line subhead, Get started and Browse components, the install line (CDN or npm, no build step)</span></div>
+      <div class="b tall live"><strong>Identity image</strong><span>Dips, kolam or the jamun field, depending on the direction chosen</span></div>
+    </div>
+    <div class="row cols-2">
+      <div class="b"><strong>This is real HTML</strong><span>Short claim</span></div>
+      <div class="b live"><strong>Live form</strong><span>Field, checkbox, button; native invalid state; Show the markup</span></div>
+    </div>
+    <div class="row cols-3">
+      <div class="b"><strong>Plain HTML first</strong></div><div class="b"><strong>Your look is a theme</strong></div><div class="b"><strong>Rules that hold</strong></div>
+    </div>
+    <div class="row cols-2">
+      <div class="b"><strong>Use it where you build: today</strong><span>Any HTML backend, React, tokens</span></div>
+      <div class="b"><strong>Planned for 1.0</strong><span>Honest labels, linked to the roadmap</span></div>
+    </div>
+    <div class="b live"><strong>Same markup, every theme</strong><span>One component row repeated in Mor, Kosh and the new theme, light and dark</span></div>
+    <div class="b"><strong>The story</strong><span>One paragraph with sources</span></div>
+  </div>
+</section>
+
+<section id="start" aria-labelledby="start-h">
+  <h2 id="start-h">Getting started</h2>
+  <p class="why">The benchmark's fastest systems (GOV.UK's prototype kit aside, Ark and plain CDN routes) reach a working component in under five minutes; the slowest need a CSS engine and code generation first. Saral can beat all of them with one HTML file. The page offers three paths, each three steps or fewer, and ends with a complete file you can paste and open.</p>
+  <div class="frame">
+    <div class="b"><strong>Pick a path</strong><span>Three choices, each with time to first component: Plain HTML (about 1 minute), npm with React (about 3 minutes), Tokens only</span></div>
+    <div class="row cols-2">
+      <div class="stack">
+        <div class="b"><strong>Step 1: add the stylesheet</strong><span>One link tag, copy button</span></div>
+        <div class="b"><strong>Step 2: paste a component</strong><span>Button markup, copy button</span></div>
+        <div class="b"><strong>Step 3: choose a theme</strong><span>data-saral-theme on the html element</span></div>
+      </div>
+      <div class="b live tall"><strong>Result, live</strong><span>What step 2 renders, with the full single-file page under a Copy whole file button</span></div>
+    </div>
+    <div class="row cols-3">
+      <div class="b"><strong>Next: the contract</strong><span>Parts, states, tokens</span></div>
+      <div class="b"><strong>Next: forms pattern</strong></div>
+      <div class="b"><strong>Using Saral with AI tools</strong><span>llms.txt, Markdown pages, later an MCP server</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="component" aria-labelledby="component-h">
+  <h2 id="component-h">Component page</h2>
+  <p class="why">One long page, not tabs, so everything is findable with search and Ctrl F, and works with JavaScript off. Order follows what a reader needs first: see it, decide if it fits, copy it, then the contract (Ark's parts and data-attribute tables, Chakra's highlight-on-hover anatomy), then accessibility with a testing table tied to a version (Carbon) and writing guidance (Stripe, Fluent), and last the record of how the component got here (GOV.UK's research, known issues, recent changes and help-improve sections). Every section is generated from <code>specs/*.json</code>, so the page cannot drift from the code.</p>
+  <div class="frame">
+    <div class="b"><strong>Header</strong><span>Name, one-line purpose, status (preview or stable), since version. Links: Source, Spec JSON, Copy as Markdown, Report a problem</span></div>
+    <div class="b live tall"><strong>Main example</strong><span>Live, with local theme and mode switch, code tabs for HTML, Elements and React, Copy and Open in playground</span></div>
+    <div class="row cols-2">
+      <div class="b"><strong>When to use</strong></div>
+      <div class="b"><strong>When not to use</strong><span>Each case names the component to use instead, linked</span></div>
+    </div>
+    <div class="b live"><strong>Examples</strong><span>Variants and states, each live with its code</span></div>
+    <div class="row cols-2">
+      <div class="b live"><strong>Anatomy, interactive</strong><span>Hover or focus a part name to outline that part in the preview</span></div>
+      <div class="b"><strong>Parts table</strong><span>data-scope, data-part, element, role</span></div>
+    </div>
+    <div class="b"><strong>States</strong><span>State, set by (CSS pseudo-class, or data-invalid / data-pending from code), how it looks</span></div>
+    <div class="b"><strong>API</strong><span>HTML attributes, React props, tokens it reads (with swatches in the current theme)</span></div>
+    <div class="b"><strong>Accessibility</strong><span>Keyboard table, ARIA notes, iOS and Android notes, WCAG criteria, and a testing table tied to the release: automated checks (axe, every theme and mode), keyboard, and the manual screen-reader log with reader, browser, date and result</span></div>
+    <div class="b"><strong>Writing</strong><span>Label and message guidance, with good and bad examples</span></div>
+    <div class="b"><strong>Decisions and research</strong><span>Links to the decision and incident records that shaped this component</span></div>
+    <div class="b"><strong>Known issues and limits</strong><span>What it does not do yet, said plainly</span></div>
+    <div class="b"><strong>Recent changes</strong><span>Dated table generated from the changelog</span></div>
+    <div class="b"><strong>Help improve this component</strong><span>One link to its GitHub discussion</span></div>
+  </div>
+</section>
+
+<section id="tokens" aria-labelledby="tokens-h">
+  <h2 id="tokens-h">Tokens</h2>
+  <p class="why">Token pages fail in two ways in the benchmark: you cannot find the name you need, and you cannot see what a role is for. Saral's page is a filterable table of roles with the job of each role in one line (Geist gives every colour step a job), live swatches in the current theme and mode, and every contrast pair with its measured ratio, generated by the same code that gates the build.</p>
+  <div class="frame">
+    <div class="bar">
+      <div class="b"><strong>Filter by name or job</strong></div>
+      <div class="b"><strong>Theme and mode</strong></div>
+      <div class="b"><strong>Name format</strong><span>CSS, JS, JSON; Swift and Kotlin later</span></div>
+    </div>
+    <div class="b live tall"><strong>Role table</strong><span>Role, job in one line, light swatch and value, dark swatch and value, copy name</span></div>
+    <div class="b live"><strong>Contrast pairs</strong><span>Text on surface, ratio, needed ratio, passes or fails</span></div>
+    <div class="row cols-3">
+      <div class="b"><strong>Type scale</strong><span>Specimen at real size, Latin and Devanagari</span></div>
+      <div class="b"><strong>Space and size</strong></div>
+      <div class="b"><strong>Motion</strong><span>Durations and easings, reduced-motion rule</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="themes" aria-labelledby="themes-h">
+  <h2 id="themes-h">Themes</h2>
+  <p class="why">A theme is Saral's main promise, so it gets its own section. Before the theme builder ships (M5), the page shows the themes and a written guide; after, the builder takes one brand colour, fills every role, runs Saral's own contrast checks in the browser and exports DTCG and CSS. Park UI's accent and grey picker and Linear's three-input theme model are the references.</p>
+  <div class="frame">
+    <div class="row cols-3">
+      <div class="b live"><strong>Mor</strong><span>Kit preview, light and dark</span></div>
+      <div class="b live"><strong>Kosh</strong></div>
+      <div class="b live"><strong>New theme</strong><span>The chosen direction, if it becomes a theme</span></div>
+    </div>
+    <div class="row cols-2">
+      <div class="stack">
+        <div class="b"><strong>Make a theme (M5)</strong><span>Brand colour, neutral tint, corner style, typeface</span></div>
+        <div class="b"><strong>Checks, live</strong><span>Every pair and the hue policy, from checks.mjs</span></div>
+        <div class="b"><strong>Export</strong><span>DTCG files, CSS, share link</span></div>
+      </div>
+      <div class="b live tall"><strong>Preview</strong><span>The kit page in the theme being made</span></div>
+    </div>
+    <div class="b"><strong>The theme contract</strong><span>The list of roles a theme must fill, and the rules it must pass</span></div>
+  </div>
+</section>
+
+<section id="playground" aria-labelledby="playground-h">
+  <h2 id="playground-h">Playground</h2>
+  <p class="why">Most systems send readers to StackBlitz or CodeSandbox, which is slow and needs an account to save. Saral's components are HTML, so the playground can run in the page with no server: an editor, a preview frame, and the state kept in the URL so every share link works offline from the site.</p>
+  <div class="frame">
+    <div class="bar">
+      <div class="b"><strong>Start from</strong><span>Blank, a component, a pattern</span></div>
+      <div class="b"><strong>HTML, Elements or React</strong></div>
+      <div class="b"><strong>Theme, mode, width</strong></div>
+      <div class="b"><strong>Share link, Download file</strong></div>
+    </div>
+    <div class="row cols-play">
+      <div class="b tall"><strong>Editor</strong><span>Plain textarea with highlighting; works with a keyboard and a screen reader</span></div>
+      <div class="b live tall"><strong>Preview frame</strong><span>Real Saral CSS and core</span></div>
+    </div>
+    <div class="b"><strong>Checks panel</strong><span>axe results and Saral's own rules (parts present, no raw colours) for what is in the editor</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="notes-h">
+  <h2 id="notes-h">Rules for every template</h2>
+  <ol class="notes">
+    <li>Every page reads in full with JavaScript off. Search, the playground and remembered choices are the only parts that need it.</li>
+    <li>Every page is styled only by Saral tokens and components. If the site needs something Saral lacks, that is a gap in Saral.</li>
+    <li>Every page has a Markdown twin at the same path, listed in llms.txt.</li>
+    <li>Page weight budget: 150 kB on first load including fonts; under 15 kB of JavaScript outside the playground.</li>
+    <li>axe clean in every theme and mode, checked in CI on every page.</li>
+  </ol>
+</section>
+</main>
+</body>
+</html>

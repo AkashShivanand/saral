@@ -17,6 +17,14 @@ Project log, dated, newest first. Package release notes will be generated separa
 - 1.0 is 22 components plus form patterns, aimed at forms and services that must work for everyone, with a trust pack (security, support, accessibility statement, continuity) and testing with screen-reader users before launch.
 - A two-week trial in sprint 7 decides whether framework adapters can be generated. Decision record 0005 is amended to match.
 
+## 2026-10-13: website research
+
+- `docs/research/2026-10-website-benchmark.md`: 19 docs sites scored on ten criteria, with one page per site measured for weight, speed and text without JavaScript. The current portal is the lightest of all (112 kB) but paints late because it waits on Google Fonts.
+- `docs/spec/2026-10-13-website-plan.md`: the site's information architecture, page templates, three identity directions (Neel, Kolam, Jamun) and the Sprint 8 build plan.
+- `docs/research/website/`: the homepage mock for each direction, a comparison page, wireframes, and the palettes, which pass every role, pair and hue check in Saral's own `checks.mjs`.
+- The same day, a pressure test (five reviews, cross-reviewed, transcript in `docs/research/website/council-2026-10-13.md`) withdrew the Kolam recommendation: all three mocks announced India through ornament. The revised recommendation leads with a claim (forms that work in every script, on every device, with JavaScript on or off), uses Neel's look without its story, and makes a live multi-script form the hero. The "Why" sections are gone from the mocks; the stories stay on the comparison page only. The plan now scores Saral against the benchmarks: 2.4 today, 19th of 20.
+- 2026-10-14 to 2026-10-23: the claim-led homepage mock for the chosen direction (`docs/research/website/claim.html`): a real Saral form in six scripts beside the same form in a frame that runs no script, a live contrast check for the accent, and self-hosted fonts trimmed per script. First load is 127 kB with fonts; axe clean in light and dark. It found that Select was not right-to-left ready.
+
 ## 2026-10-13: the master plan to 1.0
 
 - A master plan takes Saral from v0.3 to 1.0 on every platform, in six phases of two-week sprints: the first npm release by 29 November 2026, tokens on every registry by 10 January 2027, a new docs site in February, the full component set as a 1.0 candidate in April, the playground and theme builder in May, and 1.0 on every registry by 13 June 2027. See `docs/spec/2026-10-12-saral-master-plan.md`.

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ta" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>தொடரவும்</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="ta" dir="ltr" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-ta-name">முழுப் பெயர்</label>
+    <input data-scope="field" data-part="input" id="off-ta-name" name="name" autocomplete="name" required aria-describedby="off-ta-name-hint">
+    <p data-scope="field" data-part="hint" id="off-ta-name-hint">உங்கள் அடையாள அட்டையில் உள்ளபடி</p>
+    <p data-scope="field" data-part="error" id="off-ta-name-error" data-message-value-missing="உங்கள் முழுப் பெயரை உள்ளிடவும்">உங்கள் முழுப் பெயரை உள்ளிடவும்</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-ta-contact">தொடர்பு முறை</label>
+    <select data-scope="select" data-part="input" id="off-ta-contact" name="contact" required>
+      <option value="">ஒன்றைத் தேர்வு செய்யவும்</option>
+      <option value="email">மின்னஞ்சல்</option>
+      <option value="phone">தொலைபேசி</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-ta-contact-error" data-message-value-missing="உங்களை எப்படித் தொடர்பு கொள்வது எனத் தேர்வு செய்யவும்">உங்களை எப்படித் தொடர்பு கொள்வது எனத் தேர்வு செய்யவும்</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-ta-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-ta-updates">எனக்குப் புதுப்பிப்புகளை அனுப்பவும்</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">தொடரவும்</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>அனுப்பப்பட்டது. உங்கள் இன்பாக்ஸைப் பார்க்கவும்.</p>
+</form>
+</body>
+</html>

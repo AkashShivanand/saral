@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saral identity directions</title>
+<style>
+:root { color-scheme: light dark; --bg: #f5f5f4; --fg: #1a1a1a; --muted: #555; --line: #d4d4d2; --card: #fff; }
+@media (prefers-color-scheme: dark) { :root { --bg: #161616; --fg: #ededed; --muted: #b0b0b0; --line: #333; --card: #1f1f1f; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, sans-serif; }
+header { max-width: 1500px; margin: 0 auto; padding: 32px 24px 8px; }
+header p { max-width: 60em; color: var(--muted); }
+main { max-width: 1500px; margin: 0 auto; padding: 16px 24px 64px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1100px) { main { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+article { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+h2 { margin: 0; font-size: 26px; } h2 small { font-size: 16px; font-weight: 400; color: var(--muted); }
+h3 { font-size: 15px; margin: 20px 0 4px; } h4 { font-size: 13px; margin: 0 0 6px; color: var(--muted); font-weight: 600; }
+.mood { color: var(--muted); margin-top: 4px; }
+.frames { display: grid; gap: 8px; }
+.thumb { aspect-ratio: 1280 / 900; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; position: relative; }
+.thumb iframe { border: 0; width: 100%; height: 100%; }
+.js .thumb iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 900px; transform-origin: 0 0; transform: scale(var(--s, 1)); }
+.pal { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.pal code { overflow-wrap: anywhere; }
+article { min-width: 0; }
+.pal ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: 11.5px; }
+.pal li { display: grid; grid-template-columns: 18px 1fr auto; gap: 6px; align-items: center; }
+.pal span { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--line); }
+.check { font-size: 14px; padding: 8px 12px; border-radius: 6px; background: color-mix(in srgb, #1e6b3a 14%, transparent); }
+.tight { font-size: 13px; color: var(--muted); }
+a { color: inherit; }
+</style></head>
+<body>
+<header>
+  <h1>Saral identity directions</h1>
+  <p>Three ways the website could look. The story behind each is written here for you only; the site never explains it, so the roots are felt, not announced. Each mock uses the same page structure and the same real form, so only the identity changes. The top frame is light mode and the bottom frame is dark mode. Pick one, and say whether it should also replace Mor as Saral's default theme or stay on the website only.</p>
+</header>
+<main>
+<article aria-labelledby="neel-h">
+  <h2 id="neel-h">Neel <small>indigo</small></h2>
+  <p class="mood">Calm, crafted, editorial. Light first.</p>
+  <div class="frames">
+    <div class="thumb"><iframe src="neel.html?mode=light" title="Neel homepage, light" loading="lazy"></iframe></div>
+    <div class="thumb"><iframe src="neel.html?mode=dark" title="Neel homepage, dark" loading="lazy"></iframe></div>
+  </div>
+  <p><a href="neel.html">Open the full mock</a></p>
+  <h3>Story, for you only</h3><p>Indigo takes its name from the Greek indikon, from India. In the vat the dye is not blue at all; it is yellow-green. Cloth comes out green and turns blue in the air. A dyer gets a deeper blue by dipping again, not by making the vat stronger. Saral works the same way. One colour, applied by one simple process, gives a whole scale. A theme is a few repeated, patient steps, and every step is checked before the next. Sources: <a href="https://botanicalcolors.com/faq/indigo-faq">Botanical Colors, indigo FAQ</a>, <a href="https://dgnhas.org.uk/node/3498">DGNHAS, Indigo: a blue to dye for</a>.</p>
+  <h3>Type</h3><p>Eczar for headings (Rosetta, Latin and Devanagari, variable weight). Mukta for text (Ek Type, Latin and Devanagari). JetBrains Mono for code.</p>
+  <h3>Colour</h3>
+  <div class="pal"><div><h4>Light</h4><ul><li><span style="background:#f4f7fe"></span><code>surface.ground</code><code>#f4f7fe</code></li><li><span style="background:#fdfdff"></span><code>surface.raised</code><code>#fdfdff</code></li><li><span style="background:#0f172d"></span><code>text.default</code><code>#0f172d</code></li><li><span style="background:#484f62"></span><code>text.muted</code><code>#484f62</code></li><li><span style="background:#263d97"></span><code>action.default</code><code>#263d97</code></li><li><span style="background:#e8eeff"></span><code>accent.subtle</code><code>#e8eeff</code></li></ul></div><div><h4>Dark</h4><ul><li><span style="background:#090e1f"></span><code>surface.ground</code><code>#090e1f</code></li><li><span style="background:#11172a"></span><code>surface.raised</code><code>#11172a</code></li><li><span style="background:#e8ebf2"></span><code>text.default</code><code>#e8ebf2</code></li><li><span style="background:#abb4cb"></span><code>text.muted</code><code>#abb4cb</code></li><li><span style="background:#93aef8"></span><code>action.default</code><code>#93aef8</code></li><li><span style="background:#182137"></span><code>accent.subtle</code><code>#182137</code></li></ul></div></div>
+  <p class="check">Passes every role, all 26 contrast pairs and the one-accent-hue policy in both modes, checked with Saral’s own build gates.</p>
+  <p class="tight">Closest pairs, light:<br>feedback.danger.text on feedback.danger.subtle: 5.76:1<br>text.quiet on surface.ground: 5.86:1<br>feedback.success.text on feedback.success.subtle: 5.86:1</p>
+  <p class="tight">Closest pairs, dark:<br>text.quiet on surface.raised: 6.89:1<br>feedback.danger.text on feedback.danger.subtle: 7.01:1<br>text.quiet on surface.ground: 7.43:1</p>
+</article>
+<article aria-labelledby="kolam-h">
+  <h2 id="kolam-h">Kolam <small>the threshold drawing</small></h2>
+  <p class="mood">Precise, geometric, quietly playful. Ink and rice, no hue of its own.</p>
+  <div class="frames">
+    <div class="thumb"><iframe src="kolam.html?mode=light" title="Kolam homepage, light" loading="lazy"></iframe></div>
+    <div class="thumb"><iframe src="kolam.html?mode=dark" title="Kolam homepage, dark" loading="lazy"></iframe></div>
+  </div>
+  <p><a href="kolam.html">Open the full mock</a></p>
+  <h3>Story, for you only</h3><p>Every morning, across South India, a kolam is drawn at the threshold of a home. It starts as a grid of dots, the pulli. A line of rice flour then loops around the dots by a few simple rules, and the same grid gives endless designs. The daily kolam is white only; colour is saved for festivals. Saral is built like this. Tokens are the dots, the parts contract is the rule, and your theme is the festival colour. The drawing above is real: one line, one rule, a five by three grid. Sources: <a href="https://en.wikipedia.org/wiki/Kolam">Kolam, Wikipedia</a>.</p>
+  <h3>Type</h3><p>Gotu for headings (Ek Type, a single-weight line that loops like a kolam stroke). Kripa for text (Kedar Gadge, variable weight, released on Google Fonts in September 2026). Martian Mono for code.</p>
+  <h3>Colour</h3>
+  <div class="pal"><div><h4>Light</h4><ul><li><span style="background:#f3f5f8"></span><code>surface.ground</code><code>#f3f5f8</code></li><li><span style="background:#fcfeff"></span><code>surface.raised</code><code>#fcfeff</code></li><li><span style="background:#15191d"></span><code>text.default</code><code>#15191d</code></li><li><span style="background:#4d5054"></span><code>text.muted</code><code>#4d5054</code></li><li><span style="background:#1b2025"></span><code>action.default</code><code>#1b2025</code></li><li><span style="background:#edeef0"></span><code>accent.subtle</code><code>#edeef0</code></li></ul></div><div><h4>Dark</h4><ul><li><span style="background:#0b0d10"></span><code>surface.ground</code><code>#0b0d10</code></li><li><span style="background:#141619"></span><code>surface.raised</code><code>#141619</code></li><li><span style="background:#e9ebee"></span><code>text.default</code><code>#e9ebee</code></li><li><span style="background:#afb5bc"></span><code>text.muted</code><code>#afb5bc</code></li><li><span style="background:#e2e9f0"></span><code>action.default</code><code>#e2e9f0</code></li><li><span style="background:#1e1f21"></span><code>accent.subtle</code><code>#1e1f21</code></li></ul></div></div>
+  <p class="check">Passes every role, all 26 contrast pairs and the one-accent-hue policy in both modes, checked with Saral’s own build gates.</p>
+  <p class="tight">Closest pairs, light:<br>text.quiet on surface.ground: 5.71:1<br>feedback.danger.text on feedback.danger.subtle: 5.76:1<br>feedback.success.text on feedback.success.subtle: 5.86:1</p>
+  <p class="tight">Closest pairs, dark:<br>feedback.danger.text on feedback.danger.subtle: 7.01:1<br>text.quiet on surface.raised: 7.04:1<br>text.quiet on surface.ground: 7.56:1</p>
+</article>
+<article aria-labelledby="jamun-h">
+  <h2 id="jamun-h">Jamun <small>the black plum</small></h2>
+  <p class="mood">Bold, contemporary, confident. A full-colour field and poster type.</p>
+  <div class="frames">
+    <div class="thumb"><iframe src="jamun.html?mode=light" title="Jamun homepage, light" loading="lazy"></iframe></div>
+    <div class="thumb"><iframe src="jamun.html?mode=dark" title="Jamun homepage, dark" loading="lazy"></iframe></div>
+  </div>
+  <p><a href="jamun.html">Open the full mock</a></p>
+  <h3>Story, for you only</h3><p>One of the oldest names for India is Jambudvipa, the land of the jambu tree, the jamun. Ashoka used it for his realm in the third century BCE. The jamun grows in almost any soil, belongs to nobody in particular, and feeds whoever passes under it. Its colour stays on everything it touches. That is the promise of Saral: one source that grows on every platform, free for anyone to use, and a mark that stays consistent wherever it lands. Sources: <a href="https://en.wikipedia.org/wiki/Jambudv%C4%ABpa">Jambudvipa, Wikipedia</a>.</p>
+  <h3>Type</h3><p>Akshar for headings (Tall Chai, condensed, variable weight and contrast). Noto Sans with Noto Sans Devanagari for text: the one free family that covers nearly every script, so Tamil, Bengali or Urdu can follow without a new font. Noto Sans Mono for code.</p>
+  <h3>Colour</h3>
+  <div class="pal"><div><h4>Light</h4><ul><li><span style="background:#f9f4fa"></span><code>surface.ground</code><code>#f9f4fa</code></li><li><span style="background:#fefdff"></span><code>surface.raised</code><code>#fefdff</code></li><li><span style="background:#201224"></span><code>text.default</code><code>#201224</code></li><li><span style="background:#564b5a"></span><code>text.muted</code><code>#564b5a</code></li><li><span style="background:#712087"></span><code>action.default</code><code>#712087</code></li><li><span style="background:#f7e9fc"></span><code>accent.subtle</code><code>#f7e9fc</code></li></ul></div><div><h4>Dark</h4><ul><li><span style="background:#130916"></span><code>surface.ground</code><code>#130916</code></li><li><span style="background:#1c1120"></span><code>surface.raised</code><code>#1c1120</code></li><li><span style="background:#eee9f0"></span><code>text.default</code><code>#eee9f0</code></li><li><span style="background:#bcafc1"></span><code>text.muted</code><code>#bcafc1</code></li><li><span style="background:#d093e3"></span><code>action.default</code><code>#d093e3</code></li><li><span style="background:#29172f"></span><code>accent.subtle</code><code>#29172f</code></li></ul></div></div>
+  <p class="check">Passes every role, all 26 contrast pairs and the one-accent-hue policy in both modes, checked with Saral’s own build gates.</p>
+  <p class="tight">Closest pairs, light:<br>feedback.danger.text on feedback.danger.subtle: 5.76:1<br>text.quiet on surface.ground: 5.86:1<br>feedback.success.text on feedback.success.subtle: 5.86:1</p>
+  <p class="tight">Closest pairs, dark:<br>feedback.danger.text on feedback.danger.subtle: 7.01:1<br>text.quiet on surface.raised: 7.02:1<br>text.quiet on surface.ground: 7.49:1</p>
+</article>
+</main>
+<script>
+// Shows each mock at desktop width, scaled down to fit its frame.
+document.documentElement.classList.add('js');
+const fit = () => { for (const t of document.querySelectorAll('.thumb')) t.style.setProperty('--s', t.clientWidth / 1280); };
+new ResizeObserver(fit).observe(document.body); fit();
+</script>
+</body></html>

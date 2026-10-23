@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continue</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="en" dir="ltr" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="off-en-name" name="name" autocomplete="name" required aria-describedby="off-en-name-hint">
+    <p data-scope="field" data-part="hint" id="off-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="off-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="off-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-en-updates">Send me updates</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">Continue</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form>
+</body>
+</html>

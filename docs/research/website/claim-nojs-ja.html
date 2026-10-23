@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>次へ</title>
+<link rel="stylesheet" href="claim.css">
+<style>body { background: var(--saral-surface-raised); padding: 2px; }</style>
+</head>
+<body>
+<form data-scope="form" data-part="root" class="demo-form" lang="ja" dir="ltr" action="claim-nojs-sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="off-ja-name">氏名</label>
+    <input data-scope="field" data-part="input" id="off-ja-name" name="name" autocomplete="name" required aria-describedby="off-ja-name-hint">
+    <p data-scope="field" data-part="hint" id="off-ja-name-hint">身分証明書の記載どおりに</p>
+    <p data-scope="field" data-part="error" id="off-ja-name-error" data-message-value-missing="氏名を入力してください">氏名を入力してください</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="off-ja-contact">連絡方法</label>
+    <select data-scope="select" data-part="input" id="off-ja-contact" name="contact" required>
+      <option value="">選択してください</option>
+      <option value="email">メール</option>
+      <option value="phone">電話</option>
+    </select>
+    <p data-scope="select" data-part="error" id="off-ja-contact-error" data-message-value-missing="連絡方法を選択してください">連絡方法を選択してください</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="off-ja-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="off-ja-updates">最新情報を受け取る</label>
+  </div>
+  <button data-scope="button" data-part="root" data-variant="accent" type="submit">次へ</button>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>送信しました。受信トレイを確認してください。</p>
+</form>
+</body>
+</html>

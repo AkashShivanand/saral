@@ -1,0 +1,249 @@
+{
+  "measured": "2026-10-13",
+  "how": "Playwright Chromium, 1280 by 800, cold cache, no throttling, one run per page",
+  "results": [
+    {
+      "name": "Tailwind CSS",
+      "url": "https://tailwindcss.com/docs/installation/using-vite",
+      "lcpMs": 1488,
+      "loadMs": 16200,
+      "textWithJs": 5204,
+      "kb": 13116,
+      "jsKb": 571,
+      "requests": 235,
+      "textNoJs": 5208
+    },
+    {
+      "name": "Material 3",
+      "url": "https://m3.material.io/components/buttons/overview",
+      "lcpMs": 7216,
+      "loadMs": 23639,
+      "textWithJs": 3059,
+      "kb": 3301,
+      "jsKb": 1514,
+      "requests": 42,
+      "textNoJs": 33
+    },
+    {
+      "name": "Radix Primitives",
+      "url": "https://www.radix-ui.com/primitives/docs/components/checkbox",
+      "lcpMs": 1264,
+      "loadMs": 7640,
+      "textWithJs": 4961,
+      "kb": 2137,
+      "jsKb": 1250,
+      "requests": 171,
+      "textNoJs": 4957
+    },
+    {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/checkbox",
+      "lcpMs": 1484,
+      "loadMs": 10055,
+      "textWithJs": 2704,
+      "kb": 2507,
+      "jsKb": 998,
+      "requests": 180,
+      "textNoJs": 2703
+    },
+    {
+      "name": "shadcn/ui",
+      "url": "https://ui.shadcn.com/docs/components/button",
+      "lcpMs": 948,
+      "loadMs": 4568,
+      "textWithJs": 5411,
+      "kb": 7021,
+      "jsKb": 4863,
+      "requests": 259,
+      "textNoJs": 5411
+    },
+    {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/button",
+      "lcpMs": 1296,
+      "loadMs": 2755,
+      "textWithJs": 3352,
+      "kb": 1179,
+      "jsKb": 777,
+      "requests": 87,
+      "textNoJs": 3352
+    },
+    {
+      "name": "Linear docs",
+      "url": "https://linear.app/docs",
+      "lcpMs": 1096,
+      "loadMs": 7757,
+      "textWithJs": 1265,
+      "kb": 2562,
+      "jsKb": 1206,
+      "requests": 380,
+      "textNoJs": 1265
+    },
+    {
+      "name": "Stripe docs",
+      "url": "https://docs.stripe.com/payments/quickstart",
+      "lcpMs": 2812,
+      "loadMs": 21397,
+      "textWithJs": 10726,
+      "kb": 8326,
+      "jsKb": 7267,
+      "requests": 305,
+      "textNoJs": 1638
+    },
+    {
+      "name": "GOV.UK Design System",
+      "url": "https://design-system.service.gov.uk/components/button/",
+      "lcpMs": 640,
+      "loadMs": 1770,
+      "textWithJs": 8417,
+      "kb": 196,
+      "jsKb": 55,
+      "requests": 50,
+      "textNoJs": 11789
+    },
+    {
+      "name": "IBM Carbon",
+      "url": "https://carbondesignsystem.com/components/button/usage/",
+      "lcpMs": 10488,
+      "loadMs": 26825,
+      "textWithJs": 33204,
+      "kb": 10610,
+      "jsKb": 8566,
+      "requests": 244,
+      "textNoJs": 32646
+    },
+    {
+      "name": "GitHub Primer",
+      "url": "https://primer.style/product/components/button/",
+      "lcpMs": 2588,
+      "loadMs": 11309,
+      "textWithJs": 9460,
+      "kb": 2753,
+      "jsKb": 784,
+      "requests": 154,
+      "textNoJs": 9460
+    },
+    {
+      "name": "Atlassian",
+      "url": "https://atlassian.design/components/button/examples",
+      "lcpMs": 1636,
+      "loadMs": 3734,
+      "textWithJs": 12696,
+      "kb": 3909,
+      "jsKb": 3680,
+      "requests": 23,
+      "textNoJs": 12285
+    },
+    {
+      "name": "Microsoft Fluent 2",
+      "url": "https://fluent2.microsoft.design/components/web/react/core/button/usage",
+      "lcpMs": 1916,
+      "loadMs": 5228,
+      "textWithJs": 8078,
+      "kb": 1043,
+      "jsKb": 303,
+      "requests": 84,
+      "textNoJs": 7259
+    },
+    {
+      "name": "Apple HIG",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/buttons",
+      "lcpMs": 1848,
+      "loadMs": 15647,
+      "textWithJs": 18179,
+      "kb": 3404,
+      "jsKb": 323,
+      "requests": 57,
+      "textNoJs": 115
+    },
+    {
+      "name": "Mantine",
+      "url": "https://mantine.dev/core/button/",
+      "lcpMs": 928,
+      "loadMs": 3569,
+      "textWithJs": 17905,
+      "kb": 2232,
+      "jsKb": 2069,
+      "requests": 191,
+      "textNoJs": 17524
+    },
+    {
+      "name": "Chakra UI",
+      "url": "https://chakra-ui.com/docs/components/button",
+      "lcpMs": 572,
+      "loadMs": 5878,
+      "textWithJs": 8019,
+      "kb": 4730,
+      "jsKb": 3817,
+      "requests": 94,
+      "textNoJs": 8019
+    },
+    {
+      "name": "Ark UI",
+      "url": "https://ark-ui.com/docs/components/checkbox",
+      "lcpMs": 692,
+      "loadMs": 2736,
+      "textWithJs": 11350,
+      "kb": 971,
+      "jsKb": 749,
+      "requests": 74,
+      "textNoJs": 10977
+    },
+    {
+      "name": "Park UI",
+      "url": "https://park-ui.com/docs/components/button",
+      "lcpMs": 1396,
+      "loadMs": 6318,
+      "textWithJs": 2570,
+      "kb": 1130,
+      "jsKb": 492,
+      "requests": 102,
+      "textNoJs": 2570
+    },
+    {
+      "name": "Saral (current)",
+      "url": "https://saral-ds.netlify.app/components/button.html",
+      "lcpMs": 1872,
+      "loadMs": 2499,
+      "textWithJs": 2264,
+      "kb": 112,
+      "jsKb": 1,
+      "requests": 8,
+      "textNoJs": 2217
+    },
+    {
+      "name": "Shopify Polaris (web components)",
+      "url": "https://shopify.dev/docs/api/app-home/polaris-web-components/actions/button",
+      "lcpMs": 1592,
+      "loadMs": 3861,
+      "textWithJs": 15368,
+      "kb": 1531,
+      "jsKb": 1040,
+      "requests": 167,
+      "textNoJs": 15115
+    },
+    {
+      "name": "Shopify Polaris (React, archived)",
+      "url": "https://polaris-react.shopify.com/components/actions/button",
+      "lcpMs": 2640,
+      "loadMs": 4839,
+      "textWithJs": 3274,
+      "kb": 887,
+      "jsKb": 619,
+      "requests": 123,
+      "textNoJs": 3264
+    },
+    {
+      "name": "Web Awesome",
+      "url": "https://webawesome.com/docs/components/button",
+      "lcpMs": 7336,
+      "loadMs": 9072,
+      "textWithJs": 16882,
+      "kb": 700,
+      "jsKb": 372,
+      "requests": 273,
+      "textNoJs": 18959,
+      "measured": "2026-10-13, added after the master plan named it the nearest alternative"
+    }
+  ]
+}
