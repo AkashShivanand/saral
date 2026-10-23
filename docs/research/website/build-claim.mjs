@@ -3,7 +3,7 @@
 // story section, and a hero that is a real Saral form in six scripts, shown
 // beside the same form running with scripts disabled. Every component is
 // Saral's own CSS from dist/ and its own core script; nothing is drawn to
-// look like a component. Copy is placeholder until the owner writes the pitch.
+// look like a component. Copy is the proposed pitch (website plan), until the owner signs it off.
 // Run: node docs/research/website/palettes.mjs && node docs/research/website/build-claim.mjs
 // View through `npm run serve` (the page imports packages/core and color.mjs).
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -154,7 +154,7 @@ ${latinPreload}
 <style>${css}</style>
 </head>
 <body>
-<p class="mock-note">Research mock, 2026-10-14. Text marked with a dashed line is a placeholder until the owner writes the pitch sentence.</p>
+<p class="mock-note">Research mock, 2026-10-23. Text marked with a dashed line is proposed copy, waiting for the owner to sign it off.</p>
 <div class="wrap">
 <header class="top">
   <a class="brand" href="#">Saral</a>
@@ -169,8 +169,8 @@ ${latinPreload}
 <main>
 <section class="hero" aria-labelledby="h">
   <div>
-    <h1 id="h"><span class="ph">Forms and services that work for everyone.</span></h1>
-    <p class="lead"><span class="ph">Accessible, native HTML forms in any stack and any script. They work before JavaScript loads, and without it.</span></p>
+    <h1 id="h"><span class="ph">Forms everyone can finish.</span></h1>
+    <p class="lead"><span class="ph">Saral is a design system for public services and financial products. Plain HTML and CSS that work in any stack, in any script and on any phone, even before JavaScript loads.</span></p>
     <div class="actions">
       <a data-scope="button" data-part="root" data-variant="accent" href="#">Get started</a>
       <a data-scope="button" data-part="root" data-variant="secondary" href="#">Browse components</a>
@@ -179,7 +179,7 @@ ${latinPreload}
   </div>
   <div class="proof">
     <fieldset data-scope="radio" data-part="root">
-      <legend data-scope="radio" data-part="label">Show the form in</legend>
+      <legend data-scope="radio" data-part="label">The same form, with JavaScript and without it. Show it in</legend>
       ${tabs}
     </fieldset>
     <div class="panes">

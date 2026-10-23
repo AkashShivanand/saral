@@ -2,6 +2,10 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-23: proposed pitch
+
+- Proposed homepage headline "Forms everyone can finish." and a one-sentence pitch for the README, talks and the npm page, with the reasoning and the lines set aside, in `docs/spec/2026-10-13-website-plan.md`. The claim-led mock uses them, marked as proposed until the owner signs them off.
+
 ## 2026-10-14: Select and Tag work right to left
 
 - In a right-to-left page (Arabic, Urdu), the select arrow and its extra padding stayed on the right, which is the start side. The arrow now sits on the end side, and the select and removable tag use logical padding (`padding-inline`) instead of left and right. Left-to-right pages look exactly as before.

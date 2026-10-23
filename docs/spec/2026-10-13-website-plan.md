@@ -21,6 +21,49 @@ Six rules, each taken from a finding in the benchmark.
 5. **Every page has a Markdown twin**, listed in `llms.txt`, generated at build time.
 6. **No promotion and no business content.** Nothing about open core, paid work, pricing or trademarks. No logo wall and no names of who uses Saral (AGENTS.md rule 9).
 
+## Pitch and homepage copy (proposed 2026-10-23, waiting for the owner's sign-off)
+
+Written as a brand brief: one promise that a stranger understands, that the product can prove on the page, and that carries Saral's roots without naming them.
+
+**The insight.** Teams do not want components; they want services that work. Public services and banks are judged by one outcome: did the person finish? A form that someone cannot finish, because of a screen reader, a script, a slow phone or a script blocker, is a failed service, a lost customer or a complaint. No benchmarked system promises that outcome. They sell speed for developers (Tailwind, shadcn/ui), a look (Material) or primitives (Radix). Saral can sell the end user's success, and prove it in the hero.
+
+**The pitch sentence** (for the README, talks, the npm page and the master plan):
+
+> Saral helps teams who build public services and financial products ship forms everyone can finish: accessible from the start, in any language and any stack, and working even before JavaScript loads.
+
+**Homepage.**
+
+| Slot | Copy |
+|---|---|
+| Headline | Forms everyone can finish. |
+| Subhead | Saral is a design system for public services and financial products. Plain HTML and CSS that work in any stack, in any script and on any phone, even before JavaScript loads. |
+| Above the live form | The same form, with JavaScript and without it. |
+| Buttons | Get started; Browse components |
+| Short line (social, npm description) | Accessible HTML forms that work in any stack and any script, with or without JavaScript. |
+| About page, first line | Saral means simple. |
+
+**Why this line.**
+
+- **It names an outcome, not a feature.** "Finish" is what a service measures (completion, drop-off, complaints), so a product owner, a designer and an auditor all read it the same way.
+- **"Everyone" carries the diversity.** Disability, language, script, device and connection are all inside one plain word. The hero then shows it in six scripts, which is how India's range is felt without being named.
+- **It survives translation.** A global promise should still make sense in Hindi, Arabic or Japanese; this one does, and the hero literally translates it.
+- **It is checkable.** Every claim in the subhead is something the page proves: the scripts-off pane, the six scripts, the contrast checks.
+- **It keeps the copy rules:** plain words, sentence case, no hype, no superlatives.
+- **The name stays quiet.** "Saral means simple" lives on the About page, for the curious, not in the hero.
+
+**Lines considered and set aside.**
+
+| Line | Why not |
+|---|---|
+| Simple enough for everyone. | Echoes the name, but vague: simple for the developer or for the person filling the form? |
+| Works for everyone, everywhere, even without JavaScript. | A feature list; "everywhere" is generic |
+| The design system for services that cannot fail. | Fear-led and close to hype |
+| Build once. Works for everyone. | Could be any product |
+
+**Stretch.** If Saral later grows past forms, the umbrella becomes "Services everyone can use", with forms as the first proof. Until then the narrow promise is the stronger one, and it matches the master plan's job.
+
+**How to check it.** Show the headline and subhead, with the hero, to five front-end developers and five service designers outside India, and ask each to say in their own words what Saral does. If at least eight say some form of "forms that work for everyone", keep it.
+
 ## The chosen direction, as a mock
 
 `docs/research/website/claim.html` (view through `npm run serve`; built by `build-claim.mjs`):
@@ -30,7 +73,7 @@ Six rules, each taken from a finding in the benchmark.
 - **Live contrast slot.** The section under the hero checks the accent's pairs live with `packages/tokens/src/color.mjs`. In S8 it becomes the full live contrast view on `checks.mjs`, rebuilding every role.
 - **Weight.** Fonts are self-hosted and trimmed, one file per script, loaded by `unicode-range`, Latin preloaded, `font-display: swap` (`fonts/README.md`). First load, fonts included, is 127 kB with 12 kB of JavaScript, measured in the browser on 2026-10-23: lighter than any site in the benchmark except the current portal. Each other script's font loads only when it is chosen: Tamil 28 kB, Arabic 16 kB, Thai 9 kB, Japanese 23 kB, Devanagari 166 kB.
 - **Checks.** axe clean on the page and every scripts-off page in light and dark; nothing moves on its own; no sideways scroll at 375 pixels.
-- **Copy.** Every headline and lead is a placeholder, marked with a dashed line, until the owner writes the pitch sentence.
+- **Copy.** The headline and subhead use the proposed pitch below, marked with a dashed line until the owner signs it off.
 
 **What the mock found.**
 
@@ -268,7 +311,8 @@ The anatomy highlight, and the Elements and React code tabs (HTML only for the b
 
 ## Open decisions for the owner
 
-1. Accept the revised recommendation (claim first, Neel's look, product as the hero), or pick Neel, Kolam or Jamun as they stand.
-2. Website only, or also the default theme instead of Mor.
+1. Sign off the pitch: "Forms everyone can finish." and the pitch sentence above, or change them.
+2. Website only, or also the default theme instead of Mor (decide by S12).
 3. Whether the roadmap page shows dates, or milestones only.
-4. Whether to bring the theme builder's live contrast view forward to the M3 beta (a master plan change).
+
+Decided on 2026-10-14 (master plan, a0f1ecf): the revised direction (claim first, Neel's look, the product as the hero), the live contrast view at the M3 beta, and the script-rendering test matrix at M2.
