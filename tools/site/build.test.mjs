@@ -11,8 +11,8 @@ const { pages } = buildSite({ out });
 const specs = readdirSync(join(ROOT, 'specs')).map((f) => f.replace('.json', ''));
 const read = (p) => readFileSync(join(out, p), 'utf8');
 
-test('there is a page for the overview, changes, tokens, decisions, and every component', () => {
-  for (const p of ['index.html', 'changes.html', 'tokens.html', 'decisions.html', ...specs.map((s) => `components/${s}.html`)]) {
+test('there is a page for home, changes, tokens, roadmap, accessibility, decisions, and every component', () => {
+  for (const p of ['index.html', 'changes.html', 'tokens.html', 'roadmap.html', 'accessibility.html', 'decisions.html', ...specs.map((s) => `components/${s}.html`)]) {
     assert.ok(pages.includes(p), p);
   }
 });
@@ -57,6 +57,11 @@ test('the tokens page shows every contrast pair with its ratio, for every theme 
   const pairs = JSON.parse(readFileSync(join(ROOT, 'tokens/pairs.json'), 'utf8')).pairs;
   assert.equal((html.match(/data-pair=/g) ?? []).length, pairs.length * 2 * 2);
   assert.ok(/\d+\.\d\d:1/.test(html));
+});
+
+test('no page shows business or open-core content', () => {
+  const business = /open[ -]core|pricing|paid templates?|enterprise (?:plan|edition|licen[cs]e)|commercial licen[cs]e/i;
+  for (const p of pages) assert.equal(read(p).match(business), null, p);
 });
 
 test('no page uses an em dash', () => {

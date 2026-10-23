@@ -2,11 +2,18 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-23: new home page, roadmap and accessibility pages
+
+- The site's home page now sells the design system, not a form builder. Headline "Build it plain. Make it yours.", the same markup in every theme and mode, three cards on how Saral is made, one button in six languages, and where Saral is going. It has a top navigation and no side navigation. No new JavaScript.
+- New site pages: Roadmap (`docs/roadmap.md`, with target dates) and Accessibility (`docs/trust/accessibility.md`, marked as a draft). Both are in the side navigation.
+- A site test fails any page that shows business content.
+- Owner decisions, recorded in the website plan: the form-led pitch is set aside for the design-system pitch; the Neel look is for the website only and Mor stays the default theme; the roadmap shows dates as targets. The homepage mock uses the new copy.
+
 ## 2026-10-23: lighter mock fonts, and drafts for review
 
 - The homepage mock's fonts are now WOFF2, cut by a new script (`docs/research/website/subset-fonts.py`) that keeps only the glyphs HarfBuzz uses to shape the page's text, then checks the cut font shapes it the same. All seven files come to about 105 kB, down from 310 kB; Devanagari went from 170 kB to 13 kB. First load stays at 113 kB, and axe still passes in light and dark.
 - `docs/research/website/translations.md` lists every string of the six-script form, so native readers can correct the drafts.
-- Draft of a roadmap for the docs site, `docs/roadmap.md`: milestones and target dates from the master plan, with nothing about business. The owner still decides whether the site shows dates.
+- Draft of a roadmap for the docs site, `docs/roadmap.md`: milestones and target dates from the master plan, with nothing about business.
 - Draft of the accessibility statement, `docs/trust/accessibility.md`: the standard Saral aims for, how it is tested, and the known gaps.
 
 ## 2026-10-23: proposed pitch

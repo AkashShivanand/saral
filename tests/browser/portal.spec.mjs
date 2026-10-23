@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
   await page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
 });
 
-const PAGES = ['index.html', 'changes.html', 'tokens.html', 'decisions.html', 'components/button.html', 'components/field.html', 'components/link.html', 'components/notice.html', 'components/card.html', 'components/checkbox.html', 'components/radio.html', 'components/select.html', 'components/tag.html'];
+const PAGES = ['index.html', 'changes.html', 'tokens.html', 'roadmap.html', 'accessibility.html', 'decisions.html', 'components/button.html', 'components/field.html', 'components/link.html', 'components/notice.html', 'components/card.html', 'components/checkbox.html', 'components/radio.html', 'components/select.html', 'components/tag.html'];
 
 for (const theme of ['mor', 'kosh']) {
   for (const mode of ['light', 'dark']) {
@@ -53,7 +53,7 @@ test.describe('with JavaScript off', () => {
   test.use({ javaScriptEnabled: false });
   test('the portal reads fine in Mor and hides the switch it cannot use', async ({ page }) => {
     await page.goto('/site/dist/index.html');
-    await expect(page.getByRole('heading', { name: 'Saral', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Build it plain. Make it yours.', level: 1 })).toBeVisible();
     await expect(page.locator('.controls')).toBeHidden();
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(244, 246, 245)');
   });

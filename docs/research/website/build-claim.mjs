@@ -3,7 +3,7 @@
 // story section, and a hero that is a real Saral form in six scripts, shown
 // beside the same form running with scripts disabled. Every component is
 // Saral's own CSS from dist/ and its own core script; nothing is drawn to
-// look like a component. Copy is the proposed pitch (website plan), until the owner signs it off.
+// look like a component. Copy is the decided pitch (website plan, 2026-10-23).
 // Run: node docs/research/website/palettes.mjs && node docs/research/website/build-claim.mjs
 // View through `npm run serve` (the page imports packages/core and color.mjs).
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -154,7 +154,7 @@ ${latinPreload}
 <style>${css}</style>
 </head>
 <body>
-<p class="mock-note">Research mock, 2026-10-23. Text marked with a dashed line is proposed copy, waiting for the owner to sign it off.</p>
+<p class="mock-note">Research mock, 2026-10-23. The live site uses the decided copy; this mock tests the Neel look and the six-script form.</p>
 <div class="wrap">
 <header class="top">
   <a class="brand" href="#">Saral</a>
@@ -169,8 +169,8 @@ ${latinPreload}
 <main>
 <section class="hero" aria-labelledby="h">
   <div>
-    <h1 id="h"><span class="ph">Forms everyone can finish.</span></h1>
-    <p class="lead"><span class="ph">Saral is a design system for public services and financial products. Plain HTML and CSS that work in any stack, in any script and on any phone, even before JavaScript loads.</span></p>
+    <h1 id="h">Build it plain. Make it yours.</h1>
+    <p class="lead">Saral is a design system of tokens and native HTML components. Change the theme, and every part takes on your brand. Every part stays accessible, works in any stack and any script, and works before JavaScript loads.</p>
     <div class="actions">
       <a data-scope="button" data-part="root" data-variant="accent" href="#">Get started</a>
       <a data-scope="button" data-part="root" data-variant="secondary" href="#">Browse components</a>
