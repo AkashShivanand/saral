@@ -2,6 +2,10 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-24: digital presence options
+
+- `docs/research/2026-10-24-digital-presence-options.md`: five visual options for the website and docs (Neel, Two brands, Spec sheet, Plain sheet, Kolam), how the best systems split landing, docs and live examples, and a recommendation: one site with docs and inline examples, plus a lab for the playground and the two consumer websites as case studies. Includes a prompt for ten more options from other tools.
+
 ## 2026-10-23: new home page, roadmap and accessibility pages
 
 - The site's home page now sells the design system, not a form builder. Headline "Build it plain. Make it yours.", the same markup in every theme and mode, three cards on how Saral is made, one button in six languages, and where Saral is going. It has a top navigation and no side navigation. No new JavaScript.
