@@ -10,6 +10,7 @@ Project log, dated, newest first. Package release notes will be generated separa
 - New checks: `npm run check:packages` packs every package, installs the tarballs into a clean project under both registries' names, and uses every entry point from Node and strict TypeScript; `npm run check:registry` publishes to a throwaway local registry and installs from it the way each site would. Both run in CI and before every release. `tools/package.test.mjs` now checks each package's dependencies too.
 - New docs: the plan (`docs/spec/2026-10-24-packages-and-registries.md`), [decision 0006](docs/decisions/0006-package-registries.md) on the registries, and [get started](docs/getting-started.md), on the portal too, for installing from npm, GitHub Packages or a CDN and applying a brand on top of Mor.
 - The README's theme path is fixed.
+- The portal deploy now runs the Netlify CLI from a copy of the built site outside the repo. With workspaces in the repo, the CLI stopped to ask which package to deploy, and the first push failed at that step.
 
 ## 2026-10-24: digital presence options
 

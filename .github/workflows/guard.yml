@@ -51,12 +51,17 @@ jobs:
       - name: Publish to Netlify
         if: env.NETLIFY_AUTH_TOKEN != ''
         id: deploy
+        # Deploys from a copy outside the repo: in the repo, the Netlify CLI
+        # finds the npm workspaces and stops to ask which one to deploy.
         run: |
+          cp -r site/dist "$RUNNER_TEMP/portal"
+          cd "$RUNNER_TEMP/portal"
           if [ "$GITHUB_EVENT_NAME" = "push" ]; then
-            npx -y netlify-cli@27.12.0 deploy --dir=site/dist --prod --message "$GITHUB_SHA" --json > deploy.json
+            npx -y netlify-cli@27.12.0 deploy --dir=. --prod --message "$GITHUB_SHA" --json > "$GITHUB_WORKSPACE/deploy.json"
           else
-            npx -y netlify-cli@27.12.0 deploy --dir=site/dist --alias "pr-${{ github.event.number }}" --message "PR ${{ github.event.number }}" --json > deploy.json
+            npx -y netlify-cli@27.12.0 deploy --dir=. --alias "pr-${{ github.event.number }}" --message "PR ${{ github.event.number }}" --json > "$GITHUB_WORKSPACE/deploy.json"
           fi
+          cd "$GITHUB_WORKSPACE"
           echo "url=$(node -e "const d=require('./deploy.json'); console.log(d.deploy_url || d.url)")" >> "$GITHUB_OUTPUT"
       - name: Link the preview on the pull request
         if: github.event_name == 'pull_request' && steps.deploy.outputs.url != ''
