@@ -916,14 +916,17 @@ export async function build({ quiet = false } = {}) {
   const results = loadResults();
   const errors = [];
   for (const d of DIRECTIONS) {
-    d.lightIn = d.light;
-    d.darkIn = d.dark;
-    d.light = complete(d.light, 'light');
-    d.dark = complete(d.dark, 'dark');
+    // Keep each direction's own input, so building twice in one process gives the same pages.
+    d.lightIn ??= d.light;
+    d.darkIn ??= d.dark;
+    d.light = complete(d.lightIn, 'light');
+    d.dark = complete(d.darkIn, 'dark');
     d.check = checkTheme(d.name, d.light, d.dark);
     for (const v of d.variants ?? []) {
-      v.light = complete({ ...d.lightIn, ...v.light }, 'light');
-      v.dark = complete({ ...d.darkIn, ...v.dark }, 'dark');
+      v.lightIn ??= v.light;
+      v.darkIn ??= v.dark;
+      v.light = complete({ ...d.lightIn, ...v.lightIn }, 'light');
+      v.dark = complete({ ...d.darkIn, ...v.darkIn }, 'dark');
       d.check.push(...checkTheme(`${d.name}: ${v.name}`, v.light, v.dark));
     }
     for (const r of d.check) if (!r.ok) errors.push(`${d.slug} (${r.theme}, ${r.mode}): ${r.text} on ${r.on} is ${r.ratio.toFixed(2)}:1, needs ${r.min}:1`);
