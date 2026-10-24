@@ -57,6 +57,7 @@ export function buildSite({ out = join(ROOT, 'site/dist') } = {}) {
   // anything else in the repo goes to GitHub.
   const rendered = new Map([
     ['CHANGELOG.md', 'changes.html'],
+    ['docs/getting-started.md', 'get-started.html'],
     ['docs/roadmap.md', 'roadmap.html'],
     ['docs/trust/accessibility.md', 'accessibility.html'],
     ...decisions.map(({ f }) => [`docs/decisions/${f}`, `decisions/${f.replace('.md', '.html')}`]),
@@ -74,7 +75,7 @@ export function buildSite({ out = join(ROOT, 'site/dist') } = {}) {
     const pre = page.includes('/') ? '../' : '';
     const item = (href, label) => `<li><a data-scope="link" data-part="root" href="${pre}${href}"${href === page ? ' aria-current="page"' : ''}>${label}</a></li>`;
     return `<nav class="side" aria-label="Sections">
-<ul>${item('index.html', 'Home')}${item('changes.html', 'Changes')}${item('tokens.html', 'Tokens')}${item('roadmap.html', 'Roadmap')}${item('accessibility.html', 'Accessibility')}${item('decisions.html', 'Decisions and incidents')}</ul>
+<ul>${item('index.html', 'Home')}${item('get-started.html', 'Get started')}${item('changes.html', 'Changes')}${item('tokens.html', 'Tokens')}${item('roadmap.html', 'Roadmap')}${item('accessibility.html', 'Accessibility')}${item('decisions.html', 'Decisions and incidents')}</ul>
 <h2>Components</h2>
 <ul>${specs.map((s) => item(`components/${s.id}.html`, esc(s.name))).join('')}</ul>
 </nav>`;
@@ -101,7 +102,7 @@ export function buildSite({ out = join(ROOT, 'site/dist') } = {}) {
 <header class="top">
   <a class="brand" href="${pre}index.html">Saral</a>
   <span class="version">v${version}</span>
-${home ? `<nav class="main" aria-label="Main"><ul><li><a data-scope="link" data-part="root" href="components/field.html">Components</a></li><li><a data-scope="link" data-part="root" href="tokens.html">Tokens</a></li><li><a data-scope="link" data-part="root" href="roadmap.html">Roadmap</a></li><li><a data-scope="link" data-part="root" href="changes.html">Changes</a></li></ul></nav>` : ''}
+${home ? `<nav class="main" aria-label="Main"><ul><li><a data-scope="link" data-part="root" href="get-started.html">Get started</a></li><li><a data-scope="link" data-part="root" href="components/field.html">Components</a></li><li><a data-scope="link" data-part="root" href="tokens.html">Tokens</a></li><li><a data-scope="link" data-part="root" href="roadmap.html">Roadmap</a></li><li><a data-scope="link" data-part="root" href="changes.html">Changes</a></li></ul></nav>` : ''}
   <div class="controls">
     <label for="theme">Theme</label>
     <select id="theme"><option value="mor">Mor</option><option value="kosh">Kosh</option><option value="none">No theme</option></select>
@@ -186,8 +187,8 @@ ${card('Every part has a spec', 'components/button.html', 'Each component has a 
     { home: true },
   );
 
-  // Roadmap and accessibility statement, from their Markdown
-  for (const [source, path] of [['docs/roadmap.md', 'roadmap.html'], ['docs/trust/accessibility.md', 'accessibility.html']]) {
+  // Get started, roadmap and accessibility statement, from their Markdown
+  for (const [source, path] of [['docs/getting-started.md', 'get-started.html'], ['docs/roadmap.md', 'roadmap.html'], ['docs/trust/accessibility.md', 'accessibility.html']]) {
     const md = readFileSync(join(ROOT, source), 'utf8');
     page(path, titleOf(md), renderMarkdown(md, { link: linker(source, path) }));
   }

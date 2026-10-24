@@ -1,0 +1,33 @@
+{
+  "name": "@saral/tokens",
+  "version": "0.3.1",
+  "description": "Saral design tokens as JavaScript: each theme maps a token path to its CSS value, in light and dark.",
+  "keywords": [
+    "saral",
+    "design-system",
+    "accessibility",
+    "forms"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://saral-ds.netlify.app",
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./*.mjs": {
+      "types": "./types/tokens.d.mts",
+      "default": "./dist/*.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

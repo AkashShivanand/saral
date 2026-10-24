@@ -1,0 +1,33 @@
+{
+  "name": "@saral/core",
+  "version": "0.3.1",
+  "description": "Saral core: the small, framework-free script for inline form errors and pending buttons.",
+  "keywords": [
+    "saral",
+    "design-system",
+    "accessibility",
+    "forms"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://saral-ds.netlify.app",
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./types/index.d.mts",
+      "default": "./src/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

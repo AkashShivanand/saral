@@ -1,0 +1,35 @@
+{
+  "name": "@saral/css",
+  "version": "0.3.1",
+  "description": "Saral themes and component styles: plain CSS on native HTML, themed with --saral-* custom properties.",
+  "keywords": [
+    "saral",
+    "design-system",
+    "accessibility",
+    "forms"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://saral-ds.netlify.app",
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./*.css": {
+      "types": "./types/css.d.mts",
+      "default": "./dist/*.css"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

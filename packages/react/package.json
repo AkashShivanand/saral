@@ -1,0 +1,39 @@
+{
+  "name": "@saral/react",
+  "version": "0.3.1",
+  "description": "Saral React components: thin wrappers that render the same plain HTML as the rest of Saral.",
+  "keywords": [
+    "saral",
+    "design-system",
+    "accessibility",
+    "forms"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://saral-ds.netlify.app",
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./types/index.d.mts",
+      "default": "./src/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "types"
+  ],
+  "dependencies": {
+    "@saral/core": "0.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

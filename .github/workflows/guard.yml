@@ -17,6 +17,10 @@ jobs:
       - run: npm run check:dist
       - run: npm run typecheck
       - run: npm run check:types
+      # Packs every package, installs the tarballs in a clean project, then
+      # publishes to a throwaway local registry and installs from that.
+      - run: npm run check:packages
+      - run: npm run check:registry
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: npm run guard

@@ -6,10 +6,20 @@ Saral means simple. It is a design system where the look is a theme you can swap
 
 **Documentation:** [saral-ds.netlify.app](https://saral-ds.netlify.app), with every component, the tokens and their contrast ratios, and every change.
 
+## Install
+
+From 0.4.0, planned for 15 November 2026:
+
+```sh
+npm i @saral/css @saral/core @saral/react
+```
+
+The same packages are on GitHub Packages and on jsDelivr and unpkg. [Get started](docs/getting-started.md) shows each way to install, and how to put your brand on top of a theme.
+
 ## What using it will look like
 
 ```html
-<link rel="stylesheet" href="saral/themes/mor.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@saral/css@0.4.0/dist/mor.css">
 
 <div data-scope="field" data-part="root">
   <label data-part="label" for="email">Email</label>

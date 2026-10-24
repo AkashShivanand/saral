@@ -47,6 +47,7 @@ Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path wi
 - `docs/research/`: the evidence behind it
 - `docs/versioning.md`: what counts as a breaking change
 - `tools/guard/`: the confidentiality guard
+- `tools/release/`: staging, publishing and the consumer checks; the plan is `docs/spec/2026-10-24-packages-and-registries.md`
 
 ## Commands
 
@@ -58,3 +59,6 @@ Token roles are listed in `tokens/roles.json`. Use them as `var(--saral-<path wi
 - `npm run typecheck`: TypeScript checks the JSDoc types in core and React
 - `npm run site`: build the documentation portal into `site/dist` (open `site/dist/index.html` through `npm run serve`)
 - `npm run guard`: scan every file and every commit message
+- `npm run check:packages`: pack every package, install the tarballs in a clean project, use every entry point
+- `npm run check:registry`: publish to a throwaway local registry under both registries' names, then install from it
+- `npm run version-packages`: turn changesets into a new version (owner, when cutting a release)

@@ -11,8 +11,8 @@ const { pages } = buildSite({ out });
 const specs = readdirSync(join(ROOT, 'specs')).map((f) => f.replace('.json', ''));
 const read = (p) => readFileSync(join(out, p), 'utf8');
 
-test('there is a page for home, changes, tokens, roadmap, accessibility, decisions, and every component', () => {
-  for (const p of ['index.html', 'changes.html', 'tokens.html', 'roadmap.html', 'accessibility.html', 'decisions.html', ...specs.map((s) => `components/${s}.html`)]) {
+test('there is a page for home, get started, changes, tokens, roadmap, accessibility, decisions, and every component', () => {
+  for (const p of ['index.html', 'get-started.html', 'changes.html', 'tokens.html', 'roadmap.html', 'accessibility.html', 'decisions.html', ...specs.map((s) => `components/${s}.html`)]) {
     assert.ok(pages.includes(p), p);
   }
 });

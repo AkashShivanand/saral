@@ -1,6 +1,6 @@
 'use client';
 import { createElement, useEffect, useRef } from 'react';
-import { enhanceForm } from '../../core/src/form.mjs';
+import { enhanceForm } from '@saral/core';
 
 /** @typedef {import('react').FormHTMLAttributes<HTMLFormElement>} FormProps */
 

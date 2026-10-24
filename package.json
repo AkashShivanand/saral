@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=20"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "setup": "git config core.hooksPath .githooks",
     "test": "node --test \"tools/**/*.test.mjs\" \"packages/**/*.test.mjs\"",
@@ -17,11 +20,15 @@
     "test:browser": "playwright test",
     "types": "tsc -p tsconfig.types.json",
     "check:types": "npm run types && git diff --exit-code dist/types",
-    "site": "node tools/site/build.mjs"
+    "site": "node tools/site/build.mjs",
+    "check:packages": "node tools/release/check.mjs",
+    "check:registry": "node tools/release/rehearse.mjs",
+    "version-packages": "node tools/release/version.mjs"
   },
   "version": "0.3.1",
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
+    "@changesets/cli": "^3.0.3",
     "@playwright/test": "1.64.0",
     "@types/react": "19.3.0",
     "react": "19.3.0",

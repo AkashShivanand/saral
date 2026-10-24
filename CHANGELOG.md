@@ -2,6 +2,15 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-24: packages for npm and GitHub Packages
+
+- Saral is now four packages with one version: `@saral/tokens`, `@saral/css`, `@saral/core` and `@saral/react`, as npm workspaces. Each has its own `package.json` with `exports` and `files`, and a README. React imports core by package name, and `@saral/react` installs `@saral/core` at the same version. Nothing is published yet.
+- A version tag on main runs `.github/workflows/release.yml`: every check, then publish to npm with provenance through trusted publishing, and to GitHub Packages under the repository owner's scope, then a check that jsDelivr and unpkg serve the new files. Both publish jobs wait on a `release` environment the owner can guard.
+- Changesets sets versions, with all four packages in one fixed group. `npm run version-packages` also keeps the root version in step. The changeset for 0.4.0 is in `.changeset/`.
+- New checks: `npm run check:packages` packs every package, installs the tarballs into a clean project under both registries' names, and uses every entry point from Node and strict TypeScript; `npm run check:registry` publishes to a throwaway local registry and installs from it the way each site would. Both run in CI and before every release. `tools/package.test.mjs` now checks each package's dependencies too.
+- New docs: the plan (`docs/spec/2026-10-24-packages-and-registries.md`), [decision 0006](docs/decisions/0006-package-registries.md) on the registries, and [get started](docs/getting-started.md), on the portal too, for installing from npm, GitHub Packages or a CDN and applying a brand on top of Mor.
+- The README's theme path is fixed.
+
 ## 2026-10-24: digital presence options
 
 - `docs/research/2026-10-24-digital-presence-options.md`: five visual options for the website and docs (Neel, Two brands, Spec sheet, Plain sheet, Kolam), how the best systems split landing, docs and live examples, and a recommendation: one site with docs and inline examples, plus a lab for the playground and the two consumer websites as case studies. Includes a prompt for ten more options from other tools.
