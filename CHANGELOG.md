@@ -2,6 +2,16 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-24: website final direction proposed
+
+- Fifteen website directions scored on ten criteria: the five on the design canvas, and five each from ChatGPT and Gemini, given the same brief. Every direction's real colour pairs were checked against WCAG 2 AA; thirteen of fifteen fail at least one.
+- The top five were critiqued and cut to Neel and Spec sheet. Both were built as a real Button docs page from `specs/button.json`, `dist/css` and a full set of checked colour roles. Both are axe clean in light and dark at 1280 and 375 pixels, read fully with JavaScript off, and load in under 100 kB with fonts and no script.
+- Recommended, waiting for the owner's approval: Neel, with main actions in its indigo ink so the accent button no longer looks the same as the main one. Report and scorecard in `docs/research/2026-10-website-final-direction.md`.
+- The build found two gaps in Saral: no token role for a display face or a code face. Proposed: `font.family.display` and `font.family.mono`.
+- The ChatGPT and Gemini answers and images are kept in `docs/research/website/external/` as AI-generated references, marked not to be shipped.
+- A blind council (five advisors, anonymous peer review, a separate chairman) then judged all fifteen as letters A to O. Its verdict differs from the recommendation above: Spec sheet's structure in Neel's colour, with one typeface for every script and no serif. Transcript in `docs/research/website/council-2026-10-24.md`.
+- The same blind test was run in ChatGPT and Gemini. All three judges place Neel, Spec sheet and Two brands in their top four and Adaptive Prism near the bottom; ChatGPT and Gemini lead with Neel and keep its serif. Side-by-side rankings in `docs/research/website/council-2026-10-24-three-way.md`.
+
 ## 2026-10-24: packages for npm and GitHub Packages
 
 - Saral is now four packages with one version: `@saral/tokens`, `@saral/css`, `@saral/core` and `@saral/react`, as npm workspaces. Each has its own `package.json` with `exports` and `files`, and a README. React imports core by package name, and `@saral/react` installs `@saral/core` at the same version. Nothing is published yet.

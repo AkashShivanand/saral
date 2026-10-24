@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button: Saral (Neel direction)</title>
+<meta name="description" content="Starts an action: submits a form or runs a command on the page.">
+<link rel="preload" href="../fonts/anek-latin.woff" as="font" type="font/woff" crossorigin>
+<style>
+@layer saral.reset, saral.tokens, saral.components, saral.utilities;
+@layer saral.tokens {
+  :where(:root) {
+    color-scheme: light dark;
+  }
+  :where([data-saral-mode="dark"]) {
+    color-scheme: dark;
+  }
+  :where([data-saral-mode="light"]) {
+    color-scheme: light;
+  }
+  :where(:root:not([data-saral-theme]), [data-saral-theme="mor"]) {
+    --saral-space-0: 0px;
+    --saral-space-1: 4px;
+    --saral-space-2: 8px;
+    --saral-space-3: 12px;
+    --saral-space-4: 16px;
+    --saral-space-5: 24px;
+    --saral-space-6: 32px;
+    --saral-space-7: 48px;
+    --saral-space-8: 64px;
+    --saral-space-9: 96px;
+    --saral-font-size-small: 14px;
+    --saral-font-size-body: 16px;
+    --saral-font-size-lead: 18px;
+    --saral-font-size-h3: 20px;
+    --saral-font-size-h2: clamp(24px, 1.25rem + 1vw, 32px);
+    --saral-font-size-h1: clamp(32px, 1.5rem + 2.5vw, 56px);
+    --saral-font-size-display: clamp(44px, 1.75rem + 5vw, 100px);
+    --saral-font-weight-regular: 400;
+    --saral-font-weight-medium: 500;
+    --saral-font-weight-bold: 700;
+    --saral-font-width-display: 80%;
+    --saral-font-width-heading: 90%;
+    --saral-font-width-body: 100%;
+    --saral-font-leading-tight: 1.1;
+    --saral-font-leading-body: 1.5;
+    --saral-font-family-sans: "Anek Latin", "Anek Devanagari", ui-sans-serif, system-ui, sans-serif;
+    --saral-motion-duration-fast: 160ms;
+    --saral-motion-duration-base: 240ms;
+    --saral-motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --saral-focus-width: 3px;
+    --saral-focus-offset: 4px;
+    --saral-size-target-min: 24px;
+    --saral-size-control: 44px;
+    --saral-size-stroke: 1.5px;
+    --saral-radius-box: 4px;
+    --saral-radius-control: 4px;
+    --saral-radius-round: 9999px;
+    --saral-surface-ground: light-dark(#f4f6f5, #0e1416);
+    --saral-surface-raised: light-dark(#ffffff, #151d20);
+    --saral-surface-sunken: light-dark(#e7ecea, #1b2427);
+    --saral-surface-inverse: light-dark(#0f1a1c, #e8eeee);
+    --saral-text-default: light-dark(#0f1a1c, #e8eeee);
+    --saral-text-muted: light-dark(#4e5d60, #9fb0b2);
+    --saral-text-quiet: light-dark(#5d6c6f, #8a9b9e);
+    --saral-text-inverse: light-dark(#f4f6f5, #0e1416);
+    --saral-text-on-action: light-dark(#ffffff, #0e1416);
+    --saral-text-on-accent: light-dark(#ffffff, #0e1416);
+    --saral-text-disabled: light-dark(#8a9799, #5d6c6f);
+    --saral-border-hairline: light-dark(#d5dddc, #26313a);
+    --saral-border-strong: light-dark(#6b7a7d, #7f9093);
+    --saral-border-focus: light-dark(#0b5f66, #5fb8be);
+    --saral-action-default: light-dark(#0b5f66, #5fb8be);
+    --saral-action-hover: light-dark(#094e54, #7cc9ce);
+    --saral-action-pressed: light-dark(#073f44, #9ad6da);
+    --saral-action-disabled: light-dark(#e7ecea, #1b2427);
+    --saral-accent-default: light-dark(#0b5f66, #5fb8be);
+    --saral-accent-hover: light-dark(#094e54, #7cc9ce);
+    --saral-accent-subtle: light-dark(#e6f0ef, #12302f);
+    --saral-feedback-danger-text: light-dark(#b42318, #ff8f80);
+    --saral-feedback-danger-subtle: light-dark(#fdecea, #3a1714);
+    --saral-feedback-danger-border: light-dark(#b42318, #ff8f80);
+    --saral-feedback-success-text: light-dark(#1e6b3a, #6fcf8f);
+    --saral-feedback-success-subtle: light-dark(#e7f3ec, #13291b);
+    --saral-feedback-success-border: light-dark(#1e6b3a, #6fcf8f);
+    --saral-feedback-warning-text: light-dark(#7a4b00, #f2c46b);
+    --saral-feedback-warning-subtle: light-dark(#fdf3e1, #2e2410);
+    --saral-feedback-warning-border: light-dark(#7a4b00, #f2c46b);
+    --saral-feedback-info-text: light-dark(#0b4a50, #8fd0d4);
+    --saral-feedback-info-subtle: light-dark(#e6f0ef, #12302f);
+    --saral-feedback-info-border: light-dark(#0b5f66, #5fb8be);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(:root:not([data-saral-theme]), [data-saral-theme="mor"]) {
+      --saral-motion-duration-fast: 0ms;
+      --saral-motion-duration-base: 0ms;
+    }
+  }
+}
+
+@layer saral.reset, saral.tokens, saral.components, saral.utilities;
+/* Button: <button> or a link that looks like one. Variants: primary (the
+   theme's action colour), accent, secondary (outlined). Order matters inside
+   :where(): base, variants, hover, active, focus, disabled. */
+@layer saral.components {
+  :where([data-scope="button"][data-part="root"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--saral-space-2);
+    min-height: var(--saral-size-control);
+    padding: 0 var(--saral-space-5);
+    border: var(--saral-size-stroke) solid transparent;
+    border-radius: var(--saral-radius-control);
+    font: inherit;
+    font-weight: var(--saral-font-weight-medium);
+    line-height: var(--saral-font-leading-tight);
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--saral-action-default);
+    color: var(--saral-text-on-action);
+    transition: background-color var(--saral-motion-duration-fast) var(--saral-motion-ease-standard), border-color var(--saral-motion-duration-fast) var(--saral-motion-ease-standard);
+  }
+  :where([data-scope="button"][data-variant="accent"]) {
+    background: var(--saral-accent-default);
+    color: var(--saral-text-on-accent);
+  }
+  :where([data-scope="button"][data-variant="secondary"]) {
+    background: transparent;
+    color: var(--saral-text-default);
+    border-color: var(--saral-border-strong);
+  }
+  @media (hover: hover) {
+    :where([data-scope="button"][data-part="root"]:hover) {
+      background: var(--saral-action-hover);
+    }
+    :where([data-scope="button"][data-variant="accent"]:hover) {
+      background: var(--saral-accent-hover);
+    }
+    :where([data-scope="button"][data-variant="secondary"]:hover) {
+      background: transparent;
+      border-color: var(--saral-text-default);
+    }
+  }
+  :where([data-scope="button"][data-part="root"]:active) {
+    background: var(--saral-action-pressed);
+  }
+  :where([data-scope="button"][data-variant="accent"]:active) {
+    background: var(--saral-accent-hover);
+  }
+  :where([data-scope="button"][data-variant="secondary"]:active) {
+    background: var(--saral-surface-sunken);
+  }
+  :where([data-scope="button"][data-part="root"]:focus-visible) {
+    outline: var(--saral-focus-width) solid var(--saral-border-focus);
+    outline-offset: var(--saral-focus-offset);
+  }
+  :where([data-scope="button"][data-part="root"]:disabled, [data-scope="button"][data-part="root"][aria-disabled="true"]) {
+    background: var(--saral-action-disabled);
+    color: var(--saral-text-disabled);
+    border-color: transparent;
+    cursor: not-allowed;
+  }
+  :where([data-scope="button"][data-pending]) {
+    cursor: progress;
+  }
+}
+
+:root {
+  --saral-surface-ground: light-dark(#f4f7fe, #090e1f);
+  --saral-surface-raised: light-dark(#fdfdff, #11172a);
+  --saral-surface-sunken: light-dark(#e7ebf5, #171e33);
+  --saral-surface-inverse: light-dark(#0f172d, #e8ebf2);
+  --saral-text-default: light-dark(#0f172d, #e8ebf2);
+  --saral-text-muted: light-dark(#484f62, #abb4cb);
+  --saral-text-quiet: light-dark(#5a6070, #98a1b8);
+  --saral-text-inverse: light-dark(#f4f7fe, #090e1f);
+  --saral-text-on-action: light-dark(#fafcff, #090e1f);
+  --saral-text-on-accent: light-dark(#fafcff, #090e1f);
+  --saral-text-disabled: light-dark(#8f9299, #5b6378);
+  --saral-border-hairline: light-dark(#dbe0e9, #1e263b);
+  --saral-border-strong: light-dark(#6b7182, #7d869c);
+  --saral-border-focus: light-dark(#263d97, #93aef8);
+  --saral-action-default: light-dark(#263d97, #93aef8);
+  --saral-action-hover: light-dark(#1c2f83, #a7bfff);
+  --saral-action-pressed: light-dark(#14246c, #b9cdff);
+  --saral-action-disabled: light-dark(#e7ebf5, #171e33);
+  --saral-accent-default: light-dark(#263d97, #93aef8);
+  --saral-accent-hover: light-dark(#1c2f83, #a7bfff);
+  --saral-accent-subtle: light-dark(#e8eeff, #182137);
+  --saral-feedback-danger-text: light-dark(#b02b27, #f98f84);
+  --saral-feedback-danger-subtle: light-dark(#ffedeb, #3c1714);
+  --saral-feedback-danger-border: light-dark(#b02b27, #f98f84);
+  --saral-feedback-success-text: light-dark(#296a3b, #7cd591);
+  --saral-feedback-success-subtle: light-dark(#e4f8e7, #102b17);
+  --saral-feedback-success-border: light-dark(#296a3b, #7cd591);
+  --saral-feedback-warning-text: light-dark(#845011, #f4c26a);
+  --saral-feedback-warning-subtle: light-dark(#fff0d7, #31240e);
+  --saral-feedback-warning-border: light-dark(#845011, #f4c26a);
+  --saral-feedback-info-text: light-dark(#185a89, #98caf5);
+  --saral-feedback-info-subtle: light-dark(#e7f4ff, #122636);
+  --saral-feedback-info-border: light-dark(#185a89, #98caf5);
+  --saral-font-family-sans: "Saral Text", ui-sans-serif, system-ui, sans-serif; --display: "Saral Display", Georgia, serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; --saral-radius-control: 8px; --saral-radius-box: 10px; --link: var(--saral-action-default);
+}
+@font-face { font-family: "Saral Display"; src: url("../fonts/eczar-latin.woff") format("woff"); font-weight: 500 800; font-display: swap; unicode-range: U+0000-00FF, U+2013-2014, U+2018-201D, U+2026; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/anek-latin.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+20B9; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/anek-devanagari.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+0900-097F, U+1CD0-1CFF, U+200C-200D, U+25CC, U+A8E0-A8FF; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/anek-tamil.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+0B80-0BFF, U+200C-200D, U+25CC; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/noto-arabic.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+0600-06FF, U+0750-077F, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/noto-thai.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+0E00-0E7F, U+200C-200D; }
+@font-face { font-family: "Saral Text"; src: url("../fonts/noto-jp.woff") format("woff"); font-weight: 400 700; font-display: swap; unicode-range: U+3000-303F, U+3040-309F, U+30A0-30FF, U+4E00-9FFF, U+FF00-FFEF; }
+
+* { box-sizing: border-box; }
+html { color-scheme: light dark; }
+body { margin: 0; background: var(--saral-surface-ground); color: var(--saral-text-default); font-family: var(--saral-font-family-sans); font-size: var(--saral-font-size-body); line-height: var(--saral-font-leading-body); }
+a { color: var(--link); text-underline-offset: 0.18em; }
+:focus-visible { outline: var(--saral-focus-width) solid var(--saral-border-focus); outline-offset: 2px; }
+.skip { position: absolute; inset-inline-start: var(--saral-space-4); inset-block-start: -100px; padding: var(--saral-space-2) var(--saral-space-4); background: var(--saral-surface-raised); color: var(--saral-text-default); z-index: 2; }
+.skip:focus { inset-block-start: var(--saral-space-2); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--saral-space-5); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--saral-space-3) var(--saral-space-5); padding-block: var(--saral-space-4); }
+.brand { color: inherit; text-decoration: none; }
+.top nav ul { display: flex; flex-wrap: wrap; gap: var(--saral-space-1) var(--saral-space-4); list-style: none; margin: 0; padding: 0; font-size: var(--saral-font-size-small); }
+.top nav a { color: var(--saral-text-muted); text-decoration: none; display: inline-block; padding-block: var(--saral-space-1); }
+.top nav a[aria-current] { color: var(--saral-text-default); font-weight: var(--saral-font-weight-bold); }
+@media (hover: hover) { .top nav a:hover, .side a:hover { color: var(--saral-text-default); text-decoration: underline; } }
+.search { margin-inline-start: auto; font-size: var(--saral-font-size-small); }
+.layout { display: grid; gap: var(--saral-space-6); grid-template-columns: minmax(0, 1fr); padding-block: var(--saral-space-6) var(--saral-space-8); }
+@media (min-width: 900px) { .layout { grid-template-columns: 180px minmax(0, 1fr); } }
+@media (min-width: 1180px) { .layout { grid-template-columns: 180px minmax(0, 1fr) 170px; } }
+.side ul, .toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--saral-space-1); font-size: var(--saral-font-size-small); }
+.side a, .toc a { color: var(--saral-text-muted); text-decoration: none; display: block; padding-block: var(--saral-space-1); }
+.side a[aria-current] { color: var(--saral-text-default); font-weight: var(--saral-font-weight-bold); }
+.side h2, .toc h2 { font-family: var(--saral-font-family-sans); font-size: var(--saral-font-size-small); font-weight: var(--saral-font-weight-bold); margin: 0 0 var(--saral-space-2); }
+.side .wide { display: none; }
+.side details summary { cursor: pointer; font-size: var(--saral-font-size-small); font-weight: var(--saral-font-weight-bold); min-height: var(--saral-size-control); display: flex; align-items: center; }
+@media (min-width: 900px) { .side .wide { display: block; position: sticky; top: var(--saral-space-5); } .side details { display: none; } }
+.toc { display: none; }
+@media (min-width: 1180px) { .toc { display: block; } .toc > div { position: sticky; top: var(--saral-space-5); } }
+main { min-width: 0; }
+main > section { padding-block: var(--saral-space-6); }
+main > header { padding-bottom: var(--saral-space-5); }
+h1, h2, h3 { line-height: var(--saral-font-leading-tight); margin: 0 0 var(--saral-space-4); text-wrap: balance; }
+h3 { font-size: var(--saral-font-size-h3); }
+p { margin: 0 0 var(--saral-space-4); max-width: 42em; }
+.lead { font-size: var(--saral-font-size-lead); color: var(--saral-text-muted); }
+.meta { display: flex; flex-wrap: wrap; gap: var(--saral-space-2) var(--saral-space-6); margin: var(--saral-space-5) 0 var(--saral-space-4); padding: 0; }
+.meta div { display: grid; }
+.meta dt { font-size: var(--saral-font-size-small); color: var(--saral-text-muted); }
+.meta dd { margin: 0; font-weight: var(--saral-font-weight-medium); }
+.links { display: flex; flex-wrap: wrap; gap: var(--saral-space-2) var(--saral-space-5); font-size: var(--saral-font-size-small); list-style: none; padding: 0; margin: 0; }
+.stage { display: flex; flex-wrap: wrap; gap: var(--saral-space-3); align-items: center; padding: var(--saral-space-7) var(--saral-space-5); background: var(--saral-surface-raised); border: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+.scripts { border: var(--saral-size-stroke) solid var(--saral-border-hairline); border-top: 0; background: var(--saral-surface-raised); }
+.scripts summary { cursor: pointer; padding: var(--saral-space-3) var(--saral-space-5); min-height: var(--saral-size-control); display: flex; align-items: center; font-size: var(--saral-font-size-small); font-weight: var(--saral-font-weight-medium); }
+.scripts summary::before { content: ""; inline-size: 0.45em; block-size: 0.45em; border-inline-end: 2px solid currentColor; border-block-end: 2px solid currentColor; transform: rotate(-45deg); margin-inline-end: var(--saral-space-3); }
+.scripts summary:dir(rtl)::before { transform: rotate(135deg); }
+.scripts[open] summary::before { transform: rotate(45deg); }
+.scripts .row { display: flex; flex-wrap: wrap; gap: var(--saral-space-3); padding: 0 var(--saral-space-5) var(--saral-space-5); }
+pre { margin: 0; padding: var(--saral-space-4) var(--saral-space-5); overflow-x: auto; background: var(--saral-surface-sunken); border: var(--saral-size-stroke) solid var(--saral-border-hairline); border-top: 0; font-size: var(--saral-font-size-small); line-height: 1.6; }
+code { font-family: var(--mono); font-size: 0.92em; }
+.two { display: grid; gap: var(--saral-space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.two ul { margin: 0; padding-inline-start: var(--saral-space-5); }
+.two li { margin-bottom: var(--saral-space-2); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: var(--saral-font-size-small); }
+caption { text-align: start; color: var(--saral-text-muted); padding-bottom: var(--saral-space-2); }
+th, td { text-align: start; vertical-align: top; padding: var(--saral-space-3); border-bottom: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+th { font-weight: var(--saral-font-weight-bold); }
+.swatch { display: inline-block; inline-size: 1em; block-size: 1em; vertical-align: -0.15em; margin-inline-end: var(--saral-space-2); border: 1px solid var(--saral-border-strong); }
+.platforms { display: grid; gap: var(--saral-space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 0; }
+.platforms dt { font-weight: var(--saral-font-weight-bold); }
+.platforms dd { margin: 0; color: var(--saral-text-muted); }
+.say { display: grid; gap: var(--saral-space-3); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.say > div { padding: var(--saral-space-4); background: var(--saral-surface-raised); border: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+.say strong { display: block; margin-bottom: var(--saral-space-2); font-size: var(--saral-font-size-small); }
+.changes { list-style: none; margin: 0; padding: 0; }
+.changes li { display: grid; gap: var(--saral-space-1) var(--saral-space-5); padding-block: var(--saral-space-3); border-bottom: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+@media (min-width: 720px) { .changes li { grid-template-columns: 110px minmax(0, 1fr); } }
+.changes time { color: var(--saral-text-muted); font-variant-numeric: tabular-nums; }
+footer { border-top: var(--saral-size-stroke) solid var(--saral-border-hairline); font-size: var(--saral-font-size-small); color: var(--saral-text-muted); }
+footer .bar { padding-block: var(--saral-space-5); }
+a[data-scope="button"] { text-decoration: none; }
+@media (forced-colors: active) { .stage, .scripts, pre, .say > div { border-color: CanvasText; } .swatch { forced-color-adjust: none; } }
+
+
+.top { background: var(--saral-surface-raised); border-bottom: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+.brand { font: 700 26px/1 var(--display); }
+h1, h2 { font-family: var(--display); font-weight: 600; }
+h1 { font-size: clamp(40px, 1.6rem + 3vw, 68px); margin-bottom: var(--saral-space-3); }
+h2 { font-size: clamp(26px, 1.1rem + 1.2vw, 36px); }
+.eyebrow { margin: 0 0 var(--saral-space-2); font-size: var(--saral-font-size-small); letter-spacing: 0.08em; text-transform: uppercase; color: var(--saral-action-default); font-weight: var(--saral-font-weight-medium); }
+.stage { border-radius: var(--saral-radius-box) var(--saral-radius-box) 0 0; box-shadow: 0 24px 48px -36px color-mix(in srgb, var(--saral-surface-inverse) 45%, transparent); }
+pre { border-radius: 0 0 var(--saral-radius-box) var(--saral-radius-box); }
+.scripts + pre { border-radius: 0 0 var(--saral-radius-box) var(--saral-radius-box); }
+.scroll { background: var(--saral-surface-raised); border: var(--saral-size-stroke) solid var(--saral-border-hairline); border-radius: var(--saral-radius-box); padding: 0 var(--saral-space-3); }
+.say > div { border-radius: var(--saral-radius-box); }
+main > section + section { border-top: var(--saral-size-stroke) solid var(--saral-border-hairline); }
+.side a[aria-current] { color: var(--saral-action-default); }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#">Saral</a>
+    <nav aria-label="Main"><ul><li><a href="#">Get started</a></li><li><a href="#">Foundations</a></li><li><a href="#" aria-current="true">Components</a></li><li><a href="#">Patterns</a></li><li><a href="#">Themes</a></li><li><a href="#">Trust</a></li></ul></nav>
+    <a class="search" href="#">Search</a>
+  </div>
+</header>
+<div class="wrap layout">
+  <nav class="side" aria-label="Components">
+    <div class="wide"><h2>Components</h2><ul><li><a href="#" aria-current="page">Button</a></li><li><a href="#">Card</a></li><li><a href="#">Checkbox</a></li><li><a href="#">Field</a></li><li><a href="#">Link</a></li><li><a href="#">Notice</a></li><li><a href="#">Radio group</a></li><li><a href="#">Select</a></li><li><a href="#">Tag</a></li></ul></div>
+    <details><summary>Components: Button</summary><ul><li><a href="#" aria-current="page">Button</a></li><li><a href="#">Card</a></li><li><a href="#">Checkbox</a></li><li><a href="#">Field</a></li><li><a href="#">Link</a></li><li><a href="#">Notice</a></li><li><a href="#">Radio group</a></li><li><a href="#">Select</a></li><li><a href="#">Tag</a></li></ul></details>
+  </nav>
+  <main id="main">
+    <header>
+      <p class="eyebrow">Component</p>
+      <h1>Button</h1>
+      <p class="lead">Starts an action: submits a form or runs a command on the page.</p>
+      <dl class="meta">
+        <div><dt>Status</dt><dd>Preview</dd></div>
+        <div><dt>Since</dt><dd>0.2.0</dd></div>
+        <div><dt>Element</dt><dd><code>&lt;button&gt;</code></dd></div>
+        <div><dt>Script needed</dt><dd>None</dd></div>
+      </dl>
+      <ul class="links"><li><a href="#">Spec JSON</a></li><li><a href="#">Markdown</a></li><li><a href="#">Source</a></li><li><a href="#">Report a problem</a></li></ul>
+    </header>
+
+    <section id="example" aria-labelledby="h-example">
+      <h2 id="h-example">Example</h2>
+      <div class="stage">
+<button data-scope="button" data-part="root" type="submit">Send message</button>
+<button data-scope="button" data-part="root" data-variant="accent" type="button">Continue</button>
+<button data-scope="button" data-part="root" data-variant="secondary" type="button">Save draft</button>
+<button data-scope="button" data-part="root" type="button" disabled>Pay now</button>
+<button data-scope="button" data-part="root" type="submit" aria-disabled="true" data-pending>Sending</button>
+      </div>
+      <details class="scripts">
+        <summary>The same button in six scripts</summary>
+        <div class="row"><button data-scope="button" data-part="root" type="button" lang="en" dir="ltr">Continue</button><button data-scope="button" data-part="root" type="button" lang="hi" dir="ltr">आगे बढ़ें</button><button data-scope="button" data-part="root" type="button" lang="ta" dir="ltr">தொடரவும்</button><button data-scope="button" data-part="root" type="button" lang="ar" dir="rtl">متابعة</button><button data-scope="button" data-part="root" type="button" lang="th" dir="ltr">ดำเนินการต่อ</button><button data-scope="button" data-part="root" type="button" lang="ja" dir="ltr">次へ</button></div>
+      </details>
+      <pre tabindex="0" aria-label="HTML for the example"><code>&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; type=&quot;submit&quot;&gt;Send message&lt;/button&gt;
+&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; data-variant=&quot;accent&quot; type=&quot;button&quot;&gt;Continue&lt;/button&gt;
+&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; data-variant=&quot;secondary&quot; type=&quot;button&quot;&gt;Save draft&lt;/button&gt;
+&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; type=&quot;button&quot; disabled&gt;Pay now&lt;/button&gt;
+&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; type=&quot;submit&quot; aria-disabled=&quot;true&quot; data-pending&gt;Sending&lt;/button&gt;</code></pre>
+    </section>
+
+    <section id="when" aria-labelledby="h-when">
+      <h2 id="h-when">When to use it</h2>
+      <div class="two">
+        <div><h3>Use it for</h3><ul><li>Submitting a form</li><li>An action that changes something on this page</li></ul></div>
+        <div><h3>Use something else for</h3><ul><li>Going to another page: use Link</li><li>Several actions of equal weight side by side: use Button with variant secondary for all but one</li></ul></div>
+      </div>
+    </section>
+
+    <section id="anatomy" aria-labelledby="h-anatomy">
+      <h2 id="h-anatomy">Anatomy</h2>
+      <div class="scroll" tabindex="0" role="region" aria-label="Parts table"><table>
+        <caption>Every part carries <code>data-scope</code> and <code>data-part</code>.</caption>
+        <thead><tr><th scope="col">Part</th><th scope="col">Element</th><th scope="col">Role</th><th scope="col">Attributes</th></tr></thead>
+        <tbody><tr><td><code>root</code></td><td><code>&lt;button&gt;</code></td><td>button</td><td><code>data-scope="button"</code> <code>data-part="root"</code> <code>data-variant</code></td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="states" aria-labelledby="h-states">
+      <h2 id="h-states">States</h2>
+      <div class="scroll" tabindex="0" role="region" aria-label="States table"><table>
+        <thead><tr><th scope="col">State</th><th scope="col">Set by</th><th scope="col">How</th></tr></thead>
+        <tbody><tr><td>hover</td><td>CSS</td><td><code>:hover</code> inside <code>@media (hover: hover)</code></td></tr><tr><td>pressed</td><td>CSS</td><td><code>:active</code></td></tr><tr><td>focus</td><td>CSS</td><td><code>:focus-visible</code></td></tr><tr><td>disabled</td><td>CSS</td><td><code>:disabled</code> or <code>aria-disabled=&quot;true&quot;</code></td></tr><tr><td>pending</td><td>Core script</td><td><code>data-pending</code> and <code>aria-disabled=&quot;true&quot;</code>, via <code>setPending</code> or <code>enhanceForm</code></td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="api" aria-labelledby="h-api">
+      <h2 id="h-api">API and tokens</h2>
+      <div class="scroll" tabindex="0" role="region" aria-label="Props table"><table>
+        <caption>React props. In HTML, use <code>data-variant</code> and <code>data-pending</code>.</caption>
+        <thead><tr><th scope="col">Prop</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead>
+        <tbody><tr><td><code>variant</code></td><td><code>'primary' | 'accent' | 'secondary'</code></td><td><code>primary</code></td><td>primary uses the theme's action colour; accent the theme's accent; secondary is outlined</td></tr><tr><td><code>pending</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Marks the button as waiting; it stays focusable and keeps its label</td></tr><tr><td><code>render</code></td><td><code>(props) =&gt; ReactElement</code></td><td><code>none</code></td><td>Puts the button's props on another element, such as a router link</td></tr></tbody>
+      </table></div>
+      <h3 style="margin-top: var(--saral-space-6)">Tokens it reads</h3>
+      <div class="scroll" tabindex="0" role="region" aria-label="Tokens table"><table>
+        <thead><tr><th scope="col">Token</th><th scope="col">Light</th><th scope="col">Dark</th></tr></thead>
+        <tbody><tr><td><span class="swatch" style="background: var(--saral-action-default)"></span><code>--saral-action-default</code></td><td><code>#263d97</code></td><td><code>#93aef8</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-action-hover)"></span><code>--saral-action-hover</code></td><td><code>#1c2f83</code></td><td><code>#a7bfff</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-action-pressed)"></span><code>--saral-action-pressed</code></td><td><code>#14246c</code></td><td><code>#b9cdff</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-action-disabled)"></span><code>--saral-action-disabled</code></td><td><code>#e7ebf5</code></td><td><code>#171e33</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-accent-default)"></span><code>--saral-accent-default</code></td><td><code>#263d97</code></td><td><code>#93aef8</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-accent-hover)"></span><code>--saral-accent-hover</code></td><td><code>#1c2f83</code></td><td><code>#a7bfff</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-text-on-action)"></span><code>--saral-text-on-action</code></td><td><code>#fafcff</code></td><td><code>#090e1f</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-text-on-accent)"></span><code>--saral-text-on-accent</code></td><td><code>#fafcff</code></td><td><code>#090e1f</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-text-disabled)"></span><code>--saral-text-disabled</code></td><td><code>#8f9299</code></td><td><code>#5b6378</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-border-strong)"></span><code>--saral-border-strong</code></td><td><code>#6b7182</code></td><td><code>#7d869c</code></td></tr><tr><td><span class="swatch" style="background: var(--saral-border-focus)"></span><code>--saral-border-focus</code></td><td><code>#263d97</code></td><td><code>#93aef8</code></td></tr><tr><td><code>--saral-radius-control</code></td><td><code>theme</code></td><td><code>theme</code></td></tr><tr><td><code>--saral-size-control</code></td><td><code>theme</code></td><td><code>theme</code></td></tr><tr><td><code>--saral-focus-width</code></td><td><code>theme</code></td><td><code>theme</code></td></tr><tr><td><code>--saral-focus-offset</code></td><td><code>theme</code></td><td><code>theme</code></td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="accessibility" aria-labelledby="h-accessibility">
+      <h2 id="h-accessibility">Accessibility</h2>
+      <p>Native &lt;button&gt;. A pending button uses aria-disabled, not disabled, so it stays in the tab order and screen readers say why nothing happens.</p>
+      <div class="scroll" tabindex="0" role="region" aria-label="Keyboard table"><table>
+        <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+        <tbody><tr><td>Enter or Space</td><td>Activates the button</td></tr></tbody>
+      </table></div>
+      <h3 style="margin-top: var(--saral-space-6)">On other platforms</h3>
+      <dl class="platforms"><div><dt>iOS</dt><dd>SwiftUI Button; pending maps to .disabled with an accessibility hint</dd></div><div><dt>Android</dt><dd>Compose Button; pending maps to enabled = false with stateDescription</dd></div></dl>
+    </section>
+
+    <section id="writing" aria-labelledby="h-writing">
+      <h2 id="h-writing">Writing</h2>
+      <p>A verb first, one to three words, sentence case: Send message, Save changes. Never OK or Submit.</p>
+      <div class="say"><div><strong>Write</strong>Send message, Save changes, Pay now</div><div><strong>Avoid</strong>OK, Submit, Click here</div></div>
+    </section>
+
+    <section id="changes" aria-labelledby="h-changes">
+      <h2 id="h-changes">Recent changes</h2>
+      <ul class="changes"><li><time datetime="2026-10-12">2026-10-12</time><span>Every component now also ships as its own file in <code>dist/css/</code> (<code>button.css</code>, <code>field.css</code>, <code>checkbox.css</code>, <code>radio.css</code>, <code>select.css</code>, <code>link.css</code>, <code>notice.css</code>, <code>tag.css</code>, <code>card.css</code>), so a site loads only the parts it uses. <code>components.css</code> still holds them all.</span></li><li><time datetime="2026-10-12">2026-10-12</time><span>A fresh review before release found five problems, all fixed with tests (119 node, 53 browser): the select lost its arrow in Windows High Contrast; a whole-card link covered every button and plain link inside the card; unticking a required checkbox showed its error before screen readers were told; a removable tag did nothing without script (it now removes through a link, and React <code>Tag</code> takes <code>removeHref</code>); and a disabled select looked enabled.</span></li><li><time datetime="2026-10-12">2026-10-12</time><span>Field (label, input or textarea, hint, error), Button (primary, accent, secondary, pending), Link and Notice (info, success, warning, danger). Plain HTML and CSS that work with JavaScript off.</span></li></ul>
+    </section>
+  </main>
+  <nav class="toc" aria-label="On this page"><div><h2>On this page</h2><ul><li><a href="#example">Example</a></li><li><a href="#when">When to use it</a></li><li><a href="#anatomy">Anatomy</a></li><li><a href="#states">States</a></li><li><a href="#api">API and tokens</a></li><li><a href="#accessibility">Accessibility</a></li><li><a href="#writing">Writing</a></li><li><a href="#changes">Recent changes</a></li></ul></div></nav>
+</div>
+<footer><div class="wrap bar"><span>Saral v0.3.1. MIT licence.</span><a href="#">Changes</a><a href="#">Accessibility statement</a><a href="#">GitHub</a></div></footer>
+</body>
+</html>

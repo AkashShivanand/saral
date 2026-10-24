@@ -1,0 +1,117 @@
+{
+  "neel": {
+    "axe": {
+      "1280 light": [],
+      "1280 dark": [],
+      "375 light": [],
+      "375 dark": [],
+      "1280 light, scripts open": []
+    },
+    "overflow375": 0,
+    "textWithoutJs": "100%",
+    "weight": {
+      "requests": 3,
+      "totalKB": 93,
+      "fontsKB": 60.6,
+      "scriptKB": 0,
+      "files": [
+        "neel-button.html 32.4 kB",
+        "anek-latin.woff 42.5 kB",
+        "eczar-latin.woff 18.2 kB"
+      ]
+    },
+    "forcedButtonsVisible": true,
+    "weightScriptsOpen": {
+      "requests": 8,
+      "totalKB": 336.7,
+      "fontsKB": 304.3,
+      "scriptKB": 0,
+      "files": [
+        "neel-button.html 32.4 kB",
+        "anek-latin.woff 42.5 kB",
+        "eczar-latin.woff 18.2 kB",
+        "noto-arabic.woff 16.1 kB",
+        "noto-thai.woff 9.2 kB",
+        "anek-tamil.woff 28.5 kB",
+        "noto-jp.woff 23.3 kB",
+        "anek-devanagari.woff 166.6 kB"
+      ]
+    }
+  },
+  "spec": {
+    "axe": {
+      "1280 light": [],
+      "1280 dark": [],
+      "375 light": [],
+      "375 dark": [],
+      "1280 light, scripts open": []
+    },
+    "overflow375": 0,
+    "textWithoutJs": "100%",
+    "weight": {
+      "requests": 2,
+      "totalKB": 75.8,
+      "fontsKB": 42.5,
+      "scriptKB": 0,
+      "files": [
+        "spec-button.html 33.3 kB",
+        "anek-latin.woff 42.5 kB"
+      ]
+    },
+    "forcedButtonsVisible": true,
+    "weightScriptsOpen": {
+      "requests": 7,
+      "totalKB": 319.4,
+      "fontsKB": 286.2,
+      "scriptKB": 0,
+      "files": [
+        "anek-latin.woff 42.5 kB",
+        "spec-button.html 33.3 kB",
+        "anek-tamil.woff 28.5 kB",
+        "noto-arabic.woff 16.1 kB",
+        "noto-thai.woff 9.2 kB",
+        "anek-devanagari.woff 166.6 kB",
+        "noto-jp.woff 23.3 kB"
+      ]
+    }
+  },
+  "final": {
+    "axe": {
+      "1280 light": [],
+      "1280 dark": [],
+      "375 light": [],
+      "375 dark": [],
+      "1280 light, scripts open": []
+    },
+    "overflow375": 0,
+    "textWithoutJs": "100%",
+    "weight": {
+      "requests": 3,
+      "totalKB": 93.5,
+      "fontsKB": 60.6,
+      "scriptKB": 0,
+      "files": [
+        "anek-latin.woff 42.5 kB",
+        "final-button.html 32.9 kB",
+        "eczar-latin.woff 18.2 kB"
+      ]
+    },
+    "forcedButtonsVisible": true,
+    "weightScriptsOpen": {
+      "requests": 8,
+      "totalKB": 337.2,
+      "fontsKB": 304.3,
+      "scriptKB": 0,
+      "files": [
+        "anek-latin.woff 42.5 kB",
+        "final-button.html 32.9 kB",
+        "eczar-latin.woff 18.2 kB",
+        "noto-jp.woff 23.3 kB",
+        "noto-arabic.woff 16.1 kB",
+        "noto-thai.woff 9.2 kB",
+        "anek-tamil.woff 28.5 kB",
+        "anek-devanagari.woff 166.6 kB"
+      ]
+    }
+  }
+}

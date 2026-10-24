@@ -1,0 +1,1112 @@
+{
+  "Neel": {
+    "source": "canvas",
+    "derived": null,
+    "checked": 9,
+    "failed": 0,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#11163A",
+        "bg": "#F6F7FB",
+        "ratio": 16.35,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "muted text",
+        "fg": "#3D4152",
+        "bg": "#F6F7FB",
+        "ratio": 9.45,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "button label",
+        "fg": "#FFFFFF",
+        "bg": "#3B47C4",
+        "ratio": 7.28,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "link",
+        "fg": "#2F3AB0",
+        "bg": "#F6F7FB",
+        "ratio": 8.34,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "error",
+        "fg": "#B42318",
+        "bg": "#FFFFFF",
+        "ratio": 6.57,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "input border",
+        "fg": "#8A90B8",
+        "bg": "#FFFFFF",
+        "ratio": 3.11,
+        "min": 3,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#E8EAF8",
+        "bg": "#11163A",
+        "ratio": 14.63,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "button label",
+        "fg": "#0B0E26",
+        "bg": "#9DA5F2",
+        "ratio": 8.23,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "muted text",
+        "fg": "#B8BDE6",
+        "bg": "#0B0E26",
+        "ratio": 10.37,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Two brands": {
+    "source": "canvas",
+    "derived": "dark",
+    "checked": 11,
+    "failed": 1,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "frame text",
+        "fg": "#111111",
+        "bg": "#FFFFFF",
+        "ratio": 18.88,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "frame muted",
+        "fg": "#444444",
+        "bg": "#FFFFFF",
+        "ratio": 9.74,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "A button",
+        "fg": "#FFFFFF",
+        "bg": "#9A3F1C",
+        "ratio": 6.77,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "A text",
+        "fg": "#3A1A0C",
+        "bg": "#F3E7DA",
+        "ratio": 12.94,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "B text",
+        "fg": "#F2F2F2",
+        "bg": "#111111",
+        "ratio": 16.87,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "B button",
+        "fg": "#111111",
+        "bg": "#D7FF3A",
+        "ratio": 16.41,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "B input border",
+        "fg": "#5C5C5C",
+        "bg": "#111111",
+        "ratio": 2.82,
+        "min": 3,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "frame text",
+        "fg": "#FFFFFF",
+        "bg": "#111111",
+        "ratio": 18.88,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "frame muted",
+        "fg": "#BBBBBB",
+        "bg": "#111111",
+        "ratio": 9.84,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "A button",
+        "fg": "#FFFFFF",
+        "bg": "#9A3F1C",
+        "ratio": 6.77,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "B button",
+        "fg": "#111111",
+        "bg": "#D7FF3A",
+        "ratio": 16.41,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Spec sheet": {
+    "source": "canvas",
+    "derived": "dark",
+    "checked": 9,
+    "failed": 1,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#1B1B19",
+        "bg": "#FAFAF7",
+        "ratio": 16.5,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "muted",
+        "fg": "#45453F",
+        "bg": "#FAFAF7",
+        "ratio": 9.23,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "quiet",
+        "fg": "#55554E",
+        "bg": "#FAFAF7",
+        "ratio": 7.18,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "orange button",
+        "fg": "#FFFFFF",
+        "bg": "#B4460B",
+        "ratio": 5.5,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "stable label",
+        "fg": "#1F6B2E",
+        "bg": "#FFFFFF",
+        "ratio": 6.56,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "preview label",
+        "fg": "#9A4A00",
+        "bg": "#FFFFFF",
+        "ratio": 6.26,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "input border",
+        "fg": "#8A8A82",
+        "bg": "#FFFFFF",
+        "ratio": 3.48,
+        "min": 3,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#FAFAF7",
+        "bg": "#1B1B19",
+        "ratio": 16.5,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "orange on ink",
+        "fg": "#B4460B",
+        "bg": "#1B1B19",
+        "ratio": 3.14,
+        "min": 4.5,
+        "pass": false
+      }
+    ]
+  },
+  "Plain sheet": {
+    "source": "canvas",
+    "derived": "dark",
+    "checked": 9,
+    "failed": 1,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#0B0C0C",
+        "bg": "#FFFFFF",
+        "ratio": 19.59,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "link",
+        "fg": "#1D4ED8",
+        "bg": "#FFFFFF",
+        "ratio": 6.7,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "green button",
+        "fg": "#FFFFFF",
+        "bg": "#00703C",
+        "ratio": 6.21,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "focus text on yellow",
+        "fg": "#0B0C0C",
+        "bg": "#FFDD00",
+        "ratio": 14.55,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "error",
+        "fg": "#D4351C",
+        "bg": "#FFFFFF",
+        "ratio": 4.86,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "input border",
+        "fg": "#0B0C0C",
+        "bg": "#FFFFFF",
+        "ratio": 19.59,
+        "min": 3,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#FFFFFF",
+        "bg": "#0B0C0C",
+        "ratio": 19.59,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "link inverted",
+        "fg": "#1D4ED8",
+        "bg": "#0B0C0C",
+        "ratio": 2.92,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "green button",
+        "fg": "#FFFFFF",
+        "bg": "#00703C",
+        "ratio": 6.21,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Kolam": {
+    "source": "canvas",
+    "derived": "dark",
+    "checked": 7,
+    "failed": 2,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#1E1B16",
+        "bg": "#F6F1E7",
+        "ratio": 15.25,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "muted",
+        "fg": "#3D3529",
+        "bg": "#F6F1E7",
+        "ratio": 10.72,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "vermilion outline label",
+        "fg": "#B83A12",
+        "bg": "#F6F1E7",
+        "ratio": 5.11,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "ink button",
+        "fg": "#F6F1E7",
+        "bg": "#1E1B16",
+        "ratio": 15.25,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "quiet",
+        "fg": "#8C7E66",
+        "bg": "#F6F1E7",
+        "ratio": 3.53,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#F6F1E7",
+        "bg": "#1E1B16",
+        "ratio": 15.25,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "vermilion on ink",
+        "fg": "#B83A12",
+        "bg": "#1E1B16",
+        "ratio": 2.98,
+        "min": 4.5,
+        "pass": false
+      }
+    ]
+  },
+  "ChatGPT 1, Living Material": {
+    "source": "chatgpt",
+    "derived": "dark",
+    "checked": 8,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "ink text",
+        "fg": "#1F2937",
+        "bg": "#F8F5EF",
+        "ratio": 13.49,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "forest button",
+        "fg": "#FFFFFF",
+        "bg": "#155E45",
+        "ratio": 7.72,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "clay button",
+        "fg": "#FFFFFF",
+        "bg": "#B85C38",
+        "ratio": 4.54,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "clay text",
+        "fg": "#B85C38",
+        "bg": "#F8F5EF",
+        "ratio": 4.17,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "ink on limestone",
+        "fg": "#1F2937",
+        "bg": "#E6D9C6",
+        "ratio": 10.56,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "ivory on ink",
+        "fg": "#F8F5EF",
+        "bg": "#1F2937",
+        "ratio": 13.49,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "forest on ink",
+        "fg": "#155E45",
+        "bg": "#1F2937",
+        "ratio": 1.9,
+        "min": 3,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "clay on ink",
+        "fg": "#B85C38",
+        "bg": "#1F2937",
+        "ratio": 3.23,
+        "min": 4.5,
+        "pass": false
+      }
+    ]
+  },
+  "ChatGPT 2, Modular Architecture": {
+    "source": "chatgpt",
+    "derived": "dark",
+    "checked": 8,
+    "failed": 4,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "navy text",
+        "fg": "#111827",
+        "bg": "#F8FAFC",
+        "ratio": 16.96,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "cobalt button",
+        "fg": "#FFFFFF",
+        "bg": "#2563EB",
+        "ratio": 5.17,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "emerald button",
+        "fg": "#FFFFFF",
+        "bg": "#10B981",
+        "ratio": 2.54,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "emerald text",
+        "fg": "#10B981",
+        "bg": "#F8FAFC",
+        "ratio": 2.42,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "grey line as control edge",
+        "fg": "#DDE3EA",
+        "bg": "#F8FAFC",
+        "ratio": 1.24,
+        "min": 3,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "white on navy",
+        "fg": "#F8FAFC",
+        "bg": "#111827",
+        "ratio": 16.96,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "cobalt on navy",
+        "fg": "#2563EB",
+        "bg": "#111827",
+        "ratio": 3.43,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "emerald on navy",
+        "fg": "#10B981",
+        "bg": "#111827",
+        "ratio": 6.99,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "ChatGPT 3, Adaptive Prism": {
+    "source": "chatgpt",
+    "derived": "dark",
+    "checked": 8,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#111827",
+        "bg": "#F8FAFC",
+        "ratio": 16.96,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "blue button",
+        "fg": "#FFFFFF",
+        "bg": "#2563EB",
+        "ratio": 5.17,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "violet button",
+        "fg": "#FFFFFF",
+        "bg": "#7C3AED",
+        "ratio": 5.7,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "aqua button",
+        "fg": "#FFFFFF",
+        "bg": "#06B6D4",
+        "ratio": 2.43,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "aqua text",
+        "fg": "#06B6D4",
+        "bg": "#F8FAFC",
+        "ratio": 2.32,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#F8FAFC",
+        "bg": "#111827",
+        "ratio": 16.96,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "violet on midnight",
+        "fg": "#7C3AED",
+        "bg": "#111827",
+        "ratio": 3.11,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "aqua on midnight",
+        "fg": "#06B6D4",
+        "bg": "#111827",
+        "ratio": 7.31,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "ChatGPT 4, Editorial Signal": {
+    "source": "chatgpt",
+    "derived": "dark",
+    "checked": 8,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "text",
+        "fg": "#171717",
+        "bg": "#FAFAF7",
+        "ratio": 17.14,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "graphite",
+        "fg": "#52525B",
+        "bg": "#FAFAF7",
+        "ratio": 7.39,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "orange button",
+        "fg": "#FFFFFF",
+        "bg": "#F97316",
+        "ratio": 2.8,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "orange text",
+        "fg": "#F97316",
+        "bg": "#FAFAF7",
+        "ratio": 2.68,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "pale grey edge",
+        "fg": "#E5E7EB",
+        "bg": "#FAFAF7",
+        "ratio": 1.18,
+        "min": 3,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "text",
+        "fg": "#FAFAF7",
+        "bg": "#171717",
+        "ratio": 17.14,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "orange on black",
+        "fg": "#F97316",
+        "bg": "#171717",
+        "ratio": 6.4,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "black on orange",
+        "fg": "#171717",
+        "bg": "#F97316",
+        "ratio": 6.4,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "ChatGPT 5, Script and Signal": {
+    "source": "chatgpt",
+    "derived": null,
+    "checked": 8,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "ink text",
+        "fg": "#0B0F14",
+        "bg": "#F5F5F0",
+        "ratio": 17.57,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "magenta button",
+        "fg": "#FFFFFF",
+        "bg": "#EC4899",
+        "ratio": 3.53,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "violet text",
+        "fg": "#8B5CF6",
+        "bg": "#F5F5F0",
+        "ratio": 3.87,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "cyan text",
+        "fg": "#06B6D4",
+        "bg": "#F5F5F0",
+        "ratio": 2.22,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "chalk on ink",
+        "fg": "#F5F5F0",
+        "bg": "#0B0F14",
+        "ratio": 17.57,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "cyan on ink",
+        "fg": "#06B6D4",
+        "bg": "#0B0F14",
+        "ratio": 7.92,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "magenta on ink",
+        "fg": "#EC4899",
+        "bg": "#0B0F14",
+        "ratio": 5.45,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "violet on ink",
+        "fg": "#8B5CF6",
+        "bg": "#0B0F14",
+        "ratio": 4.54,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Gemini 1, The Translator": {
+    "source": "gemini",
+    "derived": "light",
+    "checked": 5,
+    "failed": 2,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "black on chalk",
+        "fg": "#000000",
+        "bg": "#F7F7F7",
+        "ratio": 19.6,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "green focus on chalk",
+        "fg": "#00FF00",
+        "bg": "#F7F7F7",
+        "ratio": 1.28,
+        "min": 3,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "green text on chalk",
+        "fg": "#00FF00",
+        "bg": "#F7F7F7",
+        "ratio": 1.28,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "chalk on black",
+        "fg": "#F7F7F7",
+        "bg": "#000000",
+        "ratio": 19.6,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "green on black",
+        "fg": "#00FF00",
+        "bg": "#000000",
+        "ratio": 15.3,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Gemini 2, Bare Bones": {
+    "source": "gemini",
+    "derived": "dark",
+    "checked": 6,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "link blue",
+        "fg": "#0000EE",
+        "bg": "#EFEFEF",
+        "ratio": 8.17,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "visited purple",
+        "fg": "#551A8B",
+        "bg": "#EFEFEF",
+        "ratio": 9.58,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "error red",
+        "fg": "#FF0000",
+        "bg": "#EFEFEF",
+        "ratio": 3.48,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "white on red button",
+        "fg": "#FFFFFF",
+        "bg": "#FF0000",
+        "ratio": 4,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "link blue on dark",
+        "fg": "#0000EE",
+        "bg": "#121212",
+        "ratio": 1.99,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "red on dark",
+        "fg": "#FF0000",
+        "bg": "#121212",
+        "ratio": 4.69,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Gemini 3, The Chameleon": {
+    "source": "gemini",
+    "derived": null,
+    "checked": 2,
+    "failed": 0,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "charcoal on paper",
+        "fg": "#111111",
+        "bg": "#FAFAFA",
+        "ratio": 18.09,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "paper on charcoal",
+        "fg": "#FAFAFA",
+        "bg": "#111111",
+        "ratio": 18.09,
+        "min": 4.5,
+        "pass": true
+      }
+    ]
+  },
+  "Gemini 4, Architectural Blueprint": {
+    "source": "gemini",
+    "derived": "dark",
+    "checked": 6,
+    "failed": 3,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "slate on draft",
+        "fg": "#2F4F4F",
+        "bg": "#FDFCF0",
+        "ratio": 8.66,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "graphite on draft",
+        "fg": "#333333",
+        "bg": "#FDFCF0",
+        "ratio": 12.25,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "blue text on draft",
+        "fg": "#1E90FF",
+        "bg": "#FDFCF0",
+        "ratio": 3.14,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "white on blue button",
+        "fg": "#FFFFFF",
+        "bg": "#1E90FF",
+        "ratio": 3.24,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "draft on slate",
+        "fg": "#FDFCF0",
+        "bg": "#2F4F4F",
+        "ratio": 8.66,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "blue on slate",
+        "fg": "#1E90FF",
+        "bg": "#2F4F4F",
+        "ratio": 2.76,
+        "min": 4.5,
+        "pass": false
+      }
+    ]
+  },
+  "Gemini 5, Soft Contrast": {
+    "source": "gemini",
+    "derived": "dark",
+    "checked": 6,
+    "failed": 4,
+    "rows": [
+      {
+        "mode": "light",
+        "what": "forest on sand",
+        "fg": "#1B3B36",
+        "bg": "#F4EDE4",
+        "ratio": 10.48,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "light",
+        "what": "terracotta text on sand",
+        "fg": "#D97A6B",
+        "bg": "#F4EDE4",
+        "ratio": 2.6,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "white on terracotta button",
+        "fg": "#FFFFFF",
+        "bg": "#D97A6B",
+        "ratio": 3.02,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "light",
+        "what": "forest on terracotta",
+        "fg": "#1B3B36",
+        "bg": "#D97A6B",
+        "ratio": 4.03,
+        "min": 4.5,
+        "pass": false
+      },
+      {
+        "mode": "dark",
+        "what": "sand on forest",
+        "fg": "#F4EDE4",
+        "bg": "#1B3B36",
+        "ratio": 10.48,
+        "min": 4.5,
+        "pass": true
+      },
+      {
+        "mode": "dark",
+        "what": "terracotta on forest",
+        "fg": "#D97A6B",
+        "bg": "#1B3B36",
+        "ratio": 4.03,
+        "min": 4.5,
+        "pass": false
+      }
+    ]
+  }
+}
