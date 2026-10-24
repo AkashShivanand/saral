@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en" class="d-two-brands">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Saral, Two brands</title>
+<meta name="description" content="Same parts, two brands: one form shown twice in two unrelated themes.">
+<link rel="preload" href="../fonts/anek-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="landing.css">
+<style>
+:root { --saral-feedback-danger-text: light-dark(#b42318, #ff8f80); --saral-feedback-danger-subtle: light-dark(#fdecea, #3a1714); --saral-feedback-success-text: light-dark(#1e6b3a, #6fcf8f); --saral-feedback-success-subtle: light-dark(#e7f3ec, #13291b); --saral-feedback-warning-text: light-dark(#7a4b00, #f2c46b); --saral-feedback-warning-subtle: light-dark(#fdf3e1, #2e2410); --saral-feedback-info-text: light-dark(#0b4a50, #8fd0d4); --saral-feedback-info-subtle: light-dark(#e6f0ef, #12302f); --saral-surface-ground: light-dark(#FFFFFF, #111111); --saral-surface-raised: light-dark(#FFFFFF, #191919); --saral-surface-sunken: light-dark(#F3F3F3, #222222); --saral-text-default: light-dark(#111111, #F2F2F2); --saral-text-muted: light-dark(#555555, #B3B3B3); --saral-text-quiet: light-dark(#5F5F5F, #A3A3A3); --saral-border-hairline: light-dark(#E3E3E3, #2E2E2E); --saral-border-strong: light-dark(#767676, #676767); --saral-action-default: light-dark(#111111, #F2F2F2); --saral-accent-default: light-dark(#111111, #F2F2F2); --saral-border-focus: light-dark(#111111, #F2F2F2); --saral-accent-subtle: light-dark(#F0F0F0, #262626); --saral-surface-inverse: light-dark(#111111, #F2F2F2); --saral-text-inverse: light-dark(#FFFFFF, #111111); --saral-text-on-action: light-dark(#ffffff, #111111); --saral-text-on-accent: light-dark(#ffffff, #111111); --saral-text-disabled: light-dark(#949494, #767676); --saral-action-hover: light-dark(#050505, #ffffff); --saral-action-pressed: light-dark(#010101, #ffffff); --saral-action-disabled: light-dark(#F3F3F3, #222222); --saral-accent-hover: light-dark(#050505, #ffffff); --saral-feedback-danger-border: light-dark(#b42318, #ff8f80); --saral-feedback-success-border: light-dark(#1e6b3a, #6fcf8f); --saral-feedback-warning-border: light-dark(#7a4b00, #f2c46b); --saral-feedback-info-border: light-dark(#0b4a50, #8fd0d4); --saral-radius-box: 4px; --saral-radius-control: 4px; --saral-font-family-sans: "Anek Latin", "Saral Script", ui-sans-serif, system-ui, sans-serif;  }
+
+
+.d-two-brands .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.d-two-brands .hero-copy { text-align: center; display: grid; justify-items: center; }
+.d-two-brands .hero-copy .lead { margin-inline: auto; }
+.d-two-brands .actions, .d-two-brands .install { justify-content: center; }
+.d-two-brands .kicker { font: 600 14px var(--d-mono); letter-spacing: 0.02em; margin: 0 0 16px; padding: 4px 12px; border: 1px solid var(--saral-border-strong); border-radius: 999px; }
+.d-two-brands h1 { font-size: clamp(42px, 1.6rem + 4.4vw, 84px); font-weight: 700; letter-spacing: -0.02em; }
+.d-two-brands .brand .ab { display: inline-flex; }
+.d-two-brands .brand .ab i { width: 12px; height: 22px; display: block; background: #9A3F1C; border-radius: 2px 0 0 2px; }
+.d-two-brands .brand .ab i + i { background: #D7FF3A; border-radius: 0 999px 999px 0; box-shadow: inset 0 0 0 1px #111111; }
+.d-two-brands .tb { display: grid; gap: 16px; }
+.d-two-brands .tb-bar { display: flex; justify-content: center; }
+.d-two-brands .tb-panes { display: grid; gap: 1px; grid-template-columns: minmax(0, 1fr); background: var(--saral-border-hairline); border: 1px solid var(--saral-border-hairline); }
+@media (min-width: 860px) { .d-two-brands .tb-panes { grid-template-columns: 1fr 1fr; } }
+.d-two-brands .pane { background: var(--saral-surface-ground); color: var(--saral-text-default); font-family: var(--saral-font-family-sans); padding: clamp(20px, 4vw, 48px); display: grid; gap: 16px; transition: background-color var(--saral-motion-duration-base); }
+.d-two-brands .pane .demo-form { max-width: none; }
+.d-two-brands .pane-name { margin: 0; font: 600 13px var(--d-mono); color: var(--saral-text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.d-two-brands .tb:has(#tb-brands:checked) .brand-a .pane-name { font: 700 28px/1 "Saral Eczar", Georgia, serif; text-transform: none; letter-spacing: 0; color: var(--saral-action-default); }
+.d-two-brands .tb:has(#tb-brands:checked) .brand-b .pane-name { font: 700 28px/1 "Anek Latin", sans-serif; text-transform: none; letter-spacing: -0.02em; color: var(--saral-text-default); }
+.d-two-brands .tb:not(:has(#tb-brands:checked)) .pane { color-scheme: inherit; }
+.d-two-brands .tb-more { display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: center; }
+.d-two-brands .tb-more details { flex: 1 1 100%; max-width: 980px; }
+.d-two-brands .files { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.d-two-brands .sec { border-top-color: var(--saral-text-default); border-top-width: 1px; }
+.d-two-brands .eyebrow { text-transform: uppercase; letter-spacing: 0.1em; }
+@media (forced-colors: active) { .d-two-brands .brand .ab i { background: CanvasText; } }
+
+.tb:has(#tb-brands:checked) .brand-a { --saral-feedback-danger-text: #B42318; --saral-feedback-danger-subtle: #FDECEA; --saral-feedback-success-text: #1E6B3A; --saral-feedback-success-subtle: #E7F3EC; --saral-feedback-warning-text: #7A4B00; --saral-feedback-warning-subtle: #FDF3E1; --saral-feedback-info-text: #0B4A50; --saral-feedback-info-subtle: #E6F0EF; --saral-surface-ground: #F3E7DA; --saral-surface-raised: #FBF5EE; --saral-surface-sunken: #EADBCB; --saral-text-default: #2A1810; --saral-text-muted: #5E4536; --saral-text-quiet: #6A4F3F; --saral-border-hairline: #DCC7B2; --saral-border-strong: #806452; --saral-action-default: #9A3F1C; --saral-accent-default: #9A3F1C; --saral-border-focus: #9A3F1C; --saral-accent-subtle: light-dark(#F0F0F0, #262626); --saral-surface-inverse: #2A1810; --saral-text-inverse: #F3E7DA; --saral-text-on-action: light-dark(#ffffff, #F3E7DA); --saral-text-on-accent: light-dark(#ffffff, #F3E7DA); --saral-text-disabled: #998a7f; --saral-action-hover: #7F3416; --saral-action-pressed: #6A2B12; --saral-action-disabled: #EADBCB; --saral-accent-hover: #7F3416; --saral-feedback-danger-border: #B42318; --saral-feedback-success-border: #1E6B3A; --saral-feedback-warning-border: #7A4B00; --saral-feedback-info-border: #0B4A50; --saral-radius-box: 6px; --saral-radius-control: 2px; --saral-font-family-sans: Georgia, "Times New Roman", serif; }
+.tb:has(#tb-brands:checked) .brand-b { --saral-feedback-danger-text: #FF8F80; --saral-feedback-danger-subtle: #3A1714; --saral-feedback-success-text: #6FCF8F; --saral-feedback-success-subtle: #13291B; --saral-feedback-warning-text: #F2C46B; --saral-feedback-warning-subtle: #2E2410; --saral-feedback-info-text: #8FD0D4; --saral-feedback-info-subtle: #12302F; --saral-surface-ground: #111111; --saral-surface-raised: #1C1C1C; --saral-surface-sunken: #262626; --saral-text-default: #F5F5F5; --saral-text-muted: #BDBDBD; --saral-text-quiet: #A8A8A8; --saral-border-hairline: #333333; --saral-border-strong: #8C8C8C; --saral-action-default: #D7FF3A; --saral-accent-default: #D7FF3A; --saral-border-focus: #D7FF3A; --saral-accent-subtle: #26300A; --saral-surface-inverse: #F5F5F5; --saral-text-inverse: #111111; --saral-text-on-action: #111111; --saral-text-on-accent: #111111; --saral-text-disabled: #787878; --saral-action-hover: #E4FF73; --saral-action-pressed: #EEFFA6; --saral-action-disabled: #262626; --saral-accent-hover: #E4FF73; --saral-feedback-danger-border: #FF8F80; --saral-feedback-success-border: #6FCF8F; --saral-feedback-warning-border: #F2C46B; --saral-feedback-info-border: #8FD0D4; --saral-radius-box: 20px; --saral-radius-control: 9999px; --saral-font-family-sans: "Anek Latin", "Saral Script", ui-sans-serif, system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="research-note">Research page, 24 October 2026. Direction 2 of 15: Two brands. <a href="index.html">See all fifteen</a></p>
+<header class="site-head" id="top">
+<div class="wrap head-row">
+  <a class="brand" href="#main"><span class="ab" aria-hidden="true"><i></i><i></i></span>Saral</a>
+  <nav class="main-nav" aria-label="Main"><ul><li><a href="#start">Get started</a></li><li><a href="#components">Components</a></li><li><a href="#scripts">Patterns</a></li><li><a href="#themes">Themes</a></li><li><a href="#nojs">Lab</a></li><li><a href="#trust">Trust</a></li></ul></nav>
+  <div class="head-tools">
+    <a class="search-link" href="#search">Search</a>
+    <fieldset data-scope="radio" data-part="root" class="seg mode">
+  <legend data-scope="radio" data-part="label" class="vh">Colour mode</legend>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="mode-system" name="mode" value="system" checked><label data-scope="radio" data-part="item-label" for="mode-system">System</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="mode-light" name="mode" value="light"><label data-scope="radio" data-part="item-label" for="mode-light">Light</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="mode-dark" name="mode" value="dark"><label data-scope="radio" data-part="item-label" for="mode-dark">Dark</label></div>
+</fieldset>
+  </div>
+</div>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-h">
+<div class="wrap hero-grid">
+  <div class="hero-copy">
+    <p class="kicker">One system, any brand</p>
+    <h1 id="hero-h">Build it plain. Make it yours.</h1>
+    <p class="lead">Saral is a design system of tokens and native HTML components. Change the theme, and every part takes on your brand. Every part stays accessible, works in any stack and any script, and works before JavaScript loads.</p>
+    <div class="actions">
+      <a data-scope="button" data-part="root" data-variant="accent" href="#start">Get started</a>
+      <a data-scope="button" data-part="root" data-variant="secondary" href="#components">Browse components</a>
+    </div>
+    <p class="install" id="start"><code data-copy>npm i @saral/css @saral/core</code><span class="install-note">The first release, 0.4.0, is being prepared. No build step needed.</span></p>
+  </div>
+  <div class="hero-sig"><div class="tb">
+    <div class="tb-bar">
+      <div data-scope="checkbox" data-part="root"><input data-scope="checkbox" data-part="input" type="checkbox" id="tb-brands" checked><label data-scope="checkbox" data-part="label" for="tb-brands">Show the brands (off shows the plain parts)</label></div>
+    </div>
+    <div class="tb-panes">
+      <div class="pane brand-a cs-light"><p class="pane-name">Theme A</p><form class="demo-form" lang="en" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="ta-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="ta-en-name" name="name" autocomplete="name" required aria-describedby="ta-en-name-hint">
+    <p data-scope="field" data-part="hint" id="ta-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="ta-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="ta-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="ta-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="ta-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="ta-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="ta-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form></div>
+      <div class="pane brand-b cs-dark"><p class="pane-name">Theme B</p><form class="demo-form" lang="en" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="tbb-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="tbb-en-name" name="name" autocomplete="name" required aria-describedby="tbb-en-name-hint">
+    <p data-scope="field" data-part="hint" id="tbb-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="tbb-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="tbb-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="tbb-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="tbb-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="tbb-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="tbb-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form></div>
+    </div>
+    <div class="tb-more">
+      <details><summary>Show the markup</summary><p>Both panes run this markup. Only the ids differ.</p><pre><code>&lt;form class=&quot;demo-form&quot; lang=&quot;en&quot; dir=&quot;ltr&quot; action=&quot;sent.html&quot; method=&quot;get&quot; data-demo&gt;
+  &lt;div data-scope=&quot;field&quot; data-part=&quot;root&quot;&gt;
+    &lt;label data-scope=&quot;field&quot; data-part=&quot;label&quot; for=&quot;ta-en-name&quot;&gt;Full name&lt;/label&gt;
+    &lt;input data-scope=&quot;field&quot; data-part=&quot;input&quot; id=&quot;ta-en-name&quot; name=&quot;name&quot; autocomplete=&quot;name&quot; required aria-describedby=&quot;ta-en-name-hint&quot;&gt;
+    &lt;p data-scope=&quot;field&quot; data-part=&quot;hint&quot; id=&quot;ta-en-name-hint&quot;&gt;As it appears on your ID&lt;/p&gt;
+    &lt;p data-scope=&quot;field&quot; data-part=&quot;error&quot; id=&quot;ta-en-name-error&quot; data-message-value-missing=&quot;Enter your full name&quot;&gt;Enter your full name&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div data-scope=&quot;select&quot; data-part=&quot;root&quot;&gt;
+    &lt;label data-scope=&quot;select&quot; data-part=&quot;label&quot; for=&quot;ta-en-contact&quot;&gt;Contact by&lt;/label&gt;
+    &lt;select data-scope=&quot;select&quot; data-part=&quot;input&quot; id=&quot;ta-en-contact&quot; name=&quot;contact&quot; required&gt;
+      &lt;option value=&quot;&quot;&gt;Choose one&lt;/option&gt;
+      &lt;option value=&quot;email&quot;&gt;Email&lt;/option&gt;
+      &lt;option value=&quot;phone&quot;&gt;Phone&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;p data-scope=&quot;select&quot; data-part=&quot;error&quot; id=&quot;ta-en-contact-error&quot; data-message-value-missing=&quot;Choose how we should contact you&quot;&gt;Choose how we should contact you&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div data-scope=&quot;checkbox&quot; data-part=&quot;root&quot;&gt;
+    &lt;input data-scope=&quot;checkbox&quot; data-part=&quot;input&quot; type=&quot;checkbox&quot; id=&quot;ta-en-updates&quot; name=&quot;updates&quot;&gt;
+    &lt;label data-scope=&quot;checkbox&quot; data-part=&quot;label&quot; for=&quot;ta-en-updates&quot;&gt;Send me updates&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-actions&quot;&gt;&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; type=&quot;submit&quot;&gt;Continue&lt;/button&gt;&lt;/div&gt;
+  &lt;p data-scope=&quot;notice&quot; data-part=&quot;root&quot; data-tone=&quot;success&quot; role=&quot;status&quot; class=&quot;sent&quot; hidden&gt;Sent. Check your inbox.&lt;/p&gt;
+&lt;/form&gt;</code></pre></details>
+      <details><summary>Show the two theme files</summary><div class="files"><div><p class="code-label">theme-a.css</p><pre><code>:root {
+  --saral-surface-ground: #F3E7DA;
+  --saral-text-default: #2A1810;
+  --saral-action-default: #9A3F1C;
+  --saral-text-on-action: #ffffff;
+  --saral-border-strong: #806452;
+  --saral-radius-box: 6px;
+  --saral-radius-control: 2px;
+  --saral-font-family-sans: Georgia, &quot;Times New Roman&quot;, serif;
+}</code></pre></div><div><p class="code-label">theme-b.css</p><pre><code>:root {
+  --saral-surface-ground: #111111;
+  --saral-text-default: #F5F5F5;
+  --saral-action-default: #D7FF3A;
+  --saral-text-on-action: #111111;
+  --saral-border-strong: #8C8C8C;
+  --saral-radius-box: 20px;
+  --saral-radius-control: 9999px;
+  --saral-font-family-sans: &quot;Anek Latin&quot;, &quot;Saral Script&quot;, ui-sans-serif, system-ui, sans-serif;
+}</code></pre></div></div></details>
+    </div>
+  </div></div>
+</div>
+</section>
+
+<section id="themes" class="sec" aria-labelledby="themes-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">Themes</p><h2 id="themes-h">One form. Change the theme, not the markup.</h2><p class="lead">Pick a theme. The form keeps the same HTML; only the theme file changes its colours, corners and type. This switch is CSS alone, so it works with JavaScript off.</p></div>
+  <div class="theming">
+    <fieldset data-scope="radio" data-part="root" class="seg">
+  <legend data-scope="radio" data-part="label">Theme</legend>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="th-own" name="th" value="own" checked><label data-scope="radio" data-part="item-label" for="th-own">Two brands</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="th-mor" name="th" value="mor"><label data-scope="radio" data-part="item-label" for="th-mor">Mor, Saral’s default</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="th-kosh" name="th" value="kosh"><label data-scope="radio" data-part="item-label" for="th-kosh">Kosh</label></div>
+</fieldset>
+    <div class="theming-grid">
+      <div class="stage"><form class="demo-form" lang="en" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="th-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="th-en-name" name="name" autocomplete="name" required aria-describedby="th-en-name-hint">
+    <p data-scope="field" data-part="hint" id="th-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="th-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="th-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="th-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="th-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="th-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="th-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form></div>
+      <div class="theming-code">
+        <div class="tf tf-own"><p class="code-label">two-brands.css</p><pre><code>:root {
+  --saral-surface-ground: light-dark(#FFFFFF, #111111);
+  --saral-text-default: light-dark(#111111, #F2F2F2);
+  --saral-action-default: light-dark(#111111, #F2F2F2);
+  --saral-accent-default: light-dark(#111111, #F2F2F2);
+  --saral-border-focus: light-dark(#111111, #F2F2F2);
+  --saral-radius-box: 4px;
+  --saral-radius-control: 4px;
+  --saral-font-family-sans: &quot;Anek Latin&quot;, &quot;Saral Script&quot;, ui-sans-serif, system-ui, sans-serif;
+}</code></pre></div>
+        <div class="tf tf-mor"><p class="code-label">mor.css</p><pre><code>:root {
+  --saral-surface-ground: light-dark(#f4f6f5, #0e1416);
+  --saral-text-default: light-dark(#0f1a1c, #e8eeee);
+  --saral-action-default: light-dark(#0b5f66, #5fb8be);
+  --saral-accent-default: light-dark(#0b5f66, #5fb8be);
+  --saral-border-focus: light-dark(#0b5f66, #5fb8be);
+  --saral-radius-box: 4px;
+  --saral-radius-control: 4px;
+  --saral-font-family-sans: &quot;Anek Latin&quot;, &quot;Anek Devanagari&quot;, ui-sans-serif, system-ui, sans-serif;
+}</code></pre></div>
+        <div class="tf tf-kosh"><p class="code-label">kosh.css</p><pre><code>:root {
+  --saral-surface-ground: light-dark(#fbf8ef, #0e0f0c);
+  --saral-text-default: light-dark(#14150f, #f2f1e8);
+  --saral-action-default: light-dark(#14150f, #f2b705);
+  --saral-accent-default: light-dark(#8a5d00, #f2b705);
+  --saral-border-focus: light-dark(#8a5d00, #f2b705);
+  --saral-radius-box: 14px;
+  --saral-radius-control: 9999px;
+  --saral-font-family-sans: &quot;Anek Latin&quot;, &quot;Anek Devanagari&quot;, ui-sans-serif, system-ui, sans-serif;
+}</code></pre></div>
+        <details><summary>Show the form’s markup, the same in every theme</summary><pre><code>&lt;form class=&quot;demo-form&quot; lang=&quot;en&quot; dir=&quot;ltr&quot; action=&quot;sent.html&quot; method=&quot;get&quot; data-demo&gt;
+  &lt;div data-scope=&quot;field&quot; data-part=&quot;root&quot;&gt;
+    &lt;label data-scope=&quot;field&quot; data-part=&quot;label&quot; for=&quot;th-en-name&quot;&gt;Full name&lt;/label&gt;
+    &lt;input data-scope=&quot;field&quot; data-part=&quot;input&quot; id=&quot;th-en-name&quot; name=&quot;name&quot; autocomplete=&quot;name&quot; required aria-describedby=&quot;th-en-name-hint&quot;&gt;
+    &lt;p data-scope=&quot;field&quot; data-part=&quot;hint&quot; id=&quot;th-en-name-hint&quot;&gt;As it appears on your ID&lt;/p&gt;
+    &lt;p data-scope=&quot;field&quot; data-part=&quot;error&quot; id=&quot;th-en-name-error&quot; data-message-value-missing=&quot;Enter your full name&quot;&gt;Enter your full name&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div data-scope=&quot;select&quot; data-part=&quot;root&quot;&gt;
+    &lt;label data-scope=&quot;select&quot; data-part=&quot;label&quot; for=&quot;th-en-contact&quot;&gt;Contact by&lt;/label&gt;
+    &lt;select data-scope=&quot;select&quot; data-part=&quot;input&quot; id=&quot;th-en-contact&quot; name=&quot;contact&quot; required&gt;
+      &lt;option value=&quot;&quot;&gt;Choose one&lt;/option&gt;
+      &lt;option value=&quot;email&quot;&gt;Email&lt;/option&gt;
+      &lt;option value=&quot;phone&quot;&gt;Phone&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;p data-scope=&quot;select&quot; data-part=&quot;error&quot; id=&quot;th-en-contact-error&quot; data-message-value-missing=&quot;Choose how we should contact you&quot;&gt;Choose how we should contact you&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div data-scope=&quot;checkbox&quot; data-part=&quot;root&quot;&gt;
+    &lt;input data-scope=&quot;checkbox&quot; data-part=&quot;input&quot; type=&quot;checkbox&quot; id=&quot;th-en-updates&quot; name=&quot;updates&quot;&gt;
+    &lt;label data-scope=&quot;checkbox&quot; data-part=&quot;label&quot; for=&quot;th-en-updates&quot;&gt;Send me updates&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-actions&quot;&gt;&lt;button data-scope=&quot;button&quot; data-part=&quot;root&quot; data-variant=&quot;accent&quot; type=&quot;submit&quot;&gt;Continue&lt;/button&gt;&lt;/div&gt;
+  &lt;p data-scope=&quot;notice&quot; data-part=&quot;root&quot; data-tone=&quot;success&quot; role=&quot;status&quot; class=&quot;sent&quot; hidden&gt;Sent. Check your inbox.&lt;/p&gt;
+&lt;/form&gt;</code></pre></details>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="scripts" class="sec scripts" aria-labelledby="scripts-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">Scripts</p><h2 id="scripts-h">Every script, the same parts</h2><p class="lead">The same form in six languages, right to left included. Each script’s font loads only when you show it.</p></div>
+  <fieldset data-scope="radio" data-part="root" class="seg">
+  <legend data-scope="radio" data-part="label">Show the form in</legend>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-en" name="sc" value="en" checked><label data-scope="radio" data-part="item-label" for="sc-en">English</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-hi" name="sc" value="hi"><label data-scope="radio" data-part="item-label" for="sc-hi">Hindi</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-ta" name="sc" value="ta"><label data-scope="radio" data-part="item-label" for="sc-ta">Tamil</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-ar" name="sc" value="ar"><label data-scope="radio" data-part="item-label" for="sc-ar">Arabic</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-th" name="sc" value="th"><label data-scope="radio" data-part="item-label" for="sc-th">Thai</label></div>
+  <div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="sc-ja" name="sc" value="ja"><label data-scope="radio" data-part="item-label" for="sc-ja">Japanese</label></div>
+</fieldset>
+  <div class="script-stage">
+    <div class="script-pane" data-lang="en"><form class="demo-form" lang="en" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="sc-en-name" name="name" autocomplete="name" required aria-describedby="sc-en-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="sc-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="sc-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form></div>
+    <div class="script-pane" data-lang="hi"><form class="demo-form" lang="hi" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-hi-name">पूरा नाम</label>
+    <input data-scope="field" data-part="input" id="sc-hi-name" name="name" autocomplete="name" required aria-describedby="sc-hi-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-hi-name-hint">जैसा आपके पहचान पत्र पर लिखा है</p>
+    <p data-scope="field" data-part="error" id="sc-hi-name-error" data-message-value-missing="अपना पूरा नाम लिखें">अपना पूरा नाम लिखें</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-hi-contact">संपर्क का तरीका</label>
+    <select data-scope="select" data-part="input" id="sc-hi-contact" name="contact" required>
+      <option value="">एक चुनें</option>
+      <option value="email">ईमेल</option>
+      <option value="phone">फ़ोन</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-hi-contact-error" data-message-value-missing="चुनें कि हम आपसे कैसे संपर्क करें">चुनें कि हम आपसे कैसे संपर्क करें</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-hi-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-hi-updates">मुझे अपडेट भेजें</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">आगे बढ़ें</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>भेज दिया गया। अपना इनबॉक्स देखें।</p>
+</form></div>
+    <div class="script-pane" data-lang="ta"><form class="demo-form" lang="ta" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-ta-name">முழுப் பெயர்</label>
+    <input data-scope="field" data-part="input" id="sc-ta-name" name="name" autocomplete="name" required aria-describedby="sc-ta-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-ta-name-hint">உங்கள் அடையாள அட்டையில் உள்ளபடி</p>
+    <p data-scope="field" data-part="error" id="sc-ta-name-error" data-message-value-missing="உங்கள் முழுப் பெயரை உள்ளிடவும்">உங்கள் முழுப் பெயரை உள்ளிடவும்</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-ta-contact">தொடர்பு முறை</label>
+    <select data-scope="select" data-part="input" id="sc-ta-contact" name="contact" required>
+      <option value="">ஒன்றைத் தேர்வு செய்யவும்</option>
+      <option value="email">மின்னஞ்சல்</option>
+      <option value="phone">தொலைபேசி</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-ta-contact-error" data-message-value-missing="உங்களை எப்படித் தொடர்பு கொள்வது எனத் தேர்வு செய்யவும்">உங்களை எப்படித் தொடர்பு கொள்வது எனத் தேர்வு செய்யவும்</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-ta-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-ta-updates">எனக்குப் புதுப்பிப்புகளை அனுப்பவும்</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">தொடரவும்</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>அனுப்பப்பட்டது. உங்கள் இன்பாக்ஸைப் பார்க்கவும்.</p>
+</form></div>
+    <div class="script-pane" data-lang="ar"><form class="demo-form" lang="ar" dir="rtl" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-ar-name">الاسم الكامل</label>
+    <input data-scope="field" data-part="input" id="sc-ar-name" name="name" autocomplete="name" required aria-describedby="sc-ar-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-ar-name-hint">كما يظهر في بطاقة هويتك</p>
+    <p data-scope="field" data-part="error" id="sc-ar-name-error" data-message-value-missing="أدخل اسمك الكامل">أدخل اسمك الكامل</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-ar-contact">طريقة التواصل</label>
+    <select data-scope="select" data-part="input" id="sc-ar-contact" name="contact" required>
+      <option value="">اختر واحدة</option>
+      <option value="email">البريد الإلكتروني</option>
+      <option value="phone">الهاتف</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-ar-contact-error" data-message-value-missing="اختر طريقة التواصل معك">اختر طريقة التواصل معك</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-ar-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-ar-updates">أرسل لي التحديثات</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">متابعة</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>تم الإرسال. تحقق من بريدك الوارد.</p>
+</form></div>
+    <div class="script-pane" data-lang="th"><form class="demo-form" lang="th" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-th-name">ชื่อ-นามสกุล</label>
+    <input data-scope="field" data-part="input" id="sc-th-name" name="name" autocomplete="name" required aria-describedby="sc-th-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-th-name-hint">ตามที่ปรากฏบนบัตรประจำตัว</p>
+    <p data-scope="field" data-part="error" id="sc-th-name-error" data-message-value-missing="กรอกชื่อ-นามสกุลของคุณ">กรอกชื่อ-นามสกุลของคุณ</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-th-contact">ช่องทางติดต่อ</label>
+    <select data-scope="select" data-part="input" id="sc-th-contact" name="contact" required>
+      <option value="">เลือกหนึ่งรายการ</option>
+      <option value="email">อีเมล</option>
+      <option value="phone">โทรศัพท์</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-th-contact-error" data-message-value-missing="เลือกช่องทางที่ให้เราติดต่อคุณ">เลือกช่องทางที่ให้เราติดต่อคุณ</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-th-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-th-updates">ส่งข่าวสารให้ฉัน</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">ดำเนินการต่อ</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>ส่งแล้ว โปรดตรวจสอบกล่องจดหมายของคุณ</p>
+</form></div>
+    <div class="script-pane" data-lang="ja"><form class="demo-form" lang="ja" dir="ltr" action="sent.html" method="get" data-demo>
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="sc-ja-name">氏名</label>
+    <input data-scope="field" data-part="input" id="sc-ja-name" name="name" autocomplete="name" required aria-describedby="sc-ja-name-hint">
+    <p data-scope="field" data-part="hint" id="sc-ja-name-hint">身分証明書の記載どおりに</p>
+    <p data-scope="field" data-part="error" id="sc-ja-name-error" data-message-value-missing="氏名を入力してください">氏名を入力してください</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="sc-ja-contact">連絡方法</label>
+    <select data-scope="select" data-part="input" id="sc-ja-contact" name="contact" required>
+      <option value="">選択してください</option>
+      <option value="email">メール</option>
+      <option value="phone">電話</option>
+    </select>
+    <p data-scope="select" data-part="error" id="sc-ja-contact-error" data-message-value-missing="連絡方法を選択してください">連絡方法を選択してください</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="sc-ja-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="sc-ja-updates">最新情報を受け取る</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">次へ</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>送信しました。受信トレイを確認してください。</p>
+</form></div>
+  </div>
+  <p class="note">The Hindi, Tamil, Arabic, Thai and Japanese text are drafts until a native reader checks them.</p>
+</div>
+</section>
+<section id="nojs" class="sec" aria-labelledby="nojs-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">From the lab</p><h2 id="nojs-h">Works without JavaScript</h2></div>
+  <div class="nojs-grid">
+    <div>
+      <p class="lead">Open the frame: it cannot run any script, because its sandbox does not allow one. The form in it is the same Saral form. Try to send it empty, then fill it in.</p>
+      <ol class="steps">
+        <li>The browser stops the post and moves focus to the first field to fix.</li>
+        <li>Each field you left wrong shows its error by CSS alone, with <code>:user-invalid</code>.</li>
+        <li>Fill it in and it posts as a normal form, to a page that confirms it.</li>
+      </ol>
+      <details><summary>What the optional core script adds</summary>
+        <ul>
+          <li>Errors in the page’s own words, checked when you leave a field, never while you type.</li>
+          <li>Focus moves to the first error when you send.</li>
+          <li>The send button shows it is busy, so the form is not sent twice.</li>
+          <li>8.1 kB of plain JavaScript (2.8 kB gzipped), with no dependencies.</li>
+        </ul>
+      </details>
+    </div>
+    <details class="nojs-pane">
+      <summary>Open the form with scripts turned off</summary>
+      <iframe class="nojs-frame" title="The form with scripts disabled" sandbox="allow-forms allow-same-origin" loading="lazy" src="nojs/two-brands.html"></iframe>
+    </details>
+  </div>
+</div>
+</section>
+<section id="components" class="sec" aria-labelledby="components-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">Components</p><h2 id="components-h">Nine components, each with a spec</h2><p class="lead">Generated from the specs in <code>specs/</code>. Each one is a native element first; the core script only adds what HTML cannot do alone.</p></div>
+  <div class="table-wrap" role="region" aria-labelledby="components-h" tabindex="0">
+<table class="comp-table">
+  <thead><tr><th scope="col">Component</th><th scope="col">Element</th><th scope="col">Status</th><th scope="col">Works without JS</th><th scope="col">What the script adds</th><th scope="col">Live</th></tr></thead>
+  <tbody>
+  <tr><th scope="row">Field<br><span class="since">since 0.2.0</span></th><td><code>div</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Errors in your words, focus to the first</td><td class="live"><div data-scope="field" data-part="root"><label data-scope="field" data-part="label" for="cp-field-f">Town</label><input data-scope="field" data-part="input" id="cp-field-f" name="cp-field-f"></div></td></tr>
+  <tr><th scope="row">Checkbox<br><span class="since">since 0.3.0</span></th><td><code>div</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Errors in your words, focus to the first</td><td class="live"><div data-scope="checkbox" data-part="root"><input data-scope="checkbox" data-part="input" type="checkbox" id="cp-checkbox-c" name="cp-checkbox-c"><label data-scope="checkbox" data-part="label" for="cp-checkbox-c">Agree</label></div></td></tr>
+  <tr><th scope="row">Radio group<br><span class="since">since 0.3.0</span></th><td><code>fieldset</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Errors in your words, focus to the first</td><td class="live"><fieldset data-scope="radio" data-part="root"><legend data-scope="radio" data-part="label">Size</legend><div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="cp-radiogroup-r-0" name="cp-radiogroup-r" checked><label data-scope="radio" data-part="item-label" for="cp-radiogroup-r-0">Small</label></div><div data-scope="radio" data-part="item"><input data-scope="radio" data-part="input" type="radio" id="cp-radiogroup-r-1" name="cp-radiogroup-r"><label data-scope="radio" data-part="item-label" for="cp-radiogroup-r-1">Large</label></div></fieldset></td></tr>
+  <tr><th scope="row">Select<br><span class="since">since 0.3.0</span></th><td><code>div</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Errors in your words, focus to the first</td><td class="live"><div data-scope="select" data-part="root"><label data-scope="select" data-part="label" for="cp-select-s">Day</label><select data-scope="select" data-part="input" id="cp-select-s" name="cp-select-s"><option>Monday</option><option>Tuesday</option></select></div></td></tr>
+  <tr><th scope="row">Button<br><span class="since">since 0.2.0</span></th><td><code>button</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>A busy state while the form posts</td><td class="live"><button data-scope="button" data-part="root" type="button">Send</button></td></tr>
+  <tr><th scope="row">Link<br><span class="since">since 0.2.0</span></th><td><code>a</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Nothing: ships no script</td><td class="live"><a data-scope="link" data-part="root" href="#components">Read the spec</a></td></tr>
+  <tr><th scope="row">Notice<br><span class="since">since 0.2.0</span></th><td><code>div</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Nothing: ships no script</td><td class="live"><div data-scope="notice" data-part="root" data-tone="success">Saved</div></td></tr>
+  <tr><th scope="row">Tag<br><span class="since">since 0.3.0</span></th><td><code>span</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Nothing: ships no script</td><td class="live"><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Forms</span></span></td></tr>
+  <tr><th scope="row">Card<br><span class="since">since 0.3.0</span></th><td><code>article</code></td><td><span data-scope="tag" data-part="root"><span data-scope="tag" data-part="label">Preview</span></span></td><td>Yes</td><td>Nothing: ships no script</td><td class="live"><article data-scope="card" data-part="root"><h3 data-scope="card" data-part="title">Card title</h3><p data-scope="card" data-part="body">One item, one box.</p></article></td></tr>
+  </tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="platforms" class="sec" aria-labelledby="platforms-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">Platforms</p><h2 id="platforms-h">Use it where you build</h2><p class="lead">One contract for every platform. A surface is published only when someone asks for it.</p></div>
+  <div class="plat-grid">
+    <div class="plat"><h3>Today: the web</h3><ul>
+      <li><strong>Any HTML</strong><span>Plain pages, Rails, Django, Laravel, Go, .NET, htmx: if it writes HTML, it can use Saral.</span></li>
+      <li><strong>npm: <code>@saral/tokens</code>, <code>@saral/css</code>, <code>@saral/core</code></strong><span>Built and checked on every change. The first release, 0.4.0, is being prepared.</span></li>
+      <li><strong>A CDN</strong><span>The same files, pinned to a version, from the first release.</span></li>
+    </ul></div>
+    <div class="plat"><h3>Next</h3><ul>
+      <li><strong>Figma variables</strong><span>From the same token source. Target: the form patterns milestone, January 2027.</span></li>
+      <li><strong>React adapter, <code>@saral/react</code></strong><span>In the repository today, published with the first release.</span></li>
+      <li><strong><code>@saral/elements</code></strong><span>Light DOM custom elements, so Vue, Svelte, Angular and others can use the same parts. Planned, not built yet.</span></li>
+    </ul></div>
+    <div class="plat"><h3>On request</h3><ul>
+      <li><strong>iOS and Android</strong><span>Native components from the same contract, built when a team asks.</span></li>
+      <li><strong>Other registries and token formats</strong><span>Swift, Compose, Flutter and others, when someone asks in an issue.</span></li>
+    </ul></div>
+  </div>
+</div>
+</section>
+<section id="trust" class="sec" aria-labelledby="trust-h">
+<div class="wrap">
+  <div class="sec-head"><p class="eyebrow" aria-hidden="true">Trust</p><h2 id="trust-h">Accessible by default, checked on every build</h2></div>
+  <div class="trust-grid">
+    <ul class="trust-list">
+      <li><strong>Contrast</strong>Every text and control pair of this page’s theme is checked against WCAG 2 AA: 62 of 62 checks pass, in light and dark. The lowest is 3.11:1, for border.strong on surface.raised in dark, against a minimum of 3:1.</li>
+      <li><strong>Keyboard</strong>Every part is a native element, so Tab, Space, Enter and the arrow keys do what the browser defines. Focus always shows as a ring.</li>
+      <li><strong>Screen readers</strong>Labels, hints and errors are tied to their inputs. A manual pass with VoiceOver and NVDA is planned before a component leaves preview.</li>
+      <li><strong>Forced colours and motion</strong>Pages keep working in Windows High Contrast, and motion stops when you ask for less.</li>
+      <li><a data-scope="link" data-part="root" href="../../../trust/accessibility.md">Read the accessibility statement (draft)</a></li>
+    </ul>
+    <div class="table-wrap" role="region" aria-labelledby="pairs-cap" tabindex="0">
+    <table class="pairs">
+      <caption id="pairs-cap" class="vh">Contrast pairs for the Two brands theme</caption>
+      <thead><tr><th scope="col">Pair</th><th scope="col">Light</th><th scope="col">Dark</th><th scope="col">Needs</th></tr></thead>
+      <tbody>
+      <tr><th scope="row">Body text on the page</th><td class="num pass">18.88:1</td><td class="num pass">16.87:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Muted text on the page</th><td class="num pass">7.46:1</td><td class="num pass">9.01:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Button text on the main button</th><td class="num pass">18.88:1</td><td class="num pass">16.87:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Button text on the accent button</th><td class="num pass">18.88:1</td><td class="num pass">16.87:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Links on the page</th><td class="num pass">18.88:1</td><td class="num pass">16.87:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Error text in a form</th><td class="num pass">6.57:1</td><td class="num pass">7.95:1</td><td class="num">4.5:1</td></tr>
+      <tr><th scope="row">Input border</th><td class="num pass">4.54:1</td><td class="num pass">3.11:1</td><td class="num">3:1</td></tr>
+      <tr><th scope="row">Focus ring</th><td class="num pass">18.88:1</td><td class="num pass">16.87:1</td><td class="num">3:1</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer class="site-foot">
+<div class="wrap foot-grid">
+  <div>
+    <p class="brand foot-brand"><span class="ab" aria-hidden="true"><i></i><i></i></span>Saral</p>
+    <p>Saral v0.3.1. Open source under the MIT licence.</p>
+    <ul aria-label="Project">
+      <li><a href="../../../../CHANGELOG.md">Changes</a></li>
+      <li><a href="../../../roadmap.md">Roadmap</a></li>
+      <li><a href="../../../trust/accessibility.md">Accessibility</a></li>
+      <li><a href="https://github.com/AkashShivanand/saral">GitHub</a></li>
+      <li><a href="../../../../LICENSE">MIT licence</a></li>
+    </ul>
+    <p data-weight hidden></p>
+  </div>
+  <form class="search-form" id="search" role="search" action="https://github.com/AkashShivanand/saral/search" method="get">
+    <input type="hidden" name="type" value="code">
+    <div data-scope="field" data-part="root"><label data-scope="field" data-part="label" for="q">Search the docs and code</label><input data-scope="field" data-part="input" id="q" name="q" type="search"></div>
+    <button data-scope="button" data-part="root" data-variant="secondary" type="submit">Search</button>
+  </form>
+</div>
+</footer>
+<script type="module" src="landing.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Saral, fifteen directions</title>
+<link rel="stylesheet" href="landing.css">
+<style>
+.wrap { max-width: 1320px; }
+.intro { padding-block: var(--saral-space-7) var(--saral-space-5); }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--saral-space-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.pick { display: grid; gap: var(--saral-space-3); align-content: start; }
+.thumb { width: 320px; max-width: 100%; height: 225px; overflow: hidden; border: var(--saral-size-stroke) solid var(--saral-border-hairline); border-radius: var(--saral-radius-box); background: var(--saral-surface-raised); }
+.thumb iframe { width: 1280px; height: 900px; border: 0; transform: scale(0.25); transform-origin: 0 0; pointer-events: none; }
+.pick h2 { font-size: 22px; margin: 0; }
+.pick h2 a { color: var(--saral-text-default); }
+.pick p { margin: 0; }
+.src { font-size: var(--saral-font-size-small); color: var(--saral-text-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--saral-space-2); list-style: none; padding: 0; margin: 0; }
+.chips li { display: inline-flex; align-items: center; gap: 6px; font: 12px/1 var(--d-mono); color: var(--saral-text-muted); }
+.chips i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--saral-border-strong); display: inline-block; forced-color-adjust: none; }
+dl.facts { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--saral-space-3); margin: 0; font-size: var(--saral-font-size-small); }
+dl.facts dt { color: var(--saral-text-muted); }
+dl.facts dd { margin: 0; }
+.cmp-links { display: flex; flex-wrap: wrap; gap: var(--saral-space-3); font-size: var(--saral-font-size-small); }
+.compare { padding-block: var(--saral-space-8); }
+.cmp { display: grid; gap: var(--saral-space-4); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .cmp { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.cmp iframe { width: 100%; height: 80vh; min-height: 480px; border: var(--saral-size-stroke) solid var(--saral-border-strong); border-radius: var(--saral-radius-box); background: var(--saral-surface-raised); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main" class="wrap">
+  <div class="intro">
+    <h1>Fifteen directions, one Saral</h1>
+    <p class="lead">Each page is a full landing page for Saral in one visual direction: the same sections and copy, the same real components, a different identity. Open any two side by side at the bottom of this page. Every page works with JavaScript off.</p>
+    <p class="note">Weights are first load, fonts included, as served by <code>npm run serve</code>; gzipped size is what a normal host sends. Contrast counts every text and control pair of the page’s theme in light and dark. Axe runs WCAG 2.2 A and AA rules seven times per page: light and dark at 1280 and 375 pixels, with every script blocked, with forced colours, and on the scripts-off form. The README has the full table.</p>
+  </div>
+  <ul class="grid">
+  <li class="pick">
+    <div class="thumb" inert><iframe src="neel.html" title="Neel preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="neel.html">1. Neel</a></h2>
+    <p class="src">From the owner’s canvas</p>
+    <p>One colour dipped many times: a calm serif, indigo ink and quiet rules.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#11163A"></i>#11163A</li><li><i style="background:#3B47C4"></i>#3B47C4</li><li><i style="background:#7C86E8"></i>#7C86E8</li><li><i style="background:#C9CEF7"></i>#C9CEF7</li><li><i style="background:#F6F7FB"></i>#F6F7FB</li><li><i style="background:#090E1F"></i>#090E1F</li><li><i style="background:#93AEF8"></i>#93AEF8</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>142 kB (67 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="neel.html" target="left">Show on the left</a><a href="neel.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="two-brands.html" title="Two brands preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="two-brands.html">2. Two brands</a></h2>
+    <p class="src">From the owner’s canvas</p>
+    <p>Same parts, two brands: one form shown twice in two unrelated themes.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#FFFFFF"></i>#FFFFFF</li><li><i style="background:#111111"></i>#111111</li><li><i style="background:#F3E7DA"></i>#F3E7DA</li><li><i style="background:#9A3F1C"></i>#9A3F1C</li><li><i style="background:#D7FF3A"></i>#D7FF3A</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>148 kB (67 kB gzipped)</dd><dt>Contrast</dt><dd>186 of 186 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="two-brands.html" target="left">Show on the left</a><a href="two-brands.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="spec-sheet.html" title="Spec sheet preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="spec-sheet.html">3. Spec sheet</a></h2>
+    <p class="src">From the owner’s canvas</p>
+    <p>Every part on the record: a datasheet where the spec is the page.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#1B1B19"></i>#1B1B19</li><li><i style="background:#FAFAF7"></i>#FAFAF7</li><li><i style="background:#B4460B"></i>#B4460B</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>132 kB (54 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="spec-sheet.html" target="left">Show on the left</a><a href="spec-sheet.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="plain-sheet.html" title="Plain sheet preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="plain-sheet.html">4. Plain sheet</a></h2>
+    <p class="src">From the owner’s canvas</p>
+    <p>Nothing to get in the way: one column, large plain type, a thick focus ring.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#0B0C0C"></i>#0B0C0C</li><li><i style="background:#FFFFFF"></i>#FFFFFF</li><li><i style="background:#1D4ED8"></i>#1D4ED8</li><li><i style="background:#00703C"></i>#00703C</li><li><i style="background:#FFDD00"></i>#FFDD00</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>119 kB (45 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="plain-sheet.html" target="left">Show on the left</a><a href="plain-sheet.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="kolam.html" title="Kolam preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="kolam.html">5. Kolam</a></h2>
+    <p class="src">From the owner’s canvas</p>
+    <p>A grid of dots and one line around them: ink on rice white, round shapes.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#1E1B16"></i>#1E1B16</li><li><i style="background:#F6F1E7"></i>#F6F1E7</li><li><i style="background:#B83A12"></i>#B83A12</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>144 kB (68 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="kolam.html" target="left">Show on the left</a><a href="kolam.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="living-material.html" title="Living Material preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="living-material.html">6. Living Material</a></h2>
+    <p class="src">From the ChatGPT answers</p>
+    <p>A technical base that feels tangible and calm: paper surfaces, forest and clay.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#F8F5EF"></i>#F8F5EF</li><li><i style="background:#E6D9C6"></i>#E6D9C6</li><li><i style="background:#155E45"></i>#155E45</li><li><i style="background:#B85C38"></i>#B85C38</li><li><i style="background:#1F2937"></i>#1F2937</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>118 kB (41 kB gzipped)</dd><dt>Contrast</dt><dd>186 of 186 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="living-material.html" target="left">Show on the left</a><a href="living-material.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="modular-architecture.html" title="Modular Architecture preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="modular-architecture.html">7. Modular Architecture</a></h2>
+    <p class="src">From the ChatGPT answers</p>
+    <p>Precise building blocks on a strict 8 pixel grid; parts snap into place.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#F8FAFC"></i>#F8FAFC</li><li><i style="background:#111827"></i>#111827</li><li><i style="background:#2563EB"></i>#2563EB</li><li><i style="background:#10B981"></i>#10B981</li><li><i style="background:#DDE3EA"></i>#DDE3EA</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>144 kB (69 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="modular-architecture.html" target="left">Show on the left</a><a href="modular-architecture.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="adaptive-prism.html" title="Adaptive Prism preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="adaptive-prism.html">8. Adaptive Prism</a></h2>
+    <p class="src">From the ChatGPT answers</p>
+    <p>The look changes, the structure stays: translucent layers over broad colour.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#F8FAFC"></i>#F8FAFC</li><li><i style="background:#2563EB"></i>#2563EB</li><li><i style="background:#7C3AED"></i>#7C3AED</li><li><i style="background:#06B6D4"></i>#06B6D4</li><li><i style="background:#111827"></i>#111827</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>119 kB (41 kB gzipped)</dd><dt>Contrast</dt><dd>186 of 186 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="adaptive-prism.html" target="left">Show on the left</a><a href="adaptive-prism.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="editorial-signal.html" title="Editorial Signal preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="editorial-signal.html">9. Editorial Signal</a></h2>
+    <p class="src">From the ChatGPT answers</p>
+    <p>Clarity and typography as the brand: a strong scale, fine rules, strict columns.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#FAFAF7"></i>#FAFAF7</li><li><i style="background:#171717"></i>#171717</li><li><i style="background:#52525B"></i>#52525B</li><li><i style="background:#E5E7EB"></i>#E5E7EB</li><li><i style="background:#F97316"></i>#F97316</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>159 kB (85 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="editorial-signal.html" target="left">Show on the left</a><a href="editorial-signal.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="script-and-signal.html" title="Script and Signal preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="script-and-signal.html">10. Script and Signal</a></h2>
+    <p class="src">From the ChatGPT answers</p>
+    <p>A graphic signature from the act of writing: ink strokes around clean parts.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#0B0F14"></i>#0B0F14</li><li><i style="background:#F5F5F0"></i>#F5F5F0</li><li><i style="background:#06B6D4"></i>#06B6D4</li><li><i style="background:#EC4899"></i>#EC4899</li><li><i style="background:#8B5CF6"></i>#8B5CF6</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>138 kB (59 kB gzipped)</dd><dt>Contrast</dt><dd>186 of 186 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="script-and-signal.html" target="left">Show on the left</a><a href="script-and-signal.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="translator.html" title="The Translator preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="translator.html">11. The Translator</a></h2>
+    <p class="src">From the Gemini answers</p>
+    <p>Script fluidity at the centre: one line changes language while the layout stays still.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#000000"></i>#000000</li><li><i style="background:#F7F7F7"></i>#F7F7F7</li><li><i style="background:#00FF00"></i>#00FF00</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>175 kB (99 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="translator.html" target="left">Show on the left</a><a href="translator.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="bare-bones.html" title="Bare Bones preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="bare-bones.html">12. Bare Bones</a></h2>
+    <p class="src">From the Gemini answers</p>
+    <p>Native HTML before JavaScript: a raw form that gains Saral when you ask.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#0000EE"></i>#0000EE</li><li><i style="background:#551A8B"></i>#551A8B</li><li><i style="background:#FF0000"></i>#FF0000</li><li><i style="background:#EFEFEF"></i>#EFEFEF</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>155 kB (80 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="bare-bones.html" target="left">Show on the left</a><a href="bare-bones.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="chameleon.html" title="The Chameleon preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="chameleon.html">13. The Chameleon</a></h2>
+    <p class="src">From the Gemini answers</p>
+    <p>The canvas shifts with the reader’s choice: pick a look and the whole page takes it.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#111111"></i>#111111</li><li><i style="background:#FAFAFA"></i>#FAFAFA</li><li><i style="background:#B4361E"></i>#B4361E</li><li><i style="background:#0F6E73"></i>#0F6E73</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>162 kB (77 kB gzipped)</dd><dt>Contrast</dt><dd>186 of 186 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="chameleon.html" target="left">Show on the left</a><a href="chameleon.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="blueprint.html" title="Architectural Blueprint preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="blueprint.html">14. Architectural Blueprint</a></h2>
+    <p class="src">From the Gemini answers</p>
+    <p>Components as building materials: a button drawn up from its tokens, with redlines.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#2F4F4F"></i>#2F4F4F</li><li><i style="background:#1E90FF"></i>#1E90FF</li><li><i style="background:#FDFCF0"></i>#FDFCF0</li><li><i style="background:#333333"></i>#333333</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>161 kB (85 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="blueprint.html" target="left">Show on the left</a><a href="blueprint.html" target="right">Show on the right</a></p>
+  </li>
+  <li class="pick">
+    <div class="thumb" inert><iframe src="soft-contrast.html" title="Soft Contrast preview" loading="lazy" scrolling="no"></iframe></div>
+    <h2><a href="soft-contrast.html">15. Soft Contrast</a></h2>
+    <p class="src">From the Gemini answers</p>
+    <p>Legibility and warmth: large targets, soft corners and gentle motion.</p>
+    <ul class="chips" aria-label="Palette"><li><i style="background:#F4EDE4"></i>#F4EDE4</li><li><i style="background:#1B3B36"></i>#1B3B36</li><li><i style="background:#D97A6B"></i>#D97A6B</li><li><i style="background:#FFFFFF"></i>#FFFFFF</li></ul>
+    <dl class="facts"><dt>First load</dt><dd>125 kB (51 kB gzipped)</dd><dt>Contrast</dt><dd>62 of 62 pairs pass</dd><dt>Axe</dt><dd>no issues in 7 runs</dd></dl>
+    <p class="cmp-links"><a href="soft-contrast.html" target="left">Show on the left</a><a href="soft-contrast.html" target="right">Show on the right</a></p>
+  </li>
+  </ul>
+  <section class="compare" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Compare two</h2>
+    <p class="lead">Use “Show on the left” and “Show on the right” under any direction. The links work with no script.</p>
+    <div class="cmp">
+      <iframe name="left" src="neel.html" title="Left comparison"></iframe>
+      <iframe name="right" src="two-brands.html" title="Right comparison"></iframe>
+    </div>
+  </section>
+</main>
+</body>
+</html>

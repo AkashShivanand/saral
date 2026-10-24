@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="d-blueprint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Saral, Architectural Blueprint: the form with scripts disabled</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&amp;family=Fira+Code:wght@400..600&amp;display=swap&amp;text=%20!%22%23%24%25%26'()*%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%E2%80%99%E2%80%98%E2%80%9C%E2%80%9D%E2%80%A6%C2%B7%E2%80%A2%C3%97%E2%86%92%E2%86%90%E2%86%91%E2%86%93%E2%9C%93">
+<link rel="stylesheet" href="../landing.css">
+<style>:root { --saral-feedback-danger-text: light-dark(#b42318, #FFA59C); --saral-feedback-danger-subtle: light-dark(#fdecea, #3A2232); --saral-feedback-success-text: light-dark(#1e6b3a, #8BE3A5); --saral-feedback-success-subtle: light-dark(#e7f3ec, #123A3A); --saral-feedback-warning-text: light-dark(#7a4b00, #FFD27A); --saral-feedback-warning-subtle: light-dark(#fdf3e1, #33352A); --saral-feedback-info-text: light-dark(#0b4a50, #9FD3FF); --saral-feedback-info-subtle: light-dark(#e6f0ef, #123F69); --saral-surface-ground: light-dark(#FDFCF0, #0D2A4A); --saral-surface-raised: light-dark(#FFFFFF, #12355C); --saral-surface-sunken: light-dark(#F1EFDD, #0A2440); --saral-text-default: light-dark(#333333, #EAF2FF); --saral-text-muted: light-dark(#4F5757, #B8CBE6); --saral-text-quiet: light-dark(#566060, #A8BEDD); --saral-border-hairline: light-dark(#D9DCCB, #24507F); --saral-border-strong: light-dark(#6B7676, #93B3DA); --saral-action-default: light-dark(#2F4F4F, #EAF2FF); --saral-accent-default: light-dark(#0074d0, #8CC8FF); --saral-border-focus: light-dark(#0074d0, #FFD166); --saral-accent-subtle: light-dark(#E7F0FB, #173E68); --saral-surface-inverse: light-dark(#333333, #EAF2FF); --saral-text-inverse: light-dark(#FDFCF0, #0D2A4A); --saral-text-on-action: light-dark(#ffffff, #0D2A4A); --saral-text-on-accent: light-dark(#ffffff, #0D2A4A); --saral-text-disabled: light-dark(#a2a29b, #70849b); --saral-action-hover: light-dark(#1f3f3f, #ffffff); --saral-action-pressed: light-dark(#0f2f30, #ffffff); --saral-action-disabled: light-dark(#F1EFDD, #0A2440); --saral-accent-hover: light-dark(#0063b2, #b3daff); --saral-feedback-danger-border: light-dark(#b42318, #FFA59C); --saral-feedback-success-border: light-dark(#1e6b3a, #8BE3A5); --saral-feedback-warning-border: light-dark(#7a4b00, #FFD27A); --saral-feedback-info-border: light-dark(#0b4a50, #9FD3FF); --saral-radius-box: 0px; --saral-radius-control: 0px; --saral-font-family-sans: "Fira Sans", "Saral Script", ui-sans-serif, system-ui, sans-serif; --d-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; --d-grid: light-dark(rgb(30 144 255 / 0.12), rgb(234 242 255 / 0.08)); --d-major: light-dark(rgb(30 144 255 / 0.22), rgb(234 242 255 / 0.16)); --d-red: light-dark(#B42318, #FF9C92); }  body { background: var(--saral-surface-raised); padding: var(--saral-space-5); }</style>
+</head>
+<body>
+<main>
+<form class="demo-form" lang="en" dir="ltr" action="../sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="nj-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="nj-en-name" name="name" autocomplete="name" required aria-describedby="nj-en-name-hint">
+    <p data-scope="field" data-part="hint" id="nj-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="nj-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="nj-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="nj-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="nj-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="nj-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="nj-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form>
+</main>
+</body>
+</html>
