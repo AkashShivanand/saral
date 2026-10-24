@@ -1,0 +1,741 @@
+{
+  "neel": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 142,
+      "gzipKb": 67,
+      "files": 9,
+      "fonts": [
+        "anek-latin.woff2 32 kB",
+        "eczar-latin.woff2 13 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "kolam": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 144,
+      "gzipKb": 68,
+      "files": 9,
+      "fonts": [
+        "anek-latin.woff2 32 kB",
+        "eczar-latin.woff2 13 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "spec-sheet": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 132,
+      "gzipKb": 54,
+      "files": 8,
+      "fonts": [
+        "anek-latin.woff2 32 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "two-brands": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 148,
+      "gzipKb": 67,
+      "files": 9,
+      "fonts": [
+        "anek-latin.woff2 32 kB",
+        "eczar-latin.woff2 13 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "plain-sheet": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 119,
+      "gzipKb": 45,
+      "files": 9,
+      "fonts": [
+        "font?kit=NaPNcYPdHfdVxJw0IfIP0lvYFqijb-U 23 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "living-material": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 118,
+      "gzipKb": 41,
+      "files": 9,
+      "fonts": [
+        "font?kit=nwpStKy2OAdR1K-IwhWudF-R7w0I5MP 19 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "modular-architecture": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 144,
+      "gzipKb": 69,
+      "files": 10,
+      "fonts": [
+        "font?kit=UcC73FwrK3iLTeHuS_nVMrMxCp50SjI 31 kB",
+        "font?kit=V8mDoQDjQSkFtoMM3T6r8E7mDbNqitI 15 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "adaptive-prism": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 119,
+      "gzipKb": 41,
+      "files": 9,
+      "fonts": [
+        "font?kit=LDIoaomQNQcsA88c7O9yZ4KMCoOg4Jo 19 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "editorial-signal": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 138,
+      "gzipKb": 64,
+      "files": 10,
+      "fonts": [
+        "font?kit=vEFv2_tTDB4M7-auWDN0ahZJW3IX2ih 25 kB",
+        "font?kit=rP2-p2ywxg089UriI5-g4vlH9VoD8Cm 17 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "script-and-signal": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 138,
+      "gzipKb": 59,
+      "files": 11,
+      "fonts": [
+        "font?kit=xn7gYHE41ni1AdIRsgWjy9z8XfytQms 17 kB",
+        "font?kit=-F6qfjptAgt5VM-kVkqdyU8n3twJ8lJ 10 kB",
+        "font?kit=-F63fjptAgt5VM-kVkqdyU8n5i04VlZ 9 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "translator": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 175,
+      "gzipKb": 99,
+      "files": 16,
+      "fonts": [
+        "noto-arabic.woff2 11 kB",
+        "anek-devanagari.woff2 13 kB",
+        "font?kit=o-0bIpQlx3QUlC5A4PNB6Ryti20_6n1 25 kB",
+        "font?kit=nwpxtLGrOAZMl5nJ_wfgRg3DrWFZWsn 6 kB",
+        "font?kit=-F6qfjptAgt5VM-kVkqdyU8n3twJ8lJ 10 kB",
+        "font?kit=-F63fjptAgt5VM-kVkqdyU8n5i04VlZ 9 kB",
+        "font?kit=TuGoUUFzXI5FBtUq5a8bjKYTZjtRU6S 2 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "bare-bones": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 155,
+      "gzipKb": 80,
+      "files": 11,
+      "fonts": [
+        "font?kit=UcC73FwrK3iLTeHuS_nVMrMxCp50SjI 31 kB",
+        "font?kit=u-450q2lgwslOqpF_6gQ8kELWwN72-b 13 kB",
+        "font?kit=u-4k0q2lgwslOqpF_6gQ8kELY7pMf-L 14 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "chameleon": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 162,
+      "gzipKb": 77,
+      "files": 10,
+      "fonts": [
+        "font?kit=KFO7CnqEu92Fr1ME7kSn66aGLdTylUA 27 kB",
+        "font?kit=0QIvMX1D_JOuAwjpotpuvtON15nw3yp 26 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "soft-contrast": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 130,
+      "gzipKb": 56,
+      "files": 10,
+      "fonts": [
+        "font?kit=1Ptvg83HX_SGhgqU3RisS4FOJ9O64H0 19 kB",
+        "font?kit=HI_SiYsKILxRpg3hIP6sJ7fM7PqVP_l 15 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  },
+  "blueprint": {
+    "axe": {
+      "1280 light": {
+        "violations": []
+      },
+      "1280 dark": {
+        "violations": []
+      },
+      "forced colours": {
+        "violations": []
+      },
+      "scripts-off frame": {
+        "violations": []
+      },
+      "375 light": {
+        "violations": []
+      },
+      "375 dark": {
+        "violations": []
+      },
+      "scripts blocked": {
+        "violations": []
+      }
+    },
+    "weight": {
+      "kb": 161,
+      "gzipKb": 85,
+      "files": 11,
+      "fonts": [
+        "font?kit=va9E4kDNxMZdWfMOD5VflZpKQBfeVn_ 16 kB",
+        "font?kit=uU9NCBsR6Z2vfE9aq3bR38YCg3O3Vjg 29 kB",
+        "font?kit=va9B4kDNxMZdWfMOD5VnLK3uRAV7dXz 17 kB"
+      ]
+    },
+    "forced": {
+      "ok": true
+    },
+    "overflow": {
+      "ok": true,
+      "px": 0
+    },
+    "nojs": {
+      "ok": true,
+      "notes": []
+    },
+    "motion": {
+      "ok": true,
+      "running": 0
+    }
+  }
+}

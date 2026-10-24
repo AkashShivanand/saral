@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" class="d-kolam">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Saral, Kolam: the form with scripts disabled</title>
+
+<link rel="stylesheet" href="../landing.css">
+<style>:root { --saral-feedback-danger-text: light-dark(#b42318, #ff8f80); --saral-feedback-danger-subtle: light-dark(#fdecea, #3a1714); --saral-feedback-success-text: light-dark(#1e6b3a, #6fcf8f); --saral-feedback-success-subtle: light-dark(#e7f3ec, #13291b); --saral-feedback-warning-text: light-dark(#7a4b00, #f2c46b); --saral-feedback-warning-subtle: light-dark(#fdf3e1, #2e2410); --saral-feedback-info-text: light-dark(#0b4a50, #8fd0d4); --saral-feedback-info-subtle: light-dark(#e6f0ef, #12302f); --saral-surface-ground: light-dark(#F6F1E7, #1E1B16); --saral-surface-raised: light-dark(#FFFCF5, #27231D); --saral-surface-sunken: light-dark(#EDE5D5, #2F2A23); --saral-text-default: light-dark(#1E1B16, #F3EDE0); --saral-text-muted: light-dark(#524A3E, #C4BAA8); --saral-text-quiet: light-dark(#776b58, #B0A693); --saral-border-hairline: light-dark(#E0D6C3, #3A342B); --saral-border-strong: light-dark(#7A6F5E, #8F8572); --saral-action-default: light-dark(#1E1B16, #F3EDE0); --saral-text-on-action: light-dark(#F6F1E7, #1E1B16); --saral-accent-default: light-dark(#B83A12, #e36543); --saral-border-focus: light-dark(#B83A12, #c24422); --saral-accent-subtle: light-dark(#F8E4D9, #3A2219); --saral-surface-inverse: light-dark(#1E1B16, #F3EDE0); --saral-text-inverse: light-dark(#F6F1E7, #1E1B16); --saral-text-on-accent: light-dark(#F6F1E7, #1E1B16); --saral-text-disabled: light-dark(#959189, #7e7a71); --saral-action-hover: light-dark(#100e09, #ffffff); --saral-action-pressed: light-dark(#050302, #ffffff); --saral-action-disabled: light-dark(#EDE5D5, #2F2A23); --saral-accent-hover: light-dark(#a02b00, #f87856); --saral-feedback-danger-border: light-dark(#b42318, #ff8f80); --saral-feedback-success-border: light-dark(#1e6b3a, #6fcf8f); --saral-feedback-warning-border: light-dark(#7a4b00, #f2c46b); --saral-feedback-info-border: light-dark(#0b4a50, #8fd0d4); --saral-radius-box: 24px; --saral-radius-control: 9999px; --saral-font-family-sans: "Anek Latin", "Saral Script", ui-sans-serif, system-ui, sans-serif; --d-display: "Saral Eczar", Georgia, serif; --d-line: light-dark(#1E1B16, #F3EDE0); --d-dot: light-dark(#B83A12, #F08A64); --d-grid: light-dark(rgb(30 27 22 / 0.13), rgb(243 237 224 / 0.12)); }  body { background: var(--saral-surface-raised); padding: var(--saral-space-5); }</style>
+</head>
+<body>
+<main>
+<form class="demo-form" lang="en" dir="ltr" action="../sent.html" method="get">
+  <div data-scope="field" data-part="root">
+    <label data-scope="field" data-part="label" for="nj-en-name">Full name</label>
+    <input data-scope="field" data-part="input" id="nj-en-name" name="name" autocomplete="name" required aria-describedby="nj-en-name-hint">
+    <p data-scope="field" data-part="hint" id="nj-en-name-hint">As it appears on your ID</p>
+    <p data-scope="field" data-part="error" id="nj-en-name-error" data-message-value-missing="Enter your full name">Enter your full name</p>
+  </div>
+  <div data-scope="select" data-part="root">
+    <label data-scope="select" data-part="label" for="nj-en-contact">Contact by</label>
+    <select data-scope="select" data-part="input" id="nj-en-contact" name="contact" required>
+      <option value="">Choose one</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+    <p data-scope="select" data-part="error" id="nj-en-contact-error" data-message-value-missing="Choose how we should contact you">Choose how we should contact you</p>
+  </div>
+  <div data-scope="checkbox" data-part="root">
+    <input data-scope="checkbox" data-part="input" type="checkbox" id="nj-en-updates" name="updates">
+    <label data-scope="checkbox" data-part="label" for="nj-en-updates">Send me updates</label>
+  </div>
+  <div class="form-actions"><button data-scope="button" data-part="root" data-variant="accent" type="submit">Continue</button></div>
+  <p data-scope="notice" data-part="root" data-tone="success" role="status" class="sent" hidden>Sent. Check your inbox.</p>
+</form>
+</main>
+</body>
+</html>

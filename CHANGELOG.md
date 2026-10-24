@@ -2,6 +2,13 @@
 
 Project log, dated, newest first. Package release notes will be generated separately by changesets.
 
+## 2026-10-24: fifteen landing pages, one per visual direction
+
+- `docs/research/website/landing/`: a complete landing page for Saral in each of the fifteen visual directions collected today (five from the owner's canvas, five from ChatGPT, five from Gemini), and a picker (`index.html`) with a live thumbnail, palette, weight and check results for each, and a side-by-side compare that works with no script.
+- Every page has the same sections and copy, built from Saral's real components and core script: header with a light, dark and system switch, hero with the direction's signature, live theming between the direction's theme, Mor and Kosh, the form in six scripts, a scripts-off form, the nine components from `specs/`, platforms, accessibility and trust, footer. The switches are CSS on native radios, so every page works with JavaScript off.
+- One build script (`build-landing.mjs`) writes them from shared markup and one identity layer per direction (`directions.mjs`). It checks 31 contrast pairs per theme in light and dark and stops on a failure; colours that failed WCAG 2 AA in the brief were moved in their own hue, and each change is listed in the README.
+- `check-landing.mjs` runs axe in light and dark at 1280 and 375 pixels, with scripts blocked, with forced colours and on the scripts-off form, tests the switches with JavaScript off, checks sideways scroll and reduced motion, measures first load and takes the screenshots. All fifteen pages pass. First load is 118 to 175 kB with fonts, 41 to 99 kB gzipped; five pages go over 150 kB because they load two or three font families.
+
 ## 2026-10-24: website final direction proposed
 
 - Fifteen website directions scored on ten criteria: the five on the design canvas, and five each from ChatGPT and Gemini, given the same brief. Every direction's real colour pairs were checked against WCAG 2 AA; thirteen of fifteen fail at least one.
